@@ -61,12 +61,14 @@
                 </ul>
             </div>
         </div>
+
+
         <div class="main-panel">
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
-                        <a class="navbar-brand" href="#pablo">Table List</a>
+                        <a class="navbar-brand" href="#barraAutor">Table List</a>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -86,31 +88,16 @@
                         </form>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
+                                <a class="nav-link" href="barraAutor">
                                     <i class="material-icons">dashboard</i>
                                     <p class="d-lg-none d-md-block">
                                         Stats
                                     </p>
                                 </a>
                             </li>
+
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">notifications</i>
-                                    <span class="notification">5</span>
-                                    <p class="d-lg-none d-md-block">
-                                        Some Actions
-                                    </p>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                                    <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                                    <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                                    <a class="dropdown-item" href="#">Another Notification</a>
-                                    <a class="dropdown-item" href="#">Another One</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link" href="#barraAutor" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">person</i>
                                     <p class="d-lg-none d-md-block">
                                         Account
@@ -123,13 +110,14 @@
                                     <a class="dropdown-item" href="#">Log out</a>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
                 </div>
             </nav>
             <!-- End Navbar -->
 
-          <!--Start Container 1-->
+            <!--Start Container 1-->
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -170,18 +158,25 @@
                                         <!--Input Calendar-->
                                         <div class="row">
                                             <div class="col-md-12">
+                                                <label class="bmd-label-floating"> Fechas: </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="input-daterange input-group" id="datepicker">
-                                                        <input type="text" class="input-sm form-control" name="from" placeholder="From date" />
+                                                        <input type="text" class="input-sm form-control" name="from" placeholder="Nacimiento" />
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <div class="input-daterange input-group" id="datepicker">
-                                                        <input type="text" class="input-sm form-control" name="to" placeholder="To date" />
+                                                        <input type="text" class="input-sm form-control" name="to" placeholder="Fallecimiento" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,7 +201,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                     </form>
                                     <!--End Form-->
 
@@ -221,27 +216,25 @@
 
                             <div class="card card-profile">
                                 <a href="#autor">
-                                    <img class="card-img-top" src="../assets/img/faces/marc.jpg" />
+                                    <img class="card-img-top" src="https://editorialverbum.es/wp-content/uploads/2016/12/250-Cervantes.jpg" />
                                 </a>
                                 <div class="card-body">
-
                                     <h4 class="card-title">Nombre Autor</h4>
                                 </div>
                             </div>
-
+                            
+                            
 
                             <div class="card card-profile">
                                 <div class="card-avatar-top">
                                     <a href="#lugarNacimiento">
-                                        <img class="card-img-top" src="../assets/img/faces/marc.jpg" />
+                                     <img class="card-img-top" src="http://www.turismoalcala.es/wp-content/uploads/2017/01/alcalaPatrimonio.jpg" />
                                     </a>
                                 </div>
                                 <div class="card-body">
-
                                     <h4 class="card-title">Nombre Lugar</h4>
                                 </div>
                             </div>
-
 
                         </div>
                         <!--End Input Images-->
@@ -249,10 +242,10 @@
                 </div>
             </div>
             <!--End Container 1-->
-            
-            
+
+
+
             <!--Start Container 2-->
-            
             <div class>
                 <!-- Container parts : Theme, Author, Quote-->
                 <div class="container">
@@ -461,34 +454,39 @@
                         <!-- End Quote-->
                     </div>
                 </div>
-            </div>          
-            <!--End Container 2-->     
-
+            </div>
+            <!--End Container 2-->
             <!-- End Container parts-->
 
 
+            <!-- Start footer-->
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="float-left">
                         <ul>
                             <li>
-                                <a href="https://www.creative-tim.com">
-                                    Creative Tim
+                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
+                                    Israel Peñalver
                                 </a>
                             </li>
                             <li>
-                                <a href="https://creative-tim.com/presentation">
-                                    About Us
+                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=74240&course=128839">
+                                    Natalia Madrueno
                                 </a>
                             </li>
                             <li>
-                                <a href="http://blog.creative-tim.com">
-                                    Blog
+                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
+                                    Sandra Gómez
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.creative-tim.com/license">
-                                    Licenses
+                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
+                                    Zhihao Du
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
+                                    Sergio Casado
                                 </a>
                             </li>
                         </ul>
@@ -497,10 +495,14 @@
                         &copy;
                         <script>
                             document.write(new Date().getFullYear())
-                        </script>, made with <i class="material-icons">favorite</i> by el mejor Team for a better web.
+
+                        </script>, made with <i class="material-icons">favorite</i> by
+                        <a href="https://www.creative-tim.com" target="_blank">Grupo 13</a>
                     </div>
                 </div>
             </footer>
+            <!-- End footer-->
+
         </div>
     </div>
     <div class="fixed-plugin">
@@ -784,6 +786,7 @@
                 });
             });
         });
+
     </script>
 </body>
 
