@@ -130,6 +130,131 @@
             <!-- End Navbar -->
 
             <div class="content">
+                <!-- Data Container -->
+                <div class="container-fluid">
+                    <div class="row">
+
+
+                        <!--Input Data-->
+                        <div class="col-md-10">
+                            <div class="card">
+                                <div class="card-header card-header-primary">
+                                    <h4 class="card-title">Obra</h4>
+                                    <p class="card-category">Datos de la Obra</p>
+                                </div>
+                                <div class="card-body">
+
+                                    <!--Form-->
+                                    <form>
+
+                                        <!--Input nombre-->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Titulo de la Obra</label>
+                                                    <input type="text" class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Input URL Foto-->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">URL Portada</label>
+                                                    <input type="text" class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Input Calendar-->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class= "bmd-label-floating"> Fecha de la Obra: </label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-11">
+                                                <div class="form-group">
+                                                    <div class="input-daterange input-group" id="datepicker">
+                                                        <input type="text" class="input-sm form-control" name="from" placeholder="From date" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-1"></div>
+                                            <div class="col-md-11">
+                                                <div class="form-group">
+                                                    <div class="input-daterange input-group" id="datepicker">
+                                                        <input type="text" class="input-sm form-control" name="to" placeholder="To date" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Input Lugar Nacimiento-->
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Editorial</label>
+                                                    <input type="text" class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Input URL Mapa-->
+                                        <div class="row" style="padding-bottom: 2.5em;">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">URL Editorial</label>
+                                                    <input type="text" class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                    <!--End Form-->
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Input Data-->
+
+                        <!--Input Images-->
+                        <div class="col-md-2">
+
+
+                            <div class="card card-profile">
+                                <a href="#autor">
+                                    <img class="card-img-top" src="../assets/img/faces/marc.jpg" />
+                                </a>
+                                <div class="card-body">
+
+                                    <h4 class="card-title">Portada</h4>
+                                </div>
+                            </div>
+
+
+                            <div class="card card-profile">
+                                <div class="card-avatar-top">
+                                    <a href="#lugarNacimiento">
+                                        <img class="card-img-top" src="../assets/img/faces/marc.jpg" />
+                                    </a>
+                                </div>
+                                <div class="card-body">
+
+                                    <h4 class="card-title">Editorial</h4>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <!--End Input Images-->
+                    </div>
+                </div>
+                <!-- End Data Container -->
                 <!-- Container parts : Theme, Author, Quote-->
                 <div class="container">
                     <div class="row">
@@ -193,11 +318,13 @@
                                                 <div class="card-body">
                                                     <!-- Author 1 Content -->
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <p> HOLA</p>
                                                         </div>
-                                                        <div class="col-sm-2">
-                                                            <p> <i class="material-icons"> delete </i></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,11 +341,14 @@
                                                 <div class="card-body">
                                                     <!-- Author 2 Content -->
                                                     <div class="row">
-                                                        <div class="col-sm-8">
+                                                        <div class="col-sm-12">
                                                             <p> HI</p>
                                                         </div>
-                                                        <div class="col-sm-2">
-                                                            <p> <i class="material-icons"> delete </i></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            
+                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -297,11 +427,13 @@
                                                 <div class="card-body">
                                                     <!-- Quote 1 Content -->
                                                     <div class="row">
-                                                        <div class="col-sm-8">
-                                                            <p> ADIÓS </p>
+                                                        <div class="col-sm-12">
+                                                            <p> ADIÓS Don Quijote de La mancha</p>
                                                         </div>
-                                                        <div class="col-sm-2">
-                                                            <p> <i class="material-icons"> delete </i></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -319,10 +451,12 @@
                                                     <!-- Quote 2 Content -->
                                                     <div class="row">
                                                         <div class="col-sm-8">
-                                                            <p> BYE </p>
+                                                            <p> BYE que tal estas yo muy bien adios </p>
                                                         </div>
-                                                        <div class="col-sm-2">
-                                                            <p> <i class="material-icons"> delete </i></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                         </div>
                                                     </div>
                                                 </div>
