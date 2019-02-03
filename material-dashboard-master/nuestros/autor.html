@@ -21,572 +21,571 @@
 
 <body class="">
     <div class="wrapper ">
-    
-           <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-primary">
-            <div class="container">
-                <a class="navbar-brand text-center" href="#">BibliografiaGest - Grupo 13</a>
 
-                <!-- <div class="collapse navbar-collapse" id="navbarTogglerDemo03">-->
-                <ul class="nav nav-tabs" data-tabs="tabs">
-                    <li class="nav-item active">
-                        <a class="nav-link " href="./inicio.html" role="tab" data-toggle="tab">
-                            <i class="material-icons">dashboard</i>
-                            Inicio<span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./autor.html">
-                            <i class="material-icons">person</i>
-                            Autor
-                        </a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./obra.html">
-                            <i class="material-icons">content_paste</i>
-                            Obra
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./tema.html">
-                            <i class="material-icons">library_books</i>
-                            Tema
-                        </a>
-                    </li>
-                </ul>
+        <!-- Navbar -->
+        <div class="card card-nav-tabs card-plain">
+            <div class="card-header card-header-primary">
+                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
 
-                <ul class="nav nav-tabs" data-tabs="tabs">
-                    <li>
-                        <!-- SingUp Button -->
-                        <button class="btn btn-round" data-toggle="modal" data-target="#signupModal">
-                            <i class="material-icons">assignment</i>SignUp
-                        </button>
-                        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
-                            <div class="modal-dialog modal-signup" role="document">
-                                <div class="modal-content">
-                                    <div class="card card-signup card-plain">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title card-title">Register</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <i class="material-icons">clear</i>
-                                            </button>
+
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ul class="nav nav-tabs " data-tabs="tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="./inicio.html">
+                                            <i class="material-icons">dashboard</i>
+                                            Inicio
+                                        </a>
+                                    </li>
+                                    <li class="nav-item disabled">
+                                        <a class="nav-link active " href="./autor.html" role="tab" data-toggle="tab">
+                                            <i class="material-icons">dashboard</i>
+                                            Autor<span class="sr-only">(current)</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="./obra.html">
+                                            <i class="material-icons">content_paste</i>
+                                            Obra
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./tema.html">
+                                            <i class="material-icons">library_books</i>
+                                            Tema
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3">
+                                <ul class="nav nav-tabs justify-content-center" data-tabs="tabs">
+                                    <li>
+                                        <!-- SingUp Button -->
+                                        <button class="btn btn-warning btn-round" data-toggle="modal" data-target="#signupModal">
+                                            <i class="material-icons">assignment</i>SignUp
+                                        </button>
+                                        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog modal-signup" role="document">
+                                                <div class="modal-content">
+                                                    <div class="card card-signup card-plain">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title card-title">Register</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <i class="material-icons">clear</i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <!--     <div class="row"> -->
+                                                            <!--  <div class="col-md-5 mr-auto"> -->
+                                                            <form class="form" method="" action="">
+                                                                <div class="card-body">
+                                                                    <div class="form-group">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" placeholder="First Name...">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" placeholder="Email...">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
+                                                                            </div>
+                                                                            <input type="password" placeholder="Password..." class="form-control" />
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-check">
+                                                                        <label class="form-check-label">
+                                                                            <input class="form-check-input" type="checkbox" value="" checked>
+                                                                            <span class="form-check-sign">
+                                                                                <span class="check"></span>
+                                                                            </span>
+                                                                            I agree to the <a href="#something">terms and conditions</a>.
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <!--    </div> -->
+                                                    <!--  </div> -->
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                            <!--     <div class="row"> -->
-                                            <!--  <div class="col-md-5 mr-auto"> -->
-                                            <form class="form" method="" action="">
-                                                <div class="card-body">
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
-                                                            </div>
-                                                            <input type="text" class="form-control" placeholder="First Name...">
-                                                        </div>
-                                                    </div>
+                                    </li>
+                                    <li>
+                                        <!-- Login Button -->
+                                        <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#loginModal">
+                                            Login<i class="material-icons">assignment</i>
+                                        </button>
+                                        <div class="modal fade" id="loginModal" tabindex="-1" role="">
+                                            <div class="modal-dialog modal-login" role="document">
+                                                <div class="modal-content">
+                                                    <div class="card card-signup card-plain">
+                                                        <div class="modal-body">
+                                                            <form class="form" method="" action="">
+                                                                <div class="card-body">
 
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
-                                                            </div>
-                                                            <input type="text" class="form-control" placeholder="Email...">
-                                                        </div>
-                                                    </div>
+                                                                    <div class="form-group bmd-form-group">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" placeholder="First Name...">
+                                                                        </div>
+                                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
-                                                            </div>
-                                                            <input type="password" placeholder="Password..." class="form-control" />
-                                                        </div>
-                                                    </div>
+                                                                    <div class="form-group bmd-form-group">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
+                                                                            </div>
+                                                                            <input type="text" class="form-control" placeholder="Email...">
+                                                                        </div>
+                                                                    </div>
 
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input class="form-check-input" type="checkbox" value="" checked>
-                                                            <span class="form-check-sign">
-                                                                <span class="check"></span>
-                                                            </span>
-                                                            I agree to the <a href="#something">terms and conditions</a>.
-                                                        </label>
+                                                                    <div class="form-group bmd-form-group">
+                                                                        <div class="input-group">
+                                                                            <div class="input-group-prepend">
+                                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
+                                                                            </div>
+                                                                            <input type="password" placeholder="Password..." class="form-control">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="modal-footer justify-content-center">
-                                                    <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!--    </div> -->
-                                    <!--  </div> -->
-                                </div>
+                                    </li>
+                                </ul>
+
                             </div>
                         </div>
-                    </li>
 
-
-                    <li>
-                        <!-- Login Button -->
-                        <button class="btn btn-round" data-toggle="modal" data-target="#loginModal">
-                            Login<i class="material-icons">assignment</i>
-                        </button>
-                        <div class="modal fade" id="loginModal" tabindex="-1" role="">
-                            <div class="modal-dialog modal-login" role="document">
-                                <div class="modal-content">
-                                    <div class="card card-signup card-plain">
-                                        <div class="modal-body">
-                                            <form class="form" method="" action="">
-                                                <div class="card-body">
-
-                                                    <div class="form-group bmd-form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
-                                                            </div>
-                                                            <input type="text" class="form-control" placeholder="First Name...">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group bmd-form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
-                                                            </div>
-                                                            <input type="text" class="form-control" placeholder="Email...">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group bmd-form-group">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
-                                                            </div>
-                                                            <input type="password" placeholder="Password..." class="form-control">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </li>
-                </ul>
-
-
-
-                <!--<form class="form-inline ml-auto">
-          <div class="form-group no-border">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-neutral btn-icon btn-round">
-              <i class="material-icons">search</i>
-          </button>
-      </form>-->
-                <!--</div>-->
-            </div>
-        </nav>
-        <!-- End Navbar -->
-
-            <!--Start Container 1-->
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-
-
-                        <!--Input Data-->
-                        <div class="col-md-10">
-                            <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <h4 class="card-title">Autor</h4>
-                                    <p class="card-category">Datos del Autor</p>
-                                </div>
-                                <div class="card-body">
-
-                                    <!--Form-->
-                                    <form>
-
-                                        <!--Input nombre-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Nombre</label>
-                                                    <input type="text" class="form-control" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--Input URL Foto-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">URL Foto</label>
-                                                    <input type="text" class="form-control" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--Input Calendar-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <label class="bmd-label-floating"> Fechas: </label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="input-daterange input-group" id="datepicker">
-                                                        <input type="text" class="input-sm form-control" name="from" placeholder="Nacimiento" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <div class="input-daterange input-group" id="datepicker">
-                                                        <input type="text" class="input-sm form-control" name="to" placeholder="Fallecimiento" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--Input Lugar Nacimiento-->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">Lugar de Nacimiento</label>
-                                                    <input type="text" class="form-control" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--Input URL Mapa-->
-                                        <div class="row" style="padding-bottom: 2.5em;">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="bmd-label-floating">URL Mapa</label>
-                                                    <input type="text" class="form-control" disabled>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                    <!--End Form-->
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--End Input Data-->
-
-                        <!--Input Images-->
-                        <div class="col-md-2">
-
-
-                            <div class="card card-profile">
-                                <a href="#autor">
-                                    <img class="card-img-top" src="https://editorialverbum.es/wp-content/uploads/2016/12/250-Cervantes.jpg" />
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">Nombre Autor</h4>
-                                </div>
-                            </div>
-                            
-                            <div class="card card-profile">
-                                <div class="card-avatar-top">
-                                    <a href="#lugarNacimiento">
-                                     <img class="card-img-top" src="http://www.turismoalcala.es/wp-content/uploads/2017/01/alcalaPatrimonio.jpg" />
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">Nombre Lugar</h4>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!--End Input Images-->
                     </div>
                 </div>
             </div>
-            <!--End Container 1-->
-
-
-
-            <!--Start Container 2-->
-            <div class>
-                <div class="container">
-                    <div class="row">
-                        <!--Start Theme-->
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header card-header-primary">
-                                    <h4 class="card-title text-center">Tema</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Tema 1</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Theme 1 Content -->
-                                                    <p> Ubi Sunt </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Tema 2</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Theme 2 Content -->
-                                                    <p> Beatus ille </p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Theme-->
-                        <!-- Start Work-->
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header  card-header-primary">
-
-                                    <h4 class="card-title text-center">Obra</h4>
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Obra 1</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Work 1 Content -->
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p> Hamlet </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Obra 2</h5>
-
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Work 2 Content -->
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p> Don Quijote de la Mancha</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            
-                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class='span12'>
-                                        <hr>
-                                    </div> <!-- Separate bar-->
-
-                                    <!-- Search bar-->
-                                    <form class="navbar-form">
-                                        <div class="input-group no-border">
-                                            <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
-                                            <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                                <i class="material-icons">search</i>
-                                                <div class="ripple-container"></div>
-                                            </button>
-                                        </div>
-                                    </form>
-                                    <!-- End Search bar-->
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Obra 3</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Work 3 Content -->
-                                                    <p> Romeo y Julieta </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Obra 4</h5>
-
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Work 4 Content -->
-                                                    <p> La Celestina </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Work-->
-                        <!-- Start Quote-->
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-header   card-header-primary">
-
-                                    <h4 class="card-title text-center">Cita</h4>
-
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Cita 1</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Quote 1 Content -->
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p> "Nací vivo" </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-header  card-header-text card-header-primary">
-                                                    <div class="card-text">
-                                                        <h5 class="card-title ">Cita 2</h5>
-
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <!-- Quote 2 Content -->
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p> "Morí muerto"</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Quote-->
-                    </div>
-                </div>
-
-            </div>
-            <!--End Container 2-->
-            <!-- End Container parts-->
-
-
-            <!-- Start footer-->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <nav class="float-left">
-                        <ul>
-                            <li>
-                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
-                                    Israel Peñalver
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=74240&course=128839">
-                                    Natalia Madrueno
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
-                                    Sandra Gómez
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
-                                    Zhihao Du
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
-                                    Sergio Casado
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="copyright float-right">
-                        &copy;
-                        <script>
-                            document.write(new Date().getFullYear())
-
-                        </script>, made with <i class="material-icons">favorite</i> by
-                        <a href="https://www.creative-tim.com" target="_blank">Grupo 13</a>
-                    </div>
-                </div>
-            </footer>
-            <!-- End footer-->
 
         </div>
+        <!-- End Navbar -->
+
+        <!--Start Container 1-->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+
+
+                    <!--Input Data-->
+                    <div class="col-md-10">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">Autor</h4>
+                                <p class="card-category">Datos del Autor</p>
+                            </div>
+                            <div class="card-body">
+
+                                <!--Form-->
+                                <form>
+
+                                    <!--Input nombre-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Nombre</label>
+                                                <input type="text" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Input URL Foto-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">URL Foto</label>
+                                                <input type="text" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Input Calendar-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="bmd-label-floating"> Fechas: </label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div class="input-daterange input-group" id="datepicker">
+                                                    <input type="text" class="input-sm form-control" name="from" placeholder="Nacimiento" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div class="input-daterange input-group" id="datepicker">
+                                                    <input type="text" class="input-sm form-control" name="to" placeholder="Fallecimiento" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Input Lugar Nacimiento-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">Lugar de Nacimiento</label>
+                                                <input type="text" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Input URL Mapa-->
+                                    <div class="row" style="padding-bottom: 2.5em;">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="bmd-label-floating">URL Mapa</label>
+                                                <input type="text" class="form-control" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <!--End Form-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Input Data-->
+
+                    <!--Input Images-->
+                    <div class="col-md-2">
+
+
+                        <div class="card card-profile">
+                            <a href="#autor">
+                                <img class="card-img-top" src="https://editorialverbum.es/wp-content/uploads/2016/12/250-Cervantes.jpg" />
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">Nombre Autor</h4>
+                            </div>
+                        </div>
+
+                        <div class="card card-profile">
+                            <div class="card-avatar-top">
+                                <a href="#lugarNacimiento">
+                                    <img class="card-img-top" src="http://www.turismoalcala.es/wp-content/uploads/2017/01/alcalaPatrimonio.jpg" />
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Nombre Lugar</h4>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--End Input Images-->
+                </div>
+            </div>
+        </div>
+        <!--End Container 1-->
+
+
+
+        <!--Start Container 2-->
+        <div class>
+            <div class="container">
+                <div class="row">
+                    <!--Start Theme-->
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title text-center">Tema</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Tema 1</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Theme 1 Content -->
+                                                <p> Ubi Sunt </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Tema 2</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Theme 2 Content -->
+                                                <p> Beatus ille </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Theme-->
+                    <!-- Start Work-->
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header  card-header-primary">
+
+                                <h4 class="card-title text-center">Obra</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra 1</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Work 1 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> Hamlet </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra 2</h5>
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Work 2 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> Don Quijote de la Mancha</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='span12'>
+                                    <hr>
+                                </div> <!-- Separate bar-->
+
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra 3</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Work 3 Content -->
+                                                <p> Romeo y Julieta </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra 4</h5>
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Work 4 Content -->
+                                                <p> La Celestina </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Work-->
+                    <!-- Start Quote-->
+                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-header   card-header-primary">
+
+                                <h4 class="card-title text-center">Cita</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Cita 1</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Quote 1 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> "Nací vivo" </p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Cita 2</h5>
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Quote 2 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> "Morí muerto"</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Quote-->
+                </div>
+            </div>
+
+        </div>
+        <!--End Container 2-->
+        <!-- End Container parts-->
+
+
+        <!-- Start footer-->
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="float-left">
+                    <ul>
+                        <li>
+                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
+                                Israel Peñalver
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=74240&course=128839">
+                                Natalia Madrueno
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
+                                Sandra Gómez
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
+                                Zhihao Du
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
+                                Sergio Casado
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="copyright float-right">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+
+                    </script>, made with <i class="material-icons">favorite</i> by
+                    <a href="https://www.creative-tim.com" target="_blank">Grupo 13</a>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer-->
+
     </div>
+
     <div class="fixed-plugin">
         <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
