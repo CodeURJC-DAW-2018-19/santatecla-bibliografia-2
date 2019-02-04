@@ -17,5 +17,7 @@ santatecla-bibliografia-2
 
 ## Coordinación del equipo ##
 
+https://trello.com/b/5NANIltP/daw
+
 ## Requisitos ##
 https://drive.google.com/open?id=1CWRq8RUXchpzgKLwoRW4MFCGlrEd05Fe1oJTlBbKZs0
