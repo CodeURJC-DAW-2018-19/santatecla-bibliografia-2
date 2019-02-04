@@ -17,6 +17,9 @@
   <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+  <!-- including ECharts file -->
+  <script src="../assets/js/echarts.min.js"></script>
 </head>
 
 <body class="">
@@ -424,6 +427,36 @@
         <button class="btn btn-primary btn-round btn-lg" onclick="newFile()">
           <i class="material-icons" style="font-size:200%;">person_add</i> Crear Autor
         </button>-->
+
+        <!-- preparing a DOM with width and height for ECharts -->
+        <div id="main" style="width:600px; height:400px;"></div>
+        <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+            var myChart = echarts.init(document.getElementById('main'));
+
+            // specify chart configuration item and data
+            var option = {
+                title: {
+                    text: 'ECharts entry example'
+                },
+                tooltip: {},
+                legend: {
+                    data:['Sales']
+                },
+                xAxis: {
+                    data: ["shirt","cardign","chiffon shirt","pants","heels","socks"]
+                },
+                yAxis: {},
+                series: [{
+                    name: 'Sales',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }]
+            };
+
+            // use configuration item and data specified to show chart
+            myChart.setOption(option);
+        </script>
 
       </div> 
       <footer class="footer">
