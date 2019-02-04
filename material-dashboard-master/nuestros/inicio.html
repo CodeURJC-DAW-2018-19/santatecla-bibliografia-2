@@ -10,10 +10,10 @@
     <title>
         Gestor de Bibliografia
     </title>
-    
 
-    
-    
+
+
+
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -27,7 +27,7 @@
     <script src="../assets/js/echarts.js"></script>
     <!-- including ECharts-Stats file -->
     <script src="../assets/js/ecStat.js"></script>
-    
+
 
 </head>
 
@@ -62,7 +62,7 @@
                             Obra
                         </a>
                     </li>
-                                        <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="material-icons">close</i>
                         </a>
@@ -73,7 +73,7 @@
                             Tema
                         </a>
                     </li>
-                                        <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="">
                             <i class="material-icons">close</i>
                         </a>
@@ -130,7 +130,7 @@
                                                             <input type="password" placeholder="Password..." class="form-control" />
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
@@ -172,7 +172,7 @@
                                 <div class="modal-content">
                                     <div class="card card-signup card-plain">
                                         <div class="modal-header">
-                            
+
                                             <h5 class="modal-title card-title">Login</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <i class="material-icons">clear</i>
@@ -228,7 +228,7 @@
                             </div>
                         </div>
                     </li>
-                     <li>
+                    <li>
                         <!-- Logout Button -->
                         <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#signupModal">
                             <i class="material-icons">assignment</i>Logout
@@ -280,17 +280,17 @@
         <div class="content">
             <!-- Container parts : Theme, Author, Quote-->
             <div class="container">
-               
+
                 <div class="row">
                     <!--Start Theme-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;" >
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
                         <div class="card" style="height:100%">
                             <div class="card-header card-header-primary">
                                 <h4 class="card-title text-center">Tema</h4>
                             </div>
                             <div class="card-body">
-                                 <!-- Search bar-->
-                                <form class="navbar-form" >
+                                <!-- Search bar-->
+                                <form class="navbar-form">
                                     <div class="input-group no-border">
                                         <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
                                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -453,7 +453,7 @@
 
                             </div>
                             <div class="card-body">
-                                                                <!-- Search bar-->
+                                <!-- Search bar-->
                                 <form class="navbar-form">
                                     <div class="input-group no-border">
                                         <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
@@ -500,16 +500,16 @@
                                                 <!-- Quote 2 Content -->
                                                 <div class="row">
                                                     <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> Sandra Gómez Gálvez</p>
+                                                        <div class="col-sm-12">
+                                                            <p> Sandra Gómez Gálvez</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
 
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        </div>
                                                     </div>
-                                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -547,49 +547,57 @@
           <i class="material-icons" style="font-size:200%;">person_add</i> Crear Autor
         </button>-->
 
-          
-
-            <button class="btn btn-round" data-toggle="modal" data-target="#Histogram">
-                Grafica<i class="material-icons">assessment</i>
-            </button>
-
-            <div class="modal" id="Histogram" tabindex="-1" role="dialog">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <!-- preparing a DOM with width and height for ECharts -->
-                    <div id="main" style="width:500px; height:400px;"></div>
-                    <script type="text/javascript">
-                        // based on prepared DOM, initialize echarts instance
-                        var myChart = echarts.init(document.getElementById('main'));
-
-                        // specify chart configuration item and data
-                        var option = {
-                            title: {
-                                text: 'ECharts entry example'
-                            },
-                            tooltip: {},
-                            legend: {
-                                data: ['Sales']
-                            },
-                            xAxis: {
-                                data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
-                            },
-                            yAxis: {},
-                            series: [{
-                                name: 'Sales',
-                                type: 'bar',
-                                data: [5, 20, 36, 10, 10, 20]
-                            }]
-                        };
-
-                        // use configuration item and data specified to show chart
-                        myChart.setOption(option);
-                    </script>
-                  </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
                 </div>
-              </div>
+                <div class="col-sm-6">
+
+                    <button class="btn btn-round" data-toggle="modal" data-target="#Histogram">
+                        HISTOGRAMA<i class="material-icons">assessment</i>
+                    </button>
+
+                    <div class="modal" id="Histogram" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <!-- preparing a DOM with width and height for ECharts -->
+                                    <div id="main" style="width:500px; height:400px;"></div>
+                                    <script type="text/javascript">
+                                        // based on prepared DOM, initialize echarts instance
+                                        var myChart = echarts.init(document.getElementById('main'));
+
+                                        // specify chart configuration item and data
+                                        var option = {
+                                            title: {
+                                                text: 'ECharts entry example'
+                                            },
+                                            tooltip: {},
+                                            legend: {
+                                                data: ['Sales']
+                                            },
+                                            xAxis: {
+                                                data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
+                                            },
+                                            yAxis: {},
+                                            series: [{
+                                                name: 'Sales',
+                                                type: 'bar',
+                                                data: [5, 20, 36, 10, 10, 20]
+                                            }]
+                                        };
+
+                                        // use configuration item and data specified to show chart
+                                        myChart.setOption(option);
+
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
 
         </div>
         <footer class="footer">
@@ -627,6 +635,7 @@
                     &copy;
                     <script>
                         document.write(new Date().getFullYear())
+
                     </script>, made with <i class="material-icons">favorite</i> by
                     <a target="_blank">Grupo 13</a>
                 </div>
@@ -892,6 +901,7 @@
                 });
             });
         });
+
     </script>
     <script>
         $(document).ready(function() {
@@ -899,12 +909,14 @@
             md.initDashboardPageCharts();
 
         });
+
     </script>
     <!-- Prompt box-->
     <script>
         function newFile() {
             var name = prompt("Please enter a name for your new file", "Wakanda Forever");
         }
+
     </script>
 
 </body>
