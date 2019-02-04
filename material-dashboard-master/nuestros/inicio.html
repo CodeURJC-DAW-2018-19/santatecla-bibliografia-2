@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/faviconBook.jpg">
+    <link rel="icon" type="image/png" href="../assets/img/faviconBook.jpg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Gestor de Bibliografia
@@ -28,7 +28,7 @@
         <!-- Navbar -->
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-primary">
-            <div class="col-md-9">
+            <div class="col-md-7">
                 <ul class="nav nav-tabs " data-tabs="tabs">
                     <li class="nav-item disabled">
                         <a class="nav-link active" href="./inicio.html" role="tab" data-toggle="tab">
@@ -58,7 +58,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-5">
                 <ul class="nav nav-tabs justify-content-center" data-tabs="tabs">
                     <li>
                         <!-- SingUp Button -->
@@ -510,35 +510,49 @@
           <i class="material-icons" style="font-size:200%;">person_add</i> Crear Autor
         </button>-->
 
-            <!-- preparing a DOM with width and height for ECharts -->
-            <div id="main" style="width:600px; height:400px;"></div>
-            <script type="text/javascript">
-                // based on prepared DOM, initialize echarts instance
-                var myChart = echarts.init(document.getElementById('main'));
+          
 
-                // specify chart configuration item and data
-                var option = {
-                    title: {
-                        text: 'ECharts entry example'
-                    },
-                    tooltip: {},
-                    legend: {
-                        data: ['Sales']
-                    },
-                    xAxis: {
-                        data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
-                    },
-                    yAxis: {},
-                    series: [{
-                        name: 'Sales',
-                        type: 'bar',
-                        data: [5, 20, 36, 10, 10, 20]
-                    }]
-                };
+            <button class="btn btn-round" data-toggle="modal" data-target="#Histogram">
+                Grafica<i class="material-icons">assessment</i>
+            </button>
 
-                // use configuration item and data specified to show chart
-                myChart.setOption(option);
-            </script>
+            <div class="modal" id="Histogram" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <!-- preparing a DOM with width and height for ECharts -->
+                    <div id="main" style="width:600px; height:400px;"></div>
+                    <script type="text/javascript">
+                        // based on prepared DOM, initialize echarts instance
+                        var myChart = echarts.init(document.getElementById('main'));
+
+                        // specify chart configuration item and data
+                        var option = {
+                            title: {
+                                text: 'ECharts entry example'
+                            },
+                            tooltip: {},
+                            legend: {
+                                data: ['Sales']
+                            },
+                            xAxis: {
+                                data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
+                            },
+                            yAxis: {},
+                            series: [{
+                                name: 'Sales',
+                                type: 'bar',
+                                data: [5, 20, 36, 10, 10, 20]
+                            }]
+                        };
+
+                        // use configuration item and data specified to show chart
+                        myChart.setOption(option);
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
 
         </div>
         <footer class="footer">
