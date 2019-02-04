@@ -21,174 +21,161 @@
 
 <body class="">
     <div class="wrapper ">
+    <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="col-md-9">
+                <ul class="nav nav-tabs " data-tabs="tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./inicio.html">
+                            <i class="material-icons">dashboard</i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./autor.html">
+                            <i class="material-icons">dashboard</i>
+                            Autor
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./obra.html">
+                            <i class="material-icons">content_paste</i>
+                            Obra
+                        </a>
+                    </li>
+                    <li class="nav-item disabled">
+                        <a class="nav-link active" href="./tema.html" role="tab" data-toggle="tab">
+                            <i class="material-icons">library_books</i>
+                            Tema<span class="sr-only">(current)</span>
+                        </a>
+                    </li>
 
-        <!-- Navbar -->
-        <div class="card card-nav-tabs card-plain">
-            <div class="card-header card-header-primary">
-                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-
-
-                        <div class="row">
-                            <div class="col-md-9">
-                                <ul class="nav nav-tabs " data-tabs="tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="./inicio.html">
-                                            <i class="material-icons">dashboard</i>
-                                            Inicio
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="./autor.html">
-                                            <i class="material-icons">dashboard</i>
-                                            Autor
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./obra.html">
-                                            <i class="material-icons">content_paste</i>
-                                            Obra
-                                        </a>
-                                    </li>
-                                    <li class="nav-item diabled">
-                                        <a class="nav-link active" href="./tema.html" role="tab" data-toggle="tab">
-                                            <i class="material-icons">library_books</i>
-                                            Tema<span class="sr-only">(current)</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-
-                            <div class="col-md-3">
-                                <ul class="nav nav-tabs justify-content-center" data-tabs="tabs">
-                                    <li>
-                                        <!-- SingUp Button -->
-                                        <button class="btn btn-warning btn-round" data-toggle="modal" data-target="#signupModal">
-                                            <i class="material-icons">assignment</i>SignUp
-                                        </button>
-                                        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
-                                            <div class="modal-dialog modal-signup" role="document">
-                                                <div class="modal-content">
-                                                    <div class="card card-signup card-plain">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title card-title">Register</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <i class="material-icons">clear</i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <!--     <div class="row"> -->
-                                                            <!--  <div class="col-md-5 mr-auto"> -->
-                                                            <form class="form" method="" action="">
-                                                                <div class="card-body">
-                                                                    <div class="form-group">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control" placeholder="First Name...">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control" placeholder="Email...">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
-                                                                            </div>
-                                                                            <input type="password" placeholder="Password..." class="form-control" />
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-check">
-                                                                        <label class="form-check-label">
-                                                                            <input class="form-check-input" type="checkbox" value="" checked>
-                                                                            <span class="form-check-sign">
-                                                                                <span class="check"></span>
-                                                                            </span>
-                                                                            I agree to the <a href="#something">terms and conditions</a>.
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer justify-content-center">
-                                                                    <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <!--    </div> -->
-                                                    <!--  </div> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <!-- Login Button -->
-                                        <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#loginModal">
-                                            Login<i class="material-icons">assignment</i>
-                                        </button>
-                                        <div class="modal fade" id="loginModal" tabindex="-1" role="">
-                                            <div class="modal-dialog modal-login" role="document">
-                                                <div class="modal-content">
-                                                    <div class="card card-signup card-plain">
-                                                        <div class="modal-body">
-                                                            <form class="form" method="" action="">
-                                                                <div class="card-body">
-
-                                                                    <div class="form-group bmd-form-group">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control" placeholder="First Name...">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group bmd-form-group">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
-                                                                            </div>
-                                                                            <input type="text" class="form-control" placeholder="Email...">
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="form-group bmd-form-group">
-                                                                        <div class="input-group">
-                                                                            <div class="input-group-prepend">
-                                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
-                                                                            </div>
-                                                                            <input type="password" placeholder="Password..." class="form-control">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                </ul>
             </div>
 
-        </div>
+            <div class="col-md-3">
+                <ul class="nav nav-tabs justify-content-center" data-tabs="tabs">
+                    <li>
+                        <!-- SingUp Button -->
+                        <button class="btn btn-warning btn-round" data-toggle="modal" data-target="#signupModal">
+                            <i class="material-icons">assignment</i>SignUp
+                        </button>
+                        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-signup" role="document">
+                                <div class="modal-content">
+                                    <div class="card card-signup card-plain">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title card-title">Register</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <i class="material-icons">clear</i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!--     <div class="row"> -->
+                                            <!--  <div class="col-md-5 mr-auto"> -->
+                                            <form class="form" method="" action="">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="First Name...">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="Email...">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
+                                                            </div>
+                                                            <input type="password" placeholder="Password..." class="form-control" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="checkbox" value="" checked>
+                                                            <span class="form-check-sign">
+                                                                <span class="check"></span>
+                                                            </span>
+                                                            I agree to the <a href="#something">terms and conditions</a>.
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <a href="#pablo" class="btn btn-primary btn-round">Get Started</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--    </div> -->
+                                    <!--  </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <!-- Login Button -->
+                        <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#loginModal">
+                            Login<i class="material-icons">assignment</i>
+                        </button>
+                        <div class="modal fade" id="loginModal" tabindex="-1" role="">
+                            <div class="modal-dialog modal-login" role="document">
+                                <div class="modal-content">
+                                    <div class="card card-signup card-plain">
+                                        <div class="modal-body">
+                                            <form class="form" method="" action="">
+                                                <div class="card-body">
+
+                                                    <div class="form-group bmd-form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text"><i class="material-icons">face</i></div>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="First Name...">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group bmd-form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text"><i class="material-icons">email</i></div>
+                                                            </div>
+                                                            <input type="text" class="form-control" placeholder="Email...">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group bmd-form-group">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text"><i class="material-icons">lock_outline</i></div>
+                                                            </div>
+                                                            <input type="password" placeholder="Password..." class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
         <!-- End Navbar -->
         <div class="content">
             <div class="container-fluid">
