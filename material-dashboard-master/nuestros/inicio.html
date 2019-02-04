@@ -571,19 +571,20 @@
 
                                         // specify chart configuration item and data
                                         var option = {
-                                            title: {
-                                                text: 'ECharts entry example'
-                                            },
+                                             //title: {
+                                             //   text: 'ECharts entry example'
+                                            //},
                                             tooltip: {},
                                             legend: {
-                                                data: ['Sales']
+                                                data: ['Número de obras por tema']
                                             },
                                             xAxis: {
-                                                data: ["shirt", "cardign", "chiffon shirt", "pants", "heels", "socks"]
+                                                data: ["Romance", "Épica", "Fantasía", "Aventura", "Drama", "Sci-fi"]
                                             },
                                             yAxis: {},
                                             series: [{
-                                                name: 'Sales',
+                                                
+                                                name: 'Número de obras por tema',
                                                 type: 'bar',
                                                 data: [5, 20, 36, 10, 10, 20]
                                             }]
