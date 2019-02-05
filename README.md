@@ -4,6 +4,8 @@
   - [Coordinación del equipo](#Coordinación-del-equipo)
   - [Requisitos](#Requisitos)
   - [Capturas de las pantallas](#Capturas-de-las-pantallas)
+  - [Diagrama Navegacion](#Diagrama-Navegacion)
+
 
 
 ## Nombre de la aplicación web ##
@@ -50,3 +52,6 @@ Añadir cita a tema (+), mediante la selección de uno de los autores restantes
 Eliminar cita de tema (-), avisando al usuario que se pierden los datos
 Generar pdf (botón), abriendo el documento en formato pdf correspondiente
 Logout, si ya está “loggeado”
+
+## Diagrama de Navigacion ##
+<img src="./imagenes/Navegacion.jpeg">
