@@ -3,6 +3,8 @@
   - [Integrantes del equipo de desarrollo](#Integrantes-del-equipo-de-desarrollo)
   - [Coordinación del equipo](#Coordinación-del-equipo)
   - [Requisitos](#Requisitos)
+  - [Capturas de las pantallas](#Capturas-de-las-pantallas)
+
 
 ## Nombre de la aplicación web ##
 santatecla-bibliografia-2
@@ -16,8 +18,17 @@ santatecla-bibliografia-2
 
 
 ## Coordinación del equipo ##
-
 https://trello.com/b/5NANIltP/daw
 
 ## Requisitos ##
 https://drive.google.com/open?id=1CWRq8RUXchpzgKLwoRW4MFCGlrEd05Fe1oJTlBbKZs0
+
+
+## Capturas de las pantallas ##
+
+<img src="./imagenes/Captura_inicio.jpg">
+<img src="./imagenes/Captura_autor.jpg">
+<img src="./imagenes/Captura_obra1.jpeg">
+<img src="./imagenes/Captura_obra2.jpeg">
+<img src="./imagenes/Captura_obra3.jpeg">
+<img src="./imagenes/Captura_tema.jpg">
