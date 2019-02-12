@@ -5,12 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Inicio{
+public class Tema{
 
-	@RequestMapping("/inicio")
+	@RequestMapping("/tema")
 	public String greeting(Model model) {
 
-		return "inicio";
+		return "tema";
 	}
 
 }
