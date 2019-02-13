@@ -1,17 +1,17 @@
-package com.example.demo;
+package tabs;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Obra{
+public class Autor{
+	
 
-
-	@RequestMapping("/obra")
+	@RequestMapping("/autor")
 	public String greeting(Model model) {
 
-		return "obra";
+		return "autor";
 	}
 
 }
