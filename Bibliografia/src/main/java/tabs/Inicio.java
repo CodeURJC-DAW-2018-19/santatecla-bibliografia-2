@@ -12,5 +12,23 @@ public class Inicio{
 
 		return "inicio";
 	}
+	
+	@RequestMapping("/SearchTemas")
+	public String searchTemas(Model model) {
+
+		return "inicio";
+	}
+	@RequestMapping("/SearchObras")
+	public String searchObras(Model model) {
+
+		return "inicio";
+	}
+	@RequestMapping("/SearchAutores")
+	public String searchAutores(Model model) {
+
+		return "inicio";
+	}
+	
+	
 
 }
