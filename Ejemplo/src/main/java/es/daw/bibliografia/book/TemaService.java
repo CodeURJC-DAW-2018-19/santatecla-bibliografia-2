@@ -2,28 +2,30 @@ package es.daw.bibliografia.book;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AutorService {
+public class TemaService {
 
 	@Autowired
-	private AutorRepository repository;
+	private TemaRepository repository;
 
-	public Optional<Autor> findOne(long id) {
+	public Optional<Tema> findOne(long id) {
 		return repository.findById(id);
 	}
 
-	public List<Autor> findAll() {
+	public List<Tema> findAll() {
 		return repository.findAll();
 	}
 
-	public void save(Autor autor) {
-		repository.save(autor);
+	public void save(Tema tema) {
+		repository.save(tema);
 	}
 
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+	
 }

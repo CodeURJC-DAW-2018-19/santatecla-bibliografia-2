@@ -18,10 +18,13 @@ public class Cita {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Autor autor;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Obra obra;
+	
 	private String contenido;
 	
 	public Cita() {
-		
+		super();
 	}
 	
 	public Cita (String contenido) {
@@ -35,6 +38,10 @@ public class Cita {
 	
 	public void setAutor(Autor autor) {
 		this.autor = autor;
+	}
+
+	public void setObra(Obra obra) {
+		this.obra = obra;
 	}
 
 }

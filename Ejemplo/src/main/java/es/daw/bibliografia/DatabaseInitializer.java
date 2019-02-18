@@ -12,6 +12,8 @@ import es.daw.bibliografia.book.Book;
 import es.daw.bibliografia.book.BookRepository;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaRepository;
+import es.daw.bibliografia.book.Obra;
+import es.daw.bibliografia.book.ObraRepository;
 import es.daw.bibliografia.user.User;
 import es.daw.bibliografia.user.UserRepository;
 
@@ -29,6 +31,9 @@ public class DatabaseInitializer {
 	
 	@Autowired
 	private CitaRepository citaRepository;
+	
+	@Autowired
+	private ObraRepository obraRepository;
 
 	@PostConstruct
 	public void init() {
@@ -60,6 +65,8 @@ public class DatabaseInitializer {
 		citaRepository.save(c1);
 		citaRepository.save(c2);
 		
+		Obra o = new Obra("titulo","url foto","fecha","editorial","url editorial");
+		obraRepository.save(o);
 		// Sample users
 
 		userRepository.save(new User("user", "pass", "ROLE_USER"));
