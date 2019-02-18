@@ -5,8 +5,12 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import es.codeurjc.daw.library.book.Autor;
+import es.codeurjc.daw.library.book.AutorRepository;
+import es.codeurjc.daw.library.book.AutorService;
 import es.codeurjc.daw.library.book.Book;
 import es.codeurjc.daw.library.book.BookRepository;
+import es.codeurjc.daw.library.book.Cita;
 import es.codeurjc.daw.library.user.User;
 import es.codeurjc.daw.library.user.UserRepository;
 
@@ -18,6 +22,9 @@ public class DatabaseInitializer {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private AutorRepository autorRepository;
 
 	@PostConstruct
 	public void init() {
@@ -35,6 +42,12 @@ public class DatabaseInitializer {
 		bookRepository.save(new Book("LA LEGIÓN PERDIDA",
 				"En el año 53 a. C. el cónsul Craso cruzó el Éufrates para conquistar Oriente, pero su ejército fue destrozado en Carrhae. Una legión entera cayó prisionera de los partos. Nadie sabe a ciencia cierta qué pasó con aquella legión perdida.150 años después, Trajano está a punto de volver a cruzar el Éufrates. ..."));
 
+		//Sample Autor-Cita
+		
+		Autor a1 = new Autor("Pepe");
+		a1.setCita(new Cita("Hola gente"));
+		autorRepository.save(a1);
+		
 		// Sample users
 
 		userRepository.save(new User("user", "pass", "ROLE_USER"));
