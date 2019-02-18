@@ -1,10 +1,13 @@
 package es.daw.bibliografia.book;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -17,8 +20,8 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id = -1;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Cita cita;
+	@OneToMany(mappedBy="autor")
+	private List<Cita> citas;
 	
 	private String nombre;
 	
@@ -50,11 +53,4 @@ public class Autor {
 		return "Autor [id=" + id + ", nombre=" + nombre + "]";
 	}
 	
-	public void setCita(Cita cita) {
-		this.cita=cita;
-	}
-	
-	public String getCita() {
-		return cita.getContenido();
-	}
 }

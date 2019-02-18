@@ -11,6 +11,7 @@ import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Book;
 import es.daw.bibliografia.book.BookRepository;
 import es.daw.bibliografia.book.Cita;
+import es.daw.bibliografia.book.CitaRepository;
 import es.daw.bibliografia.user.User;
 import es.daw.bibliografia.user.UserRepository;
 
@@ -25,6 +26,9 @@ public class DatabaseInitializer {
 	
 	@Autowired
 	private AutorRepository autorRepository;
+	
+	@Autowired
+	private CitaRepository citaRepository;
 
 	@PostConstruct
 	public void init() {
@@ -44,9 +48,17 @@ public class DatabaseInitializer {
 
 		//Sample Autor-Cita
 		
-		Autor a1 = new Autor("Pepe");
-		a1.setCita(new Cita("Hola gente"));
-		autorRepository.save(a1);
+		Autor a = new Autor("Pepe");
+		autorRepository.save(a);
+		
+		Cita c1 = new Cita("Hola people");
+		Cita c2 = new Cita("Hola gente");
+		
+		c1.setAutor(a);
+		c2.setAutor(a);
+		
+		citaRepository.save(c1);
+		citaRepository.save(c2);
 		
 		// Sample users
 
