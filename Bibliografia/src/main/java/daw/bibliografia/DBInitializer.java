@@ -1,11 +1,12 @@
-package dataBase;
+package daw.bibliografia;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import dataBase.user.User;
-import dataBase.user.UserRepository;
+
+import daw.bibliografia.user.User;
+import daw.bibliografia.user.UserRepository;
 
 @Component
 public class DBInitializer {

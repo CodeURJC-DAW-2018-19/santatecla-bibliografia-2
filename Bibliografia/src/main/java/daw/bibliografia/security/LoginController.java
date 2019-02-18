@@ -1,4 +1,4 @@
-package dataBase.security;
+package daw.bibliografia.security;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import dataBase.user.User;
-import dataBase.user.UserComponent;
+import daw.bibliografia.user.User;
+import daw.bibliografia.user.UserComponent;
 
 /**
  * This class is used to provide REST endpoints to logIn and logOut to the

@@ -1,4 +1,4 @@
-package dataBase.autor;
+package daw.bibliografia.autor;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

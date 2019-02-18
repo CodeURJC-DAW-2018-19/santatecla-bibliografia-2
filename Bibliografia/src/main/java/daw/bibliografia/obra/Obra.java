@@ -1,4 +1,4 @@
-package dataBase.obra;
+package daw.bibliografia.obra;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

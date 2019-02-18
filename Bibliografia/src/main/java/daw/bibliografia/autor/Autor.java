@@ -1,4 +1,4 @@
-package dataBase.autor;
+package daw.bibliografia.autor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

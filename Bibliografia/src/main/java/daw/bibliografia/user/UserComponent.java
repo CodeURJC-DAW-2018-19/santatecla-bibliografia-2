@@ -1,4 +1,4 @@
-package dataBase.user;
+package daw.bibliografia.user;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;

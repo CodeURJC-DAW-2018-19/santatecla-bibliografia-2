@@ -1,11 +1,12 @@
-package dataBase.web;
+package daw.bibliografia.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import dataBase.user.UserComponent;
+
+import daw.bibliografia.user.UserComponent;
 
 @Controller
 public class WebController {
