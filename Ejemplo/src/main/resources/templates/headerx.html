@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Main</title>
+<base href=".">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+	
+	<!-- Optional theme -->
+<link rel="stylesheet" href="/sticky-footer.css">
+
+</head>
+
+<!-- 3. Display the application -->
+
+<body>
+
+
+	<div class="navbar navbar-default navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Library</a>
+			</div>
+
+			<div class="navbar-collapse collapse" id="navbar-main">
+
+				{{^hideLogin}}
+
+				{{^logged}}
+				<form action="/login" method="post" class="navbar-form navbar-right"
+					role="search">
+
+					<div class="form-group">
+						<input type="text" class="form-control" name="username"
+							placeholder="Username">
+					</div>
+
+					<div class="form-group">
+						<input type="password" class="form-control" name="password"
+							placeholder="Password">
+					</div>
+
+					<button type="submit" class="btn btn-default">Sign In</button>
+					
+					<input type="hidden" name="_csrf" value="{{token}}"/>
+
+				</form>
+				{{/logged}} 
+				
+				{{#logged}}
+				<div class="nav navbar-nav navbar-right">
+
+					<ul class="nav navbar-nav">
+						<li>{{userName}}</li>
+						<li><form action="/logout" method="post">
+								<button class="btn btn-default navbar-btn" type="submit">Log
+									Out</button>
+								<input type="hidden" name="_csrf" value="{{token}}" />
+							</form></li>
+					</ul>
+
+				</div>
+				{{/logged}}
+				
+				{{/hideLogin}}
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container">
