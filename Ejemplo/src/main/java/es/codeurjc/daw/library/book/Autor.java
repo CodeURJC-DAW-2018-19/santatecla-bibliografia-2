@@ -53,4 +53,8 @@ public class Autor {
 	public void setCita(Cita cita) {
 		this.cita=cita;
 	}
+	
+	public String getCita() {
+		return cita.getContenido();
+	}
 }
