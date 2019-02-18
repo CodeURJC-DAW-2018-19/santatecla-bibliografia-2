@@ -1,21 +1,277 @@
 {{>header}}
 
-<h2>Books</h2>
-<ul class="items">
-	{{#books}}
-	<li>
-		{{#logged}}
-		<a href="/books/{{id}}">{{title}}</a>
-		{{/logged}}
-		{{^logged}}
-		{{title}}
-		{{/logged}}
-	</li>
-	{{/books}}
-</ul>
+  <div class="content">
+            <!-- Container parts : Theme, Author, Quote-->
+            <div class="container-fluid">
 
-{{#admin}}
-<a href="/newBook">New book</a>
-{{/admin}}
+                <div class="row">
+                    <!--Start Theme-->
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title text-center">Temas</h4>
+                            </div>
+                            <div class="card-body">
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Tema...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Tema 1</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Theme 1 Content -->
+                                                <p> Bélico</p>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
 
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Tema 2</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Theme 2 Content -->
+                                                <p> Romanticismo</p>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Theme-->
+
+                    <!-- Start Obra-->
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
+                            <div class="card-header   card-header-primary">
+
+                                <h4 class="card-title text-center">Obras</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra 1</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Quote 1 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> Don Quijote de la Mancha</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra 2</h5>
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Quote 2 Content -->
+                                                <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <p> El conde de Montecristo</p>
+                                                        </div>
+                                                </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+
+                                                            <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        </div>
+                                                    </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"  onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Quote-->
+                                        <!-- Start Author-->
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
+                            <div class="card-header  card-header-primary">
+
+                                <h4 class="card-title text-center">Autores</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Autor 1</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Author 1 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> Francisco Gómez de Quevedo Villegas y Santibáñez Cevallos</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Autor 2</h5>
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Author 2 Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> Benito María de los Dolores Pérez Galdós</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='span12'>
+                                    <hr>
+                                </div> <!-- Separate bar-->
+
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Autor 3</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Author 3 Content -->
+                                                <p> Miguel de Cervantes y Saavedra</p>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Autor 4</h5>
+
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Author 4 Content -->
+                                                <p> Federico del Sagrado Corazón de Jesús García Lorca</p>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Author-->
+                    
+                </div>
+            </div>
+
+            <!-- End Container parts-->
 {{>footer}}

@@ -1,0 +1,21 @@
+{{>header}}
+
+<h2>Books</h2>
+<ul class="items">
+	{{#books}}
+	<li>
+		{{#logged}}
+		<a href="/books/{{id}}">{{title}}</a>
+		{{/logged}}
+		{{^logged}}
+		{{title}}
+		{{/logged}}
+	</li>
+	{{/books}}
+</ul>
+
+{{#admin}}
+<a href="/newBook">New book</a>
+{{/admin}}
+
+{{>footer}}
