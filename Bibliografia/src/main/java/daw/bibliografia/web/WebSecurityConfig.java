@@ -15,11 +15,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserRepositoryAuthProvider userRepoAuthProvider;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-    	
-    	
+    protected void configure(HttpSecurity http) throws Exception {	
     	// Public pages
-    	 http.authorizeRequests().antMatchers("/").permitAll();
+    	 //http.authorizeRequests().antMatchers("/").permitAll();
+    	http.authorizeRequests().antMatchers("/**").permitAll();
+    	 
+    	 /*
+    	 http.authorizeRequests().antMatchers("/autor/**").hasAnyRole("USER");
+    	 http.authorizeRequests().antMatchers("/tema/**").hasAnyRole("USER");
+    	 http.authorizeRequests().antMatchers("/obra/**").hasAnyRole("USER");
+    	 http.authorizeRequests().antMatchers("/cita/**").hasAnyRole("USER");
+    	 
+    	 http.authorizeRequests().antMatchers("/autor/**").hasAnyRole("ADMIN");
+    	 http.authorizeRequests().antMatchers("/tema/**").hasAnyRole("ADMIN");
+    	 http.authorizeRequests().antMatchers("/obra/**").hasAnyRole("ADMIN");
+    	 http.authorizeRequests().antMatchers("/cita/**").hasAnyRole("ADMIN");
+    	 */
+
 
     }
 
