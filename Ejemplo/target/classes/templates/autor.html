@@ -140,26 +140,20 @@
                             <div class="card-body">
                                 <div class="row">
                                 
+                                {{#temas}}
                                 <!--Here data base loop-->
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
-                                                    <h5 class="card-title ">Tema 1</h5>
+                                                    <h5 class="card-title ">Tema {{-index}}</h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <!-- Work 1 Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> Ubi sunt </p>
-                                                        		
-
-	{{#obras}}
-	<li>
-		{{titulo}}
-	</li>
-	{{/obras}}
+                                                        <p> {{contenido}}</p>                                                       	
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -171,6 +165,7 @@
                                         </div>
                                     </div>
                                     <!-- End Here data base loop-->
+                                    	{{/temas}}
 
                                 </div>
                             </div>
@@ -191,18 +186,21 @@
                             </div>
                            <div class="card-body">
                                 <div class="row">
+                                
+                                {{#obras}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
-                                                    <h5 class="card-title ">Obra 1</h5>
+                                                    <h5 class="card-title ">Obra {{-index}}</h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <!-- Work 1 Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> Hamlet </p>
+                                                        <p> {{titulo}} </p>
+                                                        	
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -213,6 +211,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{/obras}}
+                                    
+                                    
                                       </div>
 
 
@@ -234,19 +235,20 @@
                             <div class="card-body">
                                 <div class="row">
                                     
+                                    {{#citas}}
                                    <!-- Here data bases consults -->
                                    <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
-                                                    <h5 class="card-title ">Cita 1</h5>
+                                                    <h5 class="card-title ">Cita {{-index}}</h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <!-- Quote 1 Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> "Nací vivo" </p>
+                                                        <p> {{contenido}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -257,7 +259,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Here data bases consults -->      
+                                    <!-- Here data bases consults -->   
+                                    {{/citas}}   
                                    
                                    
                                 </div>
