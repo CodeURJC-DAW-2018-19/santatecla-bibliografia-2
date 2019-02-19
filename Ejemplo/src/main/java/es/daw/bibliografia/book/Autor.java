@@ -13,7 +13,7 @@ public class Autor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
 	
 	@OneToMany(mappedBy="autor")
 	private List<Cita> citas;
@@ -72,6 +72,14 @@ public class Autor {
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

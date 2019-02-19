@@ -65,12 +65,12 @@ public class DatabaseInitializer {
 		citaRepository.save(c1);
 		citaRepository.save(c2);
 		
-		Obra o = new Obra("titulo","url foto","fecha","editorial","url editorial");
-		obraRepository.save(o);
+		//Obra o = new Obra("titulo","url foto","fecha","editorial","url editorial");
+//		obraRepository.save(o);
 		// Sample users
 
-		userRepository.save(new User("user", "pass", "ROLE_USER"));
-		userRepository.save(new User("admin", "pass", "ROLE_USER", "ROLE_ADMIN"));
+//		userRepository.save(new User("user", "pass", "ROLE_USER"));
+//		userRepository.save(new User("admin", "pass", "ROLE_USER", "ROLE_ADMIN"));
 	}
 
 }

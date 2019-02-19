@@ -15,7 +15,7 @@ public class Obra {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
 	
 	@OneToMany(mappedBy="obra")
 	private List<Cita> citas;

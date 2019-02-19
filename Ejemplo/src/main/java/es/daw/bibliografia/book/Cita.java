@@ -13,9 +13,9 @@ public class Cita {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private Autor autor;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -42,6 +42,14 @@ public class Cita {
 
 	public void setObra(Obra obra) {
 		this.obra = obra;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }
