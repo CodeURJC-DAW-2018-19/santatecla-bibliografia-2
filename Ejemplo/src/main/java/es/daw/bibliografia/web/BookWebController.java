@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Book;
 import es.daw.bibliografia.book.BookService;
+import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -19,10 +21,18 @@ import es.daw.bibliografia.user.UserComponent;
 public class BookWebController {
 
 	@Autowired
-	private TemaService service;
+	private TemaService serviceTema;
+	
+	@Autowired
+	private ObraService serviceObra;
+	
+	@Autowired
+	private AutorService serviceAutor;
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	
 
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -37,8 +47,10 @@ public class BookWebController {
 	@GetMapping("/")
 	public String showBooks(Model model) {
 
-		model.addAttribute("temas", service.findAll());
-	
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
+
 		return "Index";
 	}
 	
