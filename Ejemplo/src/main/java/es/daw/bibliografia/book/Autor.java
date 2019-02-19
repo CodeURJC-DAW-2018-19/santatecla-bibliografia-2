@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Autor {
@@ -15,8 +15,8 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@OneToMany(mappedBy="autor")
-	private List<Cita> citas;
+	@ManyToMany(mappedBy="autores")
+	private List<Obra> obras;
 	
 	private String nombre,url_foto,fecha_nac,fecha_def;
 	

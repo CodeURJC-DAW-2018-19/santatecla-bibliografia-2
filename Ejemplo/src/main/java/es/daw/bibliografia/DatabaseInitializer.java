@@ -53,20 +53,20 @@ public class DatabaseInitializer {
 
 		//Sample Autor-Cita
 		
-		Autor a = new Autor("Pepe");
-		autorRepository.save(a);
+//		Autor a = new Autor("Pepe");
+//		autorRepository.save(a);
+//		
+//		Cita c1 = new Cita("Hola people");
+//		Cita c2 = new Cita("Hola gente");
+//		
+//		c1.setAutor(a);
+//		c2.setAutor(a);
+//		
+//		citaRepository.save(c1);
+//		citaRepository.save(c2);
 		
-		Cita c1 = new Cita("Hola people");
-		Cita c2 = new Cita("Hola gente");
-		
-		c1.setAutor(a);
-		c2.setAutor(a);
-		
-		citaRepository.save(c1);
-		citaRepository.save(c2);
-		
-		//Obra o = new Obra("titulo","url foto","fecha","editorial","url editorial");
-//		obraRepository.save(o);
+		Obra o = new Obra("titulo","url foto","fecha","editorial","url editorial");
+		obraRepository.save(o);
 		// Sample users
 
 //		userRepository.save(new User("user", "pass", "ROLE_USER"));
