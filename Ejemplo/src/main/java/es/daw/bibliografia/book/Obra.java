@@ -2,7 +2,6 @@ package es.daw.bibliografia.book;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +26,7 @@ public class Obra {
 	@ManyToMany
 	private List<Autor> autores;
 	
-	private String titulo, url_foto, fecha, editorial, url_editorial;
+	private String title, URL, date, editorial, url_editorial;
 	
 	public Obra() {
 		super();
@@ -35,35 +34,35 @@ public class Obra {
 
 	public Obra(String titulo, String url_foto, String fecha, String editorial, String url_editorial) {
 		super();
-		this.titulo = titulo;
-		this.url_foto = url_foto;
-		this.fecha = fecha;
+		this.title = titulo;
+		this.URL = url_foto;
+		this.date = fecha;
 		this.editorial = editorial;
 		this.url_editorial = url_editorial;
 	}
 
-	public String getTitulo() {
-		return this.titulo;
+	public String getTitle() {
+		return this.title;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setTitle(String titulo) {
+		this.title = titulo;
 	}
 
-	public String getUrl_foto() {
-		return url_foto;
+	public String getURL() {
+		return URL;
 	}
 
-	public void setUrl_foto(String url_foto) {
-		this.url_foto = url_foto;
+	public void setURL(String url_foto) {
+		this.URL = url_foto;
 	}
 
-	public String getFecha() {
-		return fecha;
+	public String getDate() {
+		return date;
 	}
 
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
+	public void setDate(String fecha) {
+		this.date = fecha;
 	}
 
 	public String getEditorial() {

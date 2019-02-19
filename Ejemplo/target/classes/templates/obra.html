@@ -138,14 +138,17 @@
                             <div class="card-body">
 
                                 <!--Form-->
-                                <form>
+                                
+                                <form action= "/obra/new" method="post">
 
                                     <!--Input title-->
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Titulo de la Obra</label>
-                                                <input type="text" class="form-control" disabled>
+                                                
+                                                <!--<input type="text" class="form-control" disabled> -->
+                                                <input type='text' class="form-control" name='title'/>
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +158,8 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">URL Portada</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <!--<input type="text" class="form-control" disabled>-->
+                                                <input type='text' class="form-control" name='URL'/>
                                             </div>
                                         </div>
                                     </div>
@@ -170,9 +174,11 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-11">
                                             <div class="form-group">
-                                                <div class="input-daterange input-group" id="datepicker">
+                                            	<input type='text' class="form-control" name='date'/>
+                                                <!--  <div class="input-daterange input-group" id="datepicker">
                                                     <input type="text" class="input-sm form-control" name="from" placeholder=" Elige una fecha " />
-                                                </div>
+                                                    
+                                                </div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +189,8 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Editorial</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <input type='text' class="form-control" name='editorial'/>
+                                                <!--  <input type="text" class="form-control" disabled>-->
                                             </div>
                                         </div>
                                     </div>
@@ -193,14 +200,17 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">URL Editorial</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <!--  <input type="text" class="form-control" disabled>-->
+                                                <input type='text' class="form-control" name='url_editorial'/>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- <a href="/" class="button" class="btn btn-primary" >Guardar</a>-->
+									<!--  <button type="button" href="../../" class="btn btn-primary">Guardar</button>-->
+									<input type='submit' value='Enviar'href="/"  />
                                 </form>
                                <!--End Form-->
-                                <button type="button" class="btn btn-primary">Guardar</button>
+                                
                             </div>
                         </div>
                     </div>
