@@ -24,35 +24,17 @@
                                 </form>
                                 <!-- End Search bar-->
                                 <div class="row">
+                                    {{#temas}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
-                                                    <h5 class="card-title ">Tema 1</h5>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Theme 1 Content -->
-                                                <p> Bélico</p>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Tema 2</h5>
+                                                    <h5 class="card-title ">Tema {{-index}}</h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">
                                                 <!-- Theme 2 Content -->
-                                                <p> Romanticismo</p>
+                                                <p> {{contenido}}</p>
                                                 <div class="row">
                                                     <div class="col-sm-12">
 
@@ -62,7 +44,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+									{{/temas}}
                                 </div>
                                 <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
                             </div>
