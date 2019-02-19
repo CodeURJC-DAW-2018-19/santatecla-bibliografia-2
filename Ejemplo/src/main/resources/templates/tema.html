@@ -8,7 +8,7 @@
 				<div id="quotes">
 					<div class="row">
 						<div class="col-lg-6 col-md-12"
-							style="width: auto; height: 50em; overflow-y: scroll;">
+							style="width: auto; height: 30em; overflow-y: scroll;">
 							<div class="card">
 								<div class="card-header card-header-tabs card-header-warning">
 									<h3 class="card-title">Lista de referencias</h3>
@@ -16,9 +16,6 @@
 								<!-- Card content (topic / tema) -->
 								<aside class="textarea">
 									<div class="card-body">
-										<!--<div class="tab-content">
-                                                    <div class="tab-pane active" id="temas">
-                                                -->
 										<div class="row">
 											<div class="col-md-12">
 												<div class="card">
@@ -36,8 +33,6 @@
 												</div>
 											</div>
 										</div>
-
-
 
 
 										<div class="row">
@@ -59,21 +54,15 @@
 											</div>
 										</div>
 
-
-
-
+										{{#quotes}}
 										<div class="row">
 											<div class="col-md-12">
 												<div class="card">
-
 													<div class="card-header-rose">
-														<h4 class="card-title">Leandro Fernández de Moratín</h4>
-														<span class="category">Oda</span>
+														<h4 class="card-title">Cita {{-index}}</h4>
+														<span class="category"></span>
 													</div>
-													<div class="card-body">"Tú, si prudente fueres, no
-														rehuyas los brindis y el placer. Reduce a breve término tu
-														esperanza. La edad nuestra mientras hablamos envidiosa
-														corre."</div>
+													<div class="card-body">{{contenido}}</div>
 													<button type="button" rel="tooltip" title="Remove"
 														class="btn btn-danger btn-link btn-sm">
 														<i class="material-icons">close</i>
@@ -81,13 +70,14 @@
 												</div>
 											</div>
 										</div>
+										{{/quotes}}
 									</div>
 								</aside>
 							</div>
 						</div>
 
 						<div class="col-lg-6 col-md-12"
-							style="width: auto; height: 50em; overflow-y: scroll;">
+							style="width: auto; height: 30em; overflow-y: scroll;">
 							<div class="card">
 								<div class="card-header card-header-warning">
 									<h3 class="card-title">Resumen</h3>
@@ -133,7 +123,7 @@
 											</div>
 											<div class="card-body table-responsive">
 												<!-- Theme 1 Content -->
-												<p>Escrito por Garcilaso</p>
+												<p>Escrita por Garcilaso de la Vega</p>
 											</div>
 										</div>
 									</div>
@@ -151,7 +141,6 @@
 											</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
