@@ -17,10 +17,18 @@ public class Tema {
 	
 	@OneToMany(mappedBy="tema")
 	private List<Obra> obras;
-
+	
+	private String contenido;
+	
 	public Tema() {
 		super();
 	}
+	
+	public Tema (String contenido) {
+		super();
+		this.contenido=contenido;
+	}
+	
 
 	public long getId() {
 		return id;

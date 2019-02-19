@@ -90,5 +90,13 @@ public class Obra {
 		this.id = id;
 	}
 	
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+	
+	public void setAutores(List<Autor> autores) {
+		this.autores = autores;
+	}
+	
 	
 }
