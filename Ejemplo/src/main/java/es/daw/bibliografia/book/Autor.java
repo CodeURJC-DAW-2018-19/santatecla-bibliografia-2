@@ -13,7 +13,7 @@ public class Autor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id = -1;
+	private long id;
 	
 	@OneToMany(mappedBy="autor")
 	private List<Cita> citas;
@@ -27,6 +27,14 @@ public class Autor {
 	public Autor(String nombre) {
 		super();
 		this.nombre = nombre;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 	
 	public Autor(String nombre, String url_foto, String fecha_nac, String fecha_def) {
@@ -72,6 +80,14 @@ public class Autor {
 	@Override
 	public String toString() {
 		return "Autor [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+	public List<Cita> getCitas() {
+		return citas;
+	}
+
+	public void setCitas(List<Cita> citas) {
+		this.citas = citas;
 	}
 
 }
