@@ -36,9 +36,9 @@ public class BookWebController {
 	@GetMapping("/")
 	public String showBooks(Model model) {
 
-		model.addAttribute("books", service.findAll());
+		//model.addAttribute("books", service.findAll());
 	
-		return "books";
+		return "Index";
 	}
 	
 	@GetMapping("/books/{id}")
