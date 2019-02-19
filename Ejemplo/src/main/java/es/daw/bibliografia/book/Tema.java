@@ -13,29 +13,13 @@ public class Tema {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private long id = -1;
 	
 	@OneToMany(mappedBy="tema")
 	private List<Obra> obras;
 
 	public Tema() {
 		super();
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public List<Obra> getObras() {
-		return obras;
-	}
-
-	public void setObras(List<Obra> obras) {
-		this.obras = obras;
 	}
 	
 	

@@ -23,59 +23,43 @@ public class Obra {
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Tema tema;
 	
-	private String title; 
-	private String URL; 
-	private String date;  //CHANGE TO CALENDAR 
-	private String editorial; 
-	private String URLEditorial; 
+	private String titulo, url_foto, fecha, editorial, url_editorial;
 	
-	public Obra(){}
-	
-	public Obra(String title, String uRL, String date, String editorial, String uRLEditorial) {
+	public Obra() {
 		super();
-		this.title = title;
-		this.URL = uRL;
-		this.date = date;
+	}
+
+	public Obra(String titulo, String url_foto, String fecha, String editorial, String url_editorial) {
+		super();
+		this.titulo = titulo;
+		this.url_foto = url_foto;
+		this.fecha = fecha;
 		this.editorial = editorial;
-		URLEditorial = uRLEditorial;
+		this.url_editorial = url_editorial;
 	}
 
-	@Override
-	public String toString() {
-		return "Obra [id=" + id + ", title=" + title + ", URL=" + URL + ", date=" + date + ", editorial=" + editorial
-				+ ", URLEditorial=" + URLEditorial + "]";
+	public String getTitulo() {
+		return this.titulo;
 	}
 
-	public long getId() {
-		return id;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public String getUrl_foto() {
+		return url_foto;
 	}
 
-	public String getTitle() {
-		return title;
+	public void setUrl_foto(String url_foto) {
+		this.url_foto = url_foto;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public String getFecha() {
+		return fecha;
 	}
 
-	public String getURL() {
-		return URL;
-	}
-
-	public void setURL(String uRL) {
-		URL = uRL;
-	}
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
 	public String getEditorial() {
@@ -86,30 +70,13 @@ public class Obra {
 		this.editorial = editorial;
 	}
 
-	public String getURLEditorial() {
-		return URLEditorial;
+	public String getUrl_editorial() {
+		return url_editorial;
 	}
 
-	public void setURLEditorial(String uRLEditorial) {
-		URLEditorial = uRLEditorial;
+	public void setUrl_editorial(String url_editorial) {
+		this.url_editorial = url_editorial;
 	}
-
-	public List<Cita> getCitas() {
-		return citas;
-	}
-
-	public void setCitas(List<Cita> citas) {
-		this.citas = citas;
-	}
-
-	public Tema getTema() {
-		return tema;
-	}
-
-	public void setTema(Tema tema) {
-		this.tema = tema;
-	}
-
 	
 	
 }
