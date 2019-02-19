@@ -139,6 +139,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
+                                
+                                <!--Here data base loop-->
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
@@ -151,6 +153,13 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <p> Ubi sunt </p>
+                                                        		
+
+	{{#obras}}
+	<li>
+		{{titulo}}
+	</li>
+	{{/obras}}
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -161,28 +170,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Tema 2</h5>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Work 1 Content -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> Beatus ille </p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- End Here data base loop-->
 
                                 </div>
                             </div>
@@ -195,7 +183,7 @@
                     
                     <!-- Start Work-->
                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;" >
-                        <div class="card" style="height: auto">
+                        <div class="card" style="height: 100%">
                             <div class="card-header   card-header-primary">
 
                                 <h4 class="card-title text-center">Obra</h4>
@@ -225,83 +213,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Obra 2</h5>
+                                      </div>
 
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Work 2 Content -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> Don Quijote de la Mancha</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class='span12'>
-                                    <hr>
-                                </div> <!-- Separate bar-->
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Obra 3</h5>
-                                                </div>
-                                            </div>
-                                           <div class="card-body">
-                                                <!-- Work 1 Content -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> Romeo y Julieta </p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Obra 4</h5>
-
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Work 1 Content -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> La Celestina </p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <p class="d-flex"></p> <!-- Add button -->
 
@@ -309,9 +222,6 @@
                         </div>
                     </div>
                     <!-- End Work-->
-                    
-                    
-                    
                     
                     <!-- Start Quote-->
                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;" >
@@ -323,7 +233,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    
+                                   <!-- Here data bases consults -->
+                                   <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
@@ -345,29 +257,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Cita 2</h5>
-
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Quote 2 Content -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> "Morí muerto"</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Here data bases consults -->      
+                                   
+                                   
                                 </div>
 
                                 <p class="d-flex"></p> <!-- Add button -->
