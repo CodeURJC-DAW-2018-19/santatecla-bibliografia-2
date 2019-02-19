@@ -9,41 +9,40 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    public UserRepositoryAuthProvider userRepoAuthProvider;
+	@Autowired
+	public UserRepositoryAuthProvider userRepoAuthProvider;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-    	
-    	// Public pages
-        http.authorizeRequests().antMatchers("/").permitAll();
-        http.authorizeRequests().antMatchers("/login").permitAll();
-        http.authorizeRequests().antMatchers("/loginerror").permitAll();
-        http.authorizeRequests().antMatchers("/logout").permitAll();
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
 
-        // Private pages (all other pages)
-        http.authorizeRequests().antMatchers("/books/**").hasAnyRole("USER");
-        http.authorizeRequests().antMatchers("/newBook").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/editBook").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/editBook/**").hasAnyRole("ADMIN");
-        http.authorizeRequests().antMatchers("/deleteBook/**").hasAnyRole("ADMIN");
+		// Public pages
+		http.authorizeRequests().antMatchers("/").permitAll();
+		http.authorizeRequests().antMatchers("/login").permitAll();
+		http.authorizeRequests().antMatchers("/loginerror").permitAll();
+		http.authorizeRequests().antMatchers("/logout").permitAll();
 
-        // Login form
-        http.formLogin().loginPage("/login");
-        http.formLogin().usernameParameter("username");
-        http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/");
-        http.formLogin().failureUrl("/loginerror");
+		// Private pages (all other pages)
+		http.authorizeRequests().antMatchers("/books/**").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers("/newBook").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/editBook").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/editBook/**").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers("/deleteBook/**").hasAnyRole("ADMIN");
 
-        // Logout
-        http.logout().logoutUrl("/logout");
-        http.logout().logoutSuccessUrl("/");
-    }
+		// Login form
+		http.formLogin().loginPage("/login");
+		http.formLogin().usernameParameter("username");
+		http.formLogin().passwordParameter("password");
+		http.formLogin().defaultSuccessUrl("/");
+		http.formLogin().failureUrl("/loginerror");
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {
-        // Database authentication provider
-        auth.authenticationProvider(userRepoAuthProvider);
-    }
+		// Logout
+		http.logout().logoutUrl("/logout");
+		http.logout().logoutSuccessUrl("/");
+	}
+
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// Database authentication provider
+		auth.authenticationProvider(userRepoAuthProvider);
+	}
 }

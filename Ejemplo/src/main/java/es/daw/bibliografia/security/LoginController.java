@@ -29,7 +29,7 @@ public class LoginController {
 
 	@RequestMapping("/api/logIn")
 	public ResponseEntity<User> logIn() {
-		
+
 		if (!userComponent.isLoggedUser()) {
 			log.info("Not user logged");
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);

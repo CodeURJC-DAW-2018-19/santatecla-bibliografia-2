@@ -22,28 +22,26 @@ public class BookWebController {
 
 	@Autowired
 	private TemaService serviceTema;
-	
+
 	@Autowired
 	private ObraService serviceObra;
-	
+
 	@Autowired
 	private AutorService serviceAutor;
-	
+
 	@Autowired
 	private UserComponent userComponent;
-	
-	
 
 	@ModelAttribute
 	public void addUserToModel(Model model) {
 		boolean logged = userComponent.getLoggedUser() != null;
 		model.addAttribute("logged", logged);
-		if(logged) {
+		if (logged) {
 			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
-			model.addAttribute("userName",userComponent.getLoggedUser().getName());
+			model.addAttribute("userName", userComponent.getLoggedUser().getName());
 		}
 	}
-	
+
 	@GetMapping("/")
 	public String showBooks(Model model) {
 
@@ -53,7 +51,7 @@ public class BookWebController {
 
 		return "Index";
 	}
-	
+
 //	@GetMapping("/books/{id}")
 //	public String showBook(Model model, @PathVariable long id) {
 //		

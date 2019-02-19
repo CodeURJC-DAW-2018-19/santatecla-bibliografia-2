@@ -27,5 +27,5 @@ public class ObraService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
-	
+
 }

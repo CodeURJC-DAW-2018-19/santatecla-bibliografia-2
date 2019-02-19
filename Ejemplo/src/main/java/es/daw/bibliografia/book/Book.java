@@ -12,13 +12,14 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id = -1;
-	
+
 	private String title;
-	
+
 	@Column(length = 16000)
 	private String description;
 
-	public Book() {}
+	public Book() {
+	}
 
 	public Book(String nombre, String description) {
 		super();

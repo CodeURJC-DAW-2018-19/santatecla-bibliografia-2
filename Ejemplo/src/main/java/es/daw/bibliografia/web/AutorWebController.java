@@ -12,16 +12,16 @@ import es.daw.bibliografia.book.TemaService;
 
 @Controller
 public class AutorWebController {
-	
+
 	@Autowired
 	private ObraService obraService;
-	
+
 	@Autowired
 	private TemaService temaService;
-	
+
 	@Autowired
 	private CitaService citaService;
-	
+
 	@RequestMapping("/autor")
 	public String showAutor(Model model) {
 		model.addAttribute("obras", obraService.findAll());
@@ -29,5 +29,5 @@ public class AutorWebController {
 		model.addAttribute("citas", citaService.findAll());
 		return "autor";
 	}
-	
+
 }

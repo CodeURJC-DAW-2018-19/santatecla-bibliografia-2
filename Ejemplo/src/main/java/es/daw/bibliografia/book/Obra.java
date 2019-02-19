@@ -16,18 +16,18 @@ public class Obra {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@OneToMany(mappedBy="obra")
+
+	@OneToMany(mappedBy = "obra")
 	private List<Cita> citas;
-	
+
 	@ManyToOne
 	private Tema tema;
-	
+
 	@ManyToMany
 	private List<Autor> autores;
-	
+
 	private String title, URL, date, editorial, url_editorial;
-	
+
 	public Obra() {
 		super();
 	}
@@ -88,14 +88,13 @@ public class Obra {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-	
+
 	public void setAutores(List<Autor> autores) {
 		this.autores = autores;
 	}
-	
-	
+
 }

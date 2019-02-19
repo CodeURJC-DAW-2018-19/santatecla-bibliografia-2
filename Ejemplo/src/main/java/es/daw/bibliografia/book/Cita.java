@@ -8,29 +8,29 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Cita {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@ManyToOne
 	private Obra obra;
-	
+
 	private String contenido;
-	
+
 	public Cita() {
 		super();
 	}
-	
-	public Cita (String contenido) {
+
+	public Cita(String contenido) {
 		super();
-		this.contenido=contenido;
+		this.contenido = contenido;
 	}
-	
+
 	public String toString() {
 		return this.contenido;
 	}
-	
+
 	public void setObra(Obra obra) {
 		this.obra = obra;
 	}

@@ -2,6 +2,6 @@ package es.daw.bibliografia.book;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TemaRepository extends JpaRepository<Tema, Long>{
+public interface TemaRepository extends JpaRepository<Tema, Long> {
 
 }

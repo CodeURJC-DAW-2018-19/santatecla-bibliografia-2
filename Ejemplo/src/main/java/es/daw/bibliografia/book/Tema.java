@@ -10,25 +10,24 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Tema {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@OneToMany(mappedBy="tema")
+
+	@OneToMany(mappedBy = "tema")
 	private List<Obra> obras;
-	
+
 	private String contenido;
-	
+
 	public Tema() {
 		super();
 	}
-	
-	public Tema (String contenido) {
+
+	public Tema(String contenido) {
 		super();
-		this.contenido=contenido;
+		this.contenido = contenido;
 	}
-	
 
 	public long getId() {
 		return id;
@@ -37,6 +36,5 @@ public class Tema {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	
+
 }
