@@ -18,7 +18,7 @@ public class Autor {
 	@ManyToMany(mappedBy = "autores")
 	private List<Obra> obras;
 
-	private String nombre, url_foto, fecha_nac, fecha_def;
+	private String nombre, url_foto, fecha_nac, fecha_def, url_mapa, lugar;
 
 	public Autor() {
 		super();
@@ -29,12 +29,14 @@ public class Autor {
 		this.nombre = nombre;
 	}
 
-	public Autor(String nombre, String url_foto, String fecha_nac, String fecha_def) {
+	public Autor(String nombre, String url_foto, String url_mapa, String fecha_nac, String fecha_def, String lugar) {
 		super();
 		this.nombre = nombre;
 		this.url_foto = url_foto;
 		this.fecha_nac = fecha_nac;
 		this.fecha_def = fecha_def;
+		this.url_mapa = url_mapa;
+		this.lugar = lugar;
 	}
 
 	public String getNombre() {
@@ -43,6 +45,14 @@ public class Autor {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	public String getLugar() {
+		return lugar;
+	}
+
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
 	}
 
 	public String getUrl_foto() {
@@ -55,6 +65,14 @@ public class Autor {
 
 	public String getFecha_nac() {
 		return fecha_nac;
+	}
+	
+	public void setUrl_mapa(String url_mapa) {
+		this.url_mapa = url_mapa;
+	}
+
+	public String getUrl_mapa() {
+		return url_mapa;
 	}
 
 	public void setFecha_nac(String fecha_nac) {

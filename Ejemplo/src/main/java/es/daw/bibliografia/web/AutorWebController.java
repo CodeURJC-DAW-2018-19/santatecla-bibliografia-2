@@ -67,7 +67,12 @@ public class AutorWebController {
 		model.addAttribute("citas", citaService.findAll());
 		
 		if(autor.isPresent()) {
-			model.addAttribute("autor", autor.get());
+			model.addAttribute("nombreAutor", autor.get().getNombre());
+			model.addAttribute("urlFotoAutor", autor.get().getUrl_foto());
+			model.addAttribute("nacimientoAutor", autor.get().getFecha_nac());
+			model.addAttribute("muerteAutor", autor.get().getFecha_def());
+			model.addAttribute("urlMapa", autor.get().getUrl_mapa());		
+			
 			return "autor";
 		}
 		else
