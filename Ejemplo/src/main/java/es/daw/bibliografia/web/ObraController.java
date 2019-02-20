@@ -33,7 +33,7 @@ public class ObraController {
 	@Autowired
 	private BookWebController webController;
 	
-	@RequestMapping("/obra/guardada") //Esto va en BookWebController Cuando se pulsa el boton de new
+	@RequestMapping("/obra/guardada")
 	public String añadirObra(Model model, Obra obra) {
 		service.save(obra);
 		

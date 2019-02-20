@@ -22,11 +22,17 @@ public class TemaController {
 	@Autowired
 	private AutorService authors;
 	
+	@Autowired
+	private BookWebController webController;
+	
 	@RequestMapping("/tema")
 	public String accederTema(Model model) {
 		model.addAttribute("quotes", quotes.findAll());
 		model.addAttribute("works", works.findAll());
 		model.addAttribute("authors", authors.findAll());
+		
+		webController.addUserToModel(model);
+		
 		return "tema";
 	}
 

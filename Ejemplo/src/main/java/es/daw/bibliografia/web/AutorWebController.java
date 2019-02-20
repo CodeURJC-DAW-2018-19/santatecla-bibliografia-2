@@ -41,17 +41,10 @@ public class AutorWebController {
 	
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private BookWebController webController;
 
-
-	@ModelAttribute
-	public void addUserToModel(Model model) {
-		boolean logged = userComponent.getLoggedUser() != null;
-		model.addAttribute("logged", logged);
-		if (logged) {
-			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
-			model.addAttribute("userName", userComponent.getLoggedUser().getName());
-		}
-	}
 	
 	/*
 	 * @RequestMapping("/autor") public String showAutor(Model model) {
@@ -67,6 +60,8 @@ public class AutorWebController {
 		model.addAttribute("obras", obraService.findAll());
 		model.addAttribute("temas", temaService.findAll());
 		model.addAttribute("citas", citaService.findAll());
+		
+		webController.addUserToModel(model);
 		
 		if(autor.isPresent()) {
 			List<Obra> obras = obraService.findByAuthor(autor.get());
