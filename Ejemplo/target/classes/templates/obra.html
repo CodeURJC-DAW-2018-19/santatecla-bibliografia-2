@@ -1,127 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<meta charset="utf-8" />
 
-<head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/faviconBook.jpg">
-    <link rel="icon" type="image/png" href="../assets/img/faviconBook.jpg">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-        Material Dashboard by Creative Tim
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- CSS Files -->
-    <link href="../assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-    <!-- CSS own -->
-    <link href="../assets/css/owns.css" rel="stylesheet" />
-</head>
-
-<body class="">
-    <div class="wrapper ">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-primary">
-            <div class="col-md-9">
-                <ul class="nav nav-tabs " data-tabs="tabs">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./inicio.html">
-                            <i class="material-icons">dashboard</i>
-                            Inicio
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./autor.html">
-                            <i class="material-icons">person</i>
-                            Autor
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </li>
-                    <div class="activeTab">
-                        <li class="nav-item disabled ">
-                            <a class="nav-link" href="./obra.html" role="tab" data-toggle="tab">
-                                <i class="material-icons">content_paste</i>
-                                Obra<span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                    </div>
-                    <div class="activeTab">
-                        <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <i class="material-icons">close</i>
-                            </a>
-                        </li>
-                    </div>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./tema.html">
-                            <i class="material-icons">library_books</i>
-                            Tema
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <i class="material-icons">close</i>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="col-md-3">
-                <ul class="nav nav-tabs justify-content-center" data-tabs="tabs">
-                    <li>
-                        <!-- Logout Button -->
-                        <button class="btn btn-danger btn-round" data-toggle="modal" data-target="#signupModal">
-                            <i class="material-icons">assignment</i>Logout
-                        </button>
-                        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog">
-                            <div class="modal-dialog modal-signup" role="document">
-                                <div class="modal-content">
-                                    <div class="card card-signup card-plain">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title card-title">¿Desea salir?</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <i class="material-icons">clear</i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <!--     <div class="row"> -->
-                                            <!--  <div class="col-md-5 mr-auto"> -->
-                                            <form class="form" method="" action="">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="modal-footer justify-content-center">
-                                                            <a href="#pablo" class="btn btn-primary btn-round">No</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="modal-footer justify-content-center">
-                                                            <a href="#pablo" class="btn btn-primary btn-round">Sí</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!--    </div> -->
-                                    <!--  </div> -->
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
-
-        </nav>
-        <!-- End Navbar -->
-
+  
+       {{>Header}}
+ 	
         <div class="content">
             <!-- Data Container -->
             <div class="container-fluid">
@@ -471,52 +352,14 @@
                 </div>
             </div>
         </div>
-
+	
         <!-- End Container parts-->
+	
 
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="float-left">
-                    <ul>
-                        <li>
-                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
-                                Israel Peñalver
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=74240&course=128839">
-                                Natalia Madrueño
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
-                                Sandra Gómez
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
-                                Zhihao Du
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
-                                Sergio Casado
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="copyright float-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, made with <i class="material-icons">favorite</i> by
-                    <a target="_blank">Grupo 13</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-
+      {{>footer}}
+      </div>
+    
+  
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
