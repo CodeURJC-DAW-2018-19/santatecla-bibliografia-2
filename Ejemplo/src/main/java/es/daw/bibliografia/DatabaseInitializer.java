@@ -47,14 +47,22 @@ public class DatabaseInitializer {
 	public void init() {
 
 		// Sample Autor-Cita
-		Autor a1 = new Autor("Shakespeare", 
+		Autor a1 = new Autor("William Shakespeare", 
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg", 
 				"https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg", 
 				"26 de abril de 1564", "23 de abril 1616", "Stratford-upon-Avon, Inglaterra");
-		//Autor a1 = new Autor("Shakespeare");
-		Autor a2 = new Autor("Vargas Llosa");
-		Autor a3 = new Autor("Garcilaso");
-		Autor a4 = new Autor("Cervantes");
+		Autor a2 = new Autor("Jorge Mario Pedro Vargas Llosa", 
+				"https://www.nobelprize.org/images/vargas_llosa-15156-content-portrait-tablet.jpg", 
+				"https://static1.squarespace.com/static/5388e453e4b0813d343199fc/t/5849dd77bebafb2ceef94f22/1481235854682/arequipa+peru+tour", 
+				"28 de marzo de 1936", "~", "Arequipa, Peru");
+		Autor a3 = new Autor("Garcilaso de la Vega", 
+				"https://historia-biografia.com/wp-content/uploads/2017/10/Sin-t%C3%ADtulo2-1.jpg", 
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Toledo_%2837737041515%29.jpg/266px-Toledo_%2837737041515%29.jpg", 
+				"Sobre 1498 ", "14 de octubre de 1536", "Toledo");
+		Autor a4 = new Autor("Miguel de Cervantes Saavedra", 
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_J%C3%A1uregui.jpg/330px-Cervantes_J%C3%A1uregui.jpg", 
+				"http://www.turismoalcala.es/wp-content/uploads/2013/08/visitasguiadas-responsive.jpg", 
+				"​29 de septiembre de 1547", "22 de abril de 1616", "Alcalá de Henares");
 
 		Obra o1 = new Obra("Hamlet", "url foto", "fecha", "editorial", "url editorial");
 		Obra o2 = new Obra("Romeo y Julieta", "url foto", "fecha", "editorial", "url editorial");
