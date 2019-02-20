@@ -17,3 +17,13 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #909090; 
 }
+
+.center { 
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-center{
+	text-align: center ;
+}
