@@ -17,7 +17,7 @@ public class Obra {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@OneToMany(mappedBy = "obra")
+	@OneToMany
 	private List<Cita> citas;
 
 	@ManyToOne
@@ -91,10 +91,6 @@ public class Obra {
 
 	public void setTema(Tema tema) {
 		this.tema = tema;
-	}
-
-	public void setAutores(List<Autor> autores) {
-		this.autores = autores;
 	}
 
 }

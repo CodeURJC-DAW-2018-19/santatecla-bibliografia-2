@@ -119,29 +119,25 @@ public class DatabaseInitializer {
 		citaRepository.save(c5);
 		citaRepository.save(c6);
 
-		List<Autor> autores1a = new ArrayList<>();
-		autores1a.add(a1);
-		o1.setAutores(autores1a);
+		List<Obra> obras1 = new ArrayList<>();
+		obras1.add(o1);
+		obras1.add(o2);
+		obras1.add(o3);
+		a1.setObras(obras1);
+		
+		List<Obra> obras2 = new ArrayList<>();
+		obras2.add(o4);
+		a2.setObras(obras2);
+		
+		List<Obra> obras3 = new ArrayList<>();
+		obras3.add(o5);
+		a3.setObras(obras2);
+		
+		List<Obra> obras4 = new ArrayList<>();
+		obras4.add(o6);
+		a4.setObras(obras4);
 
-		List<Autor> autores1b = new ArrayList<>();
-		autores1b.add(a1);
-		o2.setAutores(autores1b);
 
-		List<Autor> autores1c = new ArrayList<>();
-		autores1b.add(a1);
-		o3.setAutores(autores1c);
-
-		List<Autor> autores2 = new ArrayList<>();
-		autores2.add(a2);
-		o4.setAutores(autores2);
-
-		List<Autor> autores3 = new ArrayList<>();
-		autores3.add(a3);
-		o5.setAutores(autores3);
-
-		List<Autor> autores4 = new ArrayList<>();
-		autores4.add(a4);
-		o6.setAutores(autores4);
 
 		autorRepository.save(a1);
 		autorRepository.save(a2);

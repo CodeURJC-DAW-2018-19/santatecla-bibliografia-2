@@ -15,7 +15,7 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@ManyToMany(mappedBy = "autores")
+	@ManyToMany
 	private List<Obra> obras;
 
 	private String nombre, url_foto, fecha_nac, fecha_def, url_mapa, lugar;
@@ -99,5 +99,10 @@ public class Autor {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	public void setObras(List<Obra> obras) {
+		this.obras = obras;
+	}
+
 
 }
