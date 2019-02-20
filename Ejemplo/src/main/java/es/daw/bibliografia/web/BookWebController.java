@@ -97,14 +97,14 @@ public class BookWebController {
 //		return "bookDeleted";
 //	}
 //	
-//	@GetMapping("/login")
-//	public String login(Model model) {
-//		model.addAttribute("hideLogin", true);
-//		return "login";
-//	}
-//	
-//	@GetMapping("/loginerror")
-//	public String loginError() {
-//		return "loginerror";
-//	}
+	@GetMapping("/login")
+	public String login(Model model) {
+		model.addAttribute("hideLogin", true);
+		return "login";
+	}
+	
+	@GetMapping("/loginerror")
+	public String loginError() {
+		return "loginerror";
+	}
 }

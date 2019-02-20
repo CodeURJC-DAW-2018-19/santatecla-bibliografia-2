@@ -37,8 +37,9 @@
                                                 <p> {{contenido}}</p>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-
+{{#logged}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+{{/logged}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -46,7 +47,10 @@
                                     </div>
 									{{/temas}}
                                 </div>
+{{#logged}}
                                 <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
+{{/logged}}
+
                             </div>
                         </div>
                     </div>
@@ -90,8 +94,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-
+{{#logged}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+{{/logged}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,8 +104,9 @@
                                     </div>
                                     {{/obras}}
                                 </div>
-
+{{#logged}}
                                 <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"  onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+{{/logged}}
                             </div>
                         </div>
                     </div>
@@ -143,8 +149,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-
+{{#logged}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+{{/logged}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -153,9 +160,9 @@
                                     {{/autores}}
 
                                 </div>
-
+{{#logged}}
                                 <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
-
+{{/logged}}
                             </div>
                         </div>
                     </div>
