@@ -170,6 +170,49 @@
                     
                 </div>
             </div>
+<div align="center">
+                    <button class="btn btn-round" data-toggle="modal" data-target="#Histogram" style="align-self:  center;">
+                        HISTOGRAMA<i class="material-icons">assessment</i>
+                    </button>
 
+                    <div class="modal" id="Histogram" role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <!-- preparing a DOM with width and height for ECharts -->
+                                    <div id="main" style="width:500px; height:400px;"></div>
+                                    <script type="text/javascript">
+                                        // based on prepared DOM, initialize echarts instance
+                                        var myChart = echarts.init(document.getElementById('main'));
+
+                                        // specify chart configuration item and data
+                                        var option = {
+                                             //title: {
+                                             //   text: 'ECharts entry example'
+                                            //},
+                                            tooltip: {},
+                                            legend: {
+                                                data: ['Número de obras por tema']
+                                            },
+                                            xAxis: {
+                                                data: ["Romance", "Épica", "Fantasía", "Aventura", "Drama", "Sci-fi"]
+                                            },
+                                            yAxis: {},
+                                            series: [{
+                                                
+                                                name: 'Número de obras por tema',
+                                                type: 'bar',
+                                                data: [5, 20, 36, 10, 10, 20]
+                                            }]
+                                        };
+
+                                        // use configuration item and data specified to show chart
+                                        myChart.setOption(option);
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
             <!-- End Container parts-->
 {{>footer}}
