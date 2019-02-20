@@ -68,8 +68,10 @@ public class AutorWebController {
 		
 		if(autor.isPresent()) {
 			model.addAttribute("autor", autor.get());
+			return "autor";
 		}
+		else
+			return "autorError";
 
-		return "autor";
 	}
 }
