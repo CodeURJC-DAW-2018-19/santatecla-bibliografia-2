@@ -19,6 +19,10 @@ public class ObraService {
 	public List<Obra> findAll() {
 		return repository.findAll();
 	}
+	
+	public List<Obra> findByAuthor(Autor author) {
+		return repository.findByAutores(author);
+	}
 
 	public void save(Obra obra) {
 		repository.save(obra);
