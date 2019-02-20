@@ -31,7 +31,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">URL Foto</label>
+                                                <label class="bmd-label-floating">{{urlFotoAutor}}</label>
                                                 <input type="text" class="form-control" disabled>
                                             </div>
                                         </div>
@@ -45,20 +45,20 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-1"></div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="from" placeholder="Nacimiento" />
+                                                    <input type="text" class="input-sm form-control" name="from" placeholder="Nacimiento:  {{nacimientoAutor}}" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-1"></div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="to" placeholder="Fallecimiento" />
+                                                    <input type="text" class="input-sm form-control" name="to" placeholder="Fallecimiento: {{muerteAutor}}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Lugar de Nacimiento</label>
+                                                <label class="bmd-label-floating">{{lugarAutor}}</label>
                                                 <input type="text" class="form-control" disabled>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                     <div class="row" style="padding-bottom: 2.5em;">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">URL Mapa</label>
+                                                <label class="bmd-label-floating">{{urlMapa}}</label>
                                                 <input type="text" class="form-control" disabled>
                                             </div>
                                         </div>
@@ -98,21 +98,21 @@
 
                         <div class="card card-profile">
                             <a href="#autor">
-                                <img class="card-img-top" src="https://editorialverbum.es/wp-content/uploads/2016/12/250-Cervantes.jpg" style="width: 11.65em; height: 12em;" />
+                                <img class="card-img-top" src={{urlFotoAutor}} style="width: 11.65em; height: 12em;" />
                             </a>
                             <div class="card-body">
-                                <h4 class="card-title">Nombre Autor</h4>
+                                <h4 class="card-title">{{nombreAutor}}</h4>
                             </div>
                         </div>
 
                         <div class="card card-profile">
                             <div class="card-avatar-top">
                                 <a href="#lugarNacimiento">
-                                    <img class="card-img-top" src="http://www.turismoalcala.es/wp-content/uploads/2017/01/alcalaPatrimonio.jpg" style="width: 11.65em; height: 12em;"/>
+                                    <img class="card-img-top" src={{urlMapa}} style="width: 11.65em; height: 12em;"/>
                                 </a>
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title">Nombre Lugar</h4>
+                                <h4 class="card-title">{{lugarAutor}}</h4>
                             </div>
                         </div>
 

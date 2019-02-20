@@ -47,7 +47,11 @@ public class DatabaseInitializer {
 	public void init() {
 
 		// Sample Autor-Cita
-		Autor a1 = new Autor("Shakespeare");
+		Autor a1 = new Autor("Shakespeare", 
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg", 
+				"https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg", 
+				"26 de abril de 1564", "23 de abril 1616", "Stratford-upon-Avon, Inglaterra");
+		//Autor a1 = new Autor("Shakespeare");
 		Autor a2 = new Autor("Vargas Llosa");
 		Autor a3 = new Autor("Garcilaso");
 		Autor a4 = new Autor("Cervantes");

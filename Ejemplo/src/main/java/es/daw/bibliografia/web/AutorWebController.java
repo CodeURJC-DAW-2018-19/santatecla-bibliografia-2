@@ -72,6 +72,7 @@ public class AutorWebController {
 			model.addAttribute("nacimientoAutor", autor.get().getFecha_nac());
 			model.addAttribute("muerteAutor", autor.get().getFecha_def());
 			model.addAttribute("urlMapa", autor.get().getUrl_mapa());		
+			model.addAttribute("lugarAutor", autor.get().getLugar());
 			
 			return "autor";
 		}
