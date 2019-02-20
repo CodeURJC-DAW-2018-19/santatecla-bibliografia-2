@@ -1,5 +1,5 @@
 {{>header}}
-
+<meta charset="utf-8" />
 <body class="">
 	<div class="wrapper ">
 		<div class="content">
@@ -17,21 +17,22 @@
 								<aside class="textarea">
 									<div class="card-body">
 										<div class="row">
+										{{#quotes}}
 											<div class="col-md-12">
 												<div class="card">
 
 													<div class="card-header-rose">
-														<h4 class="card-title">Federico GarcÌa Lorca</h4>
+														<h4 class="card-title">{{obra.autores}}</h4>
+														<span class="category">{{obra.title}}</span>
 													</div>
-													<div class="card-body">ìDesechad tristezas y
-														melancolÌas. La vida es amable, tiene pocos dÌas y tan
-														solo ahora la hemos de gozar.î</div>
+													<div class="card-body">{{contenido}}</div>
 													<button type="button" rel="tooltip" title="Remove"
 														class="btn btn-danger btn-link btn-sm">
 														<i class="material-icons">close</i>
 													</button>
 												</div>
 											</div>
+										{{/quotes}}
 										</div>
 
 
@@ -54,23 +55,6 @@
 											</div>
 										</div>
 
-										{{#quotes}}
-										<div class="row">
-											<div class="col-md-12">
-												<div class="card">
-													<div class="card-header-rose">
-														<h4 class="card-title">Cita {{-index}}</h4>
-														<span class="category"></span>
-													</div>
-													<div class="card-body">{{contenido}}</div>
-													<button type="button" rel="tooltip" title="Remove"
-														class="btn btn-danger btn-link btn-sm">
-														<i class="material-icons">close</i>
-													</button>
-												</div>
-											</div>
-										</div>
-										{{/quotes}}
 									</div>
 								</aside>
 							</div>
@@ -83,7 +67,7 @@
 									<h3 class="card-title">Resumen</h3>
 								</div>
 								<div class="card-body table-responsive">
-									<h1>AquÌ va el HTML</h1>
+									<h1>Aqu√≠ va el HTML</h1>
 									<button type="submit" class="btn btn-primary pull-right">Generar
 										PDF</button>
 								</div>
@@ -105,47 +89,39 @@
 			<div class="container-fluid">
 				<div class="row">
 					<!--Start Literary Work-->
-					<div class="col-sm-4"
-						style="width: auto; height: 30em; overflow-y: scroll;">
-						<div class="card" style="height: 100%">
-							<div class="card-header card-header-primary">
-								<h4 class="card-title text-center ">Obras</h4>
-							</div>
-							<div class="card-body">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Soneto XXIII</h5>
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Theme 1 Content -->
-												<p>Escrita por Garcilaso de la Vega</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Oda</h5>
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Theme 2 Content -->
-												<p>Escrita por Leandro Fdez. de MoratÌn</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Theme-->
+					<div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
+                            <div class="card-header   card-header-primary">
+
+                                <h4 class="card-title text-center">Obras</h4>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                {{#works}}
+                                    <div class="col-sm-6">
+                                        <div class="card">
+                                            <div class="card-header  card-header-text card-header-primary">
+                                                <div class="card-text">
+                                                    <h5 class="card-title ">Obra {{-index}}</h5>
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- Work Content -->
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <p> {{title}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/works}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<!-- End Literary Work-->
 					<!-- Start Author-->
 					<div class="col-sm-4"
 						style="width: auto; height: 30em; overflow-y: scroll;">
@@ -158,45 +134,26 @@
 							<div class="card-body">
 
 								<div class="row">
+								{{#authors}}
 									<div class="col-sm-6">
 										<div class="card">
 											<div
 												class="card-header  card-header-text card-header-primary">
 												<div class="card-text">
-													<h5 class="card-title ">Garcilaso de la Vega</h5>
+													<h5 class="card-title ">Autor {{-index}}</h5>
 												</div>
 											</div>
 											<div class="card-body table-responsive">
 												<!-- Author 1 Content -->
 												<div class="row">
 													<div class="col-sm-12">
-														<p>NaciÛ en una fecha desconocida, entre 1498 y 1503</p>
+														<p>{{nombre}}</p>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Leandro Fdez. de MoratÌn</h5>
-
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Author 2 Content -->
-												<div class="row">
-													<div class="col-sm-12">
-														<p>(Madrid, 10 de marzo de 1760-ParÌs, 21 de junio de
-															1828)</p>
-													</div>
-												</div>
-												<div class="row"></div>
-											</div>
-										</div>
-									</div>
+									{{/authors}}
 								</div>
 
 
@@ -206,13 +163,13 @@
 											<div
 												class="card-header  card-header-text card-header-primary">
 												<div class="card-text">
-													<h5 class="card-title ">Federico GarcÌa Lorca</h5>
+													<h5 class="card-title ">Federico Garc√≠a Lorca</h5>
 												</div>
 											</div>
 											<div class="card-body table-responsive">
 												<!-- Author 3 Content -->
 												<p>(Fuente Vaqueros, Granada, 5 de junio de 1898-camino
-													de VÌznar a Alfacar, Granada, 18 de agosto de 1936)</p>
+													de V√≠znar a Alfacar, Granada, 18 de agosto de 1936)</p>
 											</div>
 										</div>
 									</div>
@@ -282,9 +239,9 @@
 												<!-- Quote 2 Content -->
 												<div class="row">
 													<div class="col-sm-8">
-														<p>ìDesechad tristezas y melancolÌas. La vida es
-															amable, tiene pocos dÌas y tan solo ahora la hemos de
-															gozar.î</p>
+														<p>‚ÄúDesechad tristezas y melancol√≠as. La vida es
+															amable, tiene pocos d√≠as y tan solo ahora la hemos de
+															gozar.‚Äù</p>
 													</div>
 												</div>
 
@@ -313,14 +270,12 @@
 								</form>
 								<!-- End Search bar-->
 
-								{{#logged}}
 								<!-- Add Cita button -->
 								<p class="d-flex">
 									<button type="button" class="btn btn-info ml-auto btn-round">
 										<i class="material-icons"> add_circle </i>
 									</button>
 								</p>
-								{{/logged}}
 							</div>
 						</div>
 					</div>
