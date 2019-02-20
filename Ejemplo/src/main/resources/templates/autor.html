@@ -128,20 +128,29 @@
         </div>
 
         <!--Start Container 2-->
-        <div class>
-            <div class="container-fluid">
+        <div class="container-fluid">
+
                 <div class="row">
                     <!--Start Theme-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;" >
-                        <div class="card" style="height:100%">
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title text-center">Tema</h4>
+                                <h4 class="card-title text-center">Temas</h4>
                             </div>
                             <div class="card-body">
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Tema...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
                                 <div class="row">
-                                
-                                {{#temas}}
-                                <!--Here data base loop-->
+                                    {{#temas}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
@@ -150,43 +159,46 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Work 1 Content -->
+                                                <!-- Theme 2 Content -->
+                                                <p> {{contenido}}</p>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> {{contenido}}</p>                                                       	
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
+
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- End Here data base loop-->
-                                    	{{/temas}}
-
+									{{/temas}}
                                 </div>
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
                             </div>
                         </div>
                     </div>
                     <!-- End Theme-->
-                   
-                    
-                    
-                    
-                    <!-- Start Work-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;" >
-                        <div class="card" style="height: 100%">
+
+                    <!-- Start Obra-->
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
                             <div class="card-header   card-header-primary">
 
-                                <h4 class="card-title text-center">Obra</h4>
+                                <h4 class="card-title text-center">Obras</h4>
 
                             </div>
-                           <div class="card-body">
+                            <div class="card-body">
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
                                 <div class="row">
-                                
                                 {{#obras}}
                                     <div class="col-sm-6">
                                         <div class="card">
@@ -196,15 +208,15 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Work 1 Content -->
+                                                <!-- Quote 1 Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> {{titulo}} </p>
-                                                        	
+                                                        <p> {{title}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
+
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                     </div>
                                                 </div>
@@ -212,32 +224,36 @@
                                         </div>
                                     </div>
                                     {{/obras}}
-                                    
-                                    
-                                      </div>
+                                </div>
 
-
-                                <p class="d-flex"></p> <!-- Add button -->
-
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"  onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
                             </div>
                         </div>
                     </div>
-                    <!-- End Work-->
-                    
-                    <!-- Start Quote-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;" >
-                        <div class="card" style="height:100%">
-                            <div class="card-header   card-header-primary">
+                    <!-- End Quote-->
+                                        <!-- Start Author-->
+                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                        <div class="card" style="height:auto">
+                            <div class="card-header  card-header-primary">
 
-                                <h4 class="card-title text-center">Cita</h4>
+                                <h4 class="card-title text-center">Citas</h4>
 
                             </div>
                             <div class="card-body">
+                                <!-- Search bar-->
+                                <form class="navbar-form">
+                                    <div class="input-group no-border">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Cita...">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                            <i class="material-icons">search</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
+                                    </div>
+                                </form>
+                                <!-- End Search bar-->
                                 <div class="row">
-                                    
-                                    {{#citas}}
-                                   <!-- Here data bases consults -->
-                                   <div class="col-sm-6">
+                                {{#citas}}
+                                    <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
@@ -245,7 +261,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Quote 1 Content -->
+                                                <!-- Quote Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <p> {{contenido}}</p>
@@ -253,27 +269,26 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
+
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Here data bases consults -->   
-                                    {{/citas}}   
-                                   
-                                   
+                                    {{/citas}}
+
                                 </div>
 
-                                <p class="d-flex"></p> <!-- Add button -->
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+
                             </div>
                         </div>
                     </div>
-                    <!-- End Quote-->
+                    <!-- End Author-->
+                    
                 </div>
             </div>
-
-        </div>
         <!--End Container 2-->
         <!-- End Container parts-->
 
