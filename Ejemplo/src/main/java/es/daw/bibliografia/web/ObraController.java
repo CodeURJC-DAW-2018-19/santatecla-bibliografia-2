@@ -18,6 +18,12 @@ public class ObraController {
 	private ObraService service;
 	
 	@Autowired
+	private TemaService serviceTema;
+
+	@Autowired
+	private AutorService serviceAutor;
+	
+	@Autowired
 	private BookWebController webController;
 	
 	@RequestMapping("/obra/guardada") //Esto va en BookWebController Cuando se pulsa el boton de new
@@ -29,6 +35,10 @@ public class ObraController {
 	
 	@RequestMapping("/obra/new")
 	public String irObra(Model model) {
+		
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", service.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
 		
 		return "obra";
 	}
