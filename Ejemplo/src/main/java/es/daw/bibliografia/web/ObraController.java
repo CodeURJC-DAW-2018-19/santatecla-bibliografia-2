@@ -37,6 +37,8 @@ public class ObraController {
 	public String añadirObra(Model model, Obra obra) {
 		service.save(obra);
 		
+		webController.addUserToModel(model);
+		
 		return webController.showBooks(model); 
 	}
 	
@@ -46,6 +48,8 @@ public class ObraController {
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", service.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
+		
+		webController.addUserToModel(model);
 		
 		return "obra";
 	}
