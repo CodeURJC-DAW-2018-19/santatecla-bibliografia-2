@@ -10,6 +10,9 @@ import org.springframework.stereotype.Component;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorRepository;
+import es.daw.bibliografia.book.AutorService;
+import es.daw.bibliografia.book.Book;
+import es.daw.bibliografia.book.BookRepository;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaRepository;
 import es.daw.bibliografia.book.Obra;
@@ -22,6 +25,8 @@ import es.daw.bibliografia.user.UserRepository;
 @Component
 public class DatabaseInitializer {
 
+	@Autowired
+	private BookRepository bookRepository;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -38,17 +43,14 @@ public class DatabaseInitializer {
 	@Autowired
 	private TemaRepository temaRepository;
 
-	/**
-	 * This method initializes values in the database
-	 */
 	@PostConstruct
 	public void init() {
 
 		// Sample Autor-Cita
-		Autor a1 = new Autor("Shakespeare","URL","Nacimiento","Muerte");
-		Autor a2 = new Autor("Vargas Llosa","URL","Nacimiento","Muerte");
-		Autor a3 = new Autor("Garcilaso","URL","Nacimiento","Muerte");
-		Autor a4 = new Autor("Cervantes","URL","Nacimiento","Muerte");
+		Autor a1 = new Autor("Shakespeare");
+		Autor a2 = new Autor("Vargas Llosa");
+		Autor a3 = new Autor("Garcilaso");
+		Autor a4 = new Autor("Cervantes");
 
 		Obra o1 = new Obra("Hamlet", "url foto", "fecha", "editorial", "url editorial");
 		Obra o2 = new Obra("Romeo y Julieta", "url foto", "fecha", "editorial", "url editorial");
