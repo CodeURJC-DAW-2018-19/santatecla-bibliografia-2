@@ -2,7 +2,7 @@
 
   
        {{>Header}}
- 	
+
         <div class="content">
             <!-- Data Container -->
             <div class="container-fluid">
@@ -19,8 +19,8 @@
                             <div class="card-body">
 
                                 <!--Form-->
-                                
-                                <form action= "/obra/new" method="post">
+                               
+                                <form action= "guardada" method="post">
 
                                     <!--Input title-->
                                     <div class="row">
@@ -87,9 +87,10 @@
                                         </div>
                                     </div>
                                     <!-- <a href="/" class="button" class="btn btn-primary" >Guardar</a>-->
-									<!--  <button type="button" href="../../" class="btn btn-primary">Guardar</button>-->
-									<input type='submit' value='Enviar'href="/"  />
-                                </form>
+									<button type='submit' class="btn btn-primary" >Guardar</button>
+									<!-- <input type='submit' value='Enviar' />-->
+									<input type="hidden" name="_csrf" value="{{token}}"/>
+								</form>
                                <!--End Form-->
                                 
                             </div>
