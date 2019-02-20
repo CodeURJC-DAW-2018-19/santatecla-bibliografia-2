@@ -15,7 +15,7 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@OneToMany(mappedBy = "tema")
+	@OneToMany
 	private List<Obra> obras;
 
 	private String contenido;
@@ -27,6 +27,10 @@ public class Tema {
 	public Tema(String contenido) {
 		super();
 		this.contenido = contenido;
+	}
+	
+	public void setObra(List<Obra> obras) {
+		this.obras = obras;
 	}
 
 	public long getId() {

@@ -25,23 +25,24 @@ import es.daw.bibliografia.user.UserRepository;
 @Component
 public class DatabaseInitializer {
 
-	@Autowired
 	private BookRepository bookRepository;
-
-	@Autowired
 	private UserRepository userRepository;
-
-	@Autowired
 	private AutorRepository autorRepository;
-
-	@Autowired
 	private CitaRepository citaRepository;
-
-	@Autowired
 	private ObraRepository obraRepository;
+	private TemaRepository temaRepository;
 
 	@Autowired
-	private TemaRepository temaRepository;
+	public DatabaseInitializer(BookRepository bookRepository, UserRepository userRepository,
+			AutorRepository autorRepository, CitaRepository citaRepository, ObraRepository obraRepository,
+			TemaRepository temaRepository) {
+		this.bookRepository = bookRepository;
+		this.userRepository = userRepository;
+		this.autorRepository = autorRepository;
+		this.citaRepository = citaRepository;
+		this.obraRepository = obraRepository;
+		this.temaRepository = temaRepository;
+	}
 
 	@PostConstruct
 	public void init() {
@@ -63,13 +64,11 @@ public class DatabaseInitializer {
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_J%C3%A1uregui.jpg/330px-Cervantes_J%C3%A1uregui.jpg", 
 				"http://www.turismoalcala.es/wp-content/uploads/2013/08/visitasguiadas-responsive.jpg", 
 				"​29 de septiembre de 1547", "22 de abril de 1616", "Alcalá de Henares");
-
-		Obra o1 = new Obra("Hamlet", "url foto", "fecha", "editorial", "url editorial");
-		Obra o2 = new Obra("Romeo y Julieta", "url foto", "fecha", "editorial", "url editorial");
-		Obra o3 = new Obra("Enrique 4", "url foto", "fecha", "editorial", "url editorial");
-		Obra o4 = new Obra("La ciudad y los perros", "url foto", "fecha", "editorial", "url editorial");
-		Obra o5 = new Obra("Don Quijote", "url foto", "fecha", "editorial", "url editorial");
-		Obra o6 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
+		
+		autorRepository.save(a1);
+		autorRepository.save(a2);
+		autorRepository.save(a3);
+		autorRepository.save(a4);
 
 		Cita c1 = new Cita("Cita Hamlet");
 		Cita c2 = new Cita("Cita Romeo y Julieta");
@@ -77,14 +76,104 @@ public class DatabaseInitializer {
 		Cita c4 = new Cita("Cita La ciudad y los perros");
 		Cita c5 = new Cita("Cita Don Quijote");
 		Cita c6 = new Cita("Cita Poesias castellanas");
+		
+		citaRepository.save(c1);
+		citaRepository.save(c2);
+		citaRepository.save(c3);
+		citaRepository.save(c4);
+		citaRepository.save(c5);
+		citaRepository.save(c6);
+		
+		Obra o1 = new Obra("Hamlet", "url foto", "fecha", "editorial", "url editorial");
+		Obra o2 = new Obra("Romeo y Julieta", "url foto", "fecha", "editorial", "url editorial");
+		Obra o3 = new Obra("Enrique 4", "url foto", "fecha", "editorial", "url editorial");
+		Obra o4 = new Obra("La ciudad y los perros", "url foto", "fecha", "editorial", "url editorial");
+		Obra o5 = new Obra("Don Quijote", "url foto", "fecha", "editorial", "url editorial");
+		Obra o6 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
 
+		List<Cita> citas1 = new ArrayList<>();
+		citas1.add(c1);
+		o1.setCitas(citas1);
+		
+		List<Cita> citas2 = new ArrayList<>();
+		citas2.add(c2);
+		o2.setCitas(citas2);
+		
+		List<Cita> citas3 = new ArrayList<>();
+		citas3.add(c3);
+		o3.setCitas(citas3);
+		
+		List<Cita> citas4 = new ArrayList<>();
+		citas4.add(c4);
+		o4.setCitas(citas4);
+		
+		List<Cita> citas5 = new ArrayList<>();
+		citas5.add(c5);
+		o5.setCitas(citas5);
+		
+		List<Cita> citas6 = new ArrayList<>();
+		citas6.add(c6);
+		o6.setCitas(citas6);
+	
+		
+		List<Autor> autores1 = new ArrayList<>();
+		autores1.add(a1);
+		o1.setAutores(autores1);
+		o2.setAutores(autores1);
+		o3.setAutores(autores1);
+		
+		List<Autor> autores2 = new ArrayList<>();
+		autores2.add(a2);
+		o4.setAutores(autores2);
+				
+		List<Autor> autores3 = new ArrayList<>();
+		autores3.add(a3);
+		o5.setAutores(autores3);
+		
+		List<Autor> autores4 = new ArrayList<>();
+		autores4.add(a4);
+		o6.setAutores(autores4);
+
+		obraRepository.save(o1);
+		obraRepository.save(o2);
+		obraRepository.save(o3);
+		obraRepository.save(o4);
+		obraRepository.save(o5);
+		obraRepository.save(o6);
+		
+		
 		Tema t1 = new Tema("Tema Hamlet");
 		Tema t2 = new Tema("Tema Romeo y Julieta");
 		Tema t3 = new Tema("Tema Enrique 4");
 		Tema t4 = new Tema("Tema La ciudad y los perros");
 		Tema t5 = new Tema("Tema Don Quijote");
 		Tema t6 = new Tema("Tema Poesias castellanas");
-
+		
+		
+		List<Obra> obras1 = new ArrayList<>();
+		obras1.add(o1);
+		t1.setObra(obras1);
+		
+		List<Obra> obras2 = new ArrayList<>();
+		obras2.add(o2);
+		t2.setObra(obras2);
+		
+		List<Obra> obras3 = new ArrayList<>();
+		obras3.add(o3);
+		t3.setObra(obras3);
+		
+		List<Obra> obras4 = new ArrayList<>();
+		obras4.add(o4);
+		t4.setObra(obras4);
+		
+		List<Obra> obras5 = new ArrayList<>();
+		obras5.add(o5);
+		t5.setObra(obras5);
+		
+		List<Obra> obras6 = new ArrayList<>();
+		obras6.add(o6);
+		t6.setObra(obras6);
+		
 		temaRepository.save(t1);
 		temaRepository.save(t2);
 		temaRepository.save(t3);
@@ -92,57 +181,7 @@ public class DatabaseInitializer {
 		temaRepository.save(t5);
 		temaRepository.save(t6);
 
-		o1.setTema(t1);
-		obraRepository.save(o1);
-		o2.setTema(t2);
-		obraRepository.save(o2);
-		o3.setTema(t3);
-		obraRepository.save(o3);
-		o4.setTema(t4);
-		obraRepository.save(o4);
-		o5.setTema(t5);
-		obraRepository.save(o5);
-		o6.setTema(t6);
-		obraRepository.save(o6);
 
-		c1.setObra(o1);
-		c2.setObra(o2);
-		c3.setObra(o3);
-		c4.setObra(o4);
-		c5.setObra(o5);
-		c6.setObra(o6);
-
-		citaRepository.save(c1);
-		citaRepository.save(c2);
-		citaRepository.save(c3);
-		citaRepository.save(c4);
-		citaRepository.save(c5);
-		citaRepository.save(c6);
-
-		List<Obra> obras1 = new ArrayList<>();
-		obras1.add(o1);
-		obras1.add(o2);
-		obras1.add(o3);
-		a1.setObras(obras1);
-		
-		List<Obra> obras2 = new ArrayList<>();
-		obras2.add(o4);
-		a2.setObras(obras2);
-		
-		List<Obra> obras3 = new ArrayList<>();
-		obras3.add(o5);
-		a3.setObras(obras2);
-		
-		List<Obra> obras4 = new ArrayList<>();
-		obras4.add(o6);
-		a4.setObras(obras4);
-
-
-
-		autorRepository.save(a1);
-		autorRepository.save(a2);
-		autorRepository.save(a3);
-		autorRepository.save(a4);
 
 		userRepository.save(new User("user", "pass", "ROLE_USER"));
 		userRepository.save(new User("admin", "pass", "ROLE_USER", "ROLE_ADMIN"));

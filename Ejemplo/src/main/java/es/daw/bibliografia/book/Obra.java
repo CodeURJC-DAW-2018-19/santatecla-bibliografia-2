@@ -20,9 +20,6 @@ public class Obra {
 	@OneToMany
 	private List<Cita> citas;
 
-	@ManyToOne
-	private Tema tema;
-
 	@ManyToMany
 	private List<Autor> autores;
 
@@ -89,8 +86,14 @@ public class Obra {
 		this.id = id;
 	}
 
-	public void setTema(Tema tema) {
-		this.tema = tema;
+	
+	public void setAutores(List<Autor> autores) {
+		this.autores = autores;
 	}
+	
+	public void setCitas(List<Cita> citas) {
+		this.citas = citas;
+	}
+
 
 }

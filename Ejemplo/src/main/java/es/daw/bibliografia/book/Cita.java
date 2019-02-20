@@ -13,9 +13,6 @@ public class Cita {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@ManyToOne
-	private Obra obra;
-
 	private String contenido;
 
 	public Cita() {
@@ -31,9 +28,6 @@ public class Cita {
 		return this.contenido;
 	}
 
-	public void setObra(Obra obra) {
-		this.obra = obra;
-	}
 
 	public long getId() {
 		return id;
