@@ -20,6 +20,7 @@ import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
+import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
 
 @Controller
@@ -49,6 +50,18 @@ public class BookWebController {
 			model.addAttribute("userName", userComponent.getLoggedUser().getName());
 		}
 	}
+	
+	private void userTabs(Model model) {
+		if (this.userComponent.isLoggedUser()) {
+			Tabs tab = new Tabs("https://localhost:8443/autor/1/", false);
+			this.userComponent.getLoggedUser().addTab(tab);
+			this.userComponent.getLoggedUser().addTab(tab);
+			System.out.println();
+			System.out.println(" tamano tabs" + this.userComponent.getLoggedUser().getTabs().size());
+			System.out.println();
+			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
+		}
+	}
 
 	@GetMapping("/")
 	public String showBooks(Model model) {
@@ -58,7 +71,8 @@ public class BookWebController {
 		model.addAttribute("autores", serviceAutor.findAll());
 		
 		//AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE PASARLE
-
+		System.out.println("fdsfs");
+		userTabs(model);
 		Optional<Obra> o = serviceObra.findOneByTitle("Hamlet");
 		if (o.isPresent()) {
 			System.out.println(o.get().getTitle());
@@ -68,7 +82,7 @@ public class BookWebController {
 			System.out.println(t.get().getContenido());
 		}
 		//model.addAttribute("autorSearch", a1.get().getNombre());
-		
+		 
 		return "Index";
 	}
 
