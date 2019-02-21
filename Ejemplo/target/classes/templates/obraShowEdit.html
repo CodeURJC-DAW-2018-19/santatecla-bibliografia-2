@@ -20,14 +20,13 @@
 
                                 <!--Form-->
                                
-                                <form action= "guardada" method="post">
+                                <form action= "editada" method="post">
 
                                     <!--Input title-->
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Titulo de la Obra</label>
-                                                
+                                                <label class="bmd-label-floating">Titulo de la Obra ({{title}}))</label>
                                                 <input type='text' class="form-control" name='title'/>
                                             </div>
                                         </div>
@@ -37,7 +36,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">URL Portada</label>
+                                                <label class="bmd-label-floating">{{URL}}</label>
                                                 <input type='text' class="form-control" name='URL'/>
                                             </div>
                                         </div>
@@ -53,11 +52,8 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-11">
                                             <div class="form-group">
-                                            	<input type='text' class="form-control" name='date'/>
-                                                <!--  <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="from" placeholder=" Elige una fecha " />
-                                                    
-                                                </div>-->
+                                            	<label class="bmd-label-floating">{{date}}</label>
+                                                <input type='text' class="form-control" name='date'/>
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +63,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Editorial</label>
+                                                <label class="bmd-label-floating">{{editorial}}</label>
                                                 <input type='text' class="form-control" name='editorial'/>
                                             </div>
                                         </div>
@@ -77,12 +73,12 @@
                                     <div class="row" style="padding-bottom: 2.5em;">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">URL Editorial</label>
+                                                <label class="bmd-label-floating">{{url_editorial}}</label>
                                                 <input type='text' class="form-control" name='url_editorial'/>
                                             </div>
                                         </div>
                                     </div>
-									<button type='submit' class="btn btn-primary" >Guardar</button>
+								    <button type='submit' class="btn btn-primary" >Guardar</button>
 									<input type="hidden" name="_csrf" value="{{token}}"/>
 								</form>
                                <!--End Form-->
