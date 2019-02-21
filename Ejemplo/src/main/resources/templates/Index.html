@@ -121,7 +121,8 @@
                             </div>
                             <div class="card-body">
                                 <!-- Search bar-->
-                                <form class="navbar-form">
+                                <!--  <form class="navbar-form" action="autor/{{id}}" method="post">-->
+                                <form action="autor/{{id}}" method="get">
                                     <div class="input-group no-border">
                                         <input type="text" value="" class="form-control" placeholder="Buscar Autor..." name="authorName">
                                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
@@ -129,6 +130,7 @@
                                             <div class="ripple-container"></div>
                                         </button>
                                     </div>
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                 </form>
                                 <!-- End Search bar-->
                                 <div class="row">
