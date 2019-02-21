@@ -15,6 +15,7 @@ import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Book;
 import es.daw.bibliografia.book.BookService;
+import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
@@ -32,6 +33,9 @@ public class BookWebController {
 
 	@Autowired
 	private AutorService serviceAutor;
+	
+	@Autowired
+	private CitaService serviceCita;
 
 	@Autowired
 	private UserComponent userComponent;
@@ -68,17 +72,30 @@ public class BookWebController {
 		return "Index";
 	}
 
-//	@GetMapping("/books/{id}")
-//	public String showBook(Model model, @PathVariable long id) {
-//		
-//		Optional<Book> book = service.findOne(id);
-//
-//		if(book.isPresent()) {
-//			model.addAttribute("book", book.get());
-//		}
-//
-//		return "book";
-//	}
+	@GetMapping("/autor/show")
+	public String showBook(Model model, String nombreAutor) {
+		
+		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
+
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("citas", serviceCita.findAll());
+		
+		addUserToModel(model);
+		
+		if(autor.isPresent()) {
+			
+			model.addAttribute("nombreAutor", autor.get().getNombre());
+			model.addAttribute("urlFotoAutor", autor.get().getUrl_foto());
+			model.addAttribute("nacimientoAutor", autor.get().getFecha_nac());
+			model.addAttribute("muerteAutor", autor.get().getFecha_def());
+			model.addAttribute("urlMapa", autor.get().getUrl_mapa());		
+			model.addAttribute("lugarAutor", autor.get().getLugar());
+			return "autor"; 
+		}else {
+			return "autorError"; 
+		}		
+	}
 //	
 //	@GetMapping("/newBook")
 //	public String newBook(Model model) {
