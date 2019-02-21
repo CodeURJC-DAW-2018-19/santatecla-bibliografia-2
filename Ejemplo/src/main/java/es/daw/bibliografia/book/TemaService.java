@@ -27,5 +27,9 @@ public class TemaService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
+	
+	public Tema findByObra(Obra obra) {
+		return repository.findByObras(obra);
+	}
 
 }

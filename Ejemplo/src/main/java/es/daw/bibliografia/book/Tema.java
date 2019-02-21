@@ -32,6 +32,10 @@ public class Tema {
 	public void setObra(List<Obra> obras) {
 		this.obras = obras;
 	}
+	
+	public List<Obra> getObras(){
+		return this.obras;
+	}
 
 	public long getId() {
 		return id;

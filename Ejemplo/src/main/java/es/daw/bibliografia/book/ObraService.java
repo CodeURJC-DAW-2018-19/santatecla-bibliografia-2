@@ -23,6 +23,10 @@ public class ObraService {
 	public List<Obra> findByAuthor(Autor author) {
 		return repository.findByAutores(author);
 	}
+	
+	public List<Obra> findByCita(Cita cita) {
+		return repository.findByCitas(cita);
+	}
 
 	public void save(Obra obra) {
 		repository.save(obra);

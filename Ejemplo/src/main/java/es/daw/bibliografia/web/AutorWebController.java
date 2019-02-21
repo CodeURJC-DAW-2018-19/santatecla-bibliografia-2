@@ -2,8 +2,11 @@ package es.daw.bibliografia.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.BookService;
+import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
+import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -55,17 +60,23 @@ public class AutorWebController {
 	
 	@GetMapping("/autor/{id}")
 	public String showBook(Model model, @PathVariable long id) {
-		Optional<Autor> autor = autorService.findOne(id);
-		
-		model.addAttribute("obras", obraService.findAll());
-		model.addAttribute("temas", temaService.findAll());
-		model.addAttribute("citas", citaService.findAll());
-		
+		Optional<Autor> autor = autorService.findOne(id);	
 		webController.addUserToModel(model);
 		
 		if(autor.isPresent()) {
 			List<Obra> obras = obraService.findByAuthor(autor.get());
-			System.out.println(obras.size());
+			List<Tema> temas = new ArrayList<>();
+			List<Cita> citas = new ArrayList<>();
+			for(int i=0; i<obras.size(); i++) {
+				temas.add(temaService.findByObra(obras.get(i)));
+				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream())
+                        .collect(Collectors.toList());
+				//temaService.findByObra(obras.get(i))
+				//System.out.println(obras.get(i).getTitle());
+			}
+			model.addAttribute("obras", obras);
+			model.addAttribute("temas", temas);
+			model.addAttribute("citas", citas);
 			
 			model.addAttribute("nombreAutor", autor.get().getNombre());
 			model.addAttribute("urlFotoAutor", autor.get().getUrl_foto());

@@ -94,6 +94,13 @@ public class Obra {
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
-
+	
+	public List<Cita> getCitas(){
+		return this.citas;
+	}
+	
+	public List<Autor> getAutores(){
+		return this.autores;
+	}
 
 }
