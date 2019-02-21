@@ -20,6 +20,10 @@ public class ObraService {
 		return repository.findAll();
 	}
 	
+	public Optional<Obra> findOneByTitle(String title) {
+		return repository.findOneByTitle(title);
+	}
+	
 	public List<Obra> findByAuthor(Autor author) {
 		return repository.findByAutores(author);
 	}

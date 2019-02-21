@@ -14,6 +14,10 @@ public class AutorService {
 	public Optional<Autor> findOne(long id) {
 		return repository.findById(id);
 	}
+	
+	public Optional<Autor> findOneByNombre(String nombre) {
+		return repository.findOneByNombre(nombre);
+	}
 
 	public List<Autor> findAll() {
 		return repository.findAll();

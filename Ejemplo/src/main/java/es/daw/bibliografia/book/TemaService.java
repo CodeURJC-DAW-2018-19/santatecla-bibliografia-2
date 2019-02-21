@@ -19,6 +19,11 @@ public class TemaService {
 	public List<Tema> findAll() {
 		return repository.findAll();
 	}
+	
+
+	public Optional<Tema> findOneByContenido(String contenido) {
+		return repository.findOneByContenido(contenido);
+	}
 
 	public void save(Tema tema) {
 		repository.save(tema);

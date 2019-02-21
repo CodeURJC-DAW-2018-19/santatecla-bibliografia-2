@@ -29,6 +29,14 @@ public class Cita {
 	}
 
 
+	public String getContenido() {
+		return contenido;
+	}
+
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
+	}
+
 	public long getId() {
 		return id;
 	}

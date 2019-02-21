@@ -57,11 +57,24 @@ public class AutorWebController {
 	 * model.addAttribute("temas", temaService.findAll());
 	 * model.addAttribute("citas", citaService.findAll()); return "autor"; }
 	 */
-	
+
 	@GetMapping("/autor/{id}")
 	public String showBook(Model model, @PathVariable long id) {
 		Optional<Autor> autor = autorService.findOne(id);	
 		webController.addUserToModel(model);
+		
+		/*
+		 * Optional<Autor> a1 = autorService.findOneByNombre("William Shakespeare"); if
+		 * (a1.isPresent()) { System.out.println(a1.get().getNombre()); }
+		 */
+		/*
+		 * Optional<Obra> o = obraService.findOneByTitle("Hamlet"); if (o.isPresent()) {
+		 * System.out.println(o.get().getTitle()); } Optional<Cita> c =
+		 * citaService.findOneByContenido("Cita Hamlet"); if (c.isPresent()) {
+		 * System.out.println(c.get().getContenido()); } Optional<Tema> t =
+		 * temaService.findOneByContenido("Tema Hamlet"); if (t.isPresent()) {
+		 * System.out.println(t.get().getContenido()); }
+		 */
 		
 		if(autor.isPresent()) {
 			List<Obra> obras = obraService.findByAuthor(autor.get());

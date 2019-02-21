@@ -29,6 +29,14 @@ public class Tema {
 		this.contenido = contenido;
 	}
 	
+	public String getContenido() {
+		return contenido;
+	}
+
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
+	}
+
 	public void setObra(List<Obra> obras) {
 		this.obras = obras;
 	}

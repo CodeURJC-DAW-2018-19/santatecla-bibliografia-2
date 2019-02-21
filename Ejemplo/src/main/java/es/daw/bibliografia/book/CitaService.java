@@ -19,6 +19,10 @@ public class CitaService {
 	public List<Cita> findAll() {
 		return repository.findAll();
 	}
+	
+	public Optional<Cita> findOneByContenido(String contenido) {
+		return repository.findOneByContenido(contenido);
+	}
 
 	public void save(Cita cita) {
 		repository.save(cita);
