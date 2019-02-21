@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Book;
 import es.daw.bibliografia.book.BookService;
+import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
+import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -48,7 +52,19 @@ public class BookWebController {
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
+		
+		//AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE PASARLE
 
+		Optional<Obra> o = serviceObra.findOneByTitle("Hamlet");
+		if (o.isPresent()) {
+			System.out.println(o.get().getTitle());
+		}
+		Optional<Tema> t = serviceTema.findOneByContenido("Tema Hamlet");
+		if (t.isPresent()) {
+			System.out.println(t.get().getContenido());
+		}
+		//model.addAttribute("autorSearch", a1.get().getNombre());
+		
 		return "Index";
 	}
 
@@ -102,7 +118,7 @@ public class BookWebController {
 		model.addAttribute("hideLogin", true);
 		return "login";
 	}
-	
+
 	@GetMapping("/loginerror")
 	public String loginError() {
 		return "loginerror";
