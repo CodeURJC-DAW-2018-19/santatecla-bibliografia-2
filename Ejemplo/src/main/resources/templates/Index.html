@@ -111,20 +111,19 @@
                         </div>
                     </div>
                     <!-- End Quote-->
-                                        <!-- Start Author-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                   <!-- Start Author-->
+                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
                         <div class="card" style="height:auto">
-                            <div class="card-header  card-header-primary">
+                            <div class="card-header   card-header-primary">
 
                                 <h4 class="card-title text-center">Autores</h4>
 
                             </div>
                             <div class="card-body">
                                 <!-- Search bar-->
-                                <!--  <form class="navbar-form" action="autor/{{id}}" method="post">-->
-                                <form action="autor/{{id}}" method="get">
+                                <form class="navbar-form" action="/" method="post">
                                     <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Autor..." name="authorName">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
                                         <button type="submit" class="btn btn-white btn-round btn-just-icon">
                                             <i class="material-icons">search</i>
                                             <div class="ripple-container"></div>
@@ -143,7 +142,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Author 1 Content -->
+                                                <!-- Quote 1 Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
                                                         <p> {{nombre}}</p>
@@ -160,10 +159,9 @@
                                         </div>
                                     </div>
                                     {{/autores}}
-
                                 </div>
 {{#logged}}
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+                                <form action="obra/new" method="get"><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
 {{/logged}}
                             </div>
                         </div>
