@@ -33,8 +33,8 @@ public class ObraController {
 	@Autowired
 	private BookWebController webController;
 	
-	@RequestMapping("/obra/guardada")
-	public String añadirObra(Model model, Obra obra) {
+	@RequestMapping("/obra/guardada") 
+	public String addObra(Model model, Obra obra) {
 		service.save(obra);
 		
 		webController.addUserToModel(model);
@@ -42,8 +42,8 @@ public class ObraController {
 		return webController.showBooks(model); 
 	}
 	
-	@RequestMapping("/obra/new")
-	public String irObra(Model model) {
+	@RequestMapping("/obra/new")//PUT IN BOOKWEEBCONTROLER
+	public String goObra(Model model) {
 		
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", service.findAll());
@@ -53,14 +53,16 @@ public class ObraController {
 		
 		return "obra";
 	}
-	@GetMapping ("/obra/{id}")
-	public String abrirObra(Model model, @PathVariable long id) {
+	@GetMapping ("/obra/{id}")//PUT IN BOOKWEEBCONTROLER
+	public String openObra(Model model, @PathVariable long id) {
 		
 		Optional<Obra> obra= service.findOne(id);
 		
 		model.addAttribute("autores", serviceAutor.findAll());
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("citas", serviceCita.findAll());
+		
+		webController.addUserToModel(model);
 		
 		if(obra.isPresent()) {
 			
@@ -73,5 +75,22 @@ public class ObraController {
 		}else {
 			return "obraShowError"; 
 		}		
+	}
+	
+	@RequestMapping("obra/editada") 
+	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL, @PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
+		Optional<Obra> obra= service.findOne(id);
+		webController.addUserToModel(model);
+		if(obra.get().getTitle()!=null)
+			model.addAttribute("title", title);
+		if(obra.get().getURL()!=null)
+			model.addAttribute("URL", URL);
+		if(obra.get().getDate()!=null)
+			model.addAttribute("date", date);
+		if(obra.get().getEditorial()!=null)
+			model.addAttribute("editorial", editorial);
+		if(obra.get().getUrl_editorial()!=null)
+			model.addAttribute("url_editorial", url_editorial);
+		return "obra"; 
 	}
 }

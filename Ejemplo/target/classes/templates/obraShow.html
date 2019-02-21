@@ -55,9 +55,7 @@
                                         <div class="col-md-1"></div>
                                         <div class="col-md-11">
                                             <div class="form-group">
-                                            	<div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="from" placeholder="{{date}}" />
-                                                </div>
+                                            	<label class="bmd-label-floating">{{date}}</label>
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +82,7 @@
                                             </div>
                                         </div>
                                     </div>
-								    <button type='submit' class="btn btn-primary" >Editar</button>
+								    <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>
 									<input type="hidden" name="_csrf" value="{{token}}"/>
 								</form>
                                <!--End Form-->
