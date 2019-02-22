@@ -51,7 +51,6 @@ public class BookWebController {
 			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
 			model.addAttribute("userName", userComponent.getLoggedUser().getName());
 			
-			userTabs(model, "/", "Inicio", true);
 
 		}
 	}
@@ -83,6 +82,8 @@ public class BookWebController {
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
+		
+		model.addAttribute("start", true);
 
 		// AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE
 		// PASARLE
