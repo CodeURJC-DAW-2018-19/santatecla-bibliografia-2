@@ -17,22 +17,27 @@
 								<aside class="textarea">
 									<div class="card-body">
 										<div class="row">
-										{{#quotes}}
+										
 											<div class="col-md-12">
 												<div class="card">
 
 													<div class="card-header-rose">
-														<h4 class="card-title">{{obra.autores}}</h4>
-														<span class="category">{{obra.title}}</span>
+													{{#autores}}
+														<h4 class="card-title">{{nombre}}</h4>
+														{{/autores}}
+														{{#obras}}
+														<span class="category">{{title	}}</span>
+														{{/obras}}
 													</div>
+													{{#citas}}
 													<div class="card-body">{{contenido}}</div>
+													{{/citas}}
 													<button type="button" rel="tooltip" title="Remove"
 														class="btn btn-danger btn-link btn-sm">
 														<i class="material-icons">close</i>
 													</button>
 												</div>
 											</div>
-										{{/quotes}}
 										</div>
 
 
@@ -134,7 +139,7 @@
 							<div class="card-body">
 
 								<div class="row">
-								{{#authors}}
+								{{#autores}}
 									<div class="col-sm-6">
 										<div class="card">
 											<div
@@ -153,7 +158,7 @@
 											</div>
 										</div>
 									</div>
-									{{/authors}}
+									{{/autores}}
 								</div>
 
 
