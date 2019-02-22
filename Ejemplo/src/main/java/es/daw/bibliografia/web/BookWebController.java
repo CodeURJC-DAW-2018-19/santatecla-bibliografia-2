@@ -36,7 +36,7 @@ public class BookWebController {
 
 	@Autowired
 	private AutorService serviceAutor;
-	
+
 	@Autowired
 	private CitaService serviceCita;
 
@@ -50,19 +50,31 @@ public class BookWebController {
 		if (logged) {
 			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
 			model.addAttribute("userName", userComponent.getLoggedUser().getName());
+			
+			userTabs(model, "/", "Inicio", true);
+
 		}
 	}
-	
-	private void userTabs(Model model) {
-		if (this.userComponent.isLoggedUser()) {
-			Tabs tab = new Tabs("https://localhost:8443/autor/1/", false);
-			this.userComponent.getLoggedUser().addTab(tab);
-			this.userComponent.getLoggedUser().addTab(tab);
-			System.out.println();
-			System.out.println(" tamano tabs" + this.userComponent.getLoggedUser().getTabs().size());
-			System.out.println();
-			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
+
+	private void userTabs(Model model, String url, String name, boolean active) {
+		Tabs tab = new Tabs(url, name, active);
+		
+		if (!sameTab(tab)) {
+			if (this.userComponent.isLoggedUser()) {
+				this.userComponent.getLoggedUser().addTab(tab);
+				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
+			}
 		}
+	}
+
+	public boolean sameTab(Tabs tab) {
+		for (int i = 0; i < this.userComponent.getLoggedUser().getTabs().size(); i++) {
+			if (this.userComponent.getLoggedUser().getTabs().get(i).getName().equalsIgnoreCase(tab.getName())
+					&& this.userComponent.getLoggedUser().getTabs().get(i).getUrl().equalsIgnoreCase(tab.getUrl())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@GetMapping("/")
@@ -71,10 +83,10 @@ public class BookWebController {
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
-		
-		//AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE PASARLE
-		System.out.println("fdsfs");
-		userTabs(model);
+
+		// AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE
+		// PASARLE
+
 		Optional<Obra> o = serviceObra.findOneByTitle("Hamlet");
 		if (o.isPresent()) {
 			System.out.println(o.get().getTitle());
@@ -83,35 +95,36 @@ public class BookWebController {
 		if (t.isPresent()) {
 			System.out.println(t.get().getContenido());
 		}
-		//model.addAttribute("autorSearch", a1.get().getNombre());
-		 
+		// model.addAttribute("autorSearch", a1.get().getNombre());
+
 		return "Index";
 	}
 
 	@RequestMapping(value = "/autor/{nombreAutor}", method = RequestMethod.POST)
 	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
-		
+
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("citas", serviceCita.findAll());
-		
+
 		addUserToModel(model);
-		
-		if(autor.isPresent()) {
-			
+
+		if (autor.isPresent()) {
+
 			model.addAttribute("nombreAutor", autor.get().getNombre());
 			model.addAttribute("urlFotoAutor", autor.get().getUrl_foto());
 			model.addAttribute("nacimientoAutor", autor.get().getFecha_nac());
 			model.addAttribute("muerteAutor", autor.get().getFecha_def());
-			model.addAttribute("urlMapa", autor.get().getUrl_mapa());		
+			model.addAttribute("urlMapa", autor.get().getUrl_mapa());
 			model.addAttribute("lugarAutor", autor.get().getLugar());
-			return "autor"; 
-		}else {
-			return "autorError"; 
-		}		
+			return "autor";
+		} else {
+			return "autorError";
+		}
 	}
+<<<<<<< refs/remotes/origin/master
 	
 	@RequestMapping (value = "/obra/{nombreObra}", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
@@ -148,6 +161,9 @@ public class BookWebController {
 		
 		return "obra";
 	}
+=======
+
+>>>>>>> tabs structure improved
 //	
 //	@GetMapping("/newBook")
 //	public String newBook(Model model) {

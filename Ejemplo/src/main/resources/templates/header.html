@@ -36,22 +36,23 @@
 	<nav class="navbar navbar-expand-lg bg-primary">
 		<div class="col-md-9">
 			<ul class="nav nav-tabs " data-tabs="tabs">
-				<div class="activeTab">
-					<li class="nav-item disabled"><a class="nav-link"
-						href="./inicio.html" role="tab" data-toggle="tab"> <i
-							class="material-icons">dashboard</i> Inicio<span class="sr-only">(current)</span>
-					</a></li>
-				</div>
 				{{#tabs}}
-					<li class="nav-item disabled"><a class="nav-link"
-						href="./inicio.html" role="tab" data-toggle="tab"> <i
-							class="material-icons">dashboard</i> Inicio<span class="sr-only">(current)</span>
+				<div class="activeTab">
+					<li class="nav-item  disabled"><a class="nav-link"
+						href={{url}} role="tab" data-toggle="tab"> <i
+							class="material-icons">dashboard</i> {{name}}<span
+							class="sr-only">(current)</span>
 					</a></li>
-				{{/tabs}}
 				</div>
-				
+				<div class="activeTab">
+					<li class="nav-item"><a class="nav-link" href=""> <i
+							class="material-icons">close</i>
+					</a></li>
+				</div>
+				{{/tabs}}
 			</ul>
 		</div>
+		<!-- End Navbar -->
 
 		<div class="col-md-3">
 			{{^hideLogin}}
@@ -96,15 +97,17 @@
 
 												<div class="form-group">
 													<div class="input-group-text">
-														<i class="material-icons">lock_outline</i> <input type="password"
-															class="form-control" placeholder="Password">
+														<i class="material-icons">lock_outline</i> <input
+															type="password" class="form-control"
+															placeholder="Password">
 													</div>
 												</div>
 
 												<div class="form-group">
 													<div class="input-group-text">
-														<i class="material-icons">lock_outline</i> <input type="password"
-															class="form-control" placeholder="Repeat Password">
+														<i class="material-icons">lock_outline</i> <input
+															type="password" class="form-control"
+															placeholder="Repeat Password">
 													</div>
 												</div>
 
