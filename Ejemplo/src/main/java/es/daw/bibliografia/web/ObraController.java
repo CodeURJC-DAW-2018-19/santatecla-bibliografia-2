@@ -111,6 +111,10 @@ public class ObraController {
 		}
 	}
 	
+	public void deleteTab(String url) {
+		this.userComponent.getLoggedUser().deleteTabByUrl(url);
+	}
+	
 	public void updateActiveTabs(boolean active) {
 		if (active==true) {
 			this.userComponent.getLoggedUser().inactiveAllTabs();

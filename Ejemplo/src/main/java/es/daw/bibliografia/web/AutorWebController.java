@@ -73,6 +73,10 @@ public class AutorWebController {
 			this.userComponent.getLoggedUser().inactiveAllTabs();
 		}
 	}
+	
+	public void deleteTab(String url) {
+		this.userComponent.getLoggedUser().deleteTabByUrl(url);
+	}
 
 	public boolean sameTab(Tabs tab) {
 		for (int i = 0; i < this.userComponent.getLoggedUser().getTabs().size(); i++) {

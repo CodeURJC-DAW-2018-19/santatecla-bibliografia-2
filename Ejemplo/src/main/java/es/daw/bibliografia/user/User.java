@@ -72,6 +72,14 @@ public class User {
 		this.tabs.remove(tab);
 	}
 	
+	public void deleteTabByUrl(String url) {
+		for (int i=0; i<tabs.size(); i++) {
+			if (tabs.get(i).getUrl().equals(url)) {
+				this.tabs.remove(tabs.get(i));
+			}
+		}
+	}
+	
 	public void inactiveAllTabs() {
 		for (int i=0; i<tabs.size(); i++) {
 			this.tabs.get(i).inactiveTab();
