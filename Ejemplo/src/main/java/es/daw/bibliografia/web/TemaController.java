@@ -32,6 +32,8 @@ public class TemaController {
 
 	@RequestMapping("/tema")
 	public String accederTema(Model model) {
+		userTabs(model, "/tema", "Tema", true);
+		
 		model.addAttribute("quotes", quotes.findAll());
 		model.addAttribute("works", works.findAll());
 		model.addAttribute("authors", authors.findAll());

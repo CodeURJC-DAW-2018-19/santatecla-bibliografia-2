@@ -42,6 +42,7 @@ public class ObraController {
 
 	@RequestMapping("/obra/guardada")
 	public String addObra(Model model, Obra obra) {
+		userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.save(obra);
 
 		webController.addUserToModel(model);
@@ -128,7 +129,7 @@ public class ObraController {
 
 	@GetMapping("/obra/{id}") // PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable long id) {
-
+		userTabs(model, "/obra/{id}", (String) ("Obra " + id) , true);
 		Optional<Obra> obra = service.findOne(id);
 
 		model.addAttribute("autores", serviceAutor.findAll());
@@ -153,6 +154,9 @@ public class ObraController {
 	@RequestMapping("obra/editada")
 	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL,
 			@PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
+		
+		userTabs(model, "obra/editada", "Obra editada", true);
+		
 		Optional<Obra> obra = service.findOne(id);
 		webController.addUserToModel(model);
 		if (obra.get().getTitle() != null)
