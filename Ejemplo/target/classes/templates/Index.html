@@ -37,9 +37,9 @@
                                                 <p> {{contenido}}</p>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+{{#admin}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
+{{/admin}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,9 +47,9 @@
                                     </div>
 									{{/temas}}
                                 </div>
-{{#logged}}
+{{#admin}}
                                 <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
-{{/logged}}
+{{/admin}}
 
                             </div>
                         </div>
@@ -102,9 +102,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+{{#admin}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
+{{/admin}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,9 +112,9 @@
                                     </div>
                                     {{/obras}}
                                 </div>
-{{#logged}}
+{{#admin}}
                                 <form action="obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
-{{/logged}}
+{{/admin}}
                             </div>
                         </div>
                     </div>
@@ -165,9 +165,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+{{#admin}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
+{{/admin}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,9 +175,9 @@
                                     </div>
                                     {{/autores}}
                                 </div>
-{{#logged}}
+{{#admin}}
                                 <form action="obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
-{{/logged}}
+{{/admin}}
                             </div>
                         </div>
                     </div>
