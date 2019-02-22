@@ -36,22 +36,53 @@
 	<nav class="navbar navbar-expand-lg bg-primary">
 		<div class="col-md-9">
 			<ul class="nav nav-tabs " data-tabs="tabs">
-				{{#tabs}}
+
+				{{#start}}
 				<div class="activeTab">
-					<li class="nav-item  disabled"><a class="nav-link"
-						href={{url}} role="tab" data-toggle="tab"> <i
-							class="material-icons">dashboard</i> {{name}}<span
-							class="sr-only">(current)</span>
+					<li class="nav-item  disabled"><a class="nav-link" href=""
+						role="tab" data-toggle="tab"> <i class="material-icons">dashboard</i>
+							Inicio<span class="sr-only">(current)</span>
+					</a></li>
+				</div>
+				{{/start}} {{^start}}
+
+				<li class="nav-item  disabled"><a class="nav-link" href=""
+					role="tab" data-toggle="tab"> <i class="material-icons">dashboard</i>
+						Inicio<span class="sr-only">(current)</span>
+				</a></li> {{/start}} 
+				
+				{{#tabs}} 
+				{{#active}} 
+				<div class="activeTab">
+					<li class="nav-item  disabled"><a class="nav-link" href={{url}}
+					role="tab" data-toggle="tab"> <i class="material-icons">dashboard</i>
+						{{name}}<span class="sr-only">(current)</span>
 					</a></li>
 				</div>
 				<div class="activeTab">
 					<li class="nav-item"><a class="nav-link" href=""> <i
-							class="material-icons">close</i>
-					</a></li>
+						class="material-icons">close</i>
+					</a></li> 
 				</div>
+				{{/active}} 
+				
+				{{^active}}
+				<li class="nav-item  disabled"><a class="nav-link" href={{url}}
+					role="tab" data-toggle="tab"> <i class="material-icons">dashboard</i>
+						{{name}}<span class="sr-only">(current)</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link" href=""> <i
+						class="material-icons">close</i>
+				</a></li> 
+				{{/active}} 
+				
 				{{/tabs}}
+
 			</ul>
+
 		</div>
+
 		<!-- End Navbar -->
 
 		<div class="col-md-3">

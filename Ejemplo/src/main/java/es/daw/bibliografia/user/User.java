@@ -72,6 +72,12 @@ public class User {
 		this.tabs.remove(tab);
 	}
 	
+	public void inactiveAllTabs() {
+		for (int i=0; i<tabs.size(); i++) {
+			this.tabs.get(i).inactiveTab();
+		}
+	}
+	
 	public List<Tabs> getTabs(){
 		return this.tabs;
 	}

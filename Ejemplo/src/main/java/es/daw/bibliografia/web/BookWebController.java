@@ -51,7 +51,6 @@ public class BookWebController {
 			model.addAttribute("admin", userComponent.getLoggedUser().getRoles().contains("ROLE_ADMIN"));
 			model.addAttribute("userName", userComponent.getLoggedUser().getName());
 			
-			userTabs(model, "/", "Inicio", true);
 
 		}
 	}
@@ -60,10 +59,17 @@ public class BookWebController {
 		Tabs tab = new Tabs(url, name, active);
 		
 		if (!sameTab(tab)) {
+			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
 				this.userComponent.getLoggedUser().addTab(tab);
 				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 			}
+		}
+	}
+	
+	public void updateActiveTabs(boolean active) {
+		if (active==true) {
+			this.userComponent.getLoggedUser().inactiveAllTabs();
 		}
 	}
 
@@ -83,6 +89,8 @@ public class BookWebController {
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
+		
+		model.addAttribute("start", true);
 
 		// AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE
 		// PASARLE
