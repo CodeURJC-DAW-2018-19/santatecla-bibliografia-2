@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
@@ -43,8 +44,7 @@ public class ObraController {
 		return webController.showBooks(model); 
 	}
 	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping("/obra/new")//PUT IN BOOKWEEBCONTROLER
+	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 	public String goObra(Model model) {
 		
 		model.addAttribute("temas", serviceTema.findAll());

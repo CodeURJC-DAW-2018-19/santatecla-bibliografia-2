@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
@@ -86,8 +88,8 @@ public class BookWebController {
 		return "Index";
 	}
 
-	@GetMapping("/autor/show")
-	public String showBook(Model model, String nombreAutor) {
+	@RequestMapping(value = "/autor/{nombreAutor}", method = RequestMethod.POST)
+	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
 		
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
