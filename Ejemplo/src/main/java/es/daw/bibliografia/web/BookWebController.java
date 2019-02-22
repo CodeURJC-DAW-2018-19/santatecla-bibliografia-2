@@ -111,7 +111,7 @@ public class BookWebController {
 	@RequestMapping(value = "/autor/{nombreAutor}", method = RequestMethod.POST)
 	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
 		
-		userTabs(model, "/autor/{nombreAutor}", "Autor " + nombreAutor, true);
+		userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
 		
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
@@ -138,7 +138,7 @@ public class BookWebController {
 	@RequestMapping (value = "/obra/{nombreObra}", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
 		
-		userTabs(model, "/obra/{nombreObra}", "Obra  " + nombreObra, true);
+		userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
 		
 		Optional<Obra> obra= serviceObra.findOneByTitle(nombreObra);
 		

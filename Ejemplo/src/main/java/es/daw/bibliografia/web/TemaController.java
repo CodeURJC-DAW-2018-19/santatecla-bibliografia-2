@@ -47,6 +47,9 @@ public class TemaController {
 
 	@RequestMapping("/tema/{id}")
 	public String accederTema(Model model, @PathVariable long id) {
+		
+		userTabs(model, (String) ("/tema/" + id), (String) ("Tema " + id) , true);
+		
 		Optional <Tema> tema = temaService.findOne(id);
 		webController.addUserToModel(model);
 		

@@ -87,7 +87,7 @@ public class AutorWebController {
 	@GetMapping("/autor/{id}")
 	public String showBook(Model model, @PathVariable long id) {
 		
-		userTabs(model, "/autor/{id}", (String) ("Autor " + id) , true);
+		userTabs(model, (String) ("/autor/" + id), (String) ("Autor " + id) , true);
 		
 		Optional<Autor> autor = autorService.findOne(id);
 		webController.addUserToModel(model);

@@ -129,7 +129,7 @@ public class ObraController {
 
 	@GetMapping("/obra/{id}") // PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable long id) {
-		userTabs(model, "/obra/{id}", (String) ("Obra " + id) , true);
+		userTabs(model, (String) ("/obra/" + id), (String) ("Obra " + id) , true);
 		Optional<Obra> obra = service.findOne(id);
 
 		model.addAttribute("autores", serviceAutor.findAll());
