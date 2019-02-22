@@ -100,12 +100,19 @@ public class ObraController {
 
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
-		System.out.println(sameTab(tab));
+		
 		if (!sameTab(tab)) {
+			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
 				this.userComponent.getLoggedUser().addTab(tab);
 				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 			}
+		}
+	}
+	
+	public void updateActiveTabs(boolean active) {
+		if (active==true) {
+			this.userComponent.getLoggedUser().inactiveAllTabs();
 		}
 	}
 

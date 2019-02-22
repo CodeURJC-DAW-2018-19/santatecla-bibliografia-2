@@ -59,10 +59,17 @@ public class BookWebController {
 		Tabs tab = new Tabs(url, name, active);
 		
 		if (!sameTab(tab)) {
+			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
 				this.userComponent.getLoggedUser().addTab(tab);
 				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 			}
+		}
+	}
+	
+	public void updateActiveTabs(boolean active) {
+		if (active==true) {
+			this.userComponent.getLoggedUser().inactiveAllTabs();
 		}
 	}
 
