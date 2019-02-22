@@ -39,27 +39,6 @@
 												</div>
 											</div>
 										</div>
-
-
-										<div class="row">
-											<div class="col-md-12">
-												<div class="card">
-
-													<div class="card-header-rose">
-														<h4 class="card-title">Garcilaso de la Vega</h4>
-														<span class="category">Soneto XXIII</span>
-													</div>
-													<div class="card-body">"Coged de vuestra alegre
-														primavera el dulce fruto, antes que el tiempo airado cubra
-														de nieve la hermosa cumbre."</div>
-													<button type="button" rel="tooltip" title="Remove"
-														class="btn btn-danger btn-link btn-sm">
-														<i class="material-icons">close</i>
-													</button>
-												</div>
-											</div>
-										</div>
-
 									</div>
 								</aside>
 							</div>
@@ -103,7 +82,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                {{#works}}
+                                {{#obras}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
@@ -121,7 +100,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{/works}}
+                                    {{/obras}}
                                 </div>
                             </div>
                         </div>
@@ -160,42 +139,6 @@
 									</div>
 									{{/autores}}
 								</div>
-
-
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Federico García Lorca</h5>
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Author 3 Content -->
-												<p>(Fuente Vaqueros, Granada, 5 de junio de 1898-camino
-													de Víznar a Alfacar, Granada, 18 de agosto de 1936)</p>
-											</div>
-										</div>
-									</div>
-									
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Pablo Neruda</h5>
-
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Author 4 Content -->
-												<p>(Parral, 12 de julio de 1904-Santiago de Chile, 23 de
-													septiembre de 1973)</p>
-											</div>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -209,50 +152,28 @@
 							</div>
 							<div class="card-body">
 								<div class="row">
+								{{#citas}}
 									<div class="col-sm-6">
 										<div class="card">
 											<div
 												class="card-header  card-header-text card-header-primary">
 												<div class="card-text">
-													<h5 class="card-title ">Cita 1</h5>
+													<h5 class="card-title ">Cita {{-index}}</h5>
 												</div>
 											</div>
 											<div class="card-body table-responsive">
 												<!-- Quote 1 Content -->
 												<div class="row">
 													<div class="col-sm-12">
-														<p>"Coged de vuestra alegre primavera el dulce fruto,
-															antes que el tiempo airado cubra de nieve la hermosa
-															cumbre."</p>
+														<p>{{contenido}}</p>
 													</div>
 												</div>
 
 											</div>
 										</div>
 									</div>
+									{{/citas}}
 
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Cita 2</h5>
-
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Quote 2 Content -->
-												<div class="row">
-													<div class="col-sm-8">
-														<p>“Desechad tristezas y melancolías. La vida es
-															amable, tiene pocos días y tan solo ahora la hemos de
-															gozar.”</p>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
 								</div>
 
 
