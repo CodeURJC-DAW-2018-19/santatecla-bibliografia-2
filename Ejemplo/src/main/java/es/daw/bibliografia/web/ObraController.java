@@ -151,7 +151,7 @@ public class ObraController {
 			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
 			return "obraShow";
 		} else {
-			return "obraShowError";
+			return "error";
 		}
 	}
 
