@@ -46,7 +46,7 @@ public class ObraController {
 
 		webController.addUserToModel(model);
 
-		return webController.showBooks(model);
+		return "redirect:/";
 	}
 	
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
