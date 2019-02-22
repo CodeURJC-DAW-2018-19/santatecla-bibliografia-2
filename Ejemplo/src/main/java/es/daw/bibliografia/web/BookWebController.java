@@ -124,7 +124,6 @@ public class BookWebController {
 			return "autorError";
 		}
 	}
-<<<<<<< refs/remotes/origin/master
 	
 	@RequestMapping (value = "/obra/{nombreObra}", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
@@ -152,6 +151,7 @@ public class BookWebController {
 	
 	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)
 	public String goObra(Model model) {
+		userTabs(model, "/obra/new", "Nueva obra", true);
 		
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
@@ -161,9 +161,6 @@ public class BookWebController {
 		
 		return "obra";
 	}
-=======
-
->>>>>>> tabs structure improved
 //	
 //	@GetMapping("/newBook")
 //	public String newBook(Model model) {

@@ -48,7 +48,6 @@ public class ObraController {
 
 		return webController.showBooks(model);
 	}
-<<<<<<< refs/remotes/origin/master
 	
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 //	public String goObra(Model model) {
@@ -84,24 +83,20 @@ public class ObraController {
 //			return "obraShowError"; 
 //		}		
 //	}
-	
-	@RequestMapping("obra/editada") 
-	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL, @PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
-		Optional<Obra> obra= service.findOne(id);
-=======
 
-	@RequestMapping(value = "/obra/new", method = RequestMethod.POST) // PUT IN BOOKWEEBCONTROLER
-	public String goObra(Model model) {
-		userTabs(model, "/obra/new", "Nueva obra", true);
 
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("obras", service.findAll());
-		model.addAttribute("autores", serviceAutor.findAll());
-
-		webController.addUserToModel(model);
-
-		return "obra";
-	}
+//	@RequestMapping(value = "/obra/new", method = RequestMethod.POST) // PUT IN BOOKWEEBCONTROLER
+//	public String goObra(Model model) {
+//		userTabs(model, "/obra/new", "Nueva obra", true);
+//
+//		model.addAttribute("temas", serviceTema.findAll());
+//		model.addAttribute("obras", service.findAll());
+//		model.addAttribute("autores", serviceAutor.findAll());
+//
+//		webController.addUserToModel(model);
+//
+//		return "obra";
+//	}
 
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
@@ -152,7 +147,6 @@ public class ObraController {
 	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL,
 			@PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
 		Optional<Obra> obra = service.findOne(id);
->>>>>>> tabs structure improved
 		webController.addUserToModel(model);
 		if (obra.get().getTitle() != null)
 			model.addAttribute("title", title);
