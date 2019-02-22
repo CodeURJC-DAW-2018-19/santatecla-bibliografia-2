@@ -112,6 +112,42 @@ public class BookWebController {
 			return "autorError"; 
 		}		
 	}
+	
+	@RequestMapping (value = "/obra/{nombreObra}", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
+	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
+		
+		Optional<Obra> obra= serviceObra.findOneByTitle(nombreObra);
+		
+		model.addAttribute("autores", serviceAutor.findAll());
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("citas", serviceCita.findAll());
+		
+		addUserToModel(model);
+		
+		if(obra.isPresent()) {
+			
+			model.addAttribute("title", obra.get().getTitle());
+			model.addAttribute("URL", obra.get().getURL());
+			model.addAttribute("date", obra.get().getDate());
+			model.addAttribute("editorial", obra.get().getEditorial());
+			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
+			return "obraShow"; 
+		}else {
+			return "obraShowError"; 
+		}		
+	}
+	
+	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)
+	public String goObra(Model model) {
+		
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
+		
+		addUserToModel(model);
+		
+		return "obra";
+	}
 //	
 //	@GetMapping("/newBook")
 //	public String newBook(Model model) {

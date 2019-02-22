@@ -44,40 +44,40 @@ public class ObraController {
 		return webController.showBooks(model); 
 	}
 	
-	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
-	public String goObra(Model model) {
-		
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("obras", service.findAll());
-		model.addAttribute("autores", serviceAutor.findAll());
-		
-		webController.addUserToModel(model);
-		
-		return "obra";
-	}
-	@GetMapping ("/obra/{id}")//PUT IN BOOKWEEBCONTROLER
-	public String openObra(Model model, @PathVariable long id) {
-		
-		Optional<Obra> obra= service.findOne(id);
-		
-		model.addAttribute("autores", serviceAutor.findAll());
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("citas", serviceCita.findAll());
-		
-		webController.addUserToModel(model);
-		
-		if(obra.isPresent()) {
-			
-			model.addAttribute("title", obra.get().getTitle());
-			model.addAttribute("URL", obra.get().getURL());
-			model.addAttribute("date", obra.get().getDate());
-			model.addAttribute("editorial", obra.get().getEditorial());
-			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
-			return "obraShow"; 
-		}else {
-			return "obraShowError"; 
-		}		
-	}
+//	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
+//	public String goObra(Model model) {
+//		
+//		model.addAttribute("temas", serviceTema.findAll());
+//		model.addAttribute("obras", service.findAll());
+//		model.addAttribute("autores", serviceAutor.findAll());
+//		
+//		webController.addUserToModel(model);
+//		
+//		return "obra";
+//	}
+//	@GetMapping ("/obra/{id}")//PUT IN BOOKWEEBCONTROLER
+//	public String openObra(Model model, @PathVariable long id) {
+//		
+//		Optional<Obra> obra= service.findOne(id);
+//		
+//		model.addAttribute("autores", serviceAutor.findAll());
+//		model.addAttribute("temas", serviceTema.findAll());
+//		model.addAttribute("citas", serviceCita.findAll());
+//		
+//		webController.addUserToModel(model);
+//		
+//		if(obra.isPresent()) {
+//			
+//			model.addAttribute("title", obra.get().getTitle());
+//			model.addAttribute("URL", obra.get().getURL());
+//			model.addAttribute("date", obra.get().getDate());
+//			model.addAttribute("editorial", obra.get().getEditorial());
+//			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
+//			return "obraShow"; 
+//		}else {
+//			return "obraShowError"; 
+//		}		
+//	}
 	
 	@RequestMapping("obra/editada") 
 	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL, @PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {

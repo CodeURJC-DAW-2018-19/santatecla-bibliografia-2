@@ -66,15 +66,23 @@
                             </div>
                             <div class="card-body">
                                 <!-- Search bar-->
-                                <form class="navbar-form">
+                                <form class="navbar-form" id="showObra">
                                     <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra...">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra..." id="nombreObra">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="obra()">
                                             <i class="material-icons">search</i>
                                             <div class="ripple-container"></div>
                                         </button>
                                     </div>
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                 </form>
+                                <script>
+							        function obra() {
+							        	var nombre = document.getElementById("nombreObra").value.toString();
+							        	document.getElementById("showObra").action = 'obra/'.concat(nombre);
+							        	document.getElementById("showObra").method = 'post';
+							        }
+							    </script>
                                 <!-- End Search bar-->
                                 <div class="row">
                                 {{#obras}}
@@ -120,7 +128,7 @@
 
                             </div>
                             <div class="card-body">
-                                <!-- Search bar action="autor/show" method="get" -->
+                                <!-- Search bar -->
                                 <form class="navbar-form" id="showActor">
                                     <div class="input-group no-border">
 	                                       <input type="text" value="" class="form-control" placeholder="Buscar Autor..." id="nombreAutor">
@@ -131,7 +139,7 @@
                                     </div>
                                     <input type="hidden" name="_csrf" value="{{token}}"/>
                                 </form>
-                                 <script>
+                                <script>
 							        function autor() {
 							        	var nombre = document.getElementById("nombreAutor").value.toString();
 							        	document.getElementById("showActor").action = 'autor/'.concat(nombre);
