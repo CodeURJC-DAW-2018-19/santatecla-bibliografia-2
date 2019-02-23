@@ -28,18 +28,23 @@
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
+                                            <a  href="/tema/{{contenido}}">
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Tema {{-index}}</h5>
                                                 </div>
+                                            </a>
                                             </div>
+                                            
                                             <div class="card-body">
+                                            <a  href="/tema/{{contenido}}">
                                                 <!-- Theme 2 Content -->
                                                 <p> {{contenido}}</p>
+                                            </a>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+{{#admin}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
+{{/admin}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,9 +52,9 @@
                                     </div>
 									{{/temas}}
                                 </div>
-{{#logged}}
+{{#admin}}
                                 <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
-{{/logged}}
+{{/admin}}
 
                             </div>
                         </div>
@@ -66,37 +71,49 @@
                             </div>
                             <div class="card-body">
                                 <!-- Search bar-->
-                                <form class="navbar-form">
+                                <form class="navbar-form" id="showObra">
                                     <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra...">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra..." id="nombreObra">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="obra()">
                                             <i class="material-icons">search</i>
                                             <div class="ripple-container"></div>
                                         </button>
                                     </div>
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                 </form>
+                                <script>
+							        function obra() {
+							        	var nombre = document.getElementById("nombreObra").value.toString();
+							        	document.getElementById("showObra").action = 'obra/'.concat(nombre);
+							        	document.getElementById("showObra").method = 'post';
+							        }
+							    </script>
                                 <!-- End Search bar-->
                                 <div class="row">
                                 {{#obras}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
+                                              <a  href="/obra/{{title}}">
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Obra {{-index}}</h5>
                                                 </div>
+                                              </a>
                                             </div>
                                             <div class="card-body">
                                                 <!-- Quote 1 Content -->
                                                 <div class="row">
+                                                <a  href="/obra/{{title}}">
                                                     <div class="col-sm-12">
                                                         <p> {{title}}</p>
                                                     </div>
+                                               </a>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+{{#admin}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
+{{/admin}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,65 +121,77 @@
                                     </div>
                                     {{/obras}}
                                 </div>
-{{#logged}}
-                                <form action="obra/new" method="get"><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
-{{/logged}}
+{{#admin}}
+                                <form action="obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
+{{/admin}}
                             </div>
                         </div>
                     </div>
                     <!-- End Quote-->
-                                        <!-- Start Author-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
+                   <!-- Start Author-->
+                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
                         <div class="card" style="height:auto">
-                            <div class="card-header  card-header-primary">
+                            <div class="card-header   card-header-primary">
 
                                 <h4 class="card-title text-center">Autores</h4>
 
                             </div>
                             <div class="card-body">
-                                <!-- Search bar-->
-                                <form class="navbar-form">
+                                <!-- Search bar -->
+                                <form class="navbar-form" id="showActor">
                                     <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Autor...">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                            <i class="material-icons">search</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
+	                                       <input type="text" value="" class="form-control" placeholder="Buscar Autor..." id="nombreAutor">
+	                                       <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="autor()">
+	                                           <i class="material-icons">search</i>
+	                                           <div class="ripple-container"></div>
+	                                       </button>
                                     </div>
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                 </form>
+                                <script>
+							        function autor() {
+							        	var nombre = document.getElementById("nombreAutor").value.toString();
+							        	document.getElementById("showActor").action = 'autor/'.concat(nombre);
+							        	document.getElementById("showActor").method = 'post';
+							        }
+							    </script>
                                 <!-- End Search bar-->
                                 <div class="row">
                                 {{#autores}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
+                                             <a  href="/autor/{{nombre}}">
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Autor {{-index}}</h5>
                                                 </div>
+                                             </a>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Author 1 Content -->
+                                                <!-- Quote 1 Content -->
                                                 <div class="row">
+                                                 <a  href="/autor/{{nombre}}">
                                                     <div class="col-sm-12">
                                                         <p> {{nombre}}</p>
                                                     </div>
+                                                    
+                                                    </a>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+{{#admin}}
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
+{{/admin}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     {{/autores}}
-
                                 </div>
-{{#logged}}
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
-{{/logged}}
+{{#admin}}
+                                <form action="obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
+{{/admin}}
                             </div>
                         </div>
                     </div>
@@ -192,15 +221,15 @@
                                             //},
                                             tooltip: {},
                                             legend: {
-                                                data: ['Número de obras por tema']
+                                                data: ['NÃºmero de obras por tema']
                                             },
                                             xAxis: {
-                                                data: ["Romance", "Épica", "Fantasía", "Aventura", "Drama", "Sci-fi"]
+                                                data: ["Romance", "Ã‰pica", "FantasÃ­a", "Aventura", "Drama", "Sci-fi"]
                                             },
                                             yAxis: {},
                                             series: [{
                                                 
-                                                name: 'Número de obras por tema',
+                                                name: 'NÃºmero de obras por tema',
                                                 type: 'bar',
                                                 data: [5, 20, 36, 10, 10, 20]
                                             }]

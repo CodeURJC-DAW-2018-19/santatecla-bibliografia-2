@@ -36,14 +36,49 @@
 	<nav class="navbar navbar-expand-lg bg-primary">
 		<div class="col-md-9">
 			<ul class="nav nav-tabs " data-tabs="tabs">
+
+				{{#start}}
 				<div class="activeTab">
-					<li class="nav-item disabled"><a class="nav-link"
-						href="./inicio.html" role="tab" data-toggle="tab"> <i
-							class="material-icons">dashboard</i> Inicio<span class="sr-only">(current)</span>
+					<li class="nav-item  disabled"><a class="nav-link" href="/"> <i class="material-icons">dashboard</i>
+							Inicio
 					</a></li>
 				</div>
+				{{/start}} {{^start}}
+
+				<li class="nav-item  disabled"><a class="nav-link" href="/"> <i class="material-icons">dashboard</i>
+						Inicio
+				</a></li> {{/start}} 
+				
+				{{#tabs}} 
+				{{#active}} 
+				<div class="activeTab">
+					<li class="nav-item  disabled"><a class="nav-link""> <i class="material-icons">dashboard</i>
+						{{name}}
+					</a></li>
+				</div>
+				<div class="activeTab">
+					<li class="nav-item"><a class="nav-link" href="/delete/"> <i class="material-icons">close</i>
+					</a></li> 
+				</div>
+				{{/active}} 
+				
+				{{^active}}
+				<li class="nav-item  disabled"><a class="nav-link"> <i class="material-icons" >dashboard</i>
+						{{name}}
+				</a></li>
+				
+				<li class="nav-item"><a class="nav-link" href="/delete/"> <i class="material-icons">close</i>
+				</a></li> 
+				
+				{{/active}} 
+				
+				{{/tabs}}
+
 			</ul>
+
 		</div>
+
+		<!-- End Navbar -->
 
 		<div class="col-md-3">
 			{{^hideLogin}}
@@ -88,15 +123,17 @@
 
 												<div class="form-group">
 													<div class="input-group-text">
-														<i class="material-icons">lock_outline</i> <input type="password"
-															class="form-control" placeholder="Password">
+														<i class="material-icons">lock_outline</i> <input
+															type="password" class="form-control"
+															placeholder="Password">
 													</div>
 												</div>
 
 												<div class="form-group">
 													<div class="input-group-text">
-														<i class="material-icons">lock_outline</i> <input type="password"
-															class="form-control" placeholder="Repeat Password">
+														<i class="material-icons">lock_outline</i> <input
+															type="password" class="form-control"
+															placeholder="Repeat Password">
 													</div>
 												</div>
 

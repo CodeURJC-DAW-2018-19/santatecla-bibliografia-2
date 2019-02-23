@@ -42,6 +42,9 @@ public class User {
 	private Long id;
 
 	private String name;
+	
+	private ArrayList<Tabs> tabs = new ArrayList<>();
+	
 
 	@JsonIgnore
 	private String passwordHash;
@@ -50,12 +53,42 @@ public class User {
 	private List<String> roles;
 
 	public User() {
+		
 	}
 
 	public User(String name, String password, String... roles) {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+	
+		
+	}
+	
+	public void addTab(Tabs tab) {
+		this.tabs.add(tab);
+	}
+	
+	public void removeTab(Tabs tab) {
+		this.tabs.remove(tab);
+	}
+	
+	public void deleteTabByUrl(String url) {
+		for (int i=0; i<tabs.size(); i++) {
+			if (tabs.get(i).getUrl().equals(url)) {
+				System.out.println(url + " eliminada");
+				this.tabs.remove(tabs.get(i));
+			}
+		}
+	}
+	
+	public void inactiveAllTabs() {
+		for (int i=0; i<tabs.size(); i++) {
+			this.tabs.get(i).inactiveTab();
+		}
+	}
+	
+	public List<Tabs> getTabs(){
+		return this.tabs;
 	}
 
 	public String getName() {

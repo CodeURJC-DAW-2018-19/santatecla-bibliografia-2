@@ -19,9 +19,10 @@
 }
 
 .center { 
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+	display: block;
+  	position: relative;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
 .text-center{

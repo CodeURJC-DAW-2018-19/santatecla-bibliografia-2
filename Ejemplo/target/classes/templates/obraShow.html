@@ -18,18 +18,16 @@
                             </div>
                             <div class="card-body">
 
-                                <!--Form-->
+                                <!--Form action="guardar" method="post"-->
                                
-                                <form>
+                                <form id="editarObras">
 
                                     <!--Input title-->
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">{{title}}</label>
-                                                
                                                 <!--<input type="text" class="form-control" disabled> -->
-                                                <input type='text' class="form-control" disabled/>
+                                                <input type='text' class="form-control" id="title" value="{{title}}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -40,7 +38,7 @@
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{URL}}</label>
                                                 <!--<input type="text" class="form-control" disabled>-->
-                                                <input type='text' class="form-control" disabled/>
+                                                <input type='text' class="form-control" id="url" disabled/>
                                             </div>
                                         </div>
                                     </div>
@@ -56,6 +54,7 @@
                                         <div class="col-md-11">
                                             <div class="form-group">
                                             	<label class="bmd-label-floating">{{date}}</label>
+                                            	<input type='text' class="form-control" id="date" disabled/>
                                             </div>
                                         </div>
                                     </div>
@@ -66,7 +65,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{editorial}}</label>
-                                                <input type='text' class="form-control" disabled/>
+                                                <input type='text' class="form-control" id="editorial" disabled/>
                                                 <!--  <input type="text" class="form-control" disabled>-->
                                             </div>
                                         </div>
@@ -78,15 +77,33 @@
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{url_editorial}}</label>
                                                 <!--  <input type="text" class="form-control" disabled>-->
-                                                <input type='text' class="form-control" disabled/>
+                                                <input type='text' class="form-control" id="urlEdi" disabled/>
                                             </div>
                                         </div>
                                     </div>
-								    <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>
+								   <!-- <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>-->
+								   {{#admin}}
+								   <button type="button" class="btn btn-primary" onclick="editarObra();" id="editar">Editar </button>
+								   <button type="submit" class="btn btn-primary" style="display: none;" id="guardar">Guardar</button>
+								   {{/admin}}
 									<input type="hidden" name="_csrf" value="{{token}}"/>
 								</form>
-                               <!--End Form-->
-                                
+								<script>
+							        function editarObra() {
+							        	//document.getElementById("editar").type = 'submit';
+							        	//document.getElementById("editar").onclick=function() {};
+							        	document.getElementById("url").disabled = false;
+							        	document.getElementById("date").disabled = false;
+							        	document.getElementById("editorial").disabled = false;
+							        	document.getElementById("urlEdi").disabled = false;
+							        	document.getElementById("editar").style.display='none';
+							        	document.getElementById("guardar").style.display='inline';
+							        	document.getElementById("editarObras").action = 'edit';
+							        	document.getElementById("editarObras").method = 'post';
+							        	//document.getElementById("showActor").method = 'post';
+							        }
+						    	</script>
+                              	<!--End Form-->  
                             </div>
                         </div>
                     </div>
