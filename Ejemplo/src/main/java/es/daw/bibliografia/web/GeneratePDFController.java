@@ -29,7 +29,7 @@ public class GeneratePDFController {
 	public void PdfController(HttpServletResponse response, @PathVariable String nombreTema) throws IOException {
 		User user = userComponent.getLoggedUser();
 		
-		String namePdf="tema"+nombreTema+".pdf";
+		String namePdf="tema-"+nombreTema+".pdf";
 		Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "files");
 		Path pdf = FILES_FOLDER.resolve(namePdf);
 		
