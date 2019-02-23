@@ -113,7 +113,7 @@ public class BookWebController {
 	}
 
 	@RequestMapping(value = "/autor/{nombreAutor}")
-	public String showBook(Model model, @PathVariable("nombreAutor", method = RequestMethod.POST) String nombreAutor) {
+	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
 		
 		userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
 		
