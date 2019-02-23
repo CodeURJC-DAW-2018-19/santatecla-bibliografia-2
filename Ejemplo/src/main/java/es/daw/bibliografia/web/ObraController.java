@@ -1,9 +1,11 @@
 package es.daw.bibliografia.web;
 
-import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Optional;
+import java.io.File;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,7 @@ import com.sun.jndi.toolkit.url.Uri;
 
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
+import es.daw.bibliografia.book.Image;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.TemaService;
@@ -58,10 +61,21 @@ public class ObraController {
 
 		if (!portadaPhoto.isEmpty()) {
 			try {
+
+		        String sql = "INSERT INTO imagen (nombre, tipo, tamano, pixel) VALUES(?, ?, ?, ?)";
+
+		        String nombre = portadaPhoto.getOriginalFilename();
+		        String tipo   = portadaPhoto.getContentType();
+		        Long tamano   = portadaPhoto.getSize();
+		        byte[] pixel  = portadaPhoto.getBytes();
+
+		        jdbc.update(sql, nombre, tipo, tamano, pixel);
+				
 				File uploadedFilePortada = new File(FILES_FOLDER.toFile(), fileNamePortada);
 				portadaPhoto.transferTo(uploadedFilePortada);
-
-				Obra newToDataBaseObra= new Obra(obraTitle,obraUrl,obraDate,obraEditorial,obra_Url_Editorial,uploadedFilePortada,uploadedFilePortada);
+				
+				Image picture=new Image(obraTitle);
+				Obra newToDataBaseObra= new Obra(obraTitle,obraUrl,obraDate,obraEditorial,picture);
 
 				return "uploaded";
 

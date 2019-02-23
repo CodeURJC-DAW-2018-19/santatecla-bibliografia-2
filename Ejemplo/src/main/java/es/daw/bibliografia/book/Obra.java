@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Entity
 public class Obra {
@@ -24,12 +26,10 @@ public class Obra {
 	private List<Autor> autores;
 
 	private String title, URL, date, editorial, url_editorial;
-
 	
-	private FILE portadaImg, editorialImg;
-	public Obra() {
-		super();
-	}
+	private Image picture;
+
+
 
 	public Obra(String titulo, String url_foto, String fecha, String editorial, String url_editorial) {
 		super();
@@ -39,6 +39,24 @@ public class Obra {
 		this.editorial = editorial;
 		this.url_editorial = url_editorial;
 	}
+	
+	
+
+	public Obra(long id, List<Cita> citas, List<Autor> autores, String title, String uRL, String date, String editorial,
+			String url_editorial, Image picture) {
+		super();
+		this.id = id;
+		this.citas = citas;
+		this.autores = autores;
+		this.title = title;
+		URL = uRL;
+		this.date = date;
+		this.editorial = editorial;
+		this.url_editorial = url_editorial;
+		this.picture = picture;
+	}
+
+
 
 	public String getTitle() {
 		return this.title;
@@ -72,36 +90,6 @@ public class Obra {
 		this.editorial = editorial;
 	}
 
-	public Obra(long id, List<Cita> citas, List<Autor> autores, String title, String uRL, String date, String editorial,
-			String url_editorial, FILE portadaImg, FILE editorialImg) {
-		super();
-		this.id = id;
-		this.citas = citas;
-		this.autores = autores;
-		this.title = title;
-		URL = uRL;
-		this.date = date;
-		this.editorial = editorial;
-		this.url_editorial = url_editorial;
-		this.portadaImg = portadaImg;
-		this.editorialImg = editorialImg;
-	}
-
-	public FILE getPortadaImg() {
-		return portadaImg;
-	}
-
-	public void setPortadaImg(FILE portadaImg) {
-		this.portadaImg = portadaImg;
-	}
-
-	public FILE getEditorialImg() {
-		return editorialImg;
-	}
-
-	public void setEditorialImg(FILE editorialImg) {
-		this.editorialImg = editorialImg;
-	}
 
 	public String getUrl_editorial() {
 		return url_editorial;
