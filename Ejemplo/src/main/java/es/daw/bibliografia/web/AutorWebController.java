@@ -58,7 +58,7 @@ public class AutorWebController {
 	 */
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
-		
+
 		if (!sameTab(tab)) {
 			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
@@ -67,13 +67,13 @@ public class AutorWebController {
 			}
 		}
 	}
-	
+
 	public void updateActiveTabs(boolean active) {
-		if (active==true) {
+		if (active == true) {
 			this.userComponent.getLoggedUser().inactiveAllTabs();
 		}
 	}
-	
+
 	public void deleteTab(String url) {
 		this.userComponent.getLoggedUser().deleteTabByUrl(url);
 	}
@@ -88,11 +88,19 @@ public class AutorWebController {
 		return false;
 	}
 
+	@GetMapping("/delete/")
+	private String closeTabs(Model model, @PathVariable String url) {
+		System.out.println("dfsfs");
+		deleteTab(url);
+		System.out.println("dfsfs");
+		return "Index";
+	}
+
 	@GetMapping("/autor/{id}")
 	public String showBook(Model model, @PathVariable long id) {
-		
-		userTabs(model, (String) ("/autor/" + id), (String) ("Autor " + id) , true);
-		
+
+		userTabs(model, (String) ("/autor/" + id), (String) ("Autor " + id), true);
+
 		Optional<Autor> autor = autorService.findOne(id);
 		webController.addUserToModel(model);
 

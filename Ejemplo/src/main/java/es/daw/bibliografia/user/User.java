@@ -75,6 +75,7 @@ public class User {
 	public void deleteTabByUrl(String url) {
 		for (int i=0; i<tabs.size(); i++) {
 			if (tabs.get(i).getUrl().equals(url)) {
+				System.out.println(url + " eliminada");
 				this.tabs.remove(tabs.get(i));
 			}
 		}
