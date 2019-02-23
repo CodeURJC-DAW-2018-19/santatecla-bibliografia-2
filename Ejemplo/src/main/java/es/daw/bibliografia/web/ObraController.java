@@ -53,6 +53,23 @@ public class ObraController {
 	@RequestMapping("/obra/edit")
 	public String editObra(Model model, Obra obra) {
 		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		
+		Optional<Obra> obra2 = service.findOneByTitle(obra.getTitle());
+		
+		if(obra2.isPresent()) {
+			
+			obra2.get().setAutores(obra.getAutores());
+			obra2.get().setCitas(obra.getCitas());
+			obra2.get().setDate(obra.getDate());
+			obra2.get().setEditorial(obra.getEditorial());
+			obra2.get().setURL(obra.getURL());
+			obra2.get().setUrl_editorial(obra.getUrl_editorial());
+			
+			service.save(obra2.get());
+			return "redirect:/obra/".concat(obra.getTitle());
+		}else {
+			
+		}
 		service.save(obra);
 
 		webController.addUserToModel(model);
