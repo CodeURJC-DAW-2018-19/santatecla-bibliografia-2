@@ -1,5 +1,8 @@
 package es.daw.bibliografia.web;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.sun.jndi.toolkit.url.Uri;
+>>>>>>> Images
 
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
@@ -21,6 +31,8 @@ import es.daw.bibliografia.user.UserComponent;
 
 @Controller
 public class ObraController {
+	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
+
 
 	@Autowired
 	private ObraService service;
@@ -36,11 +48,52 @@ public class ObraController {
 
 	@Autowired
 	private BookWebController webController;
+<<<<<<< HEAD
 
 	@Autowired
 	private UserComponent userComponent;
 
 	@RequestMapping("/obra/guardada")
+=======
+	
+	
+	@RequestMapping(value = "/obra/upload", method = RequestMethod.POST)
+	public String handleObraUpload(Model model, @RequestParam("title") String obraTitle,
+			 @RequestParam("URL") String obraUrl,
+			 @RequestParam("date") String obraDate,
+			 @RequestParam("editorial") String obraEditorial,
+			 @RequestParam("url_editorial") String obra_Url_Editorial,
+			@RequestParam("filePortada") MultipartFile portadaPhoto,
+			@RequestParam("fileEditorial") MultipartFile editorialPhoto) {
+
+		
+		String fileNamePortada = "portada.jpg";
+
+		if (!portadaPhoto.isEmpty()) {
+			try {
+				File uploadedFilePortada = new File(FILES_FOLDER.toFile(), fileNamePortada);
+				portadaPhoto.transferTo(uploadedFilePortada);
+
+				Obra newToDataBaseObra= new Obra(obraTitle,obraUrl,obraDate,obraEditorial,obra_Url_Editorial,uploadedFilePortada,uploadedFilePortada);
+
+				return "uploaded";
+
+			} catch (Exception e) {
+
+				model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
+
+				return "uploaded";
+			}
+		} else {
+			
+			model.addAttribute("error", "The file is empty");
+
+			return "uploaded";
+		}
+	}
+	
+	@RequestMapping("/obra/guardada") 
+>>>>>>> Images
 	public String addObra(Model model, Obra obra) {
 		userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.save(obra);
