@@ -20,7 +20,7 @@
 
                                 <!--Form-->
                                
-                                <form>
+                                <form action="editar" method= "post">
 
                                     <!--Input title-->
                                     <div class="row">
@@ -82,7 +82,8 @@
                                             </div>
                                         </div>
                                     </div>
-								    <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>
+								   <!-- <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>-->
+								   <button type='submit' class="btn btn-primary">Editar </button>
 									<input type="hidden" name="_csrf" value="{{token}}"/>
 								</form>
                                <!--End Form-->

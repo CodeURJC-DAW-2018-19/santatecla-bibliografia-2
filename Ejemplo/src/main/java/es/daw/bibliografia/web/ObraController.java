@@ -155,11 +155,11 @@ public class ObraController {
 		}
 	}
 
-	@RequestMapping("obra/editada")
+	@RequestMapping("obra/guardada")
 	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL,
 			@PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
 		
-		userTabs(model, "obra/editada", "Obra editada", true);
+		userTabs(model, "obra/guardada", "Obra editada", true);
 		
 		Optional<Obra> obra = service.findOne(id);
 		webController.addUserToModel(model);
@@ -175,4 +175,6 @@ public class ObraController {
 			model.addAttribute("url_editorial", url_editorial);
 		return "obra";
 	}
+	
+	
 }
