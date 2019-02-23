@@ -210,57 +210,46 @@
                     </div>
                     <!-- End Theme-->
 
-                    <!-- Start Obra-->
+                      <!-- Start Quote-->
                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
                         <div class="card" style="height:auto">
-                            <div class="card-header   card-header-primary">
+                            <div class="card-header  card-header-primary">
 
-                                <h4 class="card-title text-center">Obras</h4>
+                                <h4 class="card-title text-center">Citas</h4>
 
                             </div>
                             <div class="card-body">
-                                <!-- Search bar-->
-                                <form class="navbar-form">
-                                    <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra...">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                            <i class="material-icons">search</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
-                                    </div>
-                                </form>
-                                <!-- End Search bar-->
                                 <div class="row">
-                                {{#obras}}
+                                {{#citas}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
-                                                    <h5 class="card-title ">Obra {{-index}}</h5>
+                                                    <h5 class="card-title ">Cita {{-index}}</h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Quote 1 Content -->
+                                                <!-- Quote Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> {{title}}</p>
+                                                        <p> {{contenido}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{/obras}}
+                                    {{/citas}}
+
                                 </div>
-{{#logged}}
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"  onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
-{{/logged}}
+
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+
                             </div>
                         </div>
                     </div>

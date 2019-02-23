@@ -27,7 +27,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <!--<input type="text" class="form-control" disabled> -->
-                                                <input type='text' class="form-control" id="title" value="{{title}}" disabled>
+                                                <input type='text' class="form-control" name="title" id="title" value="{{title}}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{URL}}</label>
                                                 <!--<input type="text" class="form-control" disabled>-->
-                                                <input type='text' class="form-control" id="url" disabled/>
+                                                <input type='text' class="form-control" name="URL" id="url" disabled/>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                         <div class="col-md-11">
                                             <div class="form-group">
                                             	<label class="bmd-label-floating">{{date}}</label>
-                                            	<input type='text' class="form-control" id="date" disabled/>
+                                            	<input type='text' class="form-control" name="date" id="date" disabled/>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +65,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{editorial}}</label>
-                                                <input type='text' class="form-control" id="editorial" disabled/>
+                                                <input type='text' class="form-control" name="editorial" id="editorial" disabled/>
                                                 <!--  <input type="text" class="form-control" disabled>-->
                                             </div>
                                         </div>
@@ -77,14 +77,14 @@
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{url_editorial}}</label>
                                                 <!--  <input type="text" class="form-control" disabled>-->
-                                                <input type='text' class="form-control" id="urlEdi" disabled/>
+                                                <input type='text' class="form-control" name="url_editorial" id="urlEdi" disabled/>
                                             </div>
                                         </div>
                                     </div>
 								   <!-- <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>-->
 								   {{#admin}}
 								   <button type="button" class="btn btn-primary" onclick="editarObra();" id="editar">Editar </button>
-								   <button type="submit" class="btn btn-primary" style="display: none;" id="guardar">Guardar</button>
+								   <button type="submit" class="btn btn-primary" style="display: none;" id="guardar" onclick="update();">Guardar</button>
 								   {{/admin}}
 									<input type="hidden" name="_csrf" value="{{token}}"/>
 								</form>
@@ -98,6 +98,14 @@
 							        	document.getElementById("urlEdi").disabled = false;
 							        	document.getElementById("editar").style.display='none';
 							        	document.getElementById("guardar").style.display='inline';
+							        	//document.getElementById("showActor").method = 'post';
+							        }
+						    	</script>
+						    	<script>
+							        function update() {
+							        	//document.getElementById("editar").type = 'submit';
+							        	//document.getElementById("editar").onclick=function() {};
+							        	document.getElementById("title").disabled = false;
 							        	document.getElementById("editarObras").action = 'edit';
 							        	document.getElementById("editarObras").method = 'post';
 							        	//document.getElementById("showActor").method = 'post';
@@ -202,57 +210,46 @@
                     </div>
                     <!-- End Theme-->
 
-                    <!-- Start Obra-->
+                      <!-- Start Quote-->
                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
                         <div class="card" style="height:auto">
-                            <div class="card-header   card-header-primary">
+                            <div class="card-header  card-header-primary">
 
-                                <h4 class="card-title text-center">Obras</h4>
+                                <h4 class="card-title text-center">Citas</h4>
 
                             </div>
                             <div class="card-body">
-                                <!-- Search bar-->
-                                <form class="navbar-form">
-                                    <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra...">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                                            <i class="material-icons">search</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
-                                    </div>
-                                </form>
-                                <!-- End Search bar-->
                                 <div class="row">
-                                {{#obras}}
+                                {{#citas}}
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
                                                 <div class="card-text">
-                                                    <h5 class="card-title ">Obra {{-index}}</h5>
+                                                    <h5 class="card-title ">Cita {{-index}}</h5>
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <!-- Quote 1 Content -->
+                                                <!-- Quote Content -->
                                                 <div class="row">
                                                     <div class="col-sm-12">
-                                                        <p> {{title}}</p>
+                                                        <p> {{contenido}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
-{{#logged}}
+
                                                         <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
-{{/logged}}
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    {{/obras}}
+                                    {{/citas}}
+
                                 </div>
-{{#logged}}
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"  onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
-{{/logged}}
+
+                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+
                             </div>
                         </div>
                     </div>
