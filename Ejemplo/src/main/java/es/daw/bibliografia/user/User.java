@@ -60,8 +60,6 @@ public class User {
 		this.name = name;
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
-	
-		
 	}
 	
 	public void addTab(Tabs tab) {
@@ -72,13 +70,8 @@ public class User {
 		this.tabs.remove(tab);
 	}
 	
-	public void deleteTabByUrl(String url) {
-		for (int i=0; i<tabs.size(); i++) {
-			if (tabs.get(i).getUrl().equals(url)) {
-				System.out.println(url + " eliminada");
-				this.tabs.remove(tabs.get(i));
-			}
-		}
+	public void deleteTabByName(String name) {
+		tabs.removeIf(t -> t.getName().equalsIgnoreCase(name));
 	}
 	
 	public void inactiveAllTabs() {

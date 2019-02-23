@@ -63,8 +63,8 @@ public class TemaController {
 		}
 	}
 	
-	public void deleteTab(String url) {
-		this.userComponent.getLoggedUser().deleteTabByUrl(url);
+	public void deleteTab(String name) {
+		this.userComponent.getLoggedUser().deleteTabByName(name);
 	}
 	
 	public void updateActiveTabs(boolean active) {
