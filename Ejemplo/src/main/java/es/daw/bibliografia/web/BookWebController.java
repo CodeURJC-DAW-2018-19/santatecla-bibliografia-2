@@ -82,6 +82,10 @@ public class BookWebController {
 	
 	public void deleteTab(String url) {
 		this.userComponent.getLoggedUser().deleteTabByUrl(url);
+		for(int i=0; i<this.userComponent.getLoggedUser().getTabs().size(); i++) {
+			System.out.println(this.userComponent.getLoggedUser().getTabs().get(i).getName());
+		}
+	
 	}
 	
 	public void updateActiveTabs(boolean active) {
@@ -226,10 +230,11 @@ public class BookWebController {
 		return "obra";
 	}
 	
-	@RequestMapping("/delete")
-	private String closeTabs(Model model) {
+	@GetMapping("/delete{url}")
+	private String closeTabs(Model model,  @PathVariable String url) {
+		System.out.println("delete url");
 //		System.out.println("dfsfs");
-//		deleteTab(url);
+		deleteTab(url);
 //		System.out.println("dfsfs");
 		
 //		model.addAttribute("temas", serviceTema.findAll());
