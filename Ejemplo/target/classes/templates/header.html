@@ -52,22 +52,22 @@
 				{{#tabs}} 
 				{{#active}} 
 				<div class="activeTab">
-					<li class="nav-item  disabled"><a class="nav-link""> <i class="material-icons">dashboard</i>
+					<li class="nav-item  disabled"><a class="nav-link" href="{{url}}"> <i class="material-icons">dashboard</i>
 						{{name}}
 					</a></li>
 				</div>
 				<div class="activeTab">
-					<li class="nav-item"><a class="nav-link" href="/delete{url}"> <i class="material-icons">close</i>
+					<li class="nav-item"><a class="nav-link" href="/delete{{url}}"> <i class="material-icons">close</i>
 					</a></li> 
 				</div>
 				{{/active}} 
 				
 				{{^active}}
-				<li class="nav-item  disabled"><a class="nav-link"> <i class="material-icons" >dashboard</i>
+				<li class="nav-item  disabled"><a class="nav-link" href="{{url}}"> <i class="material-icons" >dashboard</i>
 						{{name}}
 				</a></li>
 				
-				<li class="nav-item"><a class="nav-link" href="/delete{url}"> <i class="material-icons">close</i>
+				<li class="nav-item"><a class="nav-link" href="/delete{{url}}"> <i class="material-icons">close</i>
 				</a></li> 
 				
 				{{/active}} 
