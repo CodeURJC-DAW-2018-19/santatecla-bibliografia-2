@@ -177,6 +177,20 @@ public class BookWebController {
 		
 		return "obra";
 	}
+	
+	@RequestMapping("/delete")
+	private String closeTabs(Model model) {
+		System.out.println("dfsfs");
+		//deleteTab(url);
+		System.out.println("dfsfs");
+		
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
+		
+		addUserToModel(model);
+		return "Index";
+	}
 //	
 //	@GetMapping("/newBook")
 //	public String newBook(Model model) {
