@@ -112,8 +112,8 @@ public class BookWebController {
 		return "Index";
 	}
 
-	@RequestMapping(value = "/autor/{nombreAutor}", method = RequestMethod.POST)
-	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
+	@RequestMapping(value = "/autor/{nombreAutor}")
+	public String showBook(Model model, @PathVariable("nombreAutor", method = RequestMethod.POST) String nombreAutor) {
 		
 		userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
 		
@@ -139,7 +139,7 @@ public class BookWebController {
 		}
 	}
 	
-	@RequestMapping (value = "/obra/{nombreObra}", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
+	@RequestMapping (value = "/obra/{nombreObra}")//PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
 		
 		userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
@@ -167,7 +167,7 @@ public class BookWebController {
 	
 	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)
 	public String goObra(Model model) {
-		userTabs(model, "/obra/new", "Nueva obra", true);
+		//userTabs(model, "/obra/new", "Nueva obra", true);
 		
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());

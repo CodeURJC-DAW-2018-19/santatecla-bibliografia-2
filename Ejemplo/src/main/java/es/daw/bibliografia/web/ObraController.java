@@ -42,12 +42,22 @@ public class ObraController {
 
 	@RequestMapping("/obra/guardada")
 	public String addObra(Model model, Obra obra) {
-		userTabs(model, "/obra/guardada", "Obra guardada", true);
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.save(obra);
 
 		webController.addUserToModel(model);
 
-		return "redirect:/";
+		return "redirect:/obra/".concat(obra.getTitle());
+	}
+	
+	@RequestMapping("/obra/edit")
+	public String editObra(Model model, Obra obra) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		service.save(obra);
+
+		webController.addUserToModel(model);
+
+		return "redirect:/obra/".concat(obra.getTitle());
 	}
 	
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
@@ -131,50 +141,50 @@ public class ObraController {
 		return false;
 	}
 
-	@GetMapping("/obra/{id}") // PUT IN BOOKWEEBCONTROLER
-	public String openObra(Model model, @PathVariable long id) {
-		userTabs(model, (String) ("/obra/" + id), (String) ("Obra " + id) , true);
-		Optional<Obra> obra = service.findOne(id);
+//	@GetMapping("/obra/{id}") // PUT IN BOOKWEEBCONTROLER
+//	public String openObra(Model model, @PathVariable long id) {
+//		userTabs(model, (String) ("/obra/" + id), (String) ("Obra " + id) , true);
+//		Optional<Obra> obra = service.findOne(id);
+//
+//		model.addAttribute("autores", serviceAutor.findAll());
+//		model.addAttribute("temas", serviceTema.findAll());
+//		model.addAttribute("citas", serviceCita.findAll());
+//
+//		webController.addUserToModel(model);
+//
+//		if (obra.isPresent()) {
+//
+//			model.addAttribute("title", obra.get().getTitle());
+//			model.addAttribute("URL", obra.get().getURL());
+//			model.addAttribute("date", obra.get().getDate());
+//			model.addAttribute("editorial", obra.get().getEditorial());
+//			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
+//			return "obraShow";
+//		} else {
+//			return "error";
+//		}
+//	}
 
-		model.addAttribute("autores", serviceAutor.findAll());
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("citas", serviceCita.findAll());
-
-		webController.addUserToModel(model);
-
-		if (obra.isPresent()) {
-
-			model.addAttribute("title", obra.get().getTitle());
-			model.addAttribute("URL", obra.get().getURL());
-			model.addAttribute("date", obra.get().getDate());
-			model.addAttribute("editorial", obra.get().getEditorial());
-			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
-			return "obraShow";
-		} else {
-			return "error";
-		}
-	}
-
-	@RequestMapping("obra/guardada")
-	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL,
-			@PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
-		
-		userTabs(model, "obra/guardada", "Obra editada", true);
-		
-		Optional<Obra> obra = service.findOne(id);
-		webController.addUserToModel(model);
-		if (obra.get().getTitle() != null)
-			model.addAttribute("title", title);
-		if (obra.get().getURL() != null)
-			model.addAttribute("URL", URL);
-		if (obra.get().getDate() != null)
-			model.addAttribute("date", date);
-		if (obra.get().getEditorial() != null)
-			model.addAttribute("editorial", editorial);
-		if (obra.get().getUrl_editorial() != null)
-			model.addAttribute("url_editorial", url_editorial);
-		return "obra";
-	}
+//	@RequestMapping("obra/guardada")
+//	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL,
+//			@PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
+//		
+//		userTabs(model, "obra/guardada", "Obra editada", true);
+//		
+//		Optional<Obra> obra = service.findOne(id);
+//		webController.addUserToModel(model);
+//		if (obra.get().getTitle() != null)
+//			model.addAttribute("title", title);
+//		if (obra.get().getURL() != null)
+//			model.addAttribute("URL", URL);
+//		if (obra.get().getDate() != null)
+//			model.addAttribute("date", date);
+//		if (obra.get().getEditorial() != null)
+//			model.addAttribute("editorial", editorial);
+//		if (obra.get().getUrl_editorial() != null)
+//			model.addAttribute("url_editorial", url_editorial);
+//		return "obra";
+//	}
 	
 	
 }
