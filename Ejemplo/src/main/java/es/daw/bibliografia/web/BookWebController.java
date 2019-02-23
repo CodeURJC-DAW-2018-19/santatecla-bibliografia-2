@@ -144,6 +144,19 @@ public class BookWebController {
 		addUserToModel(model);
 
 		if (autor.isPresent()) {
+			List<Obra> obras = serviceObra.findByAuthor(autor.get());
+			List<Tema> temas = new ArrayList<>();
+			List<Cita> citas = new ArrayList<>();
+			for(int i=0; i<obras.size(); i++) {
+				temas.add(serviceTema.findByObra(obras.get(i)));
+				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream())
+                        .collect(Collectors.toList());
+				//temaService.findByObra(obras.get(i))
+				//System.out.println(obras.get(i).getTitle());
+			}
+			model.addAttribute("obras", obras);
+			model.addAttribute("temas", temas);
+			model.addAttribute("citas", citas);
 
 			model.addAttribute("nombreAutor", autor.get().getNombre());
 			model.addAttribute("urlFotoAutor", autor.get().getUrl_foto());
