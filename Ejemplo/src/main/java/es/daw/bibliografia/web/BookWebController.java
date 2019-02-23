@@ -177,13 +177,20 @@ public class BookWebController {
 		
 		Optional<Obra> obra= serviceObra.findOneByTitle(nombreObra);
 		
-		model.addAttribute("autores", serviceAutor.findAll());
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("citas", serviceCita.findAll());
+
 		
 		addUserToModel(model);
 		
 		if(obra.isPresent()) {
+			
+			Tema tema = serviceTema.findByObra(obra.get());
+			List<Cita> citas = obra.get().getCitas();
+			List<Autor> autores = obra.get().getAutores();
+			
+			model.addAttribute("autores", autores);
+			model.addAttribute("temas", tema);
+			model.addAttribute("citas",citas);
+
 			
 			model.addAttribute("title", obra.get().getTitle());
 			model.addAttribute("URL", obra.get().getURL());
