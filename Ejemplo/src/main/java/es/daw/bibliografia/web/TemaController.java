@@ -45,12 +45,12 @@ public class TemaController {
 	@Autowired
 	private UserComponent userComponent;
 
-	@RequestMapping("/tema/{id}")
-	public String accederTema(Model model, @PathVariable long id) {
+	@RequestMapping("/tema/{nombreTema}")
+	public String accederTema(Model model, @PathVariable String nombreTema) {
 		
-		userTabs(model, (String) ("/tema/" + id), (String) ("Tema " + id) , true);
+		userTabs(model, (String) ("/tema/" + nombreTema), (String) ("Tema " + nombreTema) , true);
 		
-		Optional <Tema> tema = temaService.findOne(id);
+		Optional <Tema> tema = temaService.findOneByContenido(nombreTema);
 		webController.addUserToModel(model);
 		
 		if(tema.isPresent()) {
@@ -72,7 +72,7 @@ public class TemaController {
 			return "tema";
 		}
 		else
-			return "temaError";
+			return "error";
 	}
 
 	private void userTabs(Model model, String url, String name, boolean active) {
