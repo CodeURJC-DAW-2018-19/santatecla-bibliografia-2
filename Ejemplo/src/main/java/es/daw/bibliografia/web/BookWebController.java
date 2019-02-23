@@ -184,9 +184,9 @@ public class BookWebController {
 //		deleteTab(url);
 //		System.out.println("dfsfs");
 		
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("obras", serviceObra.findAll());
-		model.addAttribute("autores", serviceAutor.findAll());
+//		model.addAttribute("temas", serviceTema.findAll());
+//		model.addAttribute("obras", serviceObra.findAll());
+//		model.addAttribute("autores", serviceAutor.findAll());
 		
 		addUserToModel(model);
 		return "redirect:/";
