@@ -200,7 +200,7 @@ public class BookWebController {
 			model.addAttribute("autores", autores);
 			return "tema"; 
 		}else {
-			return "temaError"; 
+			return "error"; 
 		}		
 	}
 	

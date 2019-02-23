@@ -45,36 +45,6 @@ public class TemaController {
 	@Autowired
 	private UserComponent userComponent;
 
-	@RequestMapping("/tema/{nombreTema}")
-	public String accederTema(Model model, @PathVariable String nombreTema) {
-		
-		userTabs(model, (String) ("/tema/" + nombreTema), (String) ("Tema " + nombreTema) , true);
-		
-		Optional <Tema> tema = temaService.findOneByContenido(nombreTema);
-		webController.addUserToModel(model);
-		
-		if(tema.isPresent()) {
-			Tema theme= tema.get();
-			List<Obra> obras = theme.getObras();
-			List<Cita> citas = new ArrayList<>();
-			List<Autor> autores = new ArrayList<>();
-			for(int i=0; i<obras.size(); i++) {
-				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream())
-                        .collect(Collectors.toList());
-				autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
-                        .collect(Collectors.toList());
-			}
-			
-			model.addAttribute("obras", obras);
-			model.addAttribute("citas", citas);
-			model.addAttribute("autores", autores);
-			
-			return "tema";
-		}
-		else
-			return "error";
-	}
-
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
 		
