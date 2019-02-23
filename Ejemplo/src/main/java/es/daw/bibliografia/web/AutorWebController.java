@@ -58,13 +58,19 @@ public class AutorWebController {
 	 */
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
-
+		
 		if (!sameTab(tab)) {
 			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
 				this.userComponent.getLoggedUser().addTab(tab);
-				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 			}
+		}
+		modelTabs(model);
+	}
+	
+	public void modelTabs(Model model) {
+		if (!this.userComponent.getLoggedUser().getTabs().isEmpty()) {
+			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 		}
 	}
 

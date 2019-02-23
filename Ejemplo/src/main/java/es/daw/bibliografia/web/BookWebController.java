@@ -67,8 +67,16 @@ public class BookWebController {
 			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
 				this.userComponent.getLoggedUser().addTab(tab);
-				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 			}
+		}
+		modelTabs(model);
+	}
+	
+	public void modelTabs(Model model) {
+		try { if (!this.userComponent.getLoggedUser().getTabs().isEmpty())
+			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
+		} catch (Exception e){
+			
 		}
 	}
 	
@@ -113,7 +121,8 @@ public class BookWebController {
 			System.out.println(t.get().getContenido());
 		}
 		// model.addAttribute("autorSearch", a1.get().getNombre());
-
+		
+		modelTabs(model);
 		return "Index";
 	}
 

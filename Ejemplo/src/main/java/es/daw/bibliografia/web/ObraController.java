@@ -133,8 +133,14 @@ public class ObraController {
 			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
 				this.userComponent.getLoggedUser().addTab(tab);
-				model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 			}
+		}
+		modelTabs(model);
+	}
+	
+	public void modelTabs(Model model) {
+		if (!this.userComponent.getLoggedUser().getTabs().isEmpty()) {
+			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 		}
 	}
 	
