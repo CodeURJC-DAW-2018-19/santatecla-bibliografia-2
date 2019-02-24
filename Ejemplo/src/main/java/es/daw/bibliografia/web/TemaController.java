@@ -93,5 +93,16 @@ public class TemaController {
 
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/tema/guardado")
+	public String addAutor(Model model, Tema tema) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		temaService.save(tema);
+
+		webController.addUserToModel(model);
+
+		return "redirect:/tema/".concat(tema.getContenido());
+	}
+	
 
 }

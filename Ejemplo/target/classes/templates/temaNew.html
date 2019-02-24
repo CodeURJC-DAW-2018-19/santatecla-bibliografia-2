@@ -20,22 +20,15 @@
 										
 											<div class="col-md-12">
 												<div class="card">
-
+													<form id="editTema" action="guardado" method="post">
 													<div class="card-header-rose">
-													{{#autores}}
-														<h4 class="card-title">{{nombre}}</h4>
-														{{/autores}}
-														{{#obras}}
-														<span class="category">{{title}}</span>
-														{{/obras}}
+														<h4 class="card-title"><input class="form-control" type="text" name="contenido" placeholder="Nombre del tema" /></h4>
 													</div>
-													{{#citas}}
-													<div class="card-body">{{contenido}}</div>
-													{{/citas}}
-													<button type="button" rel="tooltip" title="Remove"
-														class="btn btn-danger btn-link btn-sm">
-														<i class="material-icons">close</i>
-													</button>
+													{{#admin}}
+														<button type="submit" class="btn btn-primary">Guardar</button>
+													{{/admin}} 
+													<input type="hidden" name="_csrf" value="{{token}}" />
+												</form>
 												</div>
 											</div>
 										</div>

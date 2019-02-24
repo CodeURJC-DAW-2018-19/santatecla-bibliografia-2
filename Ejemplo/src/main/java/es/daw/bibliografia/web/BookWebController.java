@@ -269,6 +269,19 @@ public class BookWebController {
 		return "autorNew";
 	}
 	
+	@RequestMapping(value = "/tema/new", method = RequestMethod.POST)
+	public String goTema(Model model) {
+		//userTabs(model, "/obra/new", "Nueva obra", true);
+		
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
+		
+		addUserToModel(model);
+		
+		return "temaNew";
+	}
+	
 	@GetMapping("/delete/{name}")
 	private String closeTabs(Model model,  @PathVariable String name) {
 		System.out.println("delete url");
