@@ -19,7 +19,7 @@
 								<aside class="textarea">
 									<div class="card-body">
 										<div class="row">
-										
+										{{#obras}}
 											<div class="col-md-12">
 												<div class="card">
 												<form id="editTema" action="borrar" method="post">
@@ -27,12 +27,10 @@
 													<input type="hidden" name="contenido" value="{{contenido}}" />
 													{{/tema}}
 													<div class="card-header-rose">
-													{{#autores}}
+														{{#autores}}
 														<h4 class="card-title">{{nombre}}</h4>
 														{{/autores}}
-														{{#obras}}
 														<span class="category">{{title}}</span>
-														{{/obras}}
 													</div>
 													{{#citas}}
 													<div class="card-body">{{contenido}}</div>
@@ -44,6 +42,7 @@
 												</form>
 												</div>
 											</div>
+											{{/obras}}
 										</div>
 									</div>
 								</aside>

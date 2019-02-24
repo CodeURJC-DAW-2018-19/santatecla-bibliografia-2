@@ -197,7 +197,7 @@ public class DatabaseInitializer {
 		o10.setCitas(citas10);
 		
 		List<Cita> citas11 = new ArrayList<>();
-		citas10.add(c12);
+		citas11.add(c12);
 		o11.setCitas(citas11);
 
 		List<Cita> citas12 = new ArrayList<>();
