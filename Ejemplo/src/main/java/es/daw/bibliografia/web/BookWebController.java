@@ -148,8 +148,6 @@ public class BookWebController {
 	@RequestMapping(value = "/autor/{nombreAutor}")
 	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
 		
-		userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
-		
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
 		model.addAttribute("obras", serviceObra.findAll());
@@ -159,6 +157,9 @@ public class BookWebController {
 		addUserToModel(model);
 
 		if (autor.isPresent()) {
+
+			userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
+			
 			List<Obra> obras = serviceObra.findByAuthor(autor.get());
 			List<Tema> temas = new ArrayList<>();
 			List<Cita> citas = new ArrayList<>();
@@ -188,8 +189,6 @@ public class BookWebController {
 	@RequestMapping (value = "/obra/{nombreObra}")//PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
 		
-		userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
-		
 		Optional<Obra> obra= serviceObra.findOneByTitle(nombreObra);
 		
 
@@ -197,6 +196,8 @@ public class BookWebController {
 		addUserToModel(model);
 		
 		if(obra.isPresent()) {
+			
+			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
 			
 			Tema tema = serviceTema.findByObra(obra.get());
 			List<Cita> citas = obra.get().getCitas();
@@ -221,8 +222,6 @@ public class BookWebController {
 	@RequestMapping("/tema/{contenido}")
 	public String accederTema(Model model, @PathVariable("contenido") String contenido) {
 		
-		userTabs(model, "/tema/" + contenido, "Tema: " + contenido, true);
-		
 		Optional<Tema> tema= serviceTema.findOneByContenido(contenido);
 		
 //		model.addAttribute("autores", serviceAutor.findAll());
@@ -233,6 +232,9 @@ public class BookWebController {
 		createPDF.generatePDF(userComponent.getLoggedUser());
 		
 		if(tema.isPresent()) {
+
+			userTabs(model, "/tema/" + contenido, "Tema: " + contenido, true);
+			
 			Tema theme= tema.get();
 			List<Obra> obras = theme.getObras();
 			List<Cita> citas = new ArrayList<>();

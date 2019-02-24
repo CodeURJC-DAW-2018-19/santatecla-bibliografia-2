@@ -13,15 +13,23 @@
                             </div>
                             <div class="card-body">
                                 <!-- Search bar-->
-                                <form class="navbar-form">
+                                <form class="navbar-form" id="showTema">
                                     <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Tema...">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                                        <input type="text" value="" class="form-control" placeholder="Buscar Tema..." id="nombreTema">
+                                        <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="tema()">
                                             <i class="material-icons">search</i>
                                             <div class="ripple-container"></div>
                                         </button>
                                     </div>
+                                    <input type="hidden" name="_csrf" value="{{token}}"/>
                                 </form>
+                                <script>
+							        function tema() {
+							        	var nombre = document.getElementById("nombreTema").value.toString();
+							        	document.getElementById("showTema").action = 'tema/'.concat(nombre);
+							        	document.getElementById("showTema").method = 'post';
+							        }
+							    </script>
                                 <!-- End Search bar-->
                                 <div class="row" id="moreTheme">
                                     {{#temas}}
