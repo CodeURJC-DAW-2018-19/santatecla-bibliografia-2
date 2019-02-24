@@ -27,6 +27,7 @@ import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
+import es.daw.bibliografia.pdfgenerator.CreatePDF;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -47,6 +48,9 @@ public class BookWebController {
 
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private CreatePDF createPDF;
 
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -215,6 +219,7 @@ public class BookWebController {
 //		model.addAttribute("citas", serviceCita.findAll());
 		
 		addUserToModel(model);
+		createPDF.generatePDF(userComponent.getLoggedUser());
 		
 		if(tema.isPresent()) {
 			Tema theme= tema.get();
