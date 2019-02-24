@@ -28,18 +28,18 @@
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
-                                            <a  href="/tema/{{contenido}}">
+                                           {{#logged}}<a  href="/tema/{{contenido}}">{{/temas}}
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Tema {{-index}}</h5>
                                                 </div>
-                                            </a>
+                                            {{#logged}}</a>{{/temas}}
                                             </div>
                                             
                                             <div class="card-body">
-                                            <a  href="/tema/{{contenido}}">
+                                           {{#logged}} <a  href="/tema/{{contenido}}">{{/logged}}
                                                 <!-- Theme 2 Content -->
                                                 <p> {{contenido}}</p>
-                                            </a>
+                                            {{#logged}}</a>{{/logged}}
                                                 <div class="row">
                                                     <div class="col-sm-12">
 {{#admin}}
@@ -94,20 +94,20 @@
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
-                                              <a  href="/obra/{{title}}">
+                                              {{#logged}}<a  href="/obra/{{title}}">{{/logged}}
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Obra {{-index}}</h5>
                                                 </div>
-                                              </a>
+                                             {{#logged}} </a>{{/logged}}
                                             </div>
                                             <div class="card-body">
                                                 <!-- Quote 1 Content -->
                                                 <div class="row">
-                                                <a  href="/obra/{{title}}">
+                                                {{#logged}}<a  href="/obra/{{title}}">{{/logged}}
                                                     <div class="col-sm-12">
                                                         <p> {{title}}</p>
                                                     </div>
-                                               </a>
+                                               {{#logged}}</a>{{/logged}}
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
@@ -161,21 +161,21 @@
                                     <div class="col-sm-6">
                                         <div class="card">
                                             <div class="card-header  card-header-text card-header-primary">
-                                             <a  href="/autor/{{nombre}}">
+                                            {{#logged}} <a  href="/autor/{{nombre}}">{{/logged}}
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Autor {{-index}}</h5>
                                                 </div>
-                                             </a>
+                                            {{#logged}} </a>{{/logged}}
                                             </div>
                                             <div class="card-body">
                                                 <!-- Quote 1 Content -->
                                                 <div class="row">
-                                                 <a  href="/autor/{{nombre}}">
+                                                {{#logged}} <a  href="/autor/{{nombre}}">{{/logged}}
                                                     <div class="col-sm-12">
                                                         <p> {{nombre}}</p>
                                                     </div>
                                                     
-                                                    </a>
+                                                   {{#logged}} </a>{{/logged}}
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-sm-12">
