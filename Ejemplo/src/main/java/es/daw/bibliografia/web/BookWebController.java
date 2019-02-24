@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -112,14 +113,18 @@ public class BookWebController {
 	
 	@GetMapping("/table")
 	public String showMore(Model model, Pageable page) {
-		model.addAttribute("temas", serviceTema.findAll(page));
-
+		Page<Tema> themes = serviceTema.findAll(page);
+		
+		model.addAttribute("temas", themes);
+		model.addAttribute("nTheme", page.getPageNumber());
+		model.addAttribute("indexTheme", themes.getTotalPages());
+		
 		return "pageableTema";
 	}
 
 	@GetMapping("/")
 	public String showBooks(Model model) {
-		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("temas", serviceTema.findAll(new PageRequest(0, 10)));
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
 		
