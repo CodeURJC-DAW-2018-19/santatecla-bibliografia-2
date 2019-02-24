@@ -114,7 +114,7 @@ public class BookWebController {
 	public String showMore(Model model, Pageable page) {
 		model.addAttribute("temas", serviceTema.findAll(page));
 
-		return "pageableTable";
+		return "pageableTema";
 	}
 
 	@GetMapping("/")

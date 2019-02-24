@@ -23,7 +23,7 @@
                                     </div>
                                 </form>
                                 <!-- End Search bar-->
-                                <div class="row">
+                                <div class="row" id="moreTheme">
                                     {{#temas}}
                                     <div class="col-sm-6">
                                         <div class="card">
@@ -50,8 +50,10 @@
                                             </div>
                                         </div>
                                     </div>
-									{{/temas}}
+									{{/temas}}				
                                 </div>
+                                <button type="button" class="btn btn-primary" onClick="loadMoreThemes()">Mas</button>
+                               
 {{#admin}}
                                 <form action="tema/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->                            
 {{/admin}}
