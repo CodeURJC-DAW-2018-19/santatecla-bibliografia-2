@@ -82,5 +82,16 @@ public class TemaController {
 		}
 		return false;
 	}
+	
+	@RequestMapping("/tema/borrar")
+	public String deleteObra(Model model, String contenido) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		temaService.delete(temaService.findOneByContenido(contenido).get().getId());
+
+		webController.addUserToModel(model);
+		webController.deleteTab("Tema: " + contenido);
+
+		return "redirect:/";
+	}
 
 }

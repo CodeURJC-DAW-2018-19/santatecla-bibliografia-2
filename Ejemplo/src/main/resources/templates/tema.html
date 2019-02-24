@@ -20,7 +20,10 @@
 										
 											<div class="col-md-12">
 												<div class="card">
-
+												<form id="editTema" action="borrar" method="post">
+													{{#tema}}
+													<input type="hidden" name="contenido" value="{{contenido}}" />
+													{{/tema}}
 													<div class="card-header-rose">
 													{{#autores}}
 														<h4 class="card-title">{{nombre}}</h4>
@@ -32,10 +35,11 @@
 													{{#citas}}
 													<div class="card-body">{{contenido}}</div>
 													{{/citas}}
-													<button type="button" rel="tooltip" title="Remove"
-														class="btn btn-danger btn-link btn-sm">
-														<i class="material-icons">close</i>
-													</button>
+													{{#admin}}
+														<button type="submit" class="btn btn-primary">Borrar</button>
+													{{/admin}} 
+													<input type="hidden" name="_csrf" value="{{token}}" />
+												</form>
 												</div>
 											</div>
 										</div>

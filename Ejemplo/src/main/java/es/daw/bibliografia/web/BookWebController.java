@@ -232,7 +232,8 @@ public class BookWebController {
 				autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
                         .collect(Collectors.toList());
 			}
-			
+
+			model.addAttribute("tema", tema);
 			model.addAttribute("obras", obras);
 			model.addAttribute("citas", citas);
 			model.addAttribute("autores", autores);
