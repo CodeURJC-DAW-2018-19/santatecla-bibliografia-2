@@ -111,8 +111,8 @@ public class BookWebController {
 		return false;
 	}
 	
-	@GetMapping("/table")
-	public String showMore(Model model, Pageable page) {
+	@GetMapping("/table-theme")
+	public String showMoreTheme(Model model, Pageable page) {
 		Page<Tema> themes = serviceTema.findAll(page);
 		
 		model.addAttribute("temas", themes);
@@ -121,12 +121,35 @@ public class BookWebController {
 		
 		return "pageableTema";
 	}
-
+	
+	@GetMapping("/table-works")
+	public String showMoreWorks(Model model, Pageable page) {
+		Page<Obra> works = serviceObra.findAll(page);
+		
+		model.addAttribute("works", works);
+		model.addAttribute("nWorks", page.getPageNumber());
+		model.addAttribute("indexWorks", works.getTotalPages());
+		
+		return "pageableObra";
+	}
+	
+	
+	@GetMapping("/table-author")
+	public String showMoreAuthor(Model model, Pageable page) {
+		Page<Autor> author = serviceAutor.findAll(page);
+		
+		model.addAttribute("author", author);
+		model.addAttribute("nAuthor", page.getPageNumber());
+		model.addAttribute("indexAuthors", author.getTotalPages());
+		
+		return "pageableAutor";
+	}
+	
 	@GetMapping("/")
 	public String showBooks(Model model) {
 		model.addAttribute("temas", serviceTema.findAll(new PageRequest(0, 10)));
-		model.addAttribute("obras", serviceObra.findAll());
-		model.addAttribute("autores", serviceAutor.findAll());
+		model.addAttribute("obras", serviceObra.findAll(new PageRequest(0, 10)));
+		model.addAttribute("autores", serviceAutor.findAll(new PageRequest(0, 10)));
 		
 		model.addAttribute("start", true);
 

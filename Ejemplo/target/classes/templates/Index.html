@@ -102,7 +102,7 @@
 							        }
 							    </script>
                                 <!-- End Search bar-->
-                                <div class="row">
+                                <div class="row" id="moreWorks">
                                 {{#obras}}
                                     <div class="col-sm-6">
                                         <div class="card">
@@ -137,6 +137,7 @@
                                     </div>
                                     {{/obras}}
                                 </div>
+                                <button type="button" class="btn btn-primary" id="buttonMoreWorks" onClick="loadMoreWorks()">Mas</button>
 {{#admin}}
                                 <form action="obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
 {{/admin}}
@@ -172,7 +173,7 @@
 							        }
 							    </script>
                                 <!-- End Search bar-->
-                                <div class="row">
+                                <div class="row"  id="moreAuthor">
                                 {{#autores}}
                                     <div class="col-sm-6">
                                         <div class="card">
@@ -208,6 +209,7 @@
                                     </div>
                                     {{/autores}}
                                 </div>
+                                <button type="button" class="btn btn-primary" id="buttonMoreAuthor" onClick="loadMoreAuthor()">Mas</button>
 {{#admin}}
                                 <form action="autor/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
 {{/admin}}
