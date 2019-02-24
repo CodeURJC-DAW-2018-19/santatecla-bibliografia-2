@@ -58,8 +58,8 @@ public class ObraController {
 		
 		if(obra2.isPresent()) {
 			
-			obra2.get().setAutores(obra.getAutores());
-			obra2.get().setCitas(obra.getCitas());
+			//obra2.get().setAutores(obra.getAutores());
+			//obra2.get().setCitas(obra.getCitas());
 			obra2.get().setDate(obra.getDate());
 			obra2.get().setEditorial(obra.getEditorial());
 			obra2.get().setURL(obra.getURL());

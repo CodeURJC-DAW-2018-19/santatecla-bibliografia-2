@@ -93,6 +93,38 @@ public class AutorWebController {
 		}
 		return false;
 	}
+	
+	@RequestMapping("/autor/edit")
+	public String editObra(Model model, Autor autor) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		
+		Optional<Autor> autor2 = autorService.findOneByNombre(autor.getNombre());
+		
+		if(autor2.isPresent()) {
+			
+			autor2.get().setNombre(autor.getNombre());
+			autor2.get().setFecha_def(autor.getFecha_def());
+			autor2.get().setFecha_nac(autor.getFecha_nac());
+			autor2.get().setLugar(autor.getLugar());
+			autor2.get().setUrl_foto(autor.getUrl_foto());
+			autor2.get().setUrl_mapa(autor.getUrl_mapa());
+			
+			autorService.save(autor2.get());
+			return "redirect:/autor/".concat(autor.getNombre());
+		}else {
+			return "autorError";
+		}
+	}
+	
+	@RequestMapping("/autor/borrar")
+	public String deleteObra(Model model, Autor autor) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		autorService.delete(autorService.findOneByNombre(autor.getNombre()).get().getId());
+
+		webController.addUserToModel(model);
+
+		return "redirect:/";
+	}
 
 	/*
 	 * @GetMapping("/autor/{id}") public String showBook(Model model, @PathVariable

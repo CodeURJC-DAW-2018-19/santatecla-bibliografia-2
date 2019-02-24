@@ -15,14 +15,13 @@
                             <div class="card-body">
 
                                 <!--Form-->
-                                <form>
+                                <form id="editarAutores">
 
                                     <!--Input nombre-->
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">{{nombreAutor}}</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <input type="text" class="form-control" name="nombre" id="name" value="{{nombreAutor}}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -32,7 +31,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{urlFotoAutor}}</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <input type="text" class="form-control" name="url_foto" id="foto" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +47,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="from" placeholder="Nacimiento:  {{nacimientoAutor}}" />
+                                                    <input type="text" class="input-sm form-control" name="fecha_nac" id="nac" placeholder="Nacimiento:  {{nacimientoAutor}}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -58,7 +57,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="to" placeholder="Fallecimiento: {{muerteAutor}}" />
+                                                    <input type="text" class="input-sm form-control" name="fecha_def" id="def" placeholder="Fallecimiento: {{muerteAutor}}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -69,7 +68,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{lugarAutor}}</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <input type="text" class="form-control" name="url_mapa" id="map" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -79,13 +78,55 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">{{urlMapa}}</label>
-                                                <input type="text" class="form-control" disabled>
+                                                <input type="text" class="form-control" name="lugar" id="place" disabled>
                                             </div>
                                         </div>
                                     </div>
+                                    {{#admin}}
+									<button type="button" class="btn btn-primary"
+										onclick="editarAutor();" id="editar">Editar</button>
+									<button type="submit" class="btn btn-primary"
+										style="display: none;" id="guardar" onclick="update();">Guardar</button>
+										<button type="submit" class="btn btn-primary"
+										onclick="borrarAutor();" id="borrar">Borrar</button>
+									{{/admin}} 
+									<input type="hidden" name="_csrf" value="{{token}}" />
                                 </form>
                                 <!--End Form-->
-                                <button type="button" class="btn btn-primary">Guardar</button>
+                                <script>
+									function editarAutor() {
+										//document.getElementById("editar").type = 'submit';
+										//document.getElementById("editar").onclick=function() {};
+										document.getElementById("foto").disabled = false;
+										document.getElementById("nac").disabled = false;
+										document.getElementById("def").disabled = false;
+										document.getElementById("map").disabled = false;
+										document.getElementById("place").disabled = false;
+										document.getElementById("editar").style.display = 'none';
+										document.getElementById("guardar").style.display = 'inline';
+										//document.getElementById("showActor").method = 'post';
+									}
+								</script>
+								<script>
+									function update() {
+										//document.getElementById("editar").type = 'submit';
+										//document.getElementById("editar").onclick=function() {};
+										document.getElementById("name").disabled = false;
+										document.getElementById("editarAutores").action = 'edit';
+										document.getElementById("editarAutores").method = 'post';
+										//document.getElementById("showActor").method = 'post';
+									}
+								</script>
+								<script>
+									function borrarAutor() {
+										//document.getElementById("editar").type = 'submit';
+										//document.getElementById("editar").onclick=function() {};
+										document.getElementById("name").disabled = false;
+										document.getElementById("editarAutores").action = 'borrar';
+										document.getElementById("editarAutores").method = 'post';
+										//document.getElementById("showActor").method = 'post';
+									}
+								</script>
 
                             </div>
                         </div>
