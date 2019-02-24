@@ -90,10 +90,7 @@
 								onclick="editarObra();" id="editar">Editar</button>
 							<button type="submit" class="btn btn-primary"
 								style="display: none;" id="guardar" onclick="update();">Guardar</button>
-								<button type="submit" class="btn btn-primary"
-								onclick="borrarObra();" id="borrar">Borrar</button>
-							{{/admin}} 
-							<input type="hidden" name="_csrf" value="{{token}}" />
+							{{/admin}} <input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 						<script>
 							function editarObra() {
@@ -118,16 +115,6 @@
 								//document.getElementById("showActor").method = 'post';
 							}
 						</script>
-						<script>
-							function borrarObra() {
-								//document.getElementById("editar").type = 'submit';
-								//document.getElementById("editar").onclick=function() {};
-								document.getElementById("title").disabled = false;
-								document.getElementById("editarObras").action = 'borrar';
-								document.getElementById("editarObras").method = 'post';
-								//document.getElementById("showActor").method = 'post';
-							}
-						</script>
 						<!--End Form-->
 					</div>
 				</div>
@@ -140,7 +127,7 @@
 
 				<div class="card card-profile">
 					<a href="#cover"> <img class="card-img-top"
-						src="{{URL}}"
+						src="https://ep00.epimg.net/cultura/imagenes/2013/06/15/actualidad/1371283072_174122_1371283573_noticia_normal.jpg"
 						style="width: 11.65em; height: 10em;" />
 					</a>
 					<div class="card-body">
@@ -153,7 +140,7 @@
 				<div class="card card-profile">
 					<div class="card-avatar-top">
 						<a href="#editorial"> <img class="card-img-top"
-							src="{{url_editorial}}"
+							src="http://www.promolibro.com.co//media/aitmanufacturers/219_3bcd14cf3949093647d1f2fb40edb1e0.png"
 							style="width: 11.65em; height: 10em;" />
 						</a>
 					</div>
