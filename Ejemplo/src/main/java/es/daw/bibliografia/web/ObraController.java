@@ -77,6 +77,16 @@ public class ObraController {
 		return "redirect:/obra/".concat(obra.getTitle());
 	}
 	
+	@RequestMapping("/obra/borrar")
+	public String deleteObra(Model model, Obra obra) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		service.delete(service.findOneByTitle(obra.getTitle()).get().getId());
+
+		webController.addUserToModel(model);
+
+		return "redirect:/";
+	}
+	
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 //	public String goObra(Model model) {
 //		
