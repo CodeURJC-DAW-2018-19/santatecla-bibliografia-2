@@ -252,7 +252,6 @@ public class BookWebController {
 //		model.addAttribute("citas", serviceCita.findAll());
 		
 		addUserToModel(model);
-		createPDF.generatePDF(userComponent.getLoggedUser());
 		
 		if(tema.isPresent()) {
 
@@ -273,6 +272,8 @@ public class BookWebController {
 			model.addAttribute("obras", obras);
 			model.addAttribute("citas", citas);
 			model.addAttribute("autores", autores);
+			
+			createPDF.generatePDF(userComponent.getLoggedUser(), obras, citas, autores);
 			return "tema"; 
 		}else {
 			return "temaShowError"; 

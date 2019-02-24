@@ -2,7 +2,10 @@ package es.daw.bibliografia.pdfgenerator;
 
 import org.springframework.util.FileCopyUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import es.daw.bibliografia.book.TemaService;
 
 import java.nio.file.Paths;
 
@@ -17,10 +20,11 @@ import java.io.IOException;
 @Controller
 public class PDFController {
 
- 	@RequestMapping("/crearPDF")
-	public void handleFileDownloadPDF(HttpServletResponse res) throws FileNotFoundException, IOException {
+	TemaService serviceTema;
+	
+ 	@RequestMapping("/crearPDF/{contenido}")
+	public void handleFileDownloadPDF(HttpServletResponse res, @PathVariable String contenido) throws FileNotFoundException, IOException {
  		
- 		System.out.println("fdsfs");
 		String title = "PDF-tema.pdf";
 
  		Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "files");

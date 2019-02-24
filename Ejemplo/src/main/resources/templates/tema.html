@@ -33,12 +33,16 @@
 														<span class="category">{{title}}</span>
 													</div>
 													{{#citas}}
-													<div class="card-body">{{contenido}}</div>
+													<div class="card-body table-responsive">
+														{{contenido}}
+													
+														{{#admin}}
+															<button type="submit" class="btn btn-primary pull-right">Borrar</button>
+														{{/admin}} 
+														<input type="hidden" name="_csrf" value="{{token}}" />
+													</div>
 													{{/citas}}
-													{{#admin}}
-														<button type="submit" class="btn btn-primary">Borrar</button>
-													{{/admin}} 
-													<input type="hidden" name="_csrf" value="{{token}}" />
+													
 												</form>
 												</div>
 											</div>
@@ -56,8 +60,10 @@
 									<h3 class="card-title">Resumen</h3>
 								</div>
 								<div class="card-body table-responsive">
-									<h1>Aquí va el HTML</h1>
-									<form action="/crearPDF" method="post">
+									{{#tema}}
+									<embed class="card-body table-responsive" style="height:30em; overflow-y: scroll;" type="application/pdf" src="/crearPDF/{{contenido}}">
+									{{/tema}}
+									<form action="/crearPDF/{{contenido}}" method="post">
 										<button class="btn btn-primary pull-right">
 										Generar PDF</button>
 										<input type="hidden" name="_csrf" value="{{token}}"/>
