@@ -73,7 +73,7 @@
 								</div>
 							</div>
 
-							<!--Input URL -->
+							<!--Input URL  -->
 							<div class="row" style="padding-bottom: 2.5em;">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -90,7 +90,10 @@
 								onclick="editarObra();" id="editar">Editar</button>
 							<button type="submit" class="btn btn-primary"
 								style="display: none;" id="guardar" onclick="update();">Guardar</button>
-							{{/admin}} <input type="hidden" name="_csrf" value="{{token}}" />
+								<button type="submit" class="btn btn-primary"
+								onclick="borrarObra();" id="borrar">Borrar</button>
+							{{/admin}} 
+							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 						<script>
 							function editarObra() {
@@ -111,6 +114,16 @@
 								//document.getElementById("editar").onclick=function() {};
 								document.getElementById("title").disabled = false;
 								document.getElementById("editarObras").action = 'edit';
+								document.getElementById("editarObras").method = 'post';
+								//document.getElementById("showActor").method = 'post';
+							}
+						</script>
+						<script>
+							function borrarObra() {
+								//document.getElementById("editar").type = 'submit';
+								//document.getElementById("editar").onclick=function() {};
+								document.getElementById("title").disabled = false;
+								document.getElementById("editarObras").action = 'borrar';
 								document.getElementById("editarObras").method = 'post';
 								//document.getElementById("showActor").method = 'post';
 							}

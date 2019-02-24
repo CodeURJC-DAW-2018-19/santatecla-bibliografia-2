@@ -122,8 +122,19 @@ public class AutorWebController {
 		autorService.delete(autorService.findOneByNombre(autor.getNombre()).get().getId());
 
 		webController.addUserToModel(model);
+		webController.deleteTab("Autor " + autor.getNombre());
 
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/autor/guardado")
+	public String addAutor(Model model, Autor autor) {
+		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		autorService.save(autor);
+
+		webController.addUserToModel(model);
+
+		return "redirect:/autor/".concat(autor.getNombre());
 	}
 
 	/*

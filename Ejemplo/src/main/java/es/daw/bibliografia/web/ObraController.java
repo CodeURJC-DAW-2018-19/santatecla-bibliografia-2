@@ -83,6 +83,7 @@ public class ObraController {
 		service.delete(service.findOneByTitle(obra.getTitle()).get().getId());
 
 		webController.addUserToModel(model);
+		webController.deleteTab("Obra  " + obra.getTitle());
 
 		return "redirect:/";
 	}
