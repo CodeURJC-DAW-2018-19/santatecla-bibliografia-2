@@ -1,5 +1,7 @@
 {{>header}}
 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <div class="content">
             <!-- Container parts : Theme, Author, Quote-->
             <div class="container-fluid">
@@ -30,6 +32,18 @@
 							        	document.getElementById("showTema").method = 'post';
 							        }
 							    </script>
+								<script>
+								  $( function() {
+								    var availableTags = [
+								      ""{{#temas}},
+								      "{{contenido}}"{{/temas}}
+								    ];
+								    $( "#nombreTema" ).autocomplete({
+								      source: availableTags
+								    });
+								  } );
+								
+								</script>
                                 <!-- End Search bar-->
                                 <div class="row" id="moreTheme">
                                     {{#temas}}
@@ -101,6 +115,18 @@
 							        	document.getElementById("showObra").method = 'post';
 							        }
 							    </script>
+								<script>
+								  $( function() {
+								    var availableTags = [
+								      ""{{#obras}},
+								      "{{title}}"{{/obras}}
+								    ];
+								    $( "#nombreObra" ).autocomplete({
+								      source: availableTags
+								    });
+								  } );
+								
+								</script>
                                 <!-- End Search bar-->
                                 <div class="row" id="moreWorks">
                                 {{#obras}}
@@ -172,6 +198,18 @@
 							        	document.getElementById("showActor").method = 'post';
 							        }
 							    </script>
+								<script>
+								  $( function() {
+								    var availableTags = [
+								      ""{{#autores}},
+								      "{{nombre}}"{{/autores}}
+								    ];
+								    $( "#nombreAutor" ).autocomplete({
+								      source: availableTags
+								    });
+								  } );
+								
+								</script>
                                 <!-- End Search bar-->
                                 <div class="row"  id="moreAuthor">
                                 {{#autores}}
