@@ -6,6 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 @Service
 public class TemaService {
 
@@ -19,7 +22,10 @@ public class TemaService {
 	public List<Tema> findAll() {
 		return repository.findAll();
 	}
-	
+
+	public Page<Tema> findAll(Pageable pageable) {
+		return repository.findAll(pageable);
+	}
 
 	public Optional<Tema> findOneByContenido(String contenido) {
 		return repository.findOneByContenido(contenido);
@@ -32,7 +38,7 @@ public class TemaService {
 	public void delete(long id) {
 		repository.deleteById(id);
 	}
-	
+
 	public Tema findByObra(Obra obra) {
 		return repository.findByObras(obra);
 	}

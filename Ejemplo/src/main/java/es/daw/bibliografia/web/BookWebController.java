@@ -7,6 +7,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -107,10 +109,16 @@ public class BookWebController {
 		}
 		return false;
 	}
+	
+	@GetMapping("/table")
+	public String showMore(Model model, Pageable page) {
+		model.addAttribute("temas", serviceTema.findAll(page));
+
+		return "pageableTable";
+	}
 
 	@GetMapping("/")
 	public String showBooks(Model model) {
-
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
@@ -120,14 +128,12 @@ public class BookWebController {
 		// AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE
 		// PASARLE
 
-		Optional<Obra> o = serviceObra.findOneByTitle("Hamlet");
-		if (o.isPresent()) {
-			System.out.println(o.get().getTitle());
-		}
-		Optional<Tema> t = serviceTema.findOneByContenido("Tema Hamlet");
-		if (t.isPresent()) {
-			System.out.println(t.get().getContenido());
-		}
+		/*
+		 * Optional<Obra> o = serviceObra.findOneByTitle("Hamlet"); if (o.isPresent()) {
+		 * System.out.println(o.get().getTitle()); } Optional<Tema> t =
+		 * serviceTema.findOneByContenido("Tema Hamlet"); if (t.isPresent()) {
+		 * System.out.println(t.get().getContenido()); }
+		 */
 		// model.addAttribute("autorSearch", a1.get().getNombre());
 		
 		modelTabs(model);
