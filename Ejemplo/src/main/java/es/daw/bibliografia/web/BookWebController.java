@@ -206,7 +206,7 @@ public class BookWebController {
 	@RequestMapping("/tema/{contenido}")
 	public String accederTema(Model model, @PathVariable("contenido") String contenido) {
 		
-		userTabs(model, "/tema/" + contenido, "Obra  " + contenido, true);
+		userTabs(model, "/tema/" + contenido, "Tema: " + contenido, true);
 		
 		Optional<Tema> tema= serviceTema.findOneByContenido(contenido);
 		
