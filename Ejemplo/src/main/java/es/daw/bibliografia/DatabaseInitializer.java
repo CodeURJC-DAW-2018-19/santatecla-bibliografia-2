@@ -79,6 +79,8 @@ public class DatabaseInitializer {
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Espa%C3%B1aLoc.svg/266px-Espa%C3%B1aLoc.svg.png", "11 de julio de 1561", "23 de mayo de 1627", "Córdoba");
 		Autor a10 = new Autor("Duque de Rivas", "https://www.ecured.cu/images/6/64/Duque_de_rivas.jpg",
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Espa%C3%B1aLoc.svg/266px-Espa%C3%B1aLoc.svg.png", "10 de marzo de 1791", "22 de junio de 1865", "Córdoba");
+		Autor a11 = new Autor("Duque de Rivas 2", "https://www.ecured.cu/images/6/64/Duque_de_rivas.jpg",
+				"https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Espa%C3%B1aLoc.svg/266px-Espa%C3%B1aLoc.svg.png", "10 de marzo de 1791", "22 de junio de 1865", "Córdoba");
 		
 												
 		autorRepository.save(a1);
@@ -91,6 +93,7 @@ public class DatabaseInitializer {
 		autorRepository.save(a8);
 		autorRepository.save(a9);
 		autorRepository.save(a10);
+		autorRepository.save(a11);
 
 		Cita c1 = new Cita("Ser o no ser, esa es la cuestión. ¿Cuál es más digna acción del ánimo, sufrir los tiros penetrantes de la fortuna injusta, u oponer los brazos a este torrente de calamidades, y darlas fin con atrevida resistencia? Morir es dormir. ¿No más? ");
 		Cita c2 = new Cita("El amor corre al amor como el colegial huye del libro y como el que va a clase se aparta de el con cara triste.");

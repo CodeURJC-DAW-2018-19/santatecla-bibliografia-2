@@ -1,0 +1,34 @@
+{{#works}}
+<div class="col-sm-6">
+	<div class="card">
+		<div class="card-header  card-header-text card-header-primary">
+			{{#logged}}<a href="/obra/{{title}}">{{/logged}}
+				<div class="card-text">
+					<h5 class="card-title ">Obra {{nWorks}}{{-index}}</h5>
+				</div> {{#logged}}
+			</a>{{/logged}}
+		</div>
+
+		<div class="card-body">
+			{{#logged}} <a href="/obra/{{title}}">{{/logged}} <!-- Theme 2 Content -->
+				<p>{{title}}</p> {{#logged}}
+			</a>{{/logged}}
+			<div class="row">
+				<div class="col-sm-12">
+					{{#admin}}
+					<p class="d-flex">
+						<button type="button" class="btn btn-info ml-auto btn-round">
+							<i class="material-icons"> delete </i>
+						</button>
+					</p>
+					{{/admin}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var indexWorks={{indexWorks}};
+</script>
+{{/works}}
