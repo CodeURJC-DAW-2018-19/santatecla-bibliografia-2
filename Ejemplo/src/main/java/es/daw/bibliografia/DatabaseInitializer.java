@@ -95,9 +95,11 @@ public class DatabaseInitializer {
 		Cita c1 = new Cita("Ser o no ser, esa es la cuestión. ¿Cuál es más digna acción del ánimo, sufrir los tiros penetrantes de la fortuna injusta, u oponer los brazos a este torrente de calamidades, y darlas fin con atrevida resistencia? Morir es dormir. ¿No más? ");
 		Cita c2 = new Cita("El amor corre al amor como el colegial huye del libro y como el que va a clase se aparta de el con cara triste.");
 		Cita c3 = new Cita("Señor: líbrame de mis amigos, que de mis enemigos yo me cuidaré.");
-		Cita c4 = new Cita("Cita La ciudad y los perros");
-		Cita c5 = new Cita("Cita Don Quijote");
-		Cita c6 = new Cita("Cita Poesias castellanas");
+		Cita c4 = new Cita("O comes o te comen, no hay más remedio.");
+		Cita c5 = new Cita("Cada uno es tal como Dios le hizo, y aún peor muchas veces.");
+		Cita c6 = new Cita("coged de vuestra alegre primavera \r\n" + 
+				"el dulce fruto antes que el tiempo airado \r\n" + 
+				"cubra de nieve la hermosa cumbre.");
 		Cita c7 = new Cita("¿Qué es la vida? Un frenesí.\r\n" + "¿Qué es la vida? Una ilusión,\r\n" + 
 							"una sombra, una ficción,\r\n" + "y el mayor bien es pequeño; \r\n" + 
 							"que toda la vida es sueño,\r\n" + "y los sueños, sueños son.");
@@ -125,7 +127,7 @@ public class DatabaseInitializer {
 		citaRepository.save(c5);
 		citaRepository.save(c6);
 		citaRepository.save(c7);
-		citaRepository.save(c8);//
+		citaRepository.save(c8);
 		citaRepository.save(c9);
 		citaRepository.save(c10);
 		citaRepository.save(c11);
@@ -134,30 +136,22 @@ public class DatabaseInitializer {
 		citaRepository.save(c14);
 		
 		
-		Obra o1 = new Obra("Hamlet", "http://oceano.com.mx/img/obra/ficha/140487.jpg",
-				"1605", "Ed. Oceano", "http://oceano.com.mx/obras/hamlet-william-shakespeare-140487.aspx");
+		Obra o1 = new Obra("Hamlet", "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg",
+				"1605", "Ed. Oceano", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
 		Obra o2 = new Obra("Romeo y Julieta", "url foto", "fecha", "editorial", "url editorial");
-		Obra o3 = new Obra("Enrique 4", "https://static0planetadelibroscom.cdnstatics.com/usuaris/libros/fotos/120/m_libros/enrique-iv_9788467041675.jpg", "1597", "Austral", "https://www.planetadelibros.com/editorial/austral/33");
-		Obra o4 = new Obra("La ciudad y los perros", "https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_1165_1_96146.jpg", "1963","Seix Barral", "https://www.planetadelibros.com/editorial/seix-barral/9");
-		Obra o5 = new Obra("Don Quijote", "https://imagessl9.casadellibro.com/a/l/t0/49/9788437622149.jpg", "1605", "Cátedra", "https://www.catedra.com/");
-		Obra o6 = new Obra("Soneto XXIII", "https://www.catedra.com/jpg_p/catedra/CA00004424.jpg" , "1491", "Cátedra", "https://www.catedra.com/");
-		Obra o7 = new Obra("La vida es sueño", "https://cdn.culturagenial.com/es/imagenes/la-vida-es-sueno-de-pedro-calderon-de-la-barca-teatro-d-nq-np-956325-mla25419632927-032017-f-cke.jpg",
-				"1635 ", "Biblioteca Mundial Jopena", "https://tercerafundacion.net/biblioteca/ver/coleccion/1249");
+		Obra o3 = new Obra("Enrique 4", "https://static0planetadelibroscom.cdnstatics.com/usuaris/libros/fotos/120/m_libros/enrique-iv_9788467041675.jpg", "1597", "Austral", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjwjXurrLtNC6e2Zhopj_yZjvpcQKzKynXjbGCrNHX0yZtD4D");
+		Obra o4 = new Obra("La ciudad y los perros", "https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_1165_1_96146.jpg", "1963","Seix Barral", "https://www.planetadelibros.com/img/sellos_og/logo_SEIXBARRAL.jpg");
+		Obra o5 = new Obra("Don Quijote", "https://imagessl9.casadellibro.com/a/l/t0/49/9788437622149.jpg", "1605", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
+		Obra o6 = new Obra("Soneto XXIII", "https://www.catedra.com/jpg_p/catedra/CA00004424.jpg" , "1491", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
+		Obra o7 = new Obra("La vida es sueño", "https://www.catedra.com/jpg_g/catedra/CA00047330.jpg",
+				"1635 ", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
 		Obra o8 = new Obra("El principe", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00236201.jpg",
-							"1532", "Alianza Editorial", "https://www.alianzaeditorial.es/libro.php?id=2558842&id_col=100508&id_subcol=100517");
-		Obra o9 = new Obra("Cantos de vida y esperanza", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00098201.jpg", "1905", "Alianza Editorial", "https://www.alianzaeditorial.es/libro.php?id=731764&id_col=100500&id_subcol=100506");
-		Obra o10 = new Obra("Odas", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00127301.jpg", "23 a.C", "Alianza Editorial", "https://www.alianzaeditorial.es/libro.php?id=944309&id_col=100500&id_subcol=100506");
-		Obra o11 = new Obra("Oda a la vida Retirada","1574", "https://http2.mlstatic.com/oda-a-la-vida-retirada-y-otros-poemas-fray-luis-de-leon-D_NQ_NP_682178-MLM26410469570_112017-F.jpg,", "Planeta", "https://www.planetadelibros.com/editorial/editorial-planeta/8");
-		Obra o12 = new Obra("Fábula de Polifemo y Galatea", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Polifemo_y_Galatea_%28An%C3%ADbal_Carracci%29.jpg/220px-Polifemo_y_Galatea_%28An%C3%ADbal_Carracci%29.jpg",
-				"1612", "Cátedra", "https://www.catedra.com/");
-		Obra o13 = new Obra("Don Álvaro o la fuerza del sino", "https://images-na.ssl-images-amazon.com/images/I/41bRQ26T6fL._SX304_BO1,204,203,200_.jpg", "22 de marzo de 1835", "Cátedra", "https://www.catedra.com/");
-		Obra o14 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
-		Obra o15 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
-		Obra o16 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
-		Obra o17 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
-		Obra o18 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
-		Obra o19 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
-		Obra o20 = new Obra("Poesias castellanas", "url foto", "fecha", "editorial", "url editorial");
+							"1532", "Alianza Editorial", "https://www.vectorlogo.es/wp-content/uploads/2016/10/logo-vector-alianza-editorial.jpg");
+		Obra o9 = new Obra("Cantos de vida y esperanza", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00098201.jpg", "1905", "Alianza Editorial", "https://www.vectorlogo.es/wp-content/uploads/2016/10/logo-vector-alianza-editorial.jpg");
+		Obra o10 = new Obra("Odas", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00127301.jpg", "23 a.C", "Alianza Editorial", "https://www.vectorlogo.es/wp-content/uploads/2016/10/logo-vector-alianza-editorial.jpg");
+		Obra o11 = new Obra("Oda a la vida Retirada","1574", "https://http2.mlstatic.com/oda-a-la-vida-retirada-y-otros-poemas-fray-luis-de-leon-D_NQ_NP_682178-MLM26410469570_112017-F.jpg,", "Planeta", "https://pbs.twimg.com/profile_images/926033131223871488/7t1-cwuY_400x400.jpg");
+		Obra o12 = new Obra("Fábula de Polifemo y Galatea", "https://www.catedra.com/jpg_g/catedra/CA00220601.jpg","1612", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
+		Obra o13 = new Obra("Don Álvaro o la fuerza del sino", "https://images-na.ssl-images-amazon.com/images/I/41bRQ26T6fL._SX304_BO1,204,203,200_.jpg", "22 de marzo de 1835", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
 		
 
 		
