@@ -1,100 +1,108 @@
 {{>header}}
 <meta charset="utf-8" />
- <!--Start Container 1-->
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
+<!--Start Container 1-->
+<div class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
 
-					
-                    <!--Input Data-->
-                    <div class="col-md-10">
-                        <div class="card">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title">Autor</h4>
-                                <p class="card-category">Datos del Autor</p>
-                            </div>
-                            <div class="card-body">
 
-                                <!--Form-->
-                                <form id="editarAutores">
+			<!--Input Data-->
+			<div class="col-md-10">
+				<div class="card">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title">Autor</h4>
+						<p class="card-category">Datos del Autor</p>
+					</div>
+					<div class="card-body">
 
-                                    <!--Input nombre-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="nombre" id="name" value="{{nombreAutor}}" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
+						<!--Form-->
+						<form id="editarAutores">
 
-                                    <!--Input URL Foto-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">{{urlFotoAutor}}</label>
-                                                <input type="text" class="form-control" name="url_foto" id="foto" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
+							<!--Input nombre-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<input type="text" class="form-control" name="nombre"
+											id="name" value="{{nombreAutor}}" disabled>
+									</div>
+								</div>
+							</div>
 
-                                    <!--Input Calendar-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label class="bmd-label-floating"> Fechas: </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="fecha_nac" id="nac" placeholder="Nacimiento:  {{nacimientoAutor}}" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <div class="input-daterange input-group" id="datepicker">
-                                                    <input type="text" class="input-sm form-control" name="fecha_def" id="def" placeholder="Fallecimiento: {{muerteAutor}}" disabled/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+							<!--Input URL Foto-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">{{urlFotoAutor}}</label> <input
+											type="text" class="form-control" name="url_foto" id="foto"
+											disabled>
+									</div>
+								</div>
+							</div>
 
-                                    <!--Input Lugar Nacimiento-->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">{{lugarAutor}}</label>
-                                                <input type="text" class="form-control" name="url_mapa" id="map" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
+							<!--Input Calendar-->
+							<div class="row">
+								<div class="col-md-12">
+									<label class="bmd-label-floating"> Fechas: </label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="input-daterange input-group" id="datepicker">
+											<input type="text" class="input-sm form-control"
+												name="fecha_nac" id="nac"
+												placeholder="Nacimiento:  {{nacimientoAutor}}" disabled />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="input-daterange input-group" id="datepicker">
+											<input type="text" class="input-sm form-control"
+												name="fecha_def" id="def"
+												placeholder="Fallecimiento: {{muerteAutor}}" disabled />
+										</div>
+									</div>
+								</div>
+							</div>
 
-                                    <!--Input URL Mapa-->
-                                    <div class="row" style="padding-bottom: 2.5em;">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">{{urlMapa}}</label>
-                                                <input type="text" class="form-control" name="lugar" id="place" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{#admin}}
-									<button type="button" class="btn btn-primary"
-										onclick="editarAutor();" id="editar">Editar</button>
-									<button type="submit" class="btn btn-primary"
-										style="display: none;" id="guardar" onclick="update();">Guardar</button>
-										<button type="submit" class="btn btn-primary"
-										onclick="borrarAutor(); return confirm('¿Está seguro de borrar el item?')" id="borrar">Borrar</button>
-									{{/admin}} 
-									<input type="hidden" name="_csrf" value="{{token}}" />
-                                </form>
-                                <!--End Form-->
-                                <script>
+							<!--Input Lugar Nacimiento-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">{{lugarAutor}}</label> <input
+											type="text" class="form-control" name="url_mapa" id="map"
+											disabled>
+									</div>
+								</div>
+							</div>
+
+							<!--Input URL Mapa-->
+							<div class="row" style="padding-bottom: 2.5em;">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">{{urlMapa}}</label> <input
+											type="text" class="form-control" name="lugar" id="place"
+											disabled>
+									</div>
+								</div>
+							</div>
+							{{#admin}}
+							<button type="button" class="btn btn-primary"
+								onclick="editarAutor();" id="editar">Editar</button>
+							<button type="submit" class="btn btn-primary"
+								style="display: none;" id="guardar" onclick="update();">Guardar</button>
+							<button type="submit" class="btn btn-primary"
+								onclick="borrarAutor(); return confirm('¿Está seguro de borrar el item?')"
+								id="borrar">Borrar</button>
+							{{/admin}} <input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<!--End Form-->
+						<script>
 									function editarAutor() {
 										//document.getElementById("editar").type = 'submit';
 										//document.getElementById("editar").onclick=function() {};
@@ -108,7 +116,7 @@
 										//document.getElementById("showActor").method = 'post';
 									}
 								</script>
-								<script>
+						<script>
 									function update() {
 										//document.getElementById("editar").type = 'submit';
 										//document.getElementById("editar").onclick=function() {};
@@ -118,7 +126,7 @@
 										//document.getElementById("showActor").method = 'post';
 									}
 								</script>
-								<script>
+						<script>
 									function borrarAutor() {
 										//document.getElementById("editar").type = 'submit';
 										//document.getElementById("editar").onclick=function() {};
@@ -129,186 +137,223 @@
 									}
 								</script>
 
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Input Data-->
+					</div>
+				</div>
+			</div>
+			<!--End Input Data-->
 
-                    <!--Input Images-->
-                    <div class="col-md-2">
+			<!--Input Images-->
+			<div class="col-md-2">
 
 
-                        <div class="card card-profile">
-                            <a href="#autor">
-                                <img class="card-img-top" src={{urlFotoAutor}} style="width: 11.65em; height: 12em;" />
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">{{nombreAutor}}</h4>
-                            </div>
-                        </div>
+				<div class="card card-profile">
+					<a href="#autor"> <img class="card-img-top"
+						src={{urlFotoAutor}} style="width: 11.65em; height: 12em;" />
+					</a>
+					<div class="card-body">
+						<h4 class="card-title">{{nombreAutor}}</h4>
+					</div>
+				</div>
 
-                        <div class="card card-profile">
-                            <div class="card-avatar-top">
-                                <a href="#lugarNacimiento">
-                                    <img class="card-img-top" src={{urlMapa}} style="width: 11.65em; height: 12em;"/>
-                                </a>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{lugarAutor}}</h4>
-                            </div>
-                        </div>
+				<div class="card card-profile">
+					<div class="card-avatar-top">
+						<a href="#lugarNacimiento"> <img class="card-img-top"
+							src={{urlMapa}} style="width: 11.65em; height: 12em;" />
+						</a>
+					</div>
+					<div class="card-body">
+						<h4 class="card-title">{{lugarAutor}}</h4>
+					</div>
+				</div>
 
-                    </div>
-                    <!--End Input Images-->
-                   
-                </div>
-            </div>
-        </div>
-        <!--End Container 1-->
+			</div>
+			<!--End Input Images-->
 
-        <div class="span12">
-            <hr>
-        </div>
+		</div>
+	</div>
+</div>
+<!--End Container 1-->
 
-        <!--Start Container 2-->
-        <div class="container-fluid">
+<div class="span12">
+	<hr>
+</div>
 
-                <div class="row">
-                    <!--Start Theme-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title text-center">Temas</h4>
-                            </div>
-                            <div class="card-body">	
-                                <div class="row">
-                                    {{#temas}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                            <a  href="/tema/{{contenido}}">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Tema {{-index}}</h5>
-                                                </div>
-                                            </div>
-                                            </a>
-                                            <div class="card-body">
-                                                <!-- Theme 2 Content -->
-                                                <a  href="/tema/{{contenido}}">
-                                                <p> {{contenido}}</p>
-                                                </a>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
+<!--Start Container 2-->
+<div class="container-fluid">
 
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-									{{/temas}}
-                                </div>
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->                            
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Theme-->
+	<div class="row">
+		<!--Start Theme-->
+		<div class="col-sm-4"
+			style="width: auto; height: 30em; overflow-y: scroll;">
+			<div class="card" style="height: auto">
+				<div class="card-header card-header-primary">
+					<h4 class="card-title text-center">Temas</h4>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						{{#temas}}
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header  card-header-text card-header-primary">
+									<a href="/tema/{{contenido}}">
+										<div class="card-text">
+											<h5 class="card-title ">Tema {{-index}}</h5>
+										</div>
+								</div>
+								</a>
+								<div class="card-body">
+									<!-- Theme 2 Content -->
+									<a href="/tema/{{contenido}}">
+										<p>{{contenido}}</p>
+									</a>
+									<div class="row">
+										<div class="col-sm-12">
 
-                    <!-- Start Obra-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header   card-header-primary">
+											<p class="d-flex">
+												<button type="button" class="btn btn-info ml-auto btn-round"
+													onclick="return confirm('¿Está seguro de borrar el item?')">
+													<i class="material-icons"> delete </i>
+												</button>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{{/temas}}
+					</div>
+					<p class="d-flex">
+						<button type="button" class="btn btn-info ml-auto btn-round"
+							onclick="newFile()">
+							<i class="material-icons"> add_circle </i>
+						</button>
+					</p>
+					<!-- Add button -->
+				</div>
+			</div>
+		</div>
+		<!-- End Theme-->
 
-                                <h4 class="card-title text-center">Obras</h4>
+		<!-- Start Obra-->
+		<div class="col-sm-4"
+			style="width: auto; height: 30em; overflow-y: scroll;">
+			<div class="card" style="height: auto">
+				<div class="card-header   card-header-primary">
 
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                {{#obras}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <a  href="/obra/{{title}}">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Obra {{-index}}</h5>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Quote 1 Content -->
-                                                <div class="row">
-                                                <a  href="/obra/{{title}}">
-                                                    <div class="col-sm-12">
-                                                        <p> {{title}}</p>
-                                                    </div>
-                                                </a>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
+					<h4 class="card-title text-center">Obras</h4>
 
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/obras}}
-                                </div>
+				</div>
+				<div class="card-body">
+					<div class="row">
+						{{#obras}}
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header  card-header-text card-header-primary">
+									<a href="/obra/{{title}}">
+										<div class="card-text">
+											<h5 class="card-title ">Obra {{-index}}</h5>
+										</div>
+									</a>
+								</div>
+								<div class="card-body">
+									<!-- Quote 1 Content -->
+									<div class="row">
+										<a href="/obra/{{title}}">
+											<div class="col-sm-12">
+												<p>{{title}}</p>
+											</div>
+										</a>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
 
-                                <form action="/obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Work-->
-                    <!-- Start Quote-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header  card-header-primary">
+											<p class="d-flex">
+												<button type="button" class="btn btn-info ml-auto btn-round"
+													onclick="return confirm('¿Está seguro de borrar el item?')">
+													<i class="material-icons"> delete </i>
+												</button>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{{/obras}}
+					</div>
 
-                                <h4 class="card-title text-center">Citas</h4>
+					<form action="/obra/new" method="post">
+						<input type="hidden" name="_csrf" value="{{token}}" />
+						<p class="d-flex">
+							<button type="submit" class="btn btn-info ml-auto btn-round">
+								<i class="material-icons"> add_circle </i>
+							</button>
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- End Work-->
+		<!-- Start Quote-->
+		<div class="col-sm-4"
+			style="width: auto; height: 30em; overflow-y: scroll;">
+			<div class="card" style="height: auto">
+				<div class="card-header  card-header-primary">
 
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                {{#citas}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Cita {{-index}}</h5>
-                                                </div>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Quote Content -->
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        <p> {{contenido}}</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
+					<h4 class="card-title text-center">Citas</h4>
 
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')"><i class="material-icons"> delete </i></button></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/citas}}
+				</div>
+				<div class="card-body">
+					<div class="row">
+						{{#citas}}
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-header  card-header-text card-header-primary">
+									<div class="card-text">
+										<h5 class="card-title ">Cita {{-index}}</h5>
+									</div>
+								</div>
+								<div class="card-body">
+									<!-- Quote Content -->
+									<div class="row">
+										<div class="col-sm-12">
+											<p>{{contenido}}</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
 
-                                </div>
+											<p class="d-flex">
+												<button type="button" class="btn btn-info ml-auto btn-round"
+													onclick="return confirm('¿Está seguro de borrar el item?')">
+													<i class="material-icons"> delete </i>
+												</button>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{{/citas}}
 
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+					</div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Quote-->
-                    
-                </div>
-            </div>
-        <!--End Container 2-->
-        <!-- End Container parts-->
+					<p class="d-flex">
+						<button type="button" class="btn btn-info ml-auto btn-round"
+							onclick="newFile()">
+							<i class="material-icons"> add_circle </i>
+						</button>
+					</p>
+					<!-- Add button -->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Quote-->
+
+	</div>
+</div>
+<!--End Container 2-->
+<!-- End Container parts-->
 
 
 

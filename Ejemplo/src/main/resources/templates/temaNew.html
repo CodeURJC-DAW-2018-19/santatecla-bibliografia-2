@@ -16,15 +16,14 @@
 								<aside class="textarea">
 									<div class="card-body">
 										<div class="row">
-										
+
 											<div class="col-md-12">
-													<form id="editTema" action="guardado" method="post">
-														<input class="form-control" type="text" name="contenido" placeholder="Nombre del tema" />
-													
-													{{#admin}}
-														<button type="submit" class="btn btn-primary pull-right">Guardar</button>
-													{{/admin}} 
-													<input type="hidden" name="_csrf" value="{{token}}" />
+												<form id="editTema" action="guardado" method="post">
+													<input class="form-control" type="text" name="contenido"
+														placeholder="Nombre del tema" /> {{#admin}}
+													<button type="submit" class="btn btn-primary pull-right">Guardar</button>
+													{{/admin}} <input type="hidden" name="_csrf"
+														value="{{token}}" />
 												</form>
 											</div>
 										</div>
@@ -42,8 +41,8 @@
 								<div class="card-body table-responsive">
 									<h1>Aquí va el HTML</h1>
 									<a href="/crearPDF">
-										<button class="btn btn-primary pull-right">
-										Generar PDF</button>
+										<button class="btn btn-primary pull-right">Generar
+											PDF</button>
 									</a>
 								</div>
 							</div>
@@ -64,42 +63,44 @@
 			<div class="container-fluid">
 				<div class="row">
 					<!--Start Literary Work-->
-					<div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header   card-header-primary">
+					<div class="col-sm-4"
+						style="width: auto; height: 30em; overflow-y: scroll;">
+						<div class="card" style="height: auto">
+							<div class="card-header   card-header-primary">
 
-                                <h4 class="card-title text-center">Obras</h4>
+								<h4 class="card-title text-center">Obras</h4>
 
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                {{#obras}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                            <a  href="/obra/{title}}">
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Obra {{-index}}</h5>
-                                                </div>
-                                            </a>
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Work Content -->
-                                                <div class="row">
-                                                <a  href="/obra/{{title}}">
-                                                    <div class="col-sm-12">
-                                                        <p> {{title}}</p>
-                                                    </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/obras}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									{{#obras}}
+									<div class="col-sm-6">
+										<div class="card">
+											<div
+												class="card-header  card-header-text card-header-primary">
+												<a href="/obra/{title}}">
+													<div class="card-text">
+														<h5 class="card-title ">Obra {{-index}}</h5>
+													</div>
+												</a>
+											</div>
+											<div class="card-body">
+												<!-- Work Content -->
+												<div class="row">
+													<a href="/obra/{{title}}">
+														<div class="col-sm-12">
+															<p>{{title}}</p>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									{{/obras}}
+								</div>
+							</div>
+						</div>
+					</div>
 					<!-- End Literary Work-->
 					<!-- Start Author-->
 					<div class="col-sm-4"
@@ -113,7 +114,7 @@
 							<div class="card-body">
 
 								<div class="row">
-								{{#autores}}
+									{{#autores}}
 									<div class="col-sm-6">
 										<div class="card">
 											<div
@@ -125,10 +126,10 @@
 											<div class="card-body table-responsive">
 												<!-- Author 1 Content -->
 												<div class="row">
-												<a  href="/autor/{{nombre}}">
-													<div class="col-sm-12">
-														<p>{{nombre}}</p>
-													</div>
+													<a href="/autor/{{nombre}}">
+														<div class="col-sm-12">
+															<p>{{nombre}}</p>
+														</div>
 													</a>
 												</div>
 											</div>
@@ -149,7 +150,7 @@
 							</div>
 							<div class="card-body">
 								<div class="row">
-								{{#citas}}
+									{{#citas}}
 									<div class="col-sm-6">
 										<div class="card">
 											<div
@@ -207,8 +208,8 @@
 			</div>
 		</div>
 
-	{{>footer}}
-	
+		{{>footer}}
+
 	</div>
 
 

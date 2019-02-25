@@ -3,13 +3,9 @@ package es.daw.bibliografia.web;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
@@ -42,33 +38,33 @@ public class ObraController {
 
 	@RequestMapping("/obra/guardada")
 	public String addObra(Model model, Obra obra) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.save(obra);
 
 		webController.addUserToModel(model);
 
 		return "redirect:/obra/".concat(obra.getTitle());
 	}
-	
+
 	@RequestMapping("/obra/edit")
 	public String editObra(Model model, Obra obra) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
-		
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+
 		Optional<Obra> obra2 = service.findOneByTitle(obra.getTitle());
-		
-		if(obra2.isPresent()) {
-			
-			//obra2.get().setAutores(obra.getAutores());
-			//obra2.get().setCitas(obra.getCitas());
+
+		if (obra2.isPresent()) {
+
+			// obra2.get().setAutores(obra.getAutores());
+			// obra2.get().setCitas(obra.getCitas());
 			obra2.get().setDate(obra.getDate());
 			obra2.get().setEditorial(obra.getEditorial());
 			obra2.get().setURL(obra.getURL());
 			obra2.get().setUrl_editorial(obra.getUrl_editorial());
-			
+
 			service.save(obra2.get());
 			return "redirect:/obra/".concat(obra.getTitle());
-		}else {
-			
+		} else {
+
 		}
 		service.save(obra);
 
@@ -76,10 +72,10 @@ public class ObraController {
 
 		return "redirect:/obra/".concat(obra.getTitle());
 	}
-	
+
 	@RequestMapping("/obra/borrar")
 	public String deleteObra(Model model, Obra obra) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.delete(service.findOneByTitle(obra.getTitle()).get().getId());
 
 		webController.addUserToModel(model);
@@ -87,7 +83,7 @@ public class ObraController {
 
 		return "redirect:/";
 	}
-	
+
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 //	public String goObra(Model model) {
 //		
@@ -123,7 +119,6 @@ public class ObraController {
 //		}		
 //	}
 
-
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST) // PUT IN BOOKWEEBCONTROLER
 //	public String goObra(Model model) {
 //		userTabs(model, "/obra/new", "Nueva obra", true);
@@ -139,7 +134,7 @@ public class ObraController {
 
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
-		
+
 		if (!sameTab(tab)) {
 			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
@@ -148,19 +143,19 @@ public class ObraController {
 		}
 		modelTabs(model);
 	}
-	
+
 	public void modelTabs(Model model) {
 		if (!this.userComponent.getLoggedUser().getTabs().isEmpty()) {
 			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
 		}
 	}
-	
+
 	public void deleteTab(String name) {
 		this.userComponent.getLoggedUser().deleteTabByName(name);
 	}
-	
+
 	public void updateActiveTabs(boolean active) {
-		if (active==true) {
+		if (active == true) {
 			this.userComponent.getLoggedUser().inactiveAllTabs();
 		}
 	}
@@ -219,6 +214,5 @@ public class ObraController {
 //			model.addAttribute("url_editorial", url_editorial);
 //		return "obra";
 //	}
-	
-	
+
 }

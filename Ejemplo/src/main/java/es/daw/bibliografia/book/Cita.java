@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Cita {
@@ -27,7 +26,6 @@ public class Cita {
 	public String toString() {
 		return this.contenido;
 	}
-
 
 	public String getContenido() {
 		return contenido;

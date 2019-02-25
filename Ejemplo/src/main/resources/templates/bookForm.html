@@ -1,28 +1,36 @@
 {{>header}}
-		
+
 <div>
 
-{{#book}}<h2>Book "{{book.title}}"</h2>{{/book}}
-{{^book}}<h2>New Book</h2>{{/book}}
+	{{#book}}
+	<h2>Book "{{book.title}}"</h2>
+	{{/book}} {{^book}}
+	<h2>New Book</h2>
+	{{/book}}
 
-<form action="/saveBook" method="post">
-	<div class="form-group">
-		{{#book}}<input type="hidden" name="id" value="{{id}}" class="form-control"/>{{/book}}
-		<label for="title">Title</label>
-		<input type="text" id="title" name="title" {{#book}}value="{{title}}"{{/book}} class="form-control"/>
-	</div>
-	<div class="form-group">
-		<label for="description">Description</label>
-		<textarea id="description" name="description" class="form-control" rows=6>{{#book}}{{description}}{{/book}}</textarea><br>
-	</div>	
-	<button type="submit" class="btn btn-primary">Save</button>
-	<input type="hidden" name="_csrf" value="{{token}}"/>
-</form>
+	<form action="/saveBook" method="post">
+		<div class="form-group">
+			{{#book}}<input type="hidden" name="id" value="{{id}}"
+				class="form-control" />{{/book}} <label for="title">Title</label> <input
+				type="text" id="title" name="title" {{#book}}value="{{title}}"
+				{{/book}} class="form-control" />
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label>
+			<textarea id="description" name="description" class="form-control"
+				rows=6>{{#book}}{{description}}{{/book}}</textarea>
+			<br>
+		</div>
+		<button type="submit" class="btn btn-primary">Save</button>
+		<input type="hidden" name="_csrf" value="{{token}}" />
+	</form>
 
-</div>		
+</div>
 
 <br>
 <br>
-<p><a href="/"/>Show all books</a></p>
+<p>
+	<a href="/" />Show all books</a>
+</p>
 
 {{>footer}}

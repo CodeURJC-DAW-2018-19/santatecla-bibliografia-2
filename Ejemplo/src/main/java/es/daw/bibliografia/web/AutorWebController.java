@@ -1,30 +1,16 @@
 package es.daw.bibliografia.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
-import es.daw.bibliografia.book.BookService;
-import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
-import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
-import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
@@ -58,7 +44,7 @@ public class AutorWebController {
 	 */
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
-		
+
 		if (!sameTab(tab)) {
 			updateActiveTabs(active);
 			if (this.userComponent.isLoggedUser()) {
@@ -67,7 +53,7 @@ public class AutorWebController {
 		}
 		modelTabs(model);
 	}
-	
+
 	public void modelTabs(Model model) {
 		if (!this.userComponent.getLoggedUser().getTabs().isEmpty()) {
 			model.addAttribute("tabs", this.userComponent.getLoggedUser().getTabs());
@@ -93,32 +79,32 @@ public class AutorWebController {
 		}
 		return false;
 	}
-	
+
 	@RequestMapping("/autor/edit")
 	public String editObra(Model model, Autor autor) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
-		
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+
 		Optional<Autor> autor2 = autorService.findOneByNombre(autor.getNombre());
-		
-		if(autor2.isPresent()) {
-			
+
+		if (autor2.isPresent()) {
+
 			autor2.get().setNombre(autor.getNombre());
 			autor2.get().setFecha_def(autor.getFecha_def());
 			autor2.get().setFecha_nac(autor.getFecha_nac());
 			autor2.get().setLugar(autor.getLugar());
 			autor2.get().setUrl_foto(autor.getUrl_foto());
 			autor2.get().setUrl_mapa(autor.getUrl_mapa());
-			
+
 			autorService.save(autor2.get());
 			return "redirect:/autor/".concat(autor.getNombre());
-		}else {
+		} else {
 			return "autorError";
 		}
 	}
-	
+
 	@RequestMapping("/autor/borrar")
 	public String deleteObra(Model model, Autor autor) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		autorService.delete(autorService.findOneByNombre(autor.getNombre()).get().getId());
 
 		webController.addUserToModel(model);
@@ -126,10 +112,10 @@ public class AutorWebController {
 
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping("/autor/guardado")
 	public String addAutor(Model model, Autor autor) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		autorService.save(autor);
 
 		webController.addUserToModel(model);

@@ -1,12 +1,9 @@
 package es.daw.bibliografia.book;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Autor {
@@ -43,7 +40,7 @@ public class Autor {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
+
 	public String getLugar() {
 		return lugar;
 	}
@@ -63,7 +60,7 @@ public class Autor {
 	public String getFecha_nac() {
 		return fecha_nac;
 	}
-	
+
 	public void setUrl_mapa(String url_mapa) {
 		this.url_mapa = url_mapa;
 	}
@@ -96,7 +93,5 @@ public class Autor {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-
 
 }

@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -86,20 +85,19 @@ public class Obra {
 		this.id = id;
 	}
 
-	
 	public void setAutores(List<Autor> autores) {
 		this.autores = autores;
 	}
-	
+
 	public void setCitas(List<Cita> citas) {
 		this.citas = citas;
 	}
-	
-	public List<Cita> getCitas(){
+
+	public List<Cita> getCitas() {
 		return this.citas;
 	}
-	
-	public List<Autor> getAutores(){
+
+	public List<Autor> getAutores() {
 		return this.autores;
 	}
 

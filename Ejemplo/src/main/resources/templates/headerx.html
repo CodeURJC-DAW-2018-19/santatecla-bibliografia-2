@@ -13,8 +13,8 @@
 <!-- Optional theme -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-	
-	<!-- Optional theme -->
+
+<!-- Optional theme -->
 <link rel="stylesheet" href="/sticky-footer.css">
 
 </head>
@@ -32,9 +32,7 @@
 
 			<div class="navbar-collapse collapse" id="navbar-main">
 
-				{{^hideLogin}}
-
-				{{^logged}}
+				{{^hideLogin}} {{^logged}}
 				<form action="/login" method="post" class="navbar-form navbar-right"
 					role="search">
 
@@ -49,13 +47,11 @@
 					</div>
 
 					<button type="submit" class="btn btn-default">Sign In</button>
-					
-					<input type="hidden" name="_csrf" value="{{token}}"/>
+
+					<input type="hidden" name="_csrf" value="{{token}}" />
 
 				</form>
-				{{/logged}} 
-				
-				{{#logged}}
+				{{/logged}} {{#logged}}
 				<div class="nav navbar-nav navbar-right">
 
 					<ul class="nav navbar-nav">
@@ -68,9 +64,7 @@
 					</ul>
 
 				</div>
-				{{/logged}}
-				
-				{{/hideLogin}}
+				{{/logged}} {{/hideLogin}}
 
 			</div>
 

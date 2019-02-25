@@ -26,7 +26,8 @@
 <script src="../assets/js/echarts.js"></script>
 <!-- including ECharts-Stats file -->
 <script src="../assets/js/ecStat.js"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="../assets/js/loadcontent.js"></script>
 </head>
 
@@ -40,40 +41,35 @@
 
 				{{#start}}
 				<div class="activeTab">
-					<li class="nav-item  disabled"><a class="nav-link" href="/"> <i class="material-icons">dashboard</i>
-							Inicio
+					<li class="nav-item  disabled"><a class="nav-link" href="/">
+							<i class="material-icons">dashboard</i> Inicio
 					</a></li>
 				</div>
 				{{/start}} {{^start}}
 
-				<li class="nav-item  disabled"><a class="nav-link" href="/"> <i class="material-icons">dashboard</i>
-						Inicio
-				</a></li> {{/start}} 
-
-				{{#tabs}} 
-				{{#active}} 
+				<li class="nav-item  disabled"><a class="nav-link" href="/">
+						<i class="material-icons">dashboard</i> Inicio
+				</a></li> {{/start}} {{#tabs}} {{#active}}
 				<!-- <div class="activeTab">-->
-					<li class="nav-item  disabled"><a class="nav-link" href="{{url}}"> <i class="material-icons">dashboard</i>
-						{{name}}
-					</a></li>
-				<!--</div>-->
-				<!--  <div class="activeTab">-->
-					<li class="nav-item"><a class="nav-link" href="/delete/{{name}}"> <i class="material-icons">close</i>
-					</a></li> 
-				<!-- </div>-->
-				{{/active}} 
-				
-				{{^active}}
-				<li class="nav-item  disabled"><a class="nav-link" href="{{url}}"> <i class="material-icons" >dashboard</i>
+				<li class="nav-item  disabled"><a class="nav-link"
+					href="{{url}}"> <i class="material-icons">dashboard</i>
 						{{name}}
 				</a></li>
-				
-				<li class="nav-item"><a class="nav-link" href="/delete/{{name}}"> <i class="material-icons">close</i>
-				</a></li> 
-				
-				{{/active}} 
-				
-				{{/tabs}}
+				<!--</div>-->
+				<!--  <div class="activeTab">-->
+				<li class="nav-item"><a class="nav-link"
+					href="/delete/{{name}}"> <i class="material-icons">close</i>
+				</a></li>
+				<!-- </div>-->
+				{{/active}} {{^active}}
+				<li class="nav-item  disabled"><a class="nav-link"
+					href="{{url}}"> <i class="material-icons">dashboard</i>
+						{{name}}
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					href="/delete/{{name}}"> <i class="material-icons">close</i>
+				</a></li> {{/active}} {{/tabs}}
 
 			</ul>
 

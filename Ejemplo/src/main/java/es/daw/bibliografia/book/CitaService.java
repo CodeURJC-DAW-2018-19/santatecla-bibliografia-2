@@ -19,7 +19,7 @@ public class CitaService {
 	public List<Cita> findAll() {
 		return repository.findAll();
 	}
-	
+
 	public Optional<Cita> findOneByContenido(String contenido) {
 		return repository.findOneByContenido(contenido);
 	}

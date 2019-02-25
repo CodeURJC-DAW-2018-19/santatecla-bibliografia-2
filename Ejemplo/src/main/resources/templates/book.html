@@ -1,24 +1,26 @@
 {{>header}}
-		
+
 <div>
 
-{{#book}}
-  <h2>Book "{{book.title}}"</h2>
-  <p>{{book.description}}</p>
+	{{#book}}
+	<h2>Book "{{book.title}}"</h2>
+	<p>{{book.description}}</p>
 
-  {{#admin}}
-  <p><a href="/deleteBook/{{book.id}}">Remove</a></p>
-  <p><a href="/editBook/{{book.id}}">Edit</a></p>
-  <br>
-  {{/admin}}
-{{/book}}
+	{{#admin}}
+	<p>
+		<a href="/deleteBook/{{book.id}}">Remove</a>
+	</p>
+	<p>
+		<a href="/editBook/{{book.id}}">Edit</a>
+	</p>
+	<br> {{/admin}} {{/book}} {{^book}}
+	<p>Book not found</p>
+	{{/book}}
 
-{{^book}}
-<p>Book not found</p>
-{{/book}}
+</div>
 
-</div>		
-
-<p><a href="/"/>Show all books</a></p>
+<p>
+	<a href="/" />Show all books</a>
+</p>
 
 {{>footer}}

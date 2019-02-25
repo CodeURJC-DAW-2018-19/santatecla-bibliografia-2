@@ -28,7 +28,7 @@ public class Tema {
 		super();
 		this.contenido = contenido;
 	}
-	
+
 	public String getContenido() {
 		return contenido;
 	}
@@ -40,8 +40,8 @@ public class Tema {
 	public void setObra(List<Obra> obras) {
 		this.obras = obras;
 	}
-	
-	public List<Obra> getObras(){
+
+	public List<Obra> getObras() {
 		return this.obras;
 	}
 

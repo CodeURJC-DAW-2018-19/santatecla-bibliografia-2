@@ -2,37 +2,40 @@
 <meta charset="utf-8" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <div class="content">
-            <!-- Container parts : Theme, Author, Quote-->
-            <div class="container-fluid">
+<div class="content">
+	<!-- Container parts : Theme, Author, Quote-->
+	<div class="container-fluid">
 
-                <div class="row">
-                    <!--Start Theme-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header card-header-primary">
-                                <h4 class="card-title text-center">Temas</h4>
-                            </div>
-                            <div class="card-body">
-                                <!-- Search bar-->
-                                <form class="navbar-form" id="showTema">
-                                    <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Tema..." id="nombreTema">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="tema()">
-                                            <i class="material-icons">search</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
-                                    </div>
-                                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                                </form>
-                                <script>
+		<div class="row">
+			<!--Start Theme-->
+			<div class="col-sm-4"
+				style="width: auto; height: 30em; overflow-y: scroll;">
+				<div class="card" style="height: auto">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title text-center">Temas</h4>
+					</div>
+					<div class="card-body">
+						<!-- Search bar-->
+						<form class="navbar-form" id="showTema">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar Tema..." id="nombreTema">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon" onclick="tema()">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<script>
 							        function tema() {
 							        	var nombre = document.getElementById("nombreTema").value.toString();
 							        	document.getElementById("showTema").action = 'tema/'.concat(nombre);
 							        	document.getElementById("showTema").method = 'post';
 							        }
 							    </script>
-								<script>
+						<script>
 								  $( function() {
 								    var availableTags = [
 								      ""{{#temas}},
@@ -44,82 +47,96 @@
 								  } );
 								
 								</script>
-                                <!-- End Search bar-->
-                                <div class="row" id="moreTheme">
-                                    {{#temas}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                           {{#logged}}<a  href="/tema/{{contenido}}">{{/logged}}
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Tema {{-index}}</h5>
-                                                </div>
-                                            {{#logged}}</a>{{/logged}}
-                                            </div>
-                                            
-                                            <div class="card-body">
-                                           {{#logged}} <a  href="/tema/{{contenido}}">{{/logged}}
-                                                <!-- Theme 2 Content -->
-                                                <p> {{contenido}}</p>
-                                            {{#logged}}</a>{{/logged}}
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-{{#admin}}
-														<form action="tema/borrar" method="post"><input type="hidden" name="_csrf" value="{{token}}"/>
-														<input type="hidden" name="contenido" value="{{contenido}}" />
-                                                        <p class="d-flex">
-                                                        	<button type="submit" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
-                                                        		<i class="material-icons"> delete </i>
-                                                        	</button>
-                                                        </p>
-                                                        </form>
-{{/admin}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-									{{/temas}}				
-                                </div>
-                                <button type="button" class="btn btn-primary" id="buttonMoreThemes" onClick="loadMoreThemes()">Mas</button>
-                               
-{{#admin}}
-                                <form action="tema/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->                            
-{{/admin}}
+						<!-- End Search bar-->
+						<div class="row" id="moreTheme">
+							{{#temas}}
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-header  card-header-text card-header-primary">
+										{{#logged}}<a href="/tema/{{contenido}}">{{/logged}}
+											<div class="card-text">
+												<h5 class="card-title ">Tema {{-index}}</h5>
+											</div> {{#logged}}
+										</a>{{/logged}}
+									</div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Theme-->
+									<div class="card-body">
+										{{#logged}} <a href="/tema/{{contenido}}">{{/logged}} <!-- Theme 2 Content -->
+											<p>{{contenido}}</p> {{#logged}}
+										</a>{{/logged}}
+										<div class="row">
+											<div class="col-sm-12">
+												{{#admin}}
+												<form action="tema/borrar" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="contenido" value="{{contenido}}" />
+													<p class="d-flex">
+														<button type="submit"
+															class="btn btn-info ml-auto btn-round"
+															onclick="return confirm('¿Está seguro de borrar el item?')">
+															<i class="material-icons"> delete </i>
+														</button>
+													</p>
+												</form>
+												{{/admin}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/temas}}
+						</div>
+						<button type="button" class="btn btn-primary"
+							id="buttonMoreThemes" onClick="loadMoreThemes()">Mas</button>
 
-                    <!-- Start Obra-->
-                    <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header   card-header-primary">
+						{{#admin}}
+						<form action="tema/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
+						<!-- Add button -->
+						{{/admin}}
 
-                                <h4 class="card-title text-center">Obras</h4>
+					</div>
+				</div>
+			</div>
+			<!-- End Theme-->
 
-                            </div>
-                            <div class="card-body">
-                                <!-- Search bar-->
-                                <form class="navbar-form" id="showObra">
-                                    <div class="input-group no-border">
-                                        <input type="text" value="" class="form-control" placeholder="Buscar Obra..." id="nombreObra">
-                                        <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="obra()">
-                                            <i class="material-icons">search</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
-                                    </div>
-                                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                                </form>
-                                <script>
+			<!-- Start Obra-->
+			<div class="col-sm-4"
+				style="width: auto; height: 30em; overflow-y: scroll;">
+				<div class="card" style="height: auto">
+					<div class="card-header   card-header-primary">
+
+						<h4 class="card-title text-center">Obras</h4>
+
+					</div>
+					<div class="card-body">
+						<!-- Search bar-->
+						<form class="navbar-form" id="showObra">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar Obra..." id="nombreObra">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon" onclick="obra()">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<script>
 							        function obra() {
 							        	var nombre = document.getElementById("nombreObra").value.toString();
 							        	document.getElementById("showObra").action = 'obra/'.concat(nombre);
 							        	document.getElementById("showObra").method = 'post';
 							        }
 							    </script>
-								<script>
+						<script>
 								  $( function() {
 								    var availableTags = [
 								      ""{{#obras}},
@@ -131,82 +148,97 @@
 								  } );
 								
 								</script>
-                                <!-- End Search bar-->
-                                <div class="row" id="moreWorks">
-                                {{#obras}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                              {{#logged}}<a  href="/obra/{{title}}">{{/logged}}
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Obra {{-index}}</h5>
-                                                </div>
-                                             {{#logged}} </a>{{/logged}}
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Quote 1 Content -->
-                                                <div class="row">
-                                                {{#logged}}<a  href="/obra/{{title}}">{{/logged}}
-                                                    <div class="col-sm-12">
-                                                        <p> {{title}}</p>
-                                                    </div>
-                                               {{#logged}}</a>{{/logged}}
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-{{#admin}}
-														<form action="obra/borrar" method="post"><input type="hidden" name="_csrf" value="{{token}}"/>
-														<input type="hidden" name="title" value="{{title}}" />
-                                                        <p class="d-flex">
-                                                        	<button type="submit" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
-	                                                        	<i class="material-icons"> delete </i>
-	                                                        </button>
-                                                        </p>
-                                                        </form>
-{{/admin}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/obras}}
-                                </div>
-                                <button type="button" class="btn btn-primary" id="buttonMoreWorks" onClick="loadMoreWorks()">Mas</button>
-{{#admin}}
-                                <form action="obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
-{{/admin}}
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Quote-->
-                   <!-- Start Author-->
-                     <div class="col-sm-4" style="width: auto; height: 30em; overflow-y: scroll;">
-                        <div class="card" style="height:auto">
-                            <div class="card-header   card-header-primary">
+						<!-- End Search bar-->
+						<div class="row" id="moreWorks">
+							{{#obras}}
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-header  card-header-text card-header-primary">
+										{{#logged}}<a href="/obra/{{title}}">{{/logged}}
+											<div class="card-text">
+												<h5 class="card-title ">Obra {{-index}}</h5>
+											</div> {{#logged}}
+										</a>{{/logged}}
+									</div>
+									<div class="card-body">
+										<!-- Quote 1 Content -->
+										<div class="row">
+											{{#logged}}<a href="/obra/{{title}}">{{/logged}}
+												<div class="col-sm-12">
+													<p>{{title}}</p>
+												</div> {{#logged}}
+											</a>{{/logged}}
+										</div>
+										<div class="row">
+											<div class="col-sm-12">
+												{{#admin}}
+												<form action="obra/borrar" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="title" value="{{title}}" />
+													<p class="d-flex">
+														<button type="submit"
+															class="btn btn-info ml-auto btn-round"
+															onclick="return confirm('¿Está seguro de borrar el item?')">
+															<i class="material-icons"> delete </i>
+														</button>
+													</p>
+												</form>
+												{{/admin}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/obras}}
+						</div>
+						<button type="button" class="btn btn-primary" id="buttonMoreWorks"
+							onClick="loadMoreWorks()">Mas</button>
+						{{#admin}}
+						<form action="obra/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
+						<!-- Add button -->
+						{{/admin}}
+					</div>
+				</div>
+			</div>
+			<!-- End Quote-->
+			<!-- Start Author-->
+			<div class="col-sm-4"
+				style="width: auto; height: 30em; overflow-y: scroll;">
+				<div class="card" style="height: auto">
+					<div class="card-header   card-header-primary">
 
-                                <h4 class="card-title text-center">Autores</h4>
+						<h4 class="card-title text-center">Autores</h4>
 
-                            </div>
-                            <div class="card-body">
-                                <!-- Search bar -->
-                                <form class="navbar-form" id="showActor">
-                                    <div class="input-group no-border">
-	                                       <input type="text" value="" class="form-control" placeholder="Buscar Autor..." id="nombreAutor">
-	                                       <button type="submit" class="btn btn-white btn-round btn-just-icon" onclick="autor()">
-	                                           <i class="material-icons">search</i>
-	                                           <div class="ripple-container"></div>
-	                                       </button>
-                                    </div>
-                                    <input type="hidden" name="_csrf" value="{{token}}"/>
-                                </form>
-                                <script>
+					</div>
+					<div class="card-body">
+						<!-- Search bar -->
+						<form class="navbar-form" id="showActor">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar Autor..." id="nombreAutor">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon" onclick="autor()">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<script>
 							        function autor() {
 							        	var nombre = document.getElementById("nombreAutor").value.toString();
 							        	document.getElementById("showActor").action = 'autor/'.concat(nombre);
 							        	document.getElementById("showActor").method = 'post';
 							        }
 							    </script>
-								<script>
+						<script>
 								  $( function() {
 								    var availableTags = [
 								      ""{{#autores}},
@@ -218,70 +250,82 @@
 								  } );
 								
 								</script>
-                                <!-- End Search bar-->
-                                <div class="row"  id="moreAuthor">
-                                {{#autores}}
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-header  card-header-text card-header-primary">
-                                            {{#logged}} <a  href="/autor/{{nombre}}">{{/logged}}
-                                                <div class="card-text">
-                                                    <h5 class="card-title ">Autor {{-index}}</h5>
-                                                </div>
-                                            {{#logged}} </a>{{/logged}}
-                                            </div>
-                                            <div class="card-body">
-                                                <!-- Quote 1 Content -->
-                                                <div class="row">
-                                                {{#logged}} <a  href="/autor/{{nombre}}">{{/logged}}
-                                                    <div class="col-sm-12">
-                                                        <p> {{nombre}}</p>
-                                                    </div>
-                                                    
-                                                   {{#logged}} </a>{{/logged}}
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-{{#admin}}
-														<form action="autor/borrar" method="post"><input type="hidden" name="_csrf" value="{{token}}"/>
-														<input type="hidden" name="nombre" value="{{nombre}}" />
-                                                        <p class="d-flex">
-                                                        	<button type="submit" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
-                                                        		<i class="material-icons"> delete </i>
-                                                        	</button>
-                                                        </p>
-														</form>
-{{/admin}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{/autores}}
-                                </div>
-                                <button type="button" class="btn btn-primary" id="buttonMoreAuthor" onClick="loadMoreAuthor()">Mas</button>
-{{#admin}}
-                                <form action="autor/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form> <!-- Add button -->
-{{/admin}}
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Author-->
-                    
-                </div>
-            </div>
-<div align="center">
-                    <button class="btn btn-round" data-toggle="modal" data-target="#Histogram" style="align-self:  center;">
-                        HISTOGRAMA<i class="material-icons">assessment</i>
-                    </button>
+						<!-- End Search bar-->
+						<div class="row" id="moreAuthor">
+							{{#autores}}
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-header  card-header-text card-header-primary">
+										{{#logged}} <a href="/autor/{{nombre}}">{{/logged}}
+											<div class="card-text">
+												<h5 class="card-title ">Autor {{-index}}</h5>
+											</div> {{#logged}}
+										</a>{{/logged}}
+									</div>
+									<div class="card-body">
+										<!-- Quote 1 Content -->
+										<div class="row">
+											{{#logged}} <a href="/autor/{{nombre}}">{{/logged}}
+												<div class="col-sm-12">
+													<p>{{nombre}}</p>
+												</div> {{#logged}}
+											</a>{{/logged}}
+										</div>
+										<div class="row">
+											<div class="col-sm-12">
+												{{#admin}}
+												<form action="autor/borrar" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="nombre" value="{{nombre}}" />
+													<p class="d-flex">
+														<button type="submit"
+															class="btn btn-info ml-auto btn-round"
+															onclick="return confirm('¿Está seguro de borrar el item?')">
+															<i class="material-icons"> delete </i>
+														</button>
+													</p>
+												</form>
+												{{/admin}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/autores}}
+						</div>
+						<button type="button" class="btn btn-primary"
+							id="buttonMoreAuthor" onClick="loadMoreAuthor()">Mas</button>
+						{{#admin}}
+						<form action="autor/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
+						<!-- Add button -->
+						{{/admin}}
+					</div>
+				</div>
+			</div>
+			<!-- End Author-->
 
-                    <div class="modal" id="Histogram" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <!-- preparing a DOM with width and height for ECharts -->
-                                    <div id="main" style="width:500px; height:400px;"></div>
-                                    <script type="text/javascript">
+		</div>
+	</div>
+	<div align="center">
+		<button class="btn btn-round" data-toggle="modal"
+			data-target="#Histogram" style="align-self: center;">
+			HISTOGRAMA<i class="material-icons">assessment</i>
+		</button>
+
+		<div class="modal" id="Histogram" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						<!-- preparing a DOM with width and height for ECharts -->
+						<div id="main" style="width: 500px; height: 400px;"></div>
+						<script type="text/javascript">
                                         // based on prepared DOM, initialize echarts instance
                                         var myChart = echarts.init(document.getElementById('main'));
 
@@ -309,10 +353,10 @@
                                         // use configuration item and data specified to show chart
                                         myChart.setOption(option);
                                     </script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-            <!-- End Container parts-->
-{{>footer}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Container parts-->
+	{{>footer}}
