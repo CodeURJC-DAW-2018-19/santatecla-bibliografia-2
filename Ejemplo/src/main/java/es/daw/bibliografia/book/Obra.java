@@ -27,6 +27,10 @@ public class Obra {
 	public Obra() {
 		super();
 	}
+	
+	public Obra(String title) {
+		this.title=title;
+	}
 
 	public Obra(String titulo, String url_foto, String fecha, String editorial, String url_editorial) {
 		super();

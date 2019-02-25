@@ -1,6 +1,15 @@
 package es.daw.bibliografia;
 
+import static org.assertj.core.api.Assertions.not;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -74,11 +83,61 @@ public class JUnitTests {
     @Test
     public void getsDataWorkExample() throws Exception {
     	assertEquals(obraService.findOneByTitle("Hamlet").get().getTitle(), "Hamlet");
-    	assertEquals(obraService.findOneByTitle("Hamlet").get().getURL(), "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg");
-    	assertEquals(obraService.findOneByTitle("Hamlet").get().getUrl_editorial(), "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
+    	assertEquals(obraService.findOneByTitle("Hamlet").get().getURL(), 
+    			"https://www.catedra.com/jpg_g/catedra/CA00014412.jpg");
+    	assertEquals(obraService.findOneByTitle("Hamlet").get().getUrl_editorial(), 
+    			"https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
     	assertEquals(obraService.findOneByTitle("Hamlet").get().getDate(), "1605");
     	assertEquals(obraService.findOneByTitle("Hamlet").get().getEditorial(), "Ed. Oceano");
-
     }
+    
+    @Test
+    public void addAndDeleteTheme() throws Exception {
+    	Tema t = new Tema("Prueba");
+    	temaRepository.save(t);
+    	
+    	assertNotNull(t);
+    	assertNotNull(temaService.findOneByContenido("Prueba").get());
+    	
+    	temaRepository.delete(t);
+    	List<Tema> temas = temaService.findAll();
+    	
+    	for (int i = 0; i < temas.size(); i++) {
+    		assertNotEquals(temas.get(i), t);
+    	}
+    }
+    
+    @Test
+    public void addAndDeleteAuthor() throws Exception {
+    	Autor a = new Autor("Prueba");
+    	autorRepository.save(a);
+    	
+    	assertNotNull(a);
+    	assertNotNull(autorService.findOneByNombre("Prueba").get());
+    	
+    	autorRepository.delete(a);
+    	List<Autor> autores = autorService.findAll();
+    	
+    	for (int i = 0; i < autores.size(); i++) {
+    		assertNotEquals(autores.get(i), a);
+    	}
+    }
+    
+    @Test
+    public void addAndDeleteWorks() throws Exception {
+    	Obra o = new Obra("Prueba");
+    	obraRepository.save(o);
+    	
+    	assertNotNull(o);
+    	assertNotNull(obraService.findOneByTitle("Prueba").get());
+    	
+    	obraRepository.delete(o);
+    	List<Obra> obras = obraService.findAll();
+    	
+    	for (int i = 0; i < obras.size(); i++) {
+    		assertNotEquals(obras.get(i), o);
+    	}
+    }
+
 
 }
