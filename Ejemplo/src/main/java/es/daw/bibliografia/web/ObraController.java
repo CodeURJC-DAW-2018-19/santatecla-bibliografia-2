@@ -2,6 +2,7 @@ package es.daw.bibliografia.web;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
+import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
+import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
@@ -42,13 +45,31 @@ public class ObraController {
 	private UserComponent userComponent;
 
 	@RequestMapping("/obra/guardada")
-	public String addObra(Model model, Obra obra,@RequestParam("URLpor") File portada,@RequestParam("URLed") File editorial){
+	public String addObra(Model model, Obra obra, @RequestParam Optional<Long[]> autores, @RequestParam Optional<Long> tema, @RequestParam("URLpor") File portada,@RequestParam("URLed") File editorial){
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		webController.deleteTab("Nueva obra");
 		obra.setURL("../imgs/"+portada.getPath());
 		obra.setUrl_editorial("../imgs/"+editorial.getPath());
+		
+		ArrayList<Autor> aAutor = new ArrayList<Autor>();	
+		
+		if(autores.isPresent()) {
+			for(Long a: autores.get()){
+				Autor autor = serviceAutor.findOne(a).get();
+				aAutor.add(autor);
+			}
+		}
+		
+		obra.setAutores(aAutor);
 		service.save(obra);
+		
+		if(tema.isPresent()) {
+			Tema t = serviceTema.findOne(tema.get()).get();
+			t.getObras().add(obra);
+			serviceTema.save(t);
+		}
 
+		
 		webController.addUserToModel(model);
 
 		return "redirect:/obra/".concat(obra.getTitle());

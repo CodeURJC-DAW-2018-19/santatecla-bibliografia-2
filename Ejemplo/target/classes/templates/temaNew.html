@@ -24,6 +24,8 @@
 													<button type="submit" class="btn btn-primary pull-right">Guardar</button>
 													{{/admin}} <input type="hidden" name="_csrf"
 														value="{{token}}" />
+
+
 												</form>
 											</div>
 										</div>
@@ -55,158 +57,8 @@
 			</div>
 			<h1></h1>
 		</div>
-		<div class="span12">
-			<hr>
-		</div>
-		<!-- Container parts : Theme, Author, Quote-->
-		<div id="others">
-			<div class="container-fluid">
-				<div class="row">
-					<!--Start Literary Work-->
-					<div class="col-sm-4"
-						style="width: auto; height: 30em; overflow-y: scroll;">
-						<div class="card" style="height: auto">
-							<div class="card-header   card-header-primary">
-
-								<h4 class="card-title text-center">Obras</h4>
-
-							</div>
-							<div class="card-body">
-								<div class="row">
-									{{#obras}}
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<a href="/obra/{title}}">
-													<div class="card-text">
-														<h5 class="card-title ">Obra {{-index}}</h5>
-													</div>
-												</a>
-											</div>
-											<div class="card-body">
-												<!-- Work Content -->
-												<div class="row">
-													<a href="/obra/{{title}}">
-														<div class="col-sm-12">
-															<p>{{title}}</p>
-														</div>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									{{/obras}}
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Literary Work-->
-					<!-- Start Author-->
-					<div class="col-sm-4"
-						style="width: auto; height: 30em; overflow-y: scroll;">
-						<div class="card" style="height: auto">
-							<div class="card-header  card-header-primary">
-
-								<h4 class="card-title text-center">Autores</h4>
-
-							</div>
-							<div class="card-body">
-
-								<div class="row">
-									{{#autores}}
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<a class="card-text" href="/autor/{{nombre}}">
-													<h5 class="card-title ">Autor {{-index}}</h5>
-												</a>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Author 1 Content -->
-												<div class="row">
-													<a href="/autor/{{nombre}}">
-														<div class="col-sm-12">
-															<p>{{nombre}}</p>
-														</div>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									{{/autores}}
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- End Author-->
-					<!-- Start Quote-->
-					<div class="col-sm-4"
-						style="width: auto; height: 30em; overflow-y: scroll;">
-						<div class="card" style="height: auto">
-							<div class="card-header   card-header-primary">
-								<h4 class="card-title text-center">Cita</h4>
-							</div>
-							<div class="card-body">
-								<div class="row">
-									{{#citas}}
-									<div class="col-sm-6">
-										<div class="card">
-											<div
-												class="card-header  card-header-text card-header-primary">
-												<div class="card-text">
-													<h5 class="card-title ">Cita {{-index}}</h5>
-												</div>
-											</div>
-											<div class="card-body table-responsive">
-												<!-- Quote 1 Content -->
-												<div class="row">
-													<div class="col-sm-12">
-														<p>{{contenido}}</p>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									{{/citas}}
-
-								</div>
 
 
-								<div class='span12'>
-									<hr>
-								</div>
-								<!-- Separate bar-->
-
-								<!-- Search bar-->
-								<form class="navbar-form">
-									<div class="input-group no-border">
-										<input type="text" value="" class="form-control"
-											placeholder="Buscar Cita">
-										<button type="submit"
-											class="btn btn-white btn-round btn-just-icon">
-											<i class="material-icons">search</i>
-											<div class="ripple-container"></div>
-										</button>
-									</div>
-								</form>
-								<!-- End Search bar-->
-
-								<!-- Add Cita button -->
-								<p class="d-flex">
-									<button type="button" class="btn btn-info ml-auto btn-round">
-										<i class="material-icons"> add_circle </i>
-									</button>
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- End Quote-->
-				</div>
-			</div>
-		</div>
 
 		{{>footer}}
 

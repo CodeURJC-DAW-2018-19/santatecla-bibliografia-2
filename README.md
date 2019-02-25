@@ -57,26 +57,26 @@ Logout, si ya está “loggeado”
 
 ## Navigation Diagram ##
 * Guest View
-<img src="./imagenes/Visitante.jng">
-<img src="./imagenes/Histogram.jng">
-<img src="./imagenes/LogIn.jng">
-<img src="./imagenes/SingUp.jng">
-<img src="./imagenes/NavVisitante.jng">
+<img src="./imagenes/Visitante.png">
+<img src="./imagenes/Histogram.png">
+<img src="./imagenes/LogIn.png">
+<img src="./imagenes/SingUp.png">
+<img src="./imagenes/NavVisitante.png">
 
 
 * Users View
-<img src="./imagenes/User.jng">
-
+<img src="./imagenes/User.png">
+faltan las de usuario normal
 
 * Admin View
-<img src="./imagenes/Admin.jng">
-<img src="./imagenes/AdminAuthor.jng">
-<img src="./imagenes/AdminNewAuthor.jng">
-<img src="./imagenes/AdminObra.jng">
-<img src="./imagenes/AdminNewObra.jng">
-<img src="./imagenes/AdminTema.jng">
-<img src="./imagenes/AdminNewTheme.jng">
-<img src="./imagenes/NavAdmin.jng">
+<img src="./imagenes/Admin.png">
+<img src="./imagenes/AdminAuthor.png">
+<img src="./imagenes/AdminNewAuthor.png">
+<img src="./imagenes/AdminObra.png">
+<img src="./imagenes/AdminNewObra.png">
+<img src="./imagenes/AdminTema.png">
+<img src="./imagenes/AdminNewTheme.png">
+<img src="./imagenes/NavAdmin.png">
 
 
 
