@@ -323,6 +323,7 @@
 						{{#citas}}
 						<div class="col-sm-6">
 							<div class="card">
+							<form id="deleteCita" action="/tema/borrarCita" method="post">
 								<div class="card-header  card-header-text card-header-primary">
 									<div class="card-text">
 										<h5 class="card-title ">Cita {{-index}}</h5>
@@ -337,16 +338,19 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
-
 											<p class="d-flex">
-												<button type="button" class="btn btn-info ml-auto btn-round"
+												<input type="hidden" name="id" value="{{id}}" />
+												<button type="submit" class="btn btn-info ml-auto btn-round"
 													onclick="return confirm('¿Está seguro de borrar el item?')">
 													<i class="material-icons"> delete </i>
 												</button>
+												<input type="hidden" name="_csrf" value="{{token}}" />
 											</p>
+											
 										</div>
 									</div>
 								</div>
+								</form>
 							</div>
 						</div>
 						{{/citas}}

@@ -28,7 +28,10 @@ import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.pdfgenerator.CreatePDF;
 import es.daw.bibliografia.user.Tabs;
+import es.daw.bibliografia.user.User;
 import es.daw.bibliografia.user.UserComponent;
+import es.daw.bibliografia.user.UserRepository;
+import es.daw.bibliografia.user.UserService;
 
 @Controller
 public class BookWebController {
@@ -44,12 +47,17 @@ public class BookWebController {
 
 	@Autowired
 	private CitaService serviceCita;
+	
+	@Autowired 
+	private UserService serviceUser;
 
 	@Autowired
 	private UserComponent userComponent;
 
 	@Autowired
 	private CreatePDF createPDF;
+	
+	
 
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -326,6 +334,14 @@ public class BookWebController {
 //		model.addAttribute("autores", serviceAutor.findAll());
 
 		addUserToModel(model);
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/signupOk", method = RequestMethod.POST)
+	public String signup(Model model,User user) {
+		addUserToModel(model);
+		serviceUser.save(user);
+
 		return "redirect:/";
 	}
 

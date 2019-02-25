@@ -211,23 +211,6 @@
 										<!-- Theme 2 Content -->
 										<p>{{contenido}}</p>
 										</a>
-										<div class="row">
-											<div class="col-sm-12">
-												{{#admin}}
-												<form action="/tema/{{contenido}}/borrar/obra" method="post">
-													<input type="hidden" name="_csrf" value="{{token}}" /> 
-													<input type="hidden" name="nombreObra" value="{{title}}" />
-													<p class="d-flex">
-														<button type="submit"
-															class="btn btn-info ml-auto btn-round"
-															onclick="return confirm('¿Está seguro de borrar el item?')">
-															<i class="material-icons"> delete </i>
-														</button>
-													</p>
-												</form>
-												{{/admin}}
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>

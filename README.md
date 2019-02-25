@@ -56,4 +56,30 @@ Generar pdf (botón), abriendo el documento en formato pdf correspondiente
 Logout, si ya está “loggeado”
 
 ## Navigation Diagram ##
-<img src="./imagenes/Navegacion.jpeg">
+* Guest View
+<img src="./imagenes/Visitante.jng">
+<img src="./imagenes/Histogram.jng">
+<img src="./imagenes/LogIn.jng">
+<img src="./imagenes/SingUp.jng">
+<img src="./imagenes/NavVisitante.jng">
+
+
+* Users View
+<img src="./imagenes/User.jng">
+
+
+* Admin View
+<img src="./imagenes/Admin.jng">
+<img src="./imagenes/AdminAuthor.jng">
+<img src="./imagenes/AdminNewAuthor.jng">
+<img src="./imagenes/AdminObra.jng">
+<img src="./imagenes/AdminNewObra.jng">
+<img src="./imagenes/AdminTema.jng">
+<img src="./imagenes/AdminNewTheme.jng">
+<img src="./imagenes/NavAdmin.jng">
+
+
+
+
+
+

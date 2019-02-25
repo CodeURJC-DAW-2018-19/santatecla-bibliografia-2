@@ -41,7 +41,8 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	private String name;
+	private String name; 
+	private String email;
 
 	private ArrayList<Tabs> tabs = new ArrayList<>();
 
@@ -55,9 +56,10 @@ public class User {
 
 	}
 
-	public User(String name, String password, String... roles) {
+	public User(String name, String email, String pass,  String... roles) {
 		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		this.email = email; 
+		this.passwordHash = new BCryptPasswordEncoder().encode(pass);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 
@@ -115,4 +117,13 @@ public class User {
 		this.id = id;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
 }
