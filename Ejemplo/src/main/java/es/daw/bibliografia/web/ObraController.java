@@ -42,8 +42,8 @@ public class ObraController {
 	@RequestMapping("/obra/guardada")
 	public String addObra(Model model, Obra obra,@RequestParam("URLpor") File portada,@RequestParam("URLed") File editorial){
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
-		obra.setURL("/"+portada.getPath());
-		obra.setUrl_editorial(editorial.getPath());
+		obra.setURL("../imgs/"+portada.getPath());
+		obra.setUrl_editorial("../imgs/"+editorial.getPath());
 		service.save(obra);
 
 		webController.addUserToModel(model);
