@@ -89,3 +89,37 @@ faltan las de usuario normal
 ## Class UML Diagram ##
 <img src="./imagenes/classDiagram.png">
 
+
+## Development Environment ##
+
+To carry out this work we have used Spring Tool Suite.
+
+This development environment allows 
+you to have almost everything you need to develop the web.
+
+You must install:
+
+* [![MySQL](https://img.shields.io/badge/Extension-MySQL-blue.svg)](https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-mysql)
+
+You also need to have the latest version of JDK and MAVEN installed on your machine.
+
+Once you download the code and have all these, go to Spring Tool Suite and open the project.
+You must wait for everything to load, it may take a few minutes.
+
+Then, you must create a SQL Database, using MySQL extension, with the following credentials:
+- User: root
+- Password: root
+
+Once it is loaded, place the cursor on the application.class and click on run.
+Once it has been executed, open the browser and enter the following URL: **https//:localhost:8443/**.
+
+Admin account registered:
+- User: admin
+- Pass: pass
+
+User account registered:
+- User: user
+- Pass: pass
+
+YOU ARE READY TO USE OUR WEB APPLICATION
+
