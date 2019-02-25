@@ -1,32 +1,34 @@
 # santatecla-bibliografia-2
-  - [Nombre de la aplicación web](#Nombre-de-la-aplicación-web)
-  - [Integrantes del equipo de desarrollo](#Integrantes-del-equipo-de-desarrollo)
-  - [Coordinación del equipo](#Coordinación-del-equipo)
-  - [Requisitos](#Requisitos)
-  - [Capturas de las pantallas](#Capturas-de-las-pantallas)
-  - [Diagrama Navegacion](#Diagrama-Navegacion)
+  - [Name of the web application](#Name-of-the-web-application)
+  - [Members of the development team](#Members-of-the-development-team)
+  - [Team coordination](#Team-coordination)
+  - [Requirements](#Requirements)
+  - [Screenshots](#Screenshots)
+  - [Navigation Diagram](#Navigation-Diagram)
 
 
 
-## Nombre de la aplicación web ##
+## Name of the web application ##
 santatecla-bibliografia-2
 
-## Integrantes del equipo de desarrollo ##
-* Israel, Peñalver Sánchez; i.penalver.2016@alumnos.urjc.es; IsraelSonseca
-* Natalia, Madrueño Sierro;	n.madrueno@alumnos.urjc.es;	madrueno
-* Sandra, Gómez Gálvez;	s.gomezgalv@alumnos.urjc.es;	sandruskyi
-* Zhihao, Du Chen;	z.duc@alumnos.urjc.es;	ZhihaoDC
-* Sergio, Casado López;	s.casadolo@alumnos.urjc.es;	Segismundo
+## [Members of the development team ##
+| Name | Mail | GitHub |
+| ---- | ---- | ------ |
+| Israel Peñalver Sánchez | i.penalver.2016@alumnos.urjc.es | IsraelSonseca |
+| Natalia Madrueño Sierro |	n.madrueno@alumnos.urjc.es |	madrueno |
+| Sandra Gómez Gálvez |	s.gomezgalv@alumnos.urjc.es |	sandruskyi |
+| Zhihao Du Chen |	z.duc@alumnos.urjc.es|	ZhihaoDC |
+| Sergio Casado López |	s.casadolo@alumnos.urjc.es |	Segismundo |
 
 
-## Coordinación del equipo ##
+## Team coordination ##
 https://trello.com/b/5NANIltP/daw
 
-## Requisitos ##
+## Requirements ##
 https://drive.google.com/open?id=1CWRq8RUXchpzgKLwoRW4MFCGlrEd05Fe1oJTlBbKZs0
 
 
-## Capturas de las pantallas ##
+## Screenshots ##
 
 <img src="./imagenes/Captura_inicio.jpg">Muestra, con filtros, temas, obras y autores disponible en el sistema. Permite: Login, logout, y crear, abrir y eliminar tanto tema, obra y autor.
 
@@ -53,5 +55,5 @@ Eliminar cita de tema (-), avisando al usuario que se pierden los datos
 Generar pdf (botón), abriendo el documento en formato pdf correspondiente
 Logout, si ya está “loggeado”
 
-## Diagrama de Navigacion ##
+## Navigation Diagram ##
 <img src="./imagenes/Navegacion.jpeg">
