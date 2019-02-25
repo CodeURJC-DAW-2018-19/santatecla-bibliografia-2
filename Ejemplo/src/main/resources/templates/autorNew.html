@@ -86,6 +86,12 @@
 									</div>
 								</div>
 							</div>
+							
+							<h2>Obras</h2>
+							{{#obras}} <input type="checkbox" name="obras" value="{{id}}">{{title}}<br>
+							{{/obras}}
+
+							
 							<button type="submit" class="btn btn-primary">Guardar</button>
 							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
@@ -127,184 +133,6 @@
 </div>
 <!--End Container 1-->
 
-<div class="span12">
-	<hr>
-</div>
-
-<!--Start Container 2-->
-<div class="container-fluid">
-
-	<div class="row">
-		<!--Start Theme-->
-		<div class="col-sm-4"
-			style="width: auto; height: 30em; overflow-y: scroll;">
-			<div class="card" style="height: auto">
-				<div class="card-header card-header-primary">
-					<h4 class="card-title text-center">Temas</h4>
-				</div>
-				<div class="card-body">
-					<div class="row">
-						{{#temas}}
-						<div class="col-sm-6">
-							<div class="card">
-								<div class="card-header  card-header-text card-header-primary">
-									<a href="/tema/{{contenido}}">
-										<div class="card-text">
-											<h5 class="card-title ">Tema {{-index}}</h5>
-										</div>
-								</div>
-								</a>
-								<div class="card-body">
-									<!-- Theme 2 Content -->
-									<a href="/tema/{{contenido}}">
-										<p>{{contenido}}</p>
-									</a>
-									<div class="row">
-										<div class="col-sm-12">
-
-											<p class="d-flex">
-												<button type="button" class="btn btn-info ml-auto btn-round">
-													<i class="material-icons"
-														onclick="return confirm('¿Está seguro de borrar el item?')">
-														delete </i>
-												</button>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						{{/temas}}
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Theme-->
-
-		<!-- Start Obra-->
-		<div class="col-sm-4"
-			style="width: auto; height: 30em; overflow-y: scroll;">
-			<div class="card" style="height: auto">
-				<div class="card-header   card-header-primary">
-
-					<h4 class="card-title text-center">Obras</h4>
-
-				</div>
-				<div class="card-body">
-					<div class="row">
-						{{#obras}}
-						<div class="col-sm-6">
-							<div class="card">
-								<div class="card-header  card-header-text card-header-primary">
-									<a href="/obra/{{title}}">
-										<div class="card-text">
-											<h5 class="card-title ">Obra {{-index}}</h5>
-										</div>
-									</a>
-								</div>
-								<div class="card-body">
-									<!-- Quote 1 Content -->
-									<div class="row">
-										<a href="/obra/{{title}}">
-											<div class="col-sm-12">
-												<p>{{title}}</p>
-											</div>
-										</a>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-
-											<p class="d-flex">
-												<button type="button" class="btn btn-info ml-auto btn-round"
-													onclick="return confirm('¿Está seguro de borrar el item?')">
-													<i class="material-icons"> delete </i>
-												</button>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						{{/obras}}
-					</div>
-
-					<form action="/obra/new" method="post">
-						<input type="hidden" name="_csrf" value="{{token}}" />
-						<p class="d-flex">
-							<button type="submit" class="btn btn-info ml-auto btn-round">
-								<i class="material-icons"> add_circle </i>
-							</button>
-						</p>
-					</form>
-				</div>
-			</div>
-		</div>
-		<!-- End Work-->
-		<!-- Start Author-->
-		<div class="col-sm-4"
-			style="width: auto; height: 30em; overflow-y: scroll;">
-			<div class="card" style="height: auto">
-				<div class="card-header  card-header-primary">
-
-					<h4 class="card-title text-center">Autores</h4>
-
-				</div>
-				<div class="card-body">
-					<!-- Search bar-->
-					<form class="navbar-form">
-						<div class="input-group no-border">
-							<input type="text" value="" class="form-control"
-								placeholder="Buscar Autor...">
-							<button type="submit"
-								class="btn btn-white btn-round btn-just-icon">
-								<i class="material-icons">search</i>
-								<div class="ripple-container"></div>
-							</button>
-						</div>
-					</form>
-					<!-- End Search bar-->
-					<div class="row">
-						{{#autores}}
-						<div class="col-sm-6">
-							<div class="card">
-								<div class="card-header  card-header-text card-header-primary">
-									<div class="card-text">
-										<h5 class="card-title ">Autor {{-index}}</h5>
-									</div>
-								</div>
-								<div class="card-body">
-									<!-- Author 1 Content -->
-									<div class="row">
-										<div class="col-sm-12">
-											<p>{{nombre}}</p>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											{{#logged}}
-											<p class="d-flex">
-												<button type="button" class="btn btn-info ml-auto btn-round"
-													onclick="return confirm('¿Está seguro de borrar el item?')">
-													<i class="material-icons"> delete </i>
-												</button>
-											</p>
-											{{/logged}}
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						{{/autores}}
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Author-->
-
-	</div>
-</div>
-<!--End Container 2-->
 <!-- End Container parts-->
 
 

@@ -1,16 +1,20 @@
 package es.daw.bibliografia.web;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
+import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
+import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
@@ -114,15 +118,24 @@ public class AutorWebController {
 	}
 
 	@RequestMapping("/autor/guardado")
-	public String addAutor(Model model, Autor autor) {
+	public String addAutor(Model model, Autor autor, @RequestParam Optional<Long[]> obras) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		webController.deleteTab("Nuevo autor");
 		autorService.save(autor);
-
 		webController.addUserToModel(model);
-
+		
+		if(obras.isPresent()) {
+			for(Long o: obras.get()){
+				Obra obra = obraService.findOne(o).get();
+				obra.getAutores().add(autor);
+				obraService.save(obra);
+			}
+		}
+		
 		return "redirect:/autor/".concat(autor.getNombre());
 	}
+	
+	
 
 	/*
 	 * @GetMapping("/autor/{id}") public String showBook(Model model, @PathVariable
