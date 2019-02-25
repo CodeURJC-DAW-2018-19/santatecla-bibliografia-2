@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
@@ -30,7 +31,6 @@ import es.daw.bibliografia.pdfgenerator.CreatePDF;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.User;
 import es.daw.bibliografia.user.UserComponent;
-import es.daw.bibliografia.user.UserRepository;
 import es.daw.bibliografia.user.UserService;
 
 @Controller
@@ -338,9 +338,10 @@ public class BookWebController {
 	}
 	
 	@RequestMapping(value = "/signupOk", method = RequestMethod.POST)
-	public String signup(Model model,User user) {
+	public String signup(Model model,User user,@RequestParam("pass") String pass) {
 		addUserToModel(model);
-		serviceUser.save(user);
+		User aux = new User(user.getName(),user.getEmail(),pass,"ROLE_USER");
+		serviceUser.save(aux);
 
 		return "redirect:/";
 	}
