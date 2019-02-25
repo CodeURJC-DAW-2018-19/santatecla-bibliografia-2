@@ -90,10 +90,10 @@
 								onclick="editarObra();" id="editar">Editar</button>
 							<button type="submit" class="btn btn-primary"
 								style="display: none;" id="guardar" onclick="update();">Guardar</button>
-								<button type="submit" class="btn btn-primary"
-								onclick="borrarObra(); return confirm('¿Está seguro de borrar el item?')" id="borrar" >Borrar </button>
-							{{/admin}} 
-							<input type="hidden" name="_csrf" value="{{token}}" />
+							<button type="submit" class="btn btn-primary"
+								onclick="borrarObra(); return confirm('¿Está seguro de borrar el item?')"
+								id="borrar">Borrar</button>
+							{{/admin}} <input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
 						<script>
 							function editarObra() {
@@ -139,8 +139,7 @@
 
 
 				<div class="card card-profile">
-					<a href="#cover"> <img class="card-img-top"
-						src="{{URL}}"
+					<a href="#cover"> <img class="card-img-top" src="{{URL}}"
 						style="width: 11.65em; height: 10em;" />
 					</a>
 					<div class="card-body">
@@ -153,8 +152,7 @@
 				<div class="card card-profile">
 					<div class="card-avatar-top">
 						<a href="#editorial"> <img class="card-img-top"
-							src="{{url_editorial}}"
-							style="width: 11.65em; height: 10em;" />
+							src="{{url_editorial}}" style="width: 11.65em; height: 10em;" />
 						</a>
 					</div>
 					<div class="card-body">
@@ -216,7 +214,8 @@
 												{{#admin}}
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
+														class="btn btn-info ml-auto btn-round"
+														onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
@@ -229,12 +228,14 @@
 							{{/temas}}
 						</div>
 						{{#admin}}
-						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round"
-								onclick="newFile()">
-								<i class="material-icons"> add_circle </i>
-							</button>
-						</p>
+						<form action="tema/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="button" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
 						<!-- Add button -->
 						{{/admin}}
 
@@ -274,7 +275,8 @@
 
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
+														class="btn btn-info ml-auto btn-round"
+														onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
@@ -286,10 +288,9 @@
 							{{/citas}}
 
 						</div>
-
+						
 						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round"
-								onclick="newFile()">
+							<button type="button" class="btn btn-info ml-auto btn-round">
 								<i class="material-icons"> add_circle </i>
 							</button>
 						</p>
@@ -343,7 +344,8 @@
 												{{#admin}}
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
+														class="btn btn-info ml-auto btn-round"
+														onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
@@ -357,12 +359,14 @@
 
 						</div>
 						{{#admin}}
-						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round"
-								onclick="newFile()">
-								<i class="material-icons"> add_circle </i>
-							</button>
-						</p>
+						<form action="autor/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="button" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
 						<!-- Add button -->
 						{{/admin}}
 					</div>

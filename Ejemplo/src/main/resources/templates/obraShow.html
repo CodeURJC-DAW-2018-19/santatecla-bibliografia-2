@@ -228,12 +228,14 @@
 							{{/temas}}
 						</div>
 						{{#admin}}
-						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round"
-								onclick="newFile()">
-								<i class="material-icons"> add_circle </i>
-							</button>
-						</p>
+						<form action="tema/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="button" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
 						<!-- Add button -->
 						{{/admin}}
 
@@ -286,10 +288,9 @@
 							{{/citas}}
 
 						</div>
-
+						
 						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round"
-								onclick="newFile()">
+							<button type="button" class="btn btn-info ml-auto btn-round">
 								<i class="material-icons"> add_circle </i>
 							</button>
 						</p>
@@ -358,12 +359,14 @@
 
 						</div>
 						{{#admin}}
-						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round"
-								onclick="newFile()">
-								<i class="material-icons"> add_circle </i>
-							</button>
-						</p>
+						<form action="autor/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="button" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
 						<!-- Add button -->
 						{{/admin}}
 					</div>
