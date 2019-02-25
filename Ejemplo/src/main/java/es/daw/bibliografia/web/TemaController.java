@@ -86,11 +86,20 @@ public class TemaController {
 	
 	@RequestMapping("/tema/borrarCita")
 	public String deleteCita(Model model, @RequestParam long id) {
-		//userTabs(model, "/obra/guardada", "Obra guardada", true);
+		
 		citaService.delete(id);
-
 		webController.addUserToModel(model);
-		//webController.deleteTab("Tema: " + contenido);
+
+		return "redirect:/";
+	}
+	
+	@RequestMapping("/tema/borrar")
+	public String deleteTema(Model model, @RequestParam String contenido) {
+		
+		temaService.delete(temaService.findOneByContenido(contenido).get().getId());
+		
+		webController.addUserToModel(model);
+		webController.deleteTab("Tema: " + contenido);
 
 		return "redirect:/";
 	}

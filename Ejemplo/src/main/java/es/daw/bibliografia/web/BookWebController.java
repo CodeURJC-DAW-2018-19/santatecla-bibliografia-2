@@ -173,9 +173,9 @@ public class BookWebController {
 		
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
-		model.addAttribute("obras", serviceObra.findAll());
-		model.addAttribute("temas", serviceTema.findAll());
-		model.addAttribute("citas", serviceCita.findAll());
+//		model.addAttribute("obras", serviceObra.findAll());
+//		model.addAttribute("temas", serviceTema.findAll());
+//		model.addAttribute("citas", serviceCita.findAll());
 
 		addUserToModel(model);
 
@@ -186,8 +186,11 @@ public class BookWebController {
 			List<Obra> obras = serviceObra.findByAuthor(autor.get());
 			List<Tema> temas = new ArrayList<>();
 			List<Cita> citas = new ArrayList<>();
+			Tema tema;
 			for(int i=0; i<obras.size(); i++) {
-				temas.add(serviceTema.findByObra(obras.get(i)));
+				tema = serviceTema.findByObra(obras.get(i));
+				if (tema != null)
+					temas.add(tema);
 				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream())
                         .collect(Collectors.toList());
 				//temaService.findByObra(obras.get(i))
