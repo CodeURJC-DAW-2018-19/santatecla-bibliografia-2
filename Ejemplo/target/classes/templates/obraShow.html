@@ -200,13 +200,17 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
+										<a href="../tema/{{contenido}}">
 										<div class="card-text">
 											<h5 class="card-title ">Tema {{-index}}</h5>
 										</div>
+										</a>
 									</div>
 									<div class="card-body">
+									<a href="../tema/{{contenido}}">
 										<!-- Theme 2 Content -->
 										<p>{{contenido}}</p>
+										</a>
 										<div class="row">
 											<div class="col-sm-12">
 												{{#admin}}
@@ -226,7 +230,7 @@
 							{{/temas}}
 						</div>
 						{{#admin}}
-						<form action="tema/new" method="post">
+						<form action="../tema/new" method="post">
 							<input type="hidden" name="_csrf" value="{{token}}" />
 							<p class="d-flex">
 								<button type="submit" class="btn btn-info ml-auto btn-round">
@@ -326,16 +330,20 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
+									<a href="../autor/{{nombre}}">
 										<div class="card-text">
 											<h5 class="card-title ">Autor {{-index}}</h5>
 										</div>
+										</a>
 									</div>
 									<div class="card-body">
 										<!-- Author 1 Content -->
 										<div class="row">
+										<a href="../autor/{{nombre}}">
 											<div class="col-sm-12">
 												<p>{{nombre}}</p>
 											</div>
+											</a>
 										</div>
 										<div class="row">
 											<div class="col-sm-12">
@@ -357,7 +365,7 @@
 
 						</div>
 						{{#admin}}
-						<form action="autor/new" method="post">
+						<form action="../autor/new" method="post">
 							<input type="hidden" name="_csrf" value="{{token}}" />
 							<p class="d-flex">
 								<button type="submit" class="btn btn-info ml-auto btn-round">

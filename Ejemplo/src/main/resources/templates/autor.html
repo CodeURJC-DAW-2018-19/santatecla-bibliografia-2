@@ -195,7 +195,7 @@
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-header  card-header-text card-header-primary">
-									<a href="/tema/{{contenido}}">
+									<a href="../tema/{{contenido}}">
 										<div class="card-text">
 											<h5 class="card-title ">Tema {{-index}}</h5>
 										</div>
@@ -203,7 +203,7 @@
 								</a>
 								<div class="card-body">
 									<!-- Theme 2 Content -->
-									<a href="/tema/{{contenido}}">
+									<a href="../tema/{{contenido}}">
 										<p>{{contenido}}</p>
 									</a>
 									<div class="row">
@@ -222,13 +222,13 @@
 						</div>
 						{{/temas}}
 					</div>
-					<form action="tema/new" method="post">
-							<input type="hidden" name="_csrf" value="{{token}}" />
+					<form action="../tema/new" method="post">
+						<input type="hidden" name="_csrf" value="{{token}}" />
 						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round">
+							<button type="submit" class="btn btn-info ml-auto btn-round">
 								<i class="material-icons"> add_circle </i>
 							</button>
-						</p>
+						</p>	
 					</form>
 					<!-- Add button -->
 				</div>
@@ -251,7 +251,7 @@
 						<div class="col-sm-6">
 							<div class="card">
 								<div class="card-header  card-header-text card-header-primary">
-									<a href="/obra/{{title}}">
+									<a href="../obra/{{title}}">
 										<div class="card-text">
 											<h5 class="card-title ">Obra {{-index}}</h5>
 										</div>
@@ -260,7 +260,7 @@
 								<div class="card-body">
 									<!-- Quote 1 Content -->
 									<div class="row">
-										<a href="/obra/{{title}}">
+										<a href="../obra/{{title}}">
 											<div class="col-sm-12">
 												<p>{{title}}</p>
 											</div>
@@ -283,7 +283,7 @@
 						{{/obras}}
 					</div>
 
-					<form action="/obra/new" method="post">
+					<form action="../obra/new" method="post">
 						<input type="hidden" name="_csrf" value="{{token}}" />
 						<p class="d-flex">
 							<button type="submit" class="btn btn-info ml-auto btn-round">
