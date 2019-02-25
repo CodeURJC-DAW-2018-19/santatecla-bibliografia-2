@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.TabSettings;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -24,8 +25,9 @@ public class CreatePDF {
 	public String generatePDF(User user, List<Obra> obras) {
 		String title = "PDF-tema.pdf";
 
+		Document document = new Document();
+		
 		try {
-			Document document = new Document();
 			Paragraph paragraph = new Paragraph();
 
 			Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "files");
@@ -52,15 +54,20 @@ public class CreatePDF {
 					}
 
 				}
+				
 				document.add(paragraph);
 			}
-
+			
+			if(obras.isEmpty()) {
+				document.add(new Paragraph("El fichero no contiene datos"));
+			}			
+			
 			document.close();
-
 		} catch (Exception e) {
+			e.printStackTrace();
 			return "/";
 		}
-
+		
 		return "/crearPDF";
 	}
 
