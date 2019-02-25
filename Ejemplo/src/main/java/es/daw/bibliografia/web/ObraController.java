@@ -42,6 +42,7 @@ public class ObraController {
 	@RequestMapping("/obra/guardada")
 	public String addObra(Model model, Obra obra,@RequestParam("URLpor") File portada,@RequestParam("URLed") File editorial){
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		webController.deleteTab("Nueva obra");
 		obra.setURL("../imgs/"+portada.getPath());
 		obra.setUrl_editorial("../imgs/"+editorial.getPath());
 		service.save(obra);
@@ -54,6 +55,7 @@ public class ObraController {
 	@RequestMapping("/obra/edit")
 	public String editObra(Model model, Obra obra) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		
 
 		Optional<Obra> obra2 = service.findOneByTitle(obra.getTitle());
 
