@@ -316,7 +316,7 @@ public class BookWebController {
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
-		
+		model.addAttribute("citas", serviceCita.findAll());
 		addUserToModel(model);
 		
 		return "temaNew";

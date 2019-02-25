@@ -8,10 +8,10 @@
 				<div id="quotes">
 					<div class="row">
 						<div class="col-lg-6 col-md-12"
-							style="width: auto; height: 30em; overflow-y: scroll;">
+							style="width: auto; height: 15em; overflow-y: scroll;">
 							<div class="card">
 								<div class="card-header card-header-tabs card-header-warning">
-									<h3 class="card-title">Lista de referencias</h3>
+									<h3 class="card-title">Nuevo Tema</h3>
 								</div>
 								<!-- Card content (topic / tema) -->
 								<aside class="textarea">
@@ -19,17 +19,14 @@
 										<div class="row">
 										
 											<div class="col-md-12">
-												<div class="card">
 													<form id="editTema" action="guardado" method="post">
-													<div class="card-header-rose">
-														<h4 class="card-title"><input class="form-control" type="text" name="contenido" placeholder="Nombre del tema" /></h4>
-													</div>
+														<input class="form-control" type="text" name="contenido" placeholder="Nombre del tema" />
+													
 													{{#admin}}
-														<button type="submit" class="btn btn-primary">Guardar</button>
+														<button type="submit" class="btn btn-primary pull-right">Guardar</button>
 													{{/admin}} 
 													<input type="hidden" name="_csrf" value="{{token}}" />
 												</form>
-												</div>
 											</div>
 										</div>
 									</div>
@@ -38,7 +35,7 @@
 						</div>
 
 						<div class="col-lg-6 col-md-12"
-							style="width: auto; height: 30em; overflow-y: scroll;">
+							style="width: auto; height: 15em; overflow-y: scroll;">
 							<div class="card">
 								<div class="card-header card-header-warning">
 									<h3 class="card-title">Resumen</h3>
@@ -85,8 +82,8 @@
                                                 <div class="card-text">
                                                     <h5 class="card-title ">Obra {{-index}}</h5>
                                                 </div>
-                                            </div>
                                             </a>
+                                            </div>
                                             <div class="card-body">
                                                 <!-- Work Content -->
                                                 <div class="row">
@@ -122,10 +119,8 @@
 										<div class="card">
 											<div
 												class="card-header  card-header-text card-header-primary">
-												<a  href="/autor/{{nombre}}">
-												<div class="card-text">
+												<a class="card-text" href="/autor/{{nombre}}">
 													<h5 class="card-title ">Autor {{-index}}</h5>
-												</div>
 												</a>
 											</div>
 											<div class="card-body table-responsive">

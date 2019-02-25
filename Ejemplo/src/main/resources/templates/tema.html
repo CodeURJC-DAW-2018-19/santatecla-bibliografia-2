@@ -34,7 +34,7 @@
 														{{contenido}}
 													<input type="hidden" name="id" value="{{id}}" />
 														{{#admin}}
-															<button type="submit" class="btn btn-primary pull-right">Borrar</button>
+															<button type="submit" class="btn btn-primary pull-right" onclick="return confirm('¿Está seguro de borrar el item?')">Borrar</button>
 														{{/admin}} 
 														<input type="hidden" name="_csrf" value="{{token}}" />
 													</div>
