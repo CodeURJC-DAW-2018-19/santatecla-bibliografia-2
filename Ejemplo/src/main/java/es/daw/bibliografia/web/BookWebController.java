@@ -297,7 +297,7 @@ public class BookWebController {
 		return "obra";
 	}
 
-	@RequestMapping(value = "/autor/new", method = RequestMethod.POST)
+	@RequestMapping(value = "/autor/new")
 	public String goAutor(Model model) {
 		userTabs(model, "/obra/new", "Nuevo autor", true);
 
@@ -310,7 +310,7 @@ public class BookWebController {
 		return "autorNew";
 	}
 
-	@RequestMapping(value = "/tema/new", method = RequestMethod.POST)
+	@RequestMapping(value = "/tema/new")
 	public String goTema(Model model) {
 		userTabs(model, "/obra/new", "Nuevo tema", true);
 		
