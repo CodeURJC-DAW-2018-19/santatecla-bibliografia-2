@@ -72,7 +72,7 @@ public class ObraController {
 		
 		webController.addUserToModel(model);
 
-		return "redirect:/obra/".concat(obra.getTitle());
+		return "redirect:/obrashow/".concat(obra.getTitle());
 	}
 
 	@RequestMapping("/obra/edit")
@@ -100,7 +100,7 @@ public class ObraController {
 
 		webController.addUserToModel(model);
 
-		return "redirect:/obra/".concat(obra.getTitle());
+		return "redirect:/obrashow/".concat(obra.getTitle());
 	}
 
 	@RequestMapping("/obra/borrar")
@@ -122,7 +122,7 @@ public class ObraController {
 		webController.addUserToModel(model);
 		webController.deleteTab("Obra  " + nombreObra);
 
-		return "redirect:/autor/".concat(autor);
+		return "redirect:/autorshow/".concat(autor);
 	}
 	
 	@RequestMapping("/obra/{nombreObra}/borrar/tema")
@@ -133,7 +133,7 @@ public class ObraController {
 		webController.addUserToModel(model);
 		webController.deleteTab("Obra  " + nombreObra);
 
-		return "redirect:/tema/".concat(autor);
+		return "redirect:/temashow/".concat(autor);
 	}
 
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER

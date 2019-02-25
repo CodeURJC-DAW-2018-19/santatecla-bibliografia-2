@@ -114,26 +114,6 @@
 														</div>
 													</a>
 												</div>
-												<div class="row">
-													<div class="col-sm-12">
-			
-														{{#admin}}
-															<form action="/obra/{{title}}/borrar/tema" method="post">
-																<input type="hidden" name="_csrf" value="{{token}}" /> 
-																{{#tema}}
-																<input type="hidden" name="nombreTema" value="{{contenido}}" />
-																{{/tema}}
-																<p class="d-flex">
-																	<button type="submit"
-																		class="btn btn-info ml-auto btn-round"
-																		onclick="return confirm('¿Está seguro de borrar el item?')">
-																		<i class="material-icons"> delete </i>
-																	</button>
-																</p>
-															</form>
-															{{/admin}}
-													</div>
-												</div>
 											</div>
 										</div>
 									</div>

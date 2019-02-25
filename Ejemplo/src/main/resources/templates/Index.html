@@ -31,7 +31,7 @@
 						<script>
 							        function tema() {
 							        	var nombre = document.getElementById("nombreTema").value.toString();
-							        	document.getElementById("showTema").action = 'tema/'.concat(nombre);
+							        	document.getElementById("showTema").action = 'temashow/'.concat(nombre);
 							        	document.getElementById("showTema").method = 'post';
 							        }
 							    </script>
@@ -53,7 +53,7 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
-										{{#logged}}<a href="/tema/{{contenido}}">{{/logged}}
+										{{#logged}}<a href="/temashow/{{contenido}}">{{/logged}}
 											<div class="card-text">
 												<h5 class="card-title ">Tema {{-index}}</h5>
 											</div> {{#logged}}
@@ -61,7 +61,7 @@
 									</div>
 
 									<div class="card-body">
-										{{#logged}} <a href="/tema/{{contenido}}">{{/logged}} <!-- Theme 2 Content -->
+										{{#logged}} <a href="/temashow/{{contenido}}">{{/logged}} <!-- Theme 2 Content -->
 											<p>{{contenido}}</p> {{#logged}}
 										</a>{{/logged}}
 										<div class="row">
@@ -132,7 +132,7 @@
 						<script>
 							        function obra() {
 							        	var nombre = document.getElementById("nombreObra").value.toString();
-							        	document.getElementById("showObra").action = 'obra/'.concat(nombre);
+							        	document.getElementById("showObra").action = 'obrashow/'.concat(nombre);
 							        	document.getElementById("showObra").method = 'post';
 							        }
 							    </script>
@@ -154,7 +154,7 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
-										{{#logged}}<a href="/obra/{{title}}">{{/logged}}
+										{{#logged}}<a href="/obrashow/{{title}}">{{/logged}}
 											<div class="card-text">
 												<h5 class="card-title ">Obra {{-index}}</h5>
 											</div> {{#logged}}
@@ -163,7 +163,7 @@
 									<div class="card-body">
 										<!-- Quote 1 Content -->
 										<div class="row">
-											{{#logged}}<a href="/obra/{{title}}">{{/logged}}
+											{{#logged}}<a href="/obrashow/{{title}}">{{/logged}}
 												<div class="col-sm-12">
 													<p>{{title}}</p>
 												</div> {{#logged}}
@@ -234,7 +234,7 @@
 						<script>
 							        function autor() {
 							        	var nombre = document.getElementById("nombreAutor").value.toString();
-							        	document.getElementById("showActor").action = 'autor/'.concat(nombre);
+							        	document.getElementById("showActor").action = 'autorshow/'.concat(nombre);
 							        	document.getElementById("showActor").method = 'post';
 							        }
 							    </script>
@@ -256,7 +256,7 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
-										{{#logged}} <a href="/autor/{{nombre}}">{{/logged}}
+										{{#logged}} <a href="/autorshow/{{nombre}}">{{/logged}}
 											<div class="card-text">
 												<h5 class="card-title ">Autor {{-index}}</h5>
 											</div> {{#logged}}
@@ -265,7 +265,7 @@
 									<div class="card-body">
 										<!-- Quote 1 Content -->
 										<div class="row">
-											{{#logged}} <a href="/autor/{{nombre}}">{{/logged}}
+											{{#logged}} <a href="/autorshow/{{nombre}}">{{/logged}}
 												<div class="col-sm-12">
 													<p>{{nombre}}</p>
 												</div> {{#logged}}

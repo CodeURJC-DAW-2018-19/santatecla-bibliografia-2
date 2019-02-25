@@ -106,7 +106,7 @@ public class TemaController {
 
 		webController.addUserToModel(model);
 
-		return "redirect:/tema/".concat(tema.getContenido());
+		return "redirect:/temashow/".concat(tema.getContenido());
 	}
 
 	@RequestMapping("/tema/{nombreTema}/borrar/autor")
@@ -117,6 +117,6 @@ public class TemaController {
 		webController.addUserToModel(model);
 		webController.deleteTab("Tema: " + nombreObra);
 
-		return "redirect:/autor/".concat(autor);
+		return "redirect:/autorshow/".concat(autor);
 	}
 }

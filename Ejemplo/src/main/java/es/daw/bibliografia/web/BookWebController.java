@@ -171,7 +171,7 @@ public class BookWebController {
 		return "Index";
 	}
 
-	@RequestMapping(value = "/autor/{nombreAutor}")
+	@RequestMapping(value = "/autorshow/{nombreAutor}")
 	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
 
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
@@ -214,7 +214,7 @@ public class BookWebController {
 		}
 	}
 
-	@RequestMapping(value = "/obra/{nombreObra}") // PUT IN BOOKWEEBCONTROLER
+	@RequestMapping(value = "/obrashow/{nombreObra}") // PUT IN BOOKWEEBCONTROLER
 	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
 
 		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
@@ -244,7 +244,7 @@ public class BookWebController {
 		}
 	}
 
-	@RequestMapping("/tema/{contenido}")
+	@RequestMapping("/temashow/{contenido}")
 	public String accederTema(Model model, @PathVariable("contenido") String contenido) {
 
 		Optional<Tema> tema = serviceTema.findOneByContenido(contenido);

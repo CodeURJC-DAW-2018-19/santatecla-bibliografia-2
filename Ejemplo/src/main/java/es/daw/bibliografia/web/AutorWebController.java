@@ -132,7 +132,7 @@ public class AutorWebController {
 			}
 		}
 		
-		return "redirect:/autor/".concat(autor.getNombre());
+		return "redirect:/autorshow/".concat(autor.getNombre());
 	}
 	
 	
