@@ -279,11 +279,10 @@ public class BookWebController {
 	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)
 	public String goObra(Model model) {
 		userTabs(model, "/obra/new", "Nueva obra", true);
-		/*
-		 * model.addAttribute("temas", serviceTema.findAll());
-		 * model.addAttribute("obras", serviceObra.findAll());
-		 * model.addAttribute("autores", serviceAutor.findAll());
-		 */
+
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
 
 		addUserToModel(model);
 
@@ -293,11 +292,10 @@ public class BookWebController {
 	@RequestMapping(value = "/autor/new", method = RequestMethod.POST)
 	public String goAutor(Model model) {
 		userTabs(model, "/obra/new", "Nueva obra", true);
-		/*
-		 * model.addAttribute("temas", serviceTema.findAll());
-		 * model.addAttribute("obras", serviceObra.findAll());
-		 * model.addAttribute("autores", serviceAutor.findAll());
-		 */
+
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
 
 		addUserToModel(model);
 
@@ -308,12 +306,10 @@ public class BookWebController {
 	public String goTema(Model model) {
 		userTabs(model, "/obra/new", "Nueva obra", true);
 
-		/*
-		 * model.addAttribute("temas", serviceTema.findAll());
-		 * model.addAttribute("obras", serviceObra.findAll());
-		 * model.addAttribute("autores", serviceAutor.findAll());
-		 * model.addAttribute("citas", serviceCita.findAll());
-		 */
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", serviceObra.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
+		model.addAttribute("citas", serviceCita.findAll());
 		addUserToModel(model);
 
 		return "temaNew";
