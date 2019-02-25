@@ -1,11 +1,14 @@
 package es.daw.bibliografia.web;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
@@ -37,8 +40,10 @@ public class ObraController {
 	private UserComponent userComponent;
 
 	@RequestMapping("/obra/guardada")
-	public String addObra(Model model, Obra obra) {
+	public String addObra(Model model, Obra obra,@RequestParam("URLpor") File portada,@RequestParam("URLed") File editorial){
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		obra.setURL("/"+portada.getPath());
+		obra.setUrl_editorial(editorial.getPath());
 		service.save(obra);
 
 		webController.addUserToModel(model);
