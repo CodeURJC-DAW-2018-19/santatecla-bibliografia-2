@@ -1,5 +1,5 @@
 {{>header}}
-
+<meta charset="utf-8" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <div class="content">
@@ -67,7 +67,11 @@
 {{#admin}}
 														<form action="tema/borrar" method="post"><input type="hidden" name="_csrf" value="{{token}}"/>
 														<input type="hidden" name="contenido" value="{{contenido}}" />
-                                                        <p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        <p class="d-flex">
+                                                        	<button type="submit" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
+                                                        		<i class="material-icons"> delete </i>
+                                                        	</button>
+                                                        </p>
                                                         </form>
 {{/admin}}
                                                     </div>
@@ -153,7 +157,11 @@
 {{#admin}}
 														<form action="obra/borrar" method="post"><input type="hidden" name="_csrf" value="{{token}}"/>
 														<input type="hidden" name="title" value="{{title}}" />
-                                                        <p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        <p class="d-flex">
+                                                        	<button type="submit" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
+	                                                        	<i class="material-icons"> delete </i>
+	                                                        </button>
+                                                        </p>
                                                         </form>
 {{/admin}}
                                                     </div>
@@ -237,7 +245,11 @@
 {{#admin}}
 														<form action="autor/borrar" method="post"><input type="hidden" name="_csrf" value="{{token}}"/>
 														<input type="hidden" name="nombre" value="{{nombre}}" />
-                                                        <p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        <p class="d-flex">
+                                                        	<button type="submit" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
+                                                        		<i class="material-icons"> delete </i>
+                                                        	</button>
+                                                        </p>
 														</form>
 {{/admin}}
                                                     </div>
@@ -280,15 +292,15 @@
                                             //},
                                             tooltip: {},
                                             legend: {
-                                                data: ['Número de obras por tema']
+                                                data: ['NÃºmero de obras por tema']
                                             },
                                             xAxis: {
-                                                data: ["Romance", "Épica", "Fantasía", "Aventura", "Drama", "Sci-fi"]
+                                                data: ["Romance", "Ã‰pica", "FantasÃ­a", "Aventura", "Drama", "Sci-fi"]
                                             },
                                             yAxis: {},
                                             series: [{
                                                 
-                                                name: 'Número de obras por tema',
+                                                name: 'NÃºmero de obras por tema',
                                                 type: 'bar',
                                                 data: [5, 20, 36, 10, 10, 20]
                                             }]
