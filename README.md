@@ -5,6 +5,7 @@
   - [Requirements](#Requirements)
   - [Screenshots](#Screenshots)
   - [Navigation Diagram](#Navigation-Diagram)
+  - [Database Entity Diagram](#Database-Entity-Diagram)
 
 
 
@@ -79,7 +80,8 @@ faltan las de usuario normal
 <img src="./imagenes/NavAdmin.png">
 
 
-
+## Database Entity Diagram ##
+<img src="./imagenes/BBDD.png">
 
 
 
