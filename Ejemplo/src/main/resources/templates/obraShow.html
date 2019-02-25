@@ -1,5 +1,5 @@
 {{>header}}
-
+<meta charset="utf-8" />
 <div class="content">
 	<!-- Data Container -->
 	<div class="container-fluid">
@@ -46,7 +46,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<label class="bmd-label-floating"> Fecha de
-										publicación: </label>
+										publicaciÃ³n: </label>
 								</div>
 							</div>
 							<div class="row">
@@ -91,7 +91,7 @@
 							<button type="submit" class="btn btn-primary"
 								style="display: none;" id="guardar" onclick="update();">Guardar</button>
 								<button type="submit" class="btn btn-primary"
-								onclick="borrarObra();" id="borrar">Borrar</button>
+								onclick="borrarObra(); return confirm('¿Está seguro de borrar el item?')" id="borrar" >Borrar </button>
 							{{/admin}} 
 							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
@@ -216,7 +216,7 @@
 												{{#admin}}
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round">
+														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
@@ -274,7 +274,7 @@
 
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round">
+														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
@@ -343,7 +343,7 @@
 												{{#admin}}
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round">
+														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>

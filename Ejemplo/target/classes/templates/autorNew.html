@@ -1,4 +1,5 @@
 {{>header}}
+<meta charset="utf-8" />
  <!--Start Container 1-->
         <div class="content">
             <div class="container-fluid">
@@ -158,7 +159,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
 
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons" onclick="return confirm('¿Está seguro de borrar el item?')"> delete </i></button></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -204,7 +205,7 @@
                                                 <div class="row">
                                                     <div class="col-sm-12">
 
-                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"><i class="material-icons"> delete </i></button></p>
+                                                        <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')"><i class="material-icons"> delete </i></button></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,7 +214,7 @@
                                     {{/obras}}
                                 </div>
 
-                                <p class="d-flex"><button type="button" class="btn btn-info ml-auto btn-round"  onclick="newFile()"><i class="material-icons"> add_circle </i></button></p> <!-- Add button -->
+                                <form action="/obra/new" method="post"><input type="hidden" name="_csrf" value="{{token}}"/><p class="d-flex"><button type="submit" class="btn btn-info ml-auto btn-round"><i class="material-icons"> add_circle </i></button></p></form>
                             </div>
                         </div>
                     </div>
@@ -262,7 +263,7 @@
 												{{#logged}}
 												<p class="d-flex">
 													<button type="button"
-														class="btn btn-info ml-auto btn-round">
+														class="btn btn-info ml-auto btn-round" onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
