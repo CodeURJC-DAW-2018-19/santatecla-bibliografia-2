@@ -114,6 +114,26 @@
 														</div>
 													</a>
 												</div>
+												<div class="row">
+													<div class="col-sm-12">
+			
+														{{#admin}}
+															<form action="/obra/{{title}}/borrar/tema" method="post">
+																<input type="hidden" name="_csrf" value="{{token}}" /> 
+																{{#tema}}
+																<input type="hidden" name="nombreTema" value="{{contenido}}" />
+																{{/tema}}
+																<p class="d-flex">
+																	<button type="submit"
+																		class="btn btn-info ml-auto btn-round"
+																		onclick="return confirm('¿Está seguro de borrar el item?')">
+																		<i class="material-icons"> delete </i>
+																	</button>
+																</p>
+															</form>
+															{{/admin}}
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -133,7 +153,6 @@
 
 							</div>
 							<div class="card-body">
-
 								<div class="row">
 									{{#autores}}
 									<div class="col-sm-6">
@@ -202,21 +221,6 @@
 									<hr>
 								</div>
 								<!-- Separate bar-->
-
-								<!-- Search bar-->
-								<form class="navbar-form">
-									<div class="input-group no-border">
-										<input type="text" value="" class="form-control"
-											placeholder="Buscar Cita">
-										<button type="submit"
-											class="btn btn-white btn-round btn-just-icon">
-											<i class="material-icons">search</i>
-											<div class="ripple-container"></div>
-										</button>
-									</div>
-								</form>
-								<!-- End Search bar-->
-
 								<!-- Add Cita button -->
 								<p class="d-flex">
 									<button type="button" class="btn btn-info ml-auto btn-round">
