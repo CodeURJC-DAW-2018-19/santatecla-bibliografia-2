@@ -266,6 +266,9 @@ public class BookWebController {
                         .collect(Collectors.toList());
 				autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
                         .collect(Collectors.toList());
+//				if (obras.get(i).getCitas().isEmpty())
+//					obras.remove(i); //Don't show obra without Cita's in Tema (because all Referencias are generated using obra)
+				
 			}
 
 			model.addAttribute("tema", tema);
@@ -273,7 +276,7 @@ public class BookWebController {
 			model.addAttribute("citas", citas);
 			model.addAttribute("autores", autores);
 			
-			createPDF.generatePDF(userComponent.getLoggedUser(), obras, citas, autores);
+			createPDF.generatePDF(userComponent.getLoggedUser(), obras);
 			return "tema"; 
 		}else {
 			return "temaShowError"; 

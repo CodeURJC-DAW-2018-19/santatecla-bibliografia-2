@@ -9,6 +9,7 @@ import es.daw.bibliografia.user.User;
 
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Header;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.TabSettings;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -23,7 +24,7 @@ import java.nio.file.Files;
 @Service
 public class CreatePDF {
 
-	public String generatePDF(User user, List<Obra> obras, List<Cita> citas, List<Autor> autores) {
+	public String generatePDF(User user, List<Obra> obras) {
 		String title = "PDF-tema.pdf";
 
 		try {
@@ -37,8 +38,6 @@ public class CreatePDF {
 			PdfWriter.getInstance(document, new FileOutputStream(new File(FILES_FOLDER.toFile(), title)));
 
 			document.open();
-			document.addCreationDate();
-
 			for (int i = 0; i < obras.size(); i++) {
 					paragraph.clear();
 

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
@@ -83,13 +84,13 @@ public class TemaController {
 		return false;
 	}
 	
-	@RequestMapping("/tema/borrar")
-	public String deleteObra(Model model, String contenido) {
+	@RequestMapping("/tema/borrarCita")
+	public String deleteCita(Model model, @RequestParam long id) {
 		//userTabs(model, "/obra/guardada", "Obra guardada", true);
-		temaService.delete(temaService.findOneByContenido(contenido).get().getId());
+		citaService.delete(id);
 
 		webController.addUserToModel(model);
-		webController.deleteTab("Tema: " + contenido);
+		//webController.deleteTab("Tema: " + contenido);
 
 		return "redirect:/";
 	}

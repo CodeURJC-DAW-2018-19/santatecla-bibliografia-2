@@ -22,10 +22,7 @@
 										{{#obras}}
 											<div class="col-md-12">
 												<div class="card">
-												<form id="editTema" action="borrar" method="post">
-													{{#tema}}
-													<input type="hidden" name="contenido" value="{{contenido}}" />
-													{{/tema}}
+												<form id="deleteCita" action="borrarCita" method="post">
 													<div class="card-header-rose">
 														{{#autores}}
 														<h4 class="card-title">{{nombre}}</h4>
@@ -35,7 +32,7 @@
 													{{#citas}}
 													<div class="card-body table-responsive">
 														{{contenido}}
-													
+													<input type="hidden" name="id" value="{{id}}" />
 														{{#admin}}
 															<button type="submit" class="btn btn-primary pull-right">Borrar</button>
 														{{/admin}} 
