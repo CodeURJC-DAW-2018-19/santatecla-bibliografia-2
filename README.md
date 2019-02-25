@@ -5,8 +5,10 @@
   - [Requirements](#Requirements)
   - [Screenshots](#Screenshots)
   - [Navigation Diagram](#Navigation-Diagram)
+  - [Database Entity Diagram](#Database-Entity-Diagram)
+  - [Class UML Diagram](#Class-UML-Diagram)
 
-
+Class UML Diagram
 
 ## Name of the web application ##
 santatecla-bibliografia-2
@@ -79,7 +81,11 @@ faltan las de usuario normal
 <img src="./imagenes/NavAdmin.png">
 
 
+## Database Entity Diagram ##
+<img src="./imagenes/BBDD.png">
 
 
 
+## Class UML Diagram ##
+<img src="./imagenes/classDiagram.png">
 
