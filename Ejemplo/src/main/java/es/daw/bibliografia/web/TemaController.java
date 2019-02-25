@@ -3,6 +3,7 @@ package es.daw.bibliografia.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -96,6 +97,7 @@ public class TemaController {
 	@RequestMapping("/tema/guardado")
 	public String addAutor(Model model, Tema tema) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		webController.deleteTab("Nueva tema");
 		temaService.save(tema);
 
 		webController.addUserToModel(model);
@@ -103,4 +105,14 @@ public class TemaController {
 		return "redirect:/tema/".concat(tema.getContenido());
 	}
 
+	@RequestMapping("/tema/{nombreTema}/borrar/autor")
+	public String deleteTema2(Model model, @PathVariable("nombreTema") String nombreObra,@RequestParam("nombreAutor") String autor) {
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		temaService.delete(temaService.findOneByContenido(nombreObra).get().getId());
+
+		webController.addUserToModel(model);
+		webController.deleteTab("Tema: " + nombreObra);
+
+		return "redirect:/autor/".concat(autor);
+	}
 }

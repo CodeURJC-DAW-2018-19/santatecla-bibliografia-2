@@ -116,6 +116,7 @@ public class AutorWebController {
 	@RequestMapping("/autor/guardado")
 	public String addAutor(Model model, Autor autor) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		webController.deleteTab("Nuevo autor");
 		autorService.save(autor);
 
 		webController.addUserToModel(model);
