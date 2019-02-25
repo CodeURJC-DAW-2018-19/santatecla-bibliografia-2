@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< refs/remotes/origin/master
 Built-By: zhiha
+=======
+Built-By: natalia
+>>>>>>> fixed error utf8
 Build-Jdk: 11.0.2
 Implementation-Title: practica_fase4
 Implementation-Version: 0.1.0
