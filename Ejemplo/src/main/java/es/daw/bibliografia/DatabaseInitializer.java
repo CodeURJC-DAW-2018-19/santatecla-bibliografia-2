@@ -355,9 +355,9 @@ public class DatabaseInitializer {
 		temaRepository.save(t12);
 
 
-		userRepository.save(new User("user", "pass", "ROLE_USER"));
-		userRepository.save(new User("user2", "pass2", "ROLE_USER"));
-		userRepository.save(new User("admin", "pass", "ROLE_USER", "ROLE_ADMIN"));
+		userRepository.save(new User("user", "g@g", "pass","ROLE_USER"));
+		userRepository.save(new User("user2", "g@g",  "pass","ROLE_USER"));
+		userRepository.save(new User("admin", "g@g", "pass",  "ROLE_USER", "ROLE_ADMIN"));
 	}
 
 }
