@@ -14,11 +14,11 @@ santatecla-bibliografia-2
 ## [Members of the development team ##
 | Name | Mail | GitHub |
 | ---- | ---- | ------ |
-| Israel Peñalver Sánchez | i.penalver.2016@alumnos.urjc.es | IsraelSonseca |
-| Natalia Madrueño Sierro |	n.madrueno@alumnos.urjc.es |	madrueno |
-| Sandra Gómez Gálvez |	s.gomezgalv@alumnos.urjc.es |	sandruskyi |
-| Zhihao Du Chen |	z.duc@alumnos.urjc.es|	ZhihaoDC |
-| Sergio Casado López |	s.casadolo@alumnos.urjc.es |	Segismundo |
+| Israel Peñalver Sánchez | i.penalver.2016@alumnos.urjc.es | [IsraelSonseca](https://github.com/IsraelSonseca) |
+| Natalia Madrueño Sierro |	n.madrueno@alumnos.urjc.es |	[madrueno](https://github.com/madrueno) |
+| Sandra Gómez Gálvez |	s.gomezgalv@alumnos.urjc.es |	[sandruskyi](https://github.com/sandruskyi) |
+| Zhihao Du Chen |	z.duc@alumnos.urjc.es|	[ZhihaoDC](https://github.com/ZhihaoDC) |
+| Sergio Casado López |	s.casadolo@alumnos.urjc.es |	[Segismundo](https://github.com/Segismundo) |
 
 
 ## Team coordination ##
