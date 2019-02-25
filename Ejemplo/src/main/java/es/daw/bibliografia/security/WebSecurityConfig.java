@@ -22,17 +22,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/login").permitAll();
 		http.authorizeRequests().antMatchers("/loginerror").permitAll();
 		http.authorizeRequests().antMatchers("/logout").permitAll();
+		
 
 		// Private pages (all other pages)
-		http.authorizeRequests().antMatchers("/books/**").hasAnyRole("USER");
-		http.authorizeRequests().antMatchers("/newBook").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/editBook").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/editBook/**").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/deleteBook/**").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/obra/**").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/tema/**").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/autor/**").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers("/obra/view").hasAnyRole("USER");
+
+		http.authorizeRequests().antMatchers("/obra/{nombreObra}").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers("/tema/{contenido}").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers("/autor/{nombreAutor}").hasAnyRole("USER");
+		
 		http.authorizeRequests().antMatchers("/delete/").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/delete/").hasAnyRole("USER");
 
