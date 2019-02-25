@@ -7,9 +7,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
@@ -89,6 +91,28 @@ public class ObraController {
 		webController.deleteTab("Obra  " + obra.getTitle());
 
 		return "redirect:/";
+	}
+	
+	@RequestMapping("/obra/{nombreObra}/borrar/autor")
+	public String deleteObra2(Model model, @PathVariable("nombreObra") String nombreObra,@RequestParam("nombreAutor") String autor) {
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		service.delete(service.findOneByTitle(nombreObra).get().getId());
+
+		webController.addUserToModel(model);
+		webController.deleteTab("Obra  " + nombreObra);
+
+		return "redirect:/autor/".concat(autor);
+	}
+	
+	@RequestMapping("/obra/{nombreObra}/borrar/tema")
+	public String deleteObra3(Model model, @PathVariable("nombreObra") String nombreObra,@RequestParam("nombreTema") String autor) {
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		service.delete(service.findOneByTitle(nombreObra).get().getId());
+
+		webController.addUserToModel(model);
+		webController.deleteTab("Obra  " + nombreObra);
+
+		return "redirect:/tema/".concat(autor);
 	}
 
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER

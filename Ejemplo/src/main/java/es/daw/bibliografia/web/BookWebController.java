@@ -291,7 +291,7 @@ public class BookWebController {
 
 	@RequestMapping(value = "/autor/new", method = RequestMethod.POST)
 	public String goAutor(Model model) {
-		userTabs(model, "/obra/new", "Nueva obra", true);
+		userTabs(model, "/obra/new", "Nuevo autor", true);
 
 		model.addAttribute("temas", serviceTema.findAll());
 		model.addAttribute("obras", serviceObra.findAll());
@@ -304,9 +304,8 @@ public class BookWebController {
 
 	@RequestMapping(value = "/tema/new", method = RequestMethod.POST)
 	public String goTema(Model model) {
-		userTabs(model, "/obra/new", "Nueva obra", true);
-
-		model.addAttribute("temas", serviceTema.findAll());
+		userTabs(model, "/obra/new", "Nuevo tema", true);
+		
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
 		model.addAttribute("citas", serviceCita.findAll());
