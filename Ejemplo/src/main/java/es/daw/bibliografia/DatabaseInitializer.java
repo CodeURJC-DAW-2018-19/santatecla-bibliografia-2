@@ -68,8 +68,8 @@ public class DatabaseInitializer {
 				"https://es.wikipedia.org/wiki/Pedro_Calder%C3%B3n_de_la_Barca#/media/File:Retrato_de_Pedro_Calder%C3%B3n_de_la_Barca.jpg", 
 				"https://es.wikipedia.org/wiki/Corona_de_Castilla#/media/File:Corona_de_Castilla_1400_es.svg", 
 				"​17 enero 1600", "25 mayo 1681", "Madrid");
-		Autor a6 = new Autor("Rubén Darío","https://es.wikipedia.org/wiki/Rub%C3%A9n_Dar%C3%ADo#Figuras_ret%C3%B3ricas", 
-				"https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/NIC_orthographic.svg/250px-NIC_orthographic.svg.png",
+		Autor a6 = new Autor("Rubén Darío","http://paris.rutascervantes.es/imagenes/rutas/16.jpg", 
+				"http://diario16.com/wp-content/uploads/2017/07/nicaragua.png",
 				"18 de enero de 1867", "6 de febrero de 1916",  "León, Nicaragua");
 		Autor a7 = new Autor("Horacio", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Quintus_Horatius_Flaccus.jpg/180px-Quintus_Horatius_Flaccus.jpg",
 				"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Civilizacion_etrusca.png/220px-Civilizacion_etrusca.png", "8 de diciembre de 65 a. C.","27 de noviembre de 8 a. C.", "Roma");
