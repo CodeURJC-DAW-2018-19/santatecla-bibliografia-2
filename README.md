@@ -7,7 +7,10 @@
   - [Navigation Diagram](#Navigation-Diagram)
   - [Database Entity Diagram](#Database-Entity-Diagram)
   - [Class UML Diagram](#Class-UML-Diagram)
+  - [Development Environment](#Development-Environment)
 
+
+Development Environment
 Class UML Diagram
 
 ## Name of the web application ##
@@ -99,7 +102,7 @@ you to have almost everything you need to develop the web.
 
 You must install:
 
-* [![MySQL](https://img.shields.io/badge/Extension-MySQL-blue.svg)](https://marketplace.visualstudio.com/items?itemName=formulahendry.vscode-mysql)
+* MySql
 
 You also need to have the latest version of JDK and MAVEN installed on your machine.
 
