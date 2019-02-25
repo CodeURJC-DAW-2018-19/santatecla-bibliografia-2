@@ -141,8 +141,8 @@ public class DatabaseInitializer {
 		
 		Obra o1 = new Obra("Hamlet", "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg",
 				"1605", "Ed. Oceano", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
-		Obra o2 = new Obra("Romeo y Julieta", "url foto", "fecha", "editorial", "url editorial");
-		Obra o3 = new Obra("Enrique 4", "https://static0planetadelibroscom.cdnstatics.com/usuaris/libros/fotos/120/m_libros/enrique-iv_9788467041675.jpg", "1597", "Austral", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjwjXurrLtNC6e2Zhopj_yZjvpcQKzKynXjbGCrNHX0yZtD4D");
+		Obra o2 = new Obra("Romeo y Julieta", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00251101.jpg", "1597", "Alianza Editorial", "https://www.vectorlogo.es/wp-content/uploads/2016/10/logo-vector-alianza-editorial.jpg");
+		Obra o3 = new Obra("Enrique IV", "https://static0planetadelibroscom.cdnstatics.com/usuaris/libros/fotos/120/m_libros/enrique-iv_9788467041675.jpg", "1597", "Austral", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROjwjXurrLtNC6e2Zhopj_yZjvpcQKzKynXjbGCrNHX0yZtD4D");
 		Obra o4 = new Obra("La ciudad y los perros", "https://cdn.gandhi.com.mx/media/catalog/product/cache/1/image/370x/9df78eab33525d08d6e5fb8d27136e95/i/m/image_1165_1_96146.jpg", "1963","Seix Barral", "https://www.planetadelibros.com/img/sellos_og/logo_SEIXBARRAL.jpg");
 		Obra o5 = new Obra("Don Quijote", "https://imagessl9.casadellibro.com/a/l/t0/49/9788437622149.jpg", "1605", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
 		Obra o6 = new Obra("Soneto XXIII", "https://www.catedra.com/jpg_p/catedra/CA00004424.jpg" , "1491", "Cátedra", "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");
