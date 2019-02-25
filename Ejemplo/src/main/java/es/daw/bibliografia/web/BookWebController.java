@@ -284,7 +284,7 @@ public class BookWebController {
 		}
 	}
 
-	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)
+	@RequestMapping(value = "/obra/new")
 	public String goObra(Model model) {
 		userTabs(model, "/obra/new", "Nueva obra", true);
 

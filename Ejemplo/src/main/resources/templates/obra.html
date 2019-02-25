@@ -92,20 +92,6 @@
 									<!--End Input Images-->
 								</div>
 							</div>
-							<!-- container-fluid -->
-
-							<h2>Temas</h2>
-							<select name="tema">
-							{{#temas}}
-  								<option value="{{id}}">{{contenido}}</option>
-  							{{/temas}}
-							</select>
-
-							<h2>Autores</h2>
-							{{#autores}} <input type="checkbox" name="autores" value="{{id}}">{{nombre}}<br>
-							{{/autores}}
-
-
 							<button type='submit' class="btn btn-primary">Guardar</button>
 							<input type="hidden" name="_csrf" value="{{token}}" />
 
