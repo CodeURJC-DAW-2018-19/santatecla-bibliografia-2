@@ -135,6 +135,17 @@ public class ObraController {
 
 		return "redirect:/temashow/".concat(autor);
 	}
+	
+	@RequestMapping("/obra/{nombreObra}/cita")
+	public String createcita(Model model, @PathVariable("nombreObra") String nombreObra,Cita cita) {
+		// userTabs(model, "/obra/guardada", "Obra guardada", true);
+		service.findOneByTitle(nombreObra).get().getCitas().add(cita);
+		serviceCita.save(cita);
+
+		webController.addUserToModel(model);
+
+		return "redirect:/obrashow/".concat(nombreObra);
+	}
 
 //	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
 //	public String goObra(Model model) {

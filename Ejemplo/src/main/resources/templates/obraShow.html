@@ -190,7 +190,7 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
-										<a href="../tema/{{contenido}}">
+										<a href="/temashow/{{contenido}}">
 										<div class="card-text">
 											<h5 class="card-title ">Tema {{-index}}</h5>
 										</div>
@@ -258,7 +258,7 @@
 
 						</div>
 						
-						<form action=" {{nombreObra}} " method="post">
+						<form action="/obra/{{nombreObra}}/cita" method="post">
 							<p class="d-flex">
 								<label class="bmd-label-floating"> Agregar Cita: </label>
 								<input type='text' class="form-control" name='contenido' />
@@ -302,7 +302,7 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
-									<a href="../autor/{{nombre}}">
+									<a href="/autorshow/{{nombre}}">
 										<div class="card-text">
 											<h5 class="card-title ">Autor {{-index}}</h5>
 										</div>
