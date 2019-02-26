@@ -1,7 +1,5 @@
 package es.daw.bibliografia.web;
 
-import java.util.ArrayList;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,10 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import es.daw.bibliografia.book.AutorService;
+
 import es.daw.bibliografia.book.CitaService;
-import es.daw.bibliografia.book.Obra;
-import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.Tabs;
@@ -28,11 +24,6 @@ public class TemaController {
 	@Autowired
 	private CitaService citaService;
 
-	@Autowired
-	private ObraService obraService;
-
-	@Autowired
-	private AutorService autorService;
 
 	@Autowired
 	private BookWebController webController;
@@ -112,7 +103,6 @@ public class TemaController {
 	@RequestMapping("/tema/{nombreTema}/borrar/autor")
 	public String deleteTema2(Model model, @PathVariable("nombreTema") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
-		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		temaService.delete(temaService.findOneByContenido(nombreObra).get().getId());
 
 		webController.addUserToModel(model);

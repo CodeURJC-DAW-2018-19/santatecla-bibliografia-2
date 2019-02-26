@@ -1,7 +1,6 @@
 package es.daw.bibliografia.web;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -14,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
-import es.daw.bibliografia.book.Cita;
-import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
@@ -35,8 +32,6 @@ public class ObraController {
 	@Autowired
 	private AutorService serviceAutor;
 
-	@Autowired
-	private CitaService serviceCita;
 
 	@Autowired
 	private BookWebController webController;
@@ -48,7 +43,6 @@ public class ObraController {
 	public String addObra(Model model, Obra obra, @RequestParam Optional<Long[]> autores,
 			@RequestParam Optional<Long> tema, @RequestParam("URLpor") File portada,
 			@RequestParam("URLed") File editorial) {
-		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		webController.deleteTab("Nueva obra");
 		obra.setURL("../imgs/" + portada.getPath());
 		obra.setUrl_editorial("../imgs/" + editorial.getPath());
@@ -78,7 +72,6 @@ public class ObraController {
 
 	@RequestMapping("/obra/edit")
 	public String editObra(Model model, Obra obra) {
-		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 
 		Optional<Obra> obra2 = service.findOneByTitle(obra.getTitle());
 
@@ -138,53 +131,6 @@ public class ObraController {
 		return "redirect:/temashow/".concat(autor);
 	}
 
-//	@RequestMapping(value = "/obra/new", method = RequestMethod.POST)//PUT IN BOOKWEEBCONTROLER
-//	public String goObra(Model model) {
-//		
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("obras", service.findAll());
-//		model.addAttribute("autores", serviceAutor.findAll());
-//		
-//		webController.addUserToModel(model);
-//		
-//		return "obra";
-//	}
-//	@GetMapping ("/obra/{id}")//PUT IN BOOKWEEBCONTROLER
-//	public String openObra(Model model, @PathVariable long id) {
-//		
-//		Optional<Obra> obra= service.findOne(id);
-//		
-//		model.addAttribute("autores", serviceAutor.findAll());
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("citas", serviceCita.findAll());
-//		
-//		webController.addUserToModel(model);
-//		
-//		if(obra.isPresent()) {
-//			
-//			model.addAttribute("title", obra.get().getTitle());
-//			model.addAttribute("URL", obra.get().getURL());
-//			model.addAttribute("date", obra.get().getDate());
-//			model.addAttribute("editorial", obra.get().getEditorial());
-//			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
-//			return "obraShow"; 
-//		}else {
-//			return "obraShowError"; 
-//		}		
-//	}
-
-//	@RequestMapping(value = "/obra/new", method = RequestMethod.POST) // PUT IN BOOKWEEBCONTROLER
-//	public String goObra(Model model) {
-//		userTabs(model, "/obra/new", "Nueva obra", true);
-//
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("obras", service.findAll());
-//		model.addAttribute("autores", serviceAutor.findAll());
-//
-//		webController.addUserToModel(model);
-//
-//		return "obra";
-//	}
 
 	private void userTabs(Model model, String url, String name, boolean active) {
 		Tabs tab = new Tabs(url, name, active);
@@ -224,49 +170,5 @@ public class ObraController {
 		return false;
 	}
 
-//	@GetMapping("/obra/{id}") // PUT IN BOOKWEEBCONTROLER
-//	public String openObra(Model model, @PathVariable long id) {
-//		userTabs(model, (String) ("/obra/" + id), (String) ("Obra " + id) , true);
-//		Optional<Obra> obra = service.findOne(id);
-//
-//		model.addAttribute("autores", serviceAutor.findAll());
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("citas", serviceCita.findAll());
-//
-//		webController.addUserToModel(model);
-//
-//		if (obra.isPresent()) {
-//
-//			model.addAttribute("title", obra.get().getTitle());
-//			model.addAttribute("URL", obra.get().getURL());
-//			model.addAttribute("date", obra.get().getDate());
-//			model.addAttribute("editorial", obra.get().getEditorial());
-//			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
-//			return "obraShow";
-//		} else {
-//			return "error";
-//		}
-//	}
-
-//	@RequestMapping("obra/guardada")
-//	public String saveObra(Model model, @PathVariable long id, @PathVariable String title, @PathVariable String URL,
-//			@PathVariable String date, @PathVariable String editorial, @PathVariable String url_editorial) {
-//		
-//		userTabs(model, "obra/guardada", "Obra editada", true);
-//		
-//		Optional<Obra> obra = service.findOne(id);
-//		webController.addUserToModel(model);
-//		if (obra.get().getTitle() != null)
-//			model.addAttribute("title", title);
-//		if (obra.get().getURL() != null)
-//			model.addAttribute("URL", URL);
-//		if (obra.get().getDate() != null)
-//			model.addAttribute("date", date);
-//		if (obra.get().getEditorial() != null)
-//			model.addAttribute("editorial", editorial);
-//		if (obra.get().getUrl_editorial() != null)
-//			model.addAttribute("url_editorial", url_editorial);
-//		return "obra";
-//	}
 
 }

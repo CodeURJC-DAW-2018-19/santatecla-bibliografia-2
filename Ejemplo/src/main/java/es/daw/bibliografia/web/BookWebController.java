@@ -154,16 +154,6 @@ public class BookWebController {
 
 		model.addAttribute("start", true);
 
-		// AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE
-		// PASARLE
-
-		/*
-		 * Optional<Obra> o = serviceObra.findOneByTitle("Hamlet"); if (o.isPresent()) {
-		 * System.out.println(o.get().getTitle()); } Optional<Tema> t =
-		 * serviceTema.findOneByContenido("Tema Hamlet"); if (t.isPresent()) {
-		 * System.out.println(t.get().getContenido()); }
-		 */
-		// model.addAttribute("autorSearch", a1.get().getNombre());
 
 		modelTabs(model);
 		return "Index";
@@ -174,9 +164,6 @@ public class BookWebController {
 
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
-//		model.addAttribute("obras", serviceObra.findAll());
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("citas", serviceCita.findAll());
 
 		addUserToModel(model);
 
@@ -193,8 +180,7 @@ public class BookWebController {
 				if (tema != null)
 					temas.add(tema);
 				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
-				// temaService.findByObra(obras.get(i))
-				// System.out.println(obras.get(i).getTitle());
+				
 			}
 			model.addAttribute("obras", obras);
 			model.addAttribute("temas", temas);
@@ -249,10 +235,6 @@ public class BookWebController {
 
 		Optional<Tema> tema = serviceTema.findOneByContenido(contenido);
 
-//		model.addAttribute("autores", serviceAutor.findAll());
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("citas", serviceCita.findAll());
-
 		addUserToModel(model);
 
 		if (tema.isPresent()) {
@@ -267,8 +249,6 @@ public class BookWebController {
 				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
 				autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
 						.collect(Collectors.toList());
-//				if (obras.get(i).getCitas().isEmpty())
-//					obras.remove(i); //Don't show obra without Cita's in Tema (because all Referencias are generated using obra)
 
 			}
 
@@ -325,13 +305,9 @@ public class BookWebController {
 	@GetMapping("/delete/{name}")
 	private String closeTabs(Model model, @PathVariable String name) {
 		System.out.println("delete url");
-//		System.out.println("dfsfs");
-		deleteTab(name);
-//		System.out.println("dfsfs");
 
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("obras", serviceObra.findAll());
-//		model.addAttribute("autores", serviceAutor.findAll());
+		deleteTab(name);
+
 
 		addUserToModel(model);
 		return "redirect:/";
@@ -346,40 +322,7 @@ public class BookWebController {
 		return "redirect:/";
 	}
 
-//	
-//	@GetMapping("/newBook")
-//	public String newBook(Model model) {
-//		return "bookForm";
-//	}
-//	
-//	@GetMapping("/editBook/{id}")
-//	public String newBook(Model model, @PathVariable long id) {
-//		
-//		Optional<Book> book = service.findOne(id);
-//		
-//		if(book.isPresent()) {
-//			model.addAttribute("book", book.get());
-//		}
-//		
-//		return "bookForm";
-//	}
-//	
-//	@PostMapping("/saveBook")
-//	public String saveBook(Model model, Book book) {
-//		
-//		service.save(book);
-//		
-//		return "bookCreated";
-//	}
-//	
-//	@GetMapping("/deleteBook/{id}")
-//	public String deleteBook(Model model, @PathVariable long id) {
-//		
-//		service.delete(id);
-//		
-//		return "bookDeleted";
-//	}
-//	
+
 	@GetMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("hideLogin", true);
