@@ -71,7 +71,6 @@ Logout, si ya está “loggeado”
 
 * Users View
 <img src="./imagenes/User.png">
-faltan las de usuario normal
 
 * Admin View
 <img src="./imagenes/Admin.png">
