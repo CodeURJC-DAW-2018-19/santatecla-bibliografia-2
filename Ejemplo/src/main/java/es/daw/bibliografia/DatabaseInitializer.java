@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorRepository;
-import es.daw.bibliografia.book.AutorService;
-import es.daw.bibliografia.book.Book;
-import es.daw.bibliografia.book.BookRepository;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaRepository;
 import es.daw.bibliografia.book.Obra;
@@ -25,7 +22,7 @@ import es.daw.bibliografia.user.UserRepository;
 @Component
 public class DatabaseInitializer {
 
-	private BookRepository bookRepository;
+	
 	private UserRepository userRepository;
 	private AutorRepository autorRepository;
 	private CitaRepository citaRepository;
@@ -33,10 +30,10 @@ public class DatabaseInitializer {
 	private TemaRepository temaRepository;
 
 	@Autowired
-	public DatabaseInitializer(BookRepository bookRepository, UserRepository userRepository,
+	public DatabaseInitializer( UserRepository userRepository,
 			AutorRepository autorRepository, CitaRepository citaRepository, ObraRepository obraRepository,
 			TemaRepository temaRepository) {
-		this.bookRepository = bookRepository;
+
 		this.userRepository = userRepository;
 		this.autorRepository = autorRepository;
 		this.citaRepository = citaRepository;

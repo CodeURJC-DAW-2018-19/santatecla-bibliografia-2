@@ -4,13 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import es.daw.bibliografia.web.AutorWebController;
 import es.daw.bibliografia.web.BookWebController;
-import es.daw.bibliografia.web.ErrorWebController;
 import es.daw.bibliografia.web.ObraController;
 import es.daw.bibliografia.web.TemaController;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 

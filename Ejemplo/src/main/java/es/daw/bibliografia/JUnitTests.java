@@ -1,13 +1,8 @@
 package es.daw.bibliografia;
 
-import static org.assertj.core.api.Assertions.not;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -20,36 +15,25 @@ import org.springframework.test.context.junit4.SpringRunner;
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorRepository;
 import es.daw.bibliografia.book.AutorService;
-import es.daw.bibliografia.book.BookRepository;
-import es.daw.bibliografia.book.BookService;
-import es.daw.bibliografia.book.CitaRepository;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraRepository;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaRepository;
 import es.daw.bibliografia.book.TemaService;
-import es.daw.bibliografia.user.UserRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JUnitTests {
-	
-	@Autowired
-	private BookRepository bookRepository;
-	@Autowired
-	private UserRepository userRepository;
+
+
 	@Autowired
 	private AutorRepository autorRepository;
-	@Autowired
-	private CitaRepository citaRepository;
 	@Autowired
 	private ObraRepository obraRepository;
 	@Autowired
 	private TemaRepository temaRepository;
 	
-	@Autowired
-	private BookService bookService;
 
 	@Autowired
 	private AutorService autorService;
