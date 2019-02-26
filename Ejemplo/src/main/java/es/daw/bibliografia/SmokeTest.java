@@ -20,14 +20,13 @@ public class SmokeTest {
 
 	@Autowired
 	private BookWebController bookWebController;
-	
+
 	@Autowired
 	private AutorWebController autorWebController;
-	
-	
+
 	@Autowired
 	private ObraController obraController;
-	
+
 	@Autowired
 	private TemaController temaController;
 

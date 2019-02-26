@@ -45,31 +45,32 @@ public class ObraController {
 	private UserComponent userComponent;
 
 	@RequestMapping("/obra/guardada")
-	public String addObra(Model model, Obra obra, @RequestParam Optional<Long[]> autores, @RequestParam Optional<Long> tema, @RequestParam("URLpor") File portada,@RequestParam("URLed") File editorial){
+	public String addObra(Model model, Obra obra, @RequestParam Optional<Long[]> autores,
+			@RequestParam Optional<Long> tema, @RequestParam("URLpor") File portada,
+			@RequestParam("URLed") File editorial) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		webController.deleteTab("Nueva obra");
-		obra.setURL("../imgs/"+portada.getPath());
-		obra.setUrl_editorial("../imgs/"+editorial.getPath());
-		
-		ArrayList<Autor> aAutor = new ArrayList<Autor>();	
-		
-		if(autores.isPresent()) {
-			for(Long a: autores.get()){
+		obra.setURL("../imgs/" + portada.getPath());
+		obra.setUrl_editorial("../imgs/" + editorial.getPath());
+
+		ArrayList<Autor> aAutor = new ArrayList<Autor>();
+
+		if (autores.isPresent()) {
+			for (Long a : autores.get()) {
 				Autor autor = serviceAutor.findOne(a).get();
 				aAutor.add(autor);
 			}
 		}
-		
+
 		obra.setAutores(aAutor);
 		service.save(obra);
-		
-		if(tema.isPresent()) {
+
+		if (tema.isPresent()) {
 			Tema t = serviceTema.findOne(tema.get()).get();
 			t.getObras().add(obra);
 			serviceTema.save(t);
 		}
 
-		
 		webController.addUserToModel(model);
 
 		return "redirect:/obrashow/".concat(obra.getTitle());
@@ -78,7 +79,6 @@ public class ObraController {
 	@RequestMapping("/obra/edit")
 	public String editObra(Model model, Obra obra) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
-		
 
 		Optional<Obra> obra2 = service.findOneByTitle(obra.getTitle());
 
@@ -113,9 +113,10 @@ public class ObraController {
 
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping("/obra/{nombreObra}/borrar/autor")
-	public String deleteObra2(Model model, @PathVariable("nombreObra") String nombreObra,@RequestParam("nombreAutor") String autor) {
+	public String deleteObra2(Model model, @PathVariable("nombreObra") String nombreObra,
+			@RequestParam("nombreAutor") String autor) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.delete(service.findOneByTitle(nombreObra).get().getId());
 
@@ -124,9 +125,10 @@ public class ObraController {
 
 		return "redirect:/autorshow/".concat(autor);
 	}
-	
+
 	@RequestMapping("/obra/{nombreObra}/borrar/tema")
-	public String deleteObra3(Model model, @PathVariable("nombreObra") String nombreObra,@RequestParam("nombreTema") String autor) {
+	public String deleteObra3(Model model, @PathVariable("nombreObra") String nombreObra,
+			@RequestParam("nombreTema") String autor) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.delete(service.findOneByTitle(nombreObra).get().getId());
 

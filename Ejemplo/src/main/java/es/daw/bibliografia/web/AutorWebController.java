@@ -123,19 +123,17 @@ public class AutorWebController {
 		webController.deleteTab("Nuevo autor");
 		autorService.save(autor);
 		webController.addUserToModel(model);
-		
-		if(obras.isPresent()) {
-			for(Long o: obras.get()){
+
+		if (obras.isPresent()) {
+			for (Long o : obras.get()) {
 				Obra obra = obraService.findOne(o).get();
 				obra.getAutores().add(autor);
 				obraService.save(obra);
 			}
 		}
-		
+
 		return "redirect:/autorshow/".concat(autor.getNombre());
 	}
-	
-	
 
 	/*
 	 * @GetMapping("/autor/{id}") public String showBook(Model model, @PathVariable

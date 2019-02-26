@@ -26,7 +26,7 @@ public class CreatePDF {
 		String title = "PDF-tema.pdf";
 
 		Document document = new Document();
-		
+
 		try {
 			Paragraph paragraph = new Paragraph();
 
@@ -54,20 +54,20 @@ public class CreatePDF {
 					}
 
 				}
-				
+
 				document.add(paragraph);
 			}
-			
-			if(obras.isEmpty()) {
+
+			if (obras.isEmpty()) {
 				document.add(new Paragraph("El fichero no contiene datos"));
-			}			
-			
+			}
+
 			document.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "/";
 		}
-		
+
 		return "/crearPDF";
 	}
 

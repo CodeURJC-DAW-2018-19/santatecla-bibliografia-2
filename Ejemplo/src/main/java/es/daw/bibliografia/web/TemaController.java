@@ -110,7 +110,8 @@ public class TemaController {
 	}
 
 	@RequestMapping("/tema/{nombreTema}/borrar/autor")
-	public String deleteTema2(Model model, @PathVariable("nombreTema") String nombreObra,@RequestParam("nombreAutor") String autor) {
+	public String deleteTema2(Model model, @PathVariable("nombreTema") String nombreObra,
+			@RequestParam("nombreAutor") String autor) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		temaService.delete(temaService.findOneByContenido(nombreObra).get().getId());
 

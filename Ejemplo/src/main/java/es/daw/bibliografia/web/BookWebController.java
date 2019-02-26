@@ -47,8 +47,8 @@ public class BookWebController {
 
 	@Autowired
 	private CitaService serviceCita;
-	
-	@Autowired 
+
+	@Autowired
 	private UserService serviceUser;
 
 	@Autowired
@@ -56,8 +56,6 @@ public class BookWebController {
 
 	@Autowired
 	private CreatePDF createPDF;
-	
-	
 
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -173,7 +171,7 @@ public class BookWebController {
 
 	@RequestMapping(value = "/autorshow/{nombreAutor}")
 	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor, Cita cita) {
-		
+
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
 //		model.addAttribute("obras", serviceObra.findAll());
@@ -181,7 +179,7 @@ public class BookWebController {
 //		model.addAttribute("citas", serviceCita.findAll());
 
 		addUserToModel(model);
-		
+
 		if (autor.isPresent()) {
 
 			userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
@@ -221,8 +219,8 @@ public class BookWebController {
 
 		addUserToModel(model);
 		serviceCita.save(cita);
-		
-		//obra.setCitas(cita); 
+
+		// obra.setCitas(cita);
 		if (obra.isPresent()) {
 
 			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
@@ -315,7 +313,7 @@ public class BookWebController {
 	@RequestMapping(value = "/tema/new")
 	public String goTema(Model model) {
 		userTabs(model, "/obra/new", "Nuevo tema", true);
-		
+
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
 		model.addAttribute("citas", serviceCita.findAll());
@@ -338,11 +336,11 @@ public class BookWebController {
 		addUserToModel(model);
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/signupOk", method = RequestMethod.POST)
-	public String signup(Model model,User user,@RequestParam("pass") String pass) {
+	public String signup(Model model, User user, @RequestParam("pass") String pass) {
 		addUserToModel(model);
-		User aux = new User(user.getName(),user.getEmail(),pass,"ROLE_USER");
+		User aux = new User(user.getName(), user.getEmail(), pass, "ROLE_USER");
 		serviceUser.save(aux);
 
 		return "redirect:/";
