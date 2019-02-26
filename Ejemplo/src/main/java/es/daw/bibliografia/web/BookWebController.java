@@ -203,7 +203,7 @@ public class BookWebController {
 		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
 
 		addUserToModel(model);
-		serviceCita.save(cita);
+		//serviceCita.save(cita);
 		if (obra.isPresent()) {
 
 			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);

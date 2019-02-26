@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
+import es.daw.bibliografia.book.Cita;
+import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
@@ -32,6 +34,8 @@ public class ObraController {
 	@Autowired
 	private AutorService serviceAutor;
 
+	@Autowired
+	private CitaService serviceCita;
 
 	@Autowired
 	private BookWebController webController;
@@ -132,7 +136,7 @@ public class ObraController {
 	}
 	
 	@RequestMapping("/obra/{nombreObra}/cita")
-	public String createcita(Model model, @PathVariable("nombreObra") String nombreObra,Cita cita) {
+	public String createcita(Model model, Cita cita, @PathVariable("nombreObra") String nombreObra) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.findOneByTitle(nombreObra).get().getCitas().add(cita);
 		serviceCita.save(cita);
