@@ -139,10 +139,10 @@
 
 
 				<div class="card card-profile">
-				<div class="card-avatar-top">
-					<img class="card-img-top" src="{{URL}}"
-						style="width: 11.65em; height: 10em;" />
-				</div>
+					<div class="card-avatar-top">
+						<img class="card-img-top" src="{{URL}}"
+							style="width: 11.65em; height: 10em;" />
+					</div>
 					<div class="card-body">
 
 						<h4 class="card-title">Añadir portada</h4>
@@ -152,8 +152,8 @@
 
 				<div class="card card-profile">
 					<div class="card-avatar-top">
-						<img class="card-img-top"
-							src="{{url_editorial}}" style="width: 11.65em; height: 10em;" />
+						<img class="card-img-top" src="{{url_editorial}}"
+							style="width: 11.65em; height: 10em;" />
 					</div>
 					<div class="card-body">
 
@@ -184,29 +184,28 @@
 						<h4 class="card-title text-center">Temas</h4>
 					</div>
 					<div class="card-body">
-						
+
 						<div class="row">
 							{{#temas}}
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
 										<a href="../tema/{{contenido}}">
-										<div class="card-text">
-											<h5 class="card-title ">Tema {{-index}}</h5>
-										</div>
+											<div class="card-text">
+												<h5 class="card-title ">Tema {{-index}}</h5>
+											</div>
 										</a>
 									</div>
 									<div class="card-body">
-									<a href="../tema/{{contenido}}">
-										<!-- Theme 2 Content -->
-										<p>{{contenido}}</p>
+										<a href="../tema/{{contenido}}"> <!-- Theme 2 Content -->
+											<p>{{contenido}}</p>
 										</a>
 									</div>
 								</div>
 							</div>
 							{{/temas}}
 						</div>
-						
+
 
 					</div>
 				</div>
@@ -257,11 +256,10 @@
 							{{/citas}}
 
 						</div>
-						
 						<form action="/obra/{{nombreObra}}/cita" method="post">
 							<p class="d-flex">
-								<label class="bmd-label-floating"> Agregar Cita: </label>
-								<input type='text' class="form-control" name='contenido' />
+								<label class="bmd-label-floating"> Agregar Cita: </label> <input
+									type='text' class="form-control" name='contenido' />
 								<button type="submit" class="btn btn-info ml-auto btn-round">
 									<i class="material-icons"> add_circle </i>
 								</button>
@@ -302,19 +300,19 @@
 							<div class="col-sm-6">
 								<div class="card">
 									<div class="card-header  card-header-text card-header-primary">
-									<a href="../autor/{{nombre}}">
-										<div class="card-text">
-											<h5 class="card-title ">Autor {{-index}}</h5>
-										</div>
+										<a href="../autor/{{nombre}}">
+											<div class="card-text">
+												<h5 class="card-title ">Autor {{-index}}</h5>
+											</div>
 										</a>
 									</div>
 									<div class="card-body">
 										<!-- Author 1 Content -->
 										<div class="row">
-										<a href="../autor/{{nombre}}">
-											<div class="col-sm-12">
-												<p>{{nombre}}</p>
-											</div>
+											<a href="../autor/{{nombre}}">
+												<div class="col-sm-12">
+													<p>{{nombre}}</p>
+												</div>
 											</a>
 										</div>
 										<div class="row">

@@ -6,15 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import es.daw.bibliografia.user.UserComponent;
+
 
 public class ErrorWebController {
 
 	@Autowired
 	private BookWebController webController;
 
-	@Autowired
-	private UserComponent userComponent;
 
 	@RequestMapping("/error")
 	public String showError(Model model, HttpServletResponse httpResponse) {

@@ -47,8 +47,8 @@ public class BookWebController {
 
 	@Autowired
 	private CitaService serviceCita;
-	
-	@Autowired 
+
+	@Autowired
 	private UserService serviceUser;
 
 	@Autowired
@@ -56,8 +56,6 @@ public class BookWebController {
 
 	@Autowired
 	private CreatePDF createPDF;
-	
-	
 
 	@ModelAttribute
 	public void addUserToModel(Model model) {
@@ -156,16 +154,6 @@ public class BookWebController {
 
 		model.addAttribute("start", true);
 
-		// AQUI HACER LO DE REQUEST PARAM, LO HE LLAMADO authorName A LO QUE HAY QUE
-		// PASARLE
-
-		/*
-		 * Optional<Obra> o = serviceObra.findOneByTitle("Hamlet"); if (o.isPresent()) {
-		 * System.out.println(o.get().getTitle()); } Optional<Tema> t =
-		 * serviceTema.findOneByContenido("Tema Hamlet"); if (t.isPresent()) {
-		 * System.out.println(t.get().getContenido()); }
-		 */
-		// model.addAttribute("autorSearch", a1.get().getNombre());
 
 		modelTabs(model);
 		return "Index";
@@ -173,15 +161,11 @@ public class BookWebController {
 
 	@RequestMapping(value = "/autorshow/{nombreAutor}")
 	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
-		
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
-//		model.addAttribute("obras", serviceObra.findAll());
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("citas", serviceCita.findAll());
 
 		addUserToModel(model);
-		
+
 		if (autor.isPresent()) {
 
 			userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
@@ -195,8 +179,7 @@ public class BookWebController {
 				if (tema != null)
 					temas.add(tema);
 				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
-				// temaService.findByObra(obras.get(i))
-				// System.out.println(obras.get(i).getTitle());
+				
 			}
 			model.addAttribute("obras", obras);
 			model.addAttribute("temas", temas);
@@ -220,9 +203,7 @@ public class BookWebController {
 		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
 
 		addUserToModel(model);
-		//serviceCita.save(cita);
-		
-		//obra.setCitas(cita); 
+		serviceCita.save(cita);
 		if (obra.isPresent()) {
 
 			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
@@ -251,10 +232,6 @@ public class BookWebController {
 
 		Optional<Tema> tema = serviceTema.findOneByContenido(contenido);
 
-//		model.addAttribute("autores", serviceAutor.findAll());
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("citas", serviceCita.findAll());
-
 		addUserToModel(model);
 
 		if (tema.isPresent()) {
@@ -269,8 +246,6 @@ public class BookWebController {
 				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
 				autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
 						.collect(Collectors.toList());
-//				if (obras.get(i).getCitas().isEmpty())
-//					obras.remove(i); //Don't show obra without Cita's in Tema (because all Referencias are generated using obra)
 
 			}
 
@@ -315,7 +290,7 @@ public class BookWebController {
 	@RequestMapping(value = "/tema/new")
 	public String goTema(Model model) {
 		userTabs(model, "/obra/new", "Nuevo tema", true);
-		
+
 		model.addAttribute("obras", serviceObra.findAll());
 		model.addAttribute("autores", serviceAutor.findAll());
 		model.addAttribute("citas", serviceCita.findAll());
@@ -327,61 +302,24 @@ public class BookWebController {
 	@GetMapping("/delete/{name}")
 	private String closeTabs(Model model, @PathVariable String name) {
 		System.out.println("delete url");
-//		System.out.println("dfsfs");
-		deleteTab(name);
-//		System.out.println("dfsfs");
 
-//		model.addAttribute("temas", serviceTema.findAll());
-//		model.addAttribute("obras", serviceObra.findAll());
-//		model.addAttribute("autores", serviceAutor.findAll());
+		deleteTab(name);
+
 
 		addUserToModel(model);
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/signupOk", method = RequestMethod.POST)
-	public String signup(Model model,User user,@RequestParam("pass") String pass) {
+	public String signup(Model model, User user, @RequestParam("pass") String pass) {
 		addUserToModel(model);
-		User aux = new User(user.getName(),user.getEmail(),pass,"ROLE_USER");
+		User aux = new User(user.getName(), user.getEmail(), pass, "ROLE_USER");
 		serviceUser.save(aux);
 
 		return "redirect:/";
 	}
 
-//	
-//	@GetMapping("/newBook")
-//	public String newBook(Model model) {
-//		return "bookForm";
-//	}
-//	
-//	@GetMapping("/editBook/{id}")
-//	public String newBook(Model model, @PathVariable long id) {
-//		
-//		Optional<Book> book = service.findOne(id);
-//		
-//		if(book.isPresent()) {
-//			model.addAttribute("book", book.get());
-//		}
-//		
-//		return "bookForm";
-//	}
-//	
-//	@PostMapping("/saveBook")
-//	public String saveBook(Model model, Book book) {
-//		
-//		service.save(book);
-//		
-//		return "bookCreated";
-//	}
-//	
-//	@GetMapping("/deleteBook/{id}")
-//	public String deleteBook(Model model, @PathVariable long id) {
-//		
-//		service.delete(id);
-//		
-//		return "bookDeleted";
-//	}
-//	
+
 	@GetMapping("/login")
 	public String login(Model model) {
 		model.addAttribute("hideLogin", true);

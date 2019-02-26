@@ -22,17 +22,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/login").permitAll();
 		http.authorizeRequests().antMatchers("/loginerror").permitAll();
 		http.authorizeRequests().antMatchers("/logout").permitAll();
-		
 
 		// Private pages (all other pages)
 		http.authorizeRequests().antMatchers("/obra/**").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/tema/**").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/autor/**").hasAnyRole("ADMIN");
 
-		http.authorizeRequests().antMatchers("/obrashow/**").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers("/temashow/**").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers("/autorshow/**").hasAnyRole("USER","ADMIN");
-		
+		http.authorizeRequests().antMatchers("/obrashow/**").hasAnyRole("USER", "ADMIN");
+		http.authorizeRequests().antMatchers("/temashow/**").hasAnyRole("USER", "ADMIN");
+		http.authorizeRequests().antMatchers("/autorshow/**").hasAnyRole("USER", "ADMIN");
+
 		http.authorizeRequests().antMatchers("/delete/").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers("/delete/").hasAnyRole("USER");
 
