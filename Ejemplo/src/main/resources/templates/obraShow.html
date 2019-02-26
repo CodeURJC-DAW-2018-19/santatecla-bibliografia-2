@@ -242,11 +242,12 @@
 											<div class="col-sm-12">
 
 												<p class="d-flex">
+												{{#admin}}
 													<button type="button"
 														class="btn btn-info ml-auto btn-round"
 														onclick="return confirm('¿Está seguro de borrar el item?')">
 														<i class="material-icons"> delete </i>
-													</button>
+													</button>{{/admin}}
 												</p>
 											</div>
 										</div>
@@ -260,9 +261,10 @@
 							<p class="d-flex">
 								<label class="bmd-label-floating"> Agregar Cita: </label> <input
 									type='text' class="form-control" name='contenido' />
+									{{#admin}}
 								<button type="submit" class="btn btn-info ml-auto btn-round">
 									<i class="material-icons"> add_circle </i>
-								</button>
+								</button>{{/admin}}
 							</p>
 							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
