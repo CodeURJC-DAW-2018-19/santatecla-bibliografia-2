@@ -211,8 +211,8 @@
 
 											{{#admin}}
 											<form action="/tema/{{contenido}}/borrar/autor" method="post">
-												<input type="hidden" name="_csrf" value="{{token}}" /> 
-												<input type="hidden" name="nombreAutor" value="{{nombreAutor}}" />
+												<input type="hidden" name="_csrf" value="{{token}}" /> <input
+													type="hidden" name="nombreAutor" value="{{nombreAutor}}" />
 												<p class="d-flex">
 													<button type="submit"
 														class="btn btn-info ml-auto btn-round"
@@ -229,7 +229,7 @@
 						</div>
 						{{/temas}}
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
@@ -269,18 +269,18 @@
 										<div class="col-sm-12">
 
 											{{#admin}}
-												<form action="/obra/{{title}}/borrar/autor" method="post">
-													<input type="hidden" name="_csrf" value="{{token}}" /> 
-													<input type="hidden" name="nombreAutor" value="{{nombreAutor}}" />
-													<p class="d-flex">
-														<button type="submit"
-															class="btn btn-info ml-auto btn-round"
-															onclick="return confirm('¿Está seguro de borrar el item?')">
-															<i class="material-icons"> delete </i>
-														</button>
-													</p>
-												</form>
-												{{/admin}}
+											<form action="/obra/{{title}}/borrar/autor" method="post">
+												<input type="hidden" name="_csrf" value="{{token}}" /> <input
+													type="hidden" name="nombreAutor" value="{{nombreAutor}}" />
+												<p class="d-flex">
+													<button type="submit"
+														class="btn btn-info ml-auto btn-round"
+														onclick="return confirm('¿Está seguro de borrar el item?')">
+														<i class="material-icons"> delete </i>
+													</button>
+												</p>
+											</form>
+											{{/admin}}
 										</div>
 									</div>
 								</div>
@@ -289,7 +289,7 @@
 						{{/obras}}
 					</div>
 
-					
+
 				</div>
 			</div>
 		</div>
@@ -308,33 +308,34 @@
 						{{#citas}}
 						<div class="col-sm-6">
 							<div class="card">
-							<form id="deleteCita" action="/tema/borrarCita" method="post">
-								<div class="card-header  card-header-text card-header-primary">
-									<div class="card-text">
-										<h5 class="card-title ">Cita {{-index}}</h5>
-									</div>
-								</div>
-								<div class="card-body">
-									<!-- Quote Content -->
-									<div class="row">
-										<div class="col-sm-12">
-											<p>{{contenido}}</p>
+								<form id="deleteCita" action="/tema/borrarCita" method="post">
+									<div class="card-header  card-header-text card-header-primary">
+										<div class="card-text">
+											<h5 class="card-title ">Cita {{-index}}</h5>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-sm-12">
-											<p class="d-flex">
-												<input type="hidden" name="id" value="{{id}}" />
-												<button type="submit" class="btn btn-info ml-auto btn-round"
-													onclick="return confirm('¿Está seguro de borrar el item?')">
-													<i class="material-icons"> delete </i>
-												</button>
-												<input type="hidden" name="_csrf" value="{{token}}" />
-											</p>
-											
+									<div class="card-body">
+										<!-- Quote Content -->
+										<div class="row">
+											<div class="col-sm-12">
+												<p>{{contenido}}</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-12">
+												<p class="d-flex">
+													<input type="hidden" name="id" value="{{id}}" />
+													<button type="submit"
+														class="btn btn-info ml-auto btn-round"
+														onclick="return confirm('¿Está seguro de borrar el item?')">
+														<i class="material-icons"> delete </i>
+													</button>
+													<input type="hidden" name="_csrf" value="{{token}}" />
+												</p>
+
+											</div>
 										</div>
 									</div>
-								</div>
 								</form>
 							</div>
 						</div>
@@ -342,7 +343,7 @@
 
 					</div>
 
-					
+
 
 				</div>
 			</div>
