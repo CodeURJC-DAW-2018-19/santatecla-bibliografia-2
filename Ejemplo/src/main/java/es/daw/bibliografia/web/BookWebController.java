@@ -172,8 +172,8 @@ public class BookWebController {
 	}
 
 	@RequestMapping(value = "/autorshow/{nombreAutor}")
-	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
-
+	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor, Cita cita) {
+		
 		Optional<Autor> autor = serviceAutor.findOneByNombre(nombreAutor);
 
 //		model.addAttribute("obras", serviceObra.findAll());
@@ -181,7 +181,7 @@ public class BookWebController {
 //		model.addAttribute("citas", serviceCita.findAll());
 
 		addUserToModel(model);
-
+		
 		if (autor.isPresent()) {
 
 			userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
@@ -215,12 +215,14 @@ public class BookWebController {
 	}
 
 	@RequestMapping(value = "/obrashow/{nombreObra}") // PUT IN BOOKWEEBCONTROLER
-	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
+	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra, Cita cita) {
 
 		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
 
 		addUserToModel(model);
-
+		serviceCita.save(cita);
+		
+		//obra.setCitas(cita); 
 		if (obra.isPresent()) {
 
 			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);

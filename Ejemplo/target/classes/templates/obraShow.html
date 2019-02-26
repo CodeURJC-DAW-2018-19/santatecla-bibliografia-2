@@ -184,19 +184,7 @@
 						<h4 class="card-title text-center">Temas</h4>
 					</div>
 					<div class="card-body">
-						<!-- Search bar-->
-						<form class="navbar-form">
-							<div class="input-group no-border">
-								<input type="text" value="" class="form-control"
-									placeholder="Buscar Tema...">
-								<button type="submit"
-									class="btn btn-white btn-round btn-just-icon">
-									<i class="material-icons">search</i>
-									<div class="ripple-container"></div>
-								</button>
-							</div>
-						</form>
-						<!-- End Search bar-->
+						
 						<div class="row">
 							{{#temas}}
 							<div class="col-sm-6">
@@ -218,17 +206,7 @@
 							</div>
 							{{/temas}}
 						</div>
-						{{#admin}}
-						<form action="../tema/new" method="post">
-							<input type="hidden" name="_csrf" value="{{token}}" />
-							<p class="d-flex">
-								<button type="submit" class="btn btn-info ml-auto btn-round">
-									<i class="material-icons"> add_circle </i>
-								</button>
-							</p>
-						</form>
-						<!-- Add button -->
-						{{/admin}}
+						
 
 					</div>
 				</div>
@@ -280,11 +258,16 @@
 
 						</div>
 						
-						<p class="d-flex">
-							<button type="button" class="btn btn-info ml-auto btn-round">
-								<i class="material-icons"> add_circle </i>
-							</button>
-						</p>
+						<form action=" {{nombreObra}} " method="post">
+							<p class="d-flex">
+								<label class="bmd-label-floating"> Agregar Cita: </label>
+								<input type='text' class="form-control" name='contenido' />
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
 						<!-- Add button -->
 
 					</div>
