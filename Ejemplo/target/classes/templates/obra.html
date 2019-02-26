@@ -7,11 +7,11 @@
 
 
 			<!--Input Data-->
-			<div class="col-md-10">
+			<div class="col-md-9 col-sm-9">
 				<div class="card">
 					<div class="card-header card-header-primary">
-						<h4 class="card-title">Obra</h4>
-						<p class="card-category">Datos de la Obra</p>
+						<h4 class="card-title">Nueva Obra</h4>
+						<p class="card-category">Por favor, inserte los datos de la nueva Obra</p>
 					</div>
 					<div class="card-body">
 
@@ -20,11 +20,11 @@
 						<form action="guardada" method="post">
 							<div class="container-fluid">
 								<div class="row">
-									<div class="col-md-10">
+									<div class="col-sm-7 col-md-7">
 
 										<!--Input title-->
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-12 col-sm-12">
 												<div class="form-group">
 													<label class="bmd-label-floating">Titulo de la Obra</label>
 
@@ -35,64 +35,69 @@
 
 										<!--Input Calendar-->
 										<div class="row">
-											<div class="col-md-12">
-												<label class="bmd-label-floating"> Fecha de
-													publicación: </label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-1"></div>
-											<div class="col-md-11">
+											<div class="col-md-12 col-sm-12">
 												<div class="form-group">
+													<label class="bmd-label-floating"> Fecha de publicación: </label>
 													<input type='text' class="form-control" name='date' />
 												</div>
 											</div>
 										</div>
-
-
+										
 										<!--Input Editorial-->
 										<div class="row">
-											<div class="col-md-12">
+											<div class="col-md-12 col-sm-12">
 												<div class="form-group">
 													<label class="bmd-label-floating">Editorial</label> <input
 														type='text' class="form-control" name='editorial' />
 												</div>
 											</div>
 										</div>
-
-
+										<br>
+										<div class="row">
+											<div class="col-sm-6">
+													<div class>
+													<h4>Tema relacionado:</h4>
+													<select name="tema"> {{#temas}}
+														<option value="{{id}}">{{contenido}}</option> {{/temas}}
+													</select>
+													</div>
+											</div>
+											<div class="col-sm-6">
+												<h4>Autor(es):</h4>
+												<p class="center">{{#autores}} <input class="form-check-input" type="checkbox" name="autores"
+															value="{{id}}">{{nombre}}<br> {{/autores}} </p>
+											</div>
+										</div>
+										<br>
+										
+									
+									</div>
+								
+									<div class="col-sm-5 col-md-5">
+									
+										<div class="card card-profile">
+												<h4 class="center card-header"> Portada: </h4>
+												<div class="pull-right">
+												<label>Image file:</label><input type="file" name="URLpor" />
+												</div>
+												<br>
+										</div>
+										
+										<div class="card card-profile">
+										<h4 class="center card-header"> Logo Editorial: </h4>
+												<div class="pull-right">
+												<label>Image file:</label><input type="file" name="URLed" />
+												</div>
+												<br>
+										</div>
+										
 									</div>
 									<!--Input Images-->
-									<div class="col-md-2">
-
-
-										<div class="card card-profile">
-											<p>
-												<label>Image file:</label><input type="file" name="URLpor" />
-											</p>
-											<div class="card-body">
-												<h4 class="card-title">Portada</h4>
-											</div>
-										</div>
-
-
-										<div class="card card-profile">
-											<div class="card-avatar-top">
-												<p>
-													<label>Image file:</label><input type="file" name="URLed" />
-												</p>
-											</div>
-											<div class="card-body">
-												<h4 class="card-title">Editorial</h4>
-											</div>
-										</div>
-
-
-									</div>
+									
 									<!--End Input Images-->
 								</div>
 							</div>
-							<button type='submit' class="btn btn-primary">Guardar</button>
+							<button type='submit' class="btn btn-primary pull-right">Guardar</button>
 							<input type="hidden" name="_csrf" value="{{token}}" />
 
 
