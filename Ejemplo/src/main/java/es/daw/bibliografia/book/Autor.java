@@ -1,9 +1,12 @@
 package es.daw.bibliografia.book;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Autor {
@@ -12,6 +15,9 @@ public class Autor {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@OneToMany(mappedBy="autores")
+	private List<Obra> obras;
+	
 	private String nombre, url_foto, fecha_nac, fecha_def, url_mapa, lugar;
 
 	public Autor() {
