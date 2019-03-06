@@ -1,17 +1,25 @@
 package es.daw.bibliografia.web;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
+import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
+import es.daw.bibliografia.book.Tema;
+import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -21,7 +29,8 @@ public class AutorWebController {
 	@Autowired
 	private ObraService obraService;
 
-	
+	@Autowired
+	private TemaService temaService;
 
 	@Autowired
 	private AutorService autorService;
@@ -119,5 +128,54 @@ public class AutorWebController {
 		return "redirect:/autorshow/".concat(autor.getNombre());
 	}
 
+	@RequestMapping(value = "/autorshow/{nombreAutor}")
+	public String showBook(Model model, @PathVariable("nombreAutor") String nombreAutor) {
+		Optional<Autor> autor = autorService.findOneByNombre(nombreAutor);
+
+
+		webController.addUserToModel(model);
+
+		if (autor.isPresent()) {
+
+			userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
+
+			List<Obra> obras = obraService.findByAuthor(autor.get());
+			List<Tema> temas = new ArrayList<>();
+			List<Cita> citas = new ArrayList<>();
+			Tema tema;
+			for (int i = 0; i < obras.size(); i++) {
+				tema = temaService.findByObra(obras.get(i));
+				if (tema != null)
+					temas.add(tema);
+				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
+				
+			}
+			model.addAttribute("obras", obras);
+			model.addAttribute("temas", temas);
+			model.addAttribute("citas", citas);
+
+			model.addAttribute("nombreAutor", autor.get().getNombre());
+			model.addAttribute("urlFotoAutor", autor.get().getUrl_foto());
+			model.addAttribute("nacimientoAutor", autor.get().getFecha_nac());
+			model.addAttribute("muerteAutor", autor.get().getFecha_def());
+			model.addAttribute("urlMapa", autor.get().getUrl_mapa());
+			model.addAttribute("lugarAutor", autor.get().getLugar());
+			return "autor";
+		} else {
+			return "autorError";
+		}
+	}
 	
+	@RequestMapping(value = "/autor/new")
+	public String goAutor(Model model) {
+		userTabs(model, "/obra/new", "Nuevo autor", true);
+
+		model.addAttribute("temas", temaService.findAll());
+		model.addAttribute("obras", obraService.findAll());
+		model.addAttribute("autores", autorService.findAll());
+
+		webController.addUserToModel(model);
+
+		return "autorNew";
+	}
 }

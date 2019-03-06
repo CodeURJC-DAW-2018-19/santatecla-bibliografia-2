@@ -2,6 +2,7 @@ package es.daw.bibliografia.web;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -185,5 +186,46 @@ public class ObraController {
 		return false;
 	}
 
+	@RequestMapping(value = "/obrashow/{nombreObra}") // PUT IN BOOKWEEBCONTROLER
+	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
 
+		Optional<Obra> obra = service.findOneByTitle(nombreObra);
+
+		webController.addUserToModel(model);
+		//serviceCita.save(cita);
+		if (obra.isPresent()) {
+
+			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
+
+			Tema tema = serviceTema.findByObra(obra.get());
+			List<Cita> citas = obra.get().getCitas();
+			List<Autor> autores = obra.get().getAutores();
+
+			model.addAttribute("autores", autores);
+			model.addAttribute("temas", tema);
+			model.addAttribute("citas", citas);
+
+			model.addAttribute("title", obra.get().getTitle());
+			model.addAttribute("URL", obra.get().getURL());
+			model.addAttribute("date", obra.get().getDate());
+			model.addAttribute("editorial", obra.get().getEditorial());
+			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
+			return "obraShow";
+		} else {
+			return "obraShowError";
+		}
+	}
+
+	@RequestMapping(value = "/obra/new")
+	public String goObra(Model model) {
+		userTabs(model, "/obra/new", "Nueva obra", true);
+
+		model.addAttribute("temas", serviceTema.findAll());
+		model.addAttribute("obras", service.findAll());
+		model.addAttribute("autores", serviceAutor.findAll());
+
+		webController.addUserToModel(model);
+
+		return "obra";
+	}
 }
