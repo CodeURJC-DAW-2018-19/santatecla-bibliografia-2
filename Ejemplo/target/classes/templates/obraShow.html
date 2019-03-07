@@ -145,7 +145,7 @@
 					</div>
 					<div class="card-body">
 
-						<h4 class="card-title">Añadir portada</h4>
+						<h4 class="card-title">Portada</h4>
 					</div>
 				</div>
 
@@ -157,7 +157,7 @@
 					</div>
 					<div class="card-body">
 
-						<h4 class="card-title">Añadir logo editorial</h4>
+						<h4 class="card-title">Editorial</h4>
 					</div>
 				</div>
 
@@ -238,9 +238,11 @@
 												<p>{{contenido}}</p>
 											</div>
 										</div>
+										<form action="obra/borrarCita/{{contenido}}" method="post">
 										<div class="row">
 											<div class="col-sm-12">
-
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="contenido" value="{{contenido}}" />
 												<p class="d-flex">
 												{{#admin}}
 													<button type="button"
@@ -251,6 +253,7 @@
 												</p>
 											</div>
 										</div>
+										</form>
 									</div>
 								</div>
 							</div>
@@ -320,6 +323,9 @@
 										<div class="row">
 											<div class="col-sm-12">
 												{{#admin}}
+												<form action="obra/borrarAutor/{{nombre}}" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="nombre" value="{{nombre}}" />
 												<p class="d-flex">
 													<button type="button"
 														class="btn btn-info ml-auto btn-round"
@@ -327,6 +333,7 @@
 														<i class="material-icons"> delete </i>
 													</button>
 												</p>
+												</form>
 												{{/admin}}
 											</div>
 										</div>

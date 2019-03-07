@@ -66,9 +66,13 @@ public class TemaService {
 		for (int i = 0; i < obras.size(); i++) {
 			autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
 					.collect(Collectors.toList());
-
 		}
 		return autores;
 	}
 
+	public void deleteByContenido(String contenido) {
+		Tema tema= repository.findOneByContenido(contenido).get();
+		repository.delete(tema);
+	}
+	
 }

@@ -96,8 +96,9 @@ public class TemaWebController {
 	@RequestMapping("/tema/borrar")
 	public String deleteTema(Model model, @RequestParam String contenido) {
 
-		temaService.delete(temaService.findOneByContenido(contenido).get().getId());
-
+		//temaService.delete(temaService.findOneByContenido(contenido).get().getId());
+		temaService.deleteByContenido(contenido);
+		
 		webController.addUserToModel(model);
 		webController.deleteTab("Tema: " + contenido);
 
@@ -115,10 +116,9 @@ public class TemaWebController {
 	}
 
 	@RequestMapping("/tema/{nombreTema}/borrar/autor")
-	public String deleteTema2(Model model, @PathVariable("nombreTema") String nombreObra,
+	public String deleteTemaInAutor(Model model, @PathVariable("nombreTema") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
 		temaService.delete(temaService.findOneByContenido(nombreObra).get().getId());
-
 		webController.addUserToModel(model);
 		webController.deleteTab("Tema: " + nombreObra);
 
