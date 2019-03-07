@@ -198,8 +198,8 @@ public class ObraController {
 			userTabs(model, "/obrashow/" + nombreObra, "Obra  " + nombreObra, true);
 
 			Tema tema = serviceTema.findByObra(obra.get());
-			List<Cita> citas = obra.get().getCitas();
-			List<Autor> autores = obra.get().getAutores();
+			List<Cita> citas = serviceCita.findCitasByObra(obra.get());
+			List<Autor> autores = serviceAutor.findAutoresByObra(obra.get());
 
 			model.addAttribute("autores", autores);
 			model.addAttribute("temas", tema);

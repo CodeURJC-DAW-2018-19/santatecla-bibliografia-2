@@ -42,4 +42,8 @@ public class CitaService {
 		}
 		return citas;
 	}
+	
+	public List<Cita> findCitasByObra(Obra obra){
+		return obra.getCitas();
+	}
 }
