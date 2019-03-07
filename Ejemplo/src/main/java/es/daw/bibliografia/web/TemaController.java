@@ -135,7 +135,7 @@ public class TemaController {
 
 		if (tema.isPresent()) {
 
-			userTabs(model, "/tema/" + contenido, "Tema: " + contenido, true);
+			userTabs(model, "/temashow/" + contenido, "Tema: " + contenido, true);
 
 			Tema theme = tema.get();
 			List<Obra> obras = theme.getObras();

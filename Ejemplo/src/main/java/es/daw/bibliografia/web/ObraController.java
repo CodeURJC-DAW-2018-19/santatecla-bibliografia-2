@@ -195,7 +195,7 @@ public class ObraController {
 		//serviceCita.save(cita);
 		if (obra.isPresent()) {
 
-			userTabs(model, "/obra/" + nombreObra, "Obra  " + nombreObra, true);
+			userTabs(model, "/obrashow/" + nombreObra, "Obra  " + nombreObra, true);
 
 			Tema tema = serviceTema.findByObra(obra.get());
 			List<Cita> citas = obra.get().getCitas();

@@ -95,7 +95,7 @@ public class AutorWebController {
 			autor2.get().setUrl_mapa(autor.getUrl_mapa());
 
 			autorService.save(autor2.get());
-			return "redirect:/autor/".concat(autor.getNombre());
+			return "redirect:/autorshow/".concat(autor.getNombre());
 		} else {
 			return "autorError";
 		}
@@ -137,7 +137,7 @@ public class AutorWebController {
 
 		if (autor.isPresent()) {
 
-			userTabs(model, "/autor/" + nombreAutor, "Autor " + nombreAutor, true);
+			userTabs(model, "/autorshow/" + nombreAutor, "Autor " + nombreAutor, true);
 
 			List<Obra> obras = obraService.findByAuthor(autor.get());
 			List<Tema> temas = new ArrayList<>();
