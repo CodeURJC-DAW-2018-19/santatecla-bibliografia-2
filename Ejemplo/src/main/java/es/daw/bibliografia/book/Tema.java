@@ -19,9 +19,19 @@ public class Tema {
 	private List<Obra> obras;
 
 	private String contenido;
+	
+	private int numObras=0;
 
 	public Tema() {
 		super();
+	}
+
+	public int getNumObras() {
+		return numObras;
+	}
+
+	public void setNumObras(int numObras) {
+		this.numObras = numObras;
 	}
 
 	public Tema(String contenido) {
@@ -39,6 +49,7 @@ public class Tema {
 
 	public void setObra(List<Obra> obras) {
 		this.obras = obras;
+		this.numObras=obras.size();
 	}
 
 	public List<Obra> getObras() {
