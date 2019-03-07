@@ -43,7 +43,7 @@ public class TemaRestController {
 	}
 
 	@PostMapping("/api/tema/guardado")
-	public String addAutor(Tema tema) {
+	public String addTema(Tema tema) {
 		temaService.save(tema);
 
 
