@@ -46,4 +46,13 @@ public class CitaService {
 	public List<Cita> findCitasByObra(Obra obra){
 		return obra.getCitas();
 	}
+	
+	public List<Cita> findCitasByTema(Tema tema){
+		List<Obra> obras = tema.getObras();
+		List<Cita> citas = new ArrayList<Cita>();
+		for (int i = 0; i < obras.size(); i++) {
+			citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
+		}
+		return citas;
+	}
 }

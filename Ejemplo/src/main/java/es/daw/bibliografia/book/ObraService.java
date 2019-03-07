@@ -50,4 +50,8 @@ public class ObraService {
 		repository.deleteById(obra.getId());
 	}
 
+	public List <Obra> findObrasByTema(Tema tema){
+		List<Obra> obras = tema.getObras();
+		return obras;	
+	}
 }

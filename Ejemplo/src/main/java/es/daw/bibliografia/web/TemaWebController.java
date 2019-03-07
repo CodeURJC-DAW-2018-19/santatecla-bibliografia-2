@@ -19,6 +19,7 @@ import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
+import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.pdfgenerator.CreatePDF;
@@ -42,6 +43,9 @@ public class TemaWebController {
 
 	@Autowired
 	private UserComponent userComponent;
+	
+	@Autowired
+	private ObraService obraService;
 
 	@Autowired
 	private CreatePDF createPDF;
@@ -137,10 +141,9 @@ public class TemaWebController {
 			userTabs(model, "/temashow/" + contenido, "Tema: " + contenido, true);
 
 			Tema tema = temaOpt.get();
-			List<Obra> obras = temaService.findObrasByTema(tema);
-			temaService.findCitasByTema(tema);
-			List<Cita> citas = temaService.findCitasByTema(tema);
-			List<Autor> autores = temaService.findAutoresByTema(tema);
+			List<Obra> obras = obraService.findObrasByTema(tema);
+			List<Cita> citas = citaService.findCitasByTema(tema);
+			List<Autor> autores = autorService.findAutoresByTema(tema);
 
 			model.addAttribute("tema", tema);
 			model.addAttribute("obras", obras);

@@ -45,30 +45,7 @@ public class TemaService {
 		return repository.findByObras(obra);
 	}
 	
-	public List <Obra> findObrasByTema(Tema tema){
-		List<Obra> obras = tema.getObras();
-		return obras;	
-		
-	}
 	
-	public List<Cita> findCitasByTema(Tema tema){
-		List<Obra> obras = tema.getObras();
-		List<Cita> citas = new ArrayList<Cita>();
-		for (int i = 0; i < obras.size(); i++) {
-			citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
-		}
-		return citas;
-	}
-	
-	public List<Autor> findAutoresByTema(Tema tema){
-		List<Obra> obras = tema.getObras();
-		List<Autor> autores = new ArrayList<Autor>();
-		for (int i = 0; i < obras.size(); i++) {
-			autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
-					.collect(Collectors.toList());
-		}
-		return autores;
-	}
 
 	public void deleteByContenido(String contenido) {
 		Tema tema= repository.findOneByContenido(contenido).get();

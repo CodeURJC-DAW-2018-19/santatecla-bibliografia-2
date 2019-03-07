@@ -1,7 +1,10 @@
 package es.daw.bibliografia.book;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,5 +39,19 @@ public class AutorService {
 
 	public void delete(long id) {
 		repository.deleteById(id);
+	}
+	
+	public List<Autor> findAutoresByObra(Obra obra){
+		return obra.getAutores();
+	}
+	
+	public List<Autor> findAutoresByTema(Tema tema){
+		List<Obra> obras = tema.getObras();
+		List<Autor> autores = new ArrayList<Autor>();
+		for (int i = 0; i < obras.size(); i++) {
+			autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
+					.collect(Collectors.toList());
+		}
+		return autores;
 	}
 }
