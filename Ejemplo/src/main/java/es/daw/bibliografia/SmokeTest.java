@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import es.daw.bibliografia.web.AutorWebController;
 import es.daw.bibliografia.web.BookWebController;
 import es.daw.bibliografia.web.ObraController;
-import es.daw.bibliografia.web.TemaController;
+import es.daw.bibliografia.web.TemaWebController;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,7 +28,7 @@ public class SmokeTest {
 	private ObraController obraController;
 
 	@Autowired
-	private TemaController temaController;
+	private TemaWebController temaController;
 
 	@Test
 	public void contexLoads() throws Exception {

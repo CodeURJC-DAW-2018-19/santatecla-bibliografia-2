@@ -26,7 +26,7 @@ import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
 
 @Controller
-public class TemaController {
+public class TemaWebController {
 
 	@Autowired
 	private TemaService temaService;
@@ -105,9 +105,8 @@ public class TemaController {
 	}
 
 	@RequestMapping("/tema/guardado")
-	public String addAutor(Model model, Tema tema) {
-		// userTabs(model, "/obra/guardada", "Obra guardada", true);
-		webController.deleteTab("Nueva tema");
+	public String addTema(Model model, Tema tema) {
+		webController.deleteTab("Nuevo tema");
 		temaService.save(tema);
 
 		webController.addUserToModel(model);
@@ -129,24 +128,19 @@ public class TemaController {
 	@RequestMapping("/temashow/{contenido}")
 	public String accederTema(Model model, @PathVariable("contenido") String contenido) {
 
-		Optional<Tema> tema = temaService.findOneByContenido(contenido);
+		Optional<Tema> temaOpt = temaService.findOneByContenido(contenido);
 
 		webController.addUserToModel(model);
 
-		if (tema.isPresent()) {
+		if (temaOpt.isPresent()) {
 
 			userTabs(model, "/temashow/" + contenido, "Tema: " + contenido, true);
 
-			Tema theme = tema.get();
-			List<Obra> obras = theme.getObras();
-			List<Cita> citas = new ArrayList<>();
-			List<Autor> autores = new ArrayList<>();
-			for (int i = 0; i < obras.size(); i++) {
-				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
-				autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
-						.collect(Collectors.toList());
-
-			}
+			Tema tema = temaOpt.get();
+			List<Obra> obras = temaService.findObrasByTema(tema);
+			temaService.findCitasByTema(tema);
+			List<Cita> citas = temaService.findCitasByTema(tema);
+			List<Autor> autores = temaService.findAutoresByTema(tema);
 
 			model.addAttribute("tema", tema);
 			model.addAttribute("obras", obras);
@@ -162,7 +156,7 @@ public class TemaController {
 	
 	@RequestMapping(value = "/tema/new")
 	public String goTema(Model model) {
-		userTabs(model, "/obra/new", "Nuevo tema", true);
+		userTabs(model, "/tema/new", "Nuevo tema", true);
 
 		model.addAttribute("obras", temaService.findAll());
 		model.addAttribute("autores", autorService.findAll());

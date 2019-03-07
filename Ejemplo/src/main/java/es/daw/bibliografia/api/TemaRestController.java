@@ -33,7 +33,7 @@ public class TemaRestController {
 		return deletedCita;
 	}
 
-	@DeleteMapping("/tema/borrar")
+	@DeleteMapping("/api/tema/borrar")
 	public Tema deleteTema(@RequestParam String contenido) {
 		
 		Tema deletedTema= temaService.findOneByContenido(contenido).get();
@@ -42,7 +42,7 @@ public class TemaRestController {
 		return deletedTema;
 	}
 
-	@PostMapping("/tema/guardado")
+	@PostMapping("/api/tema/guardado")
 	public String addAutor(Tema tema) {
 		temaService.save(tema);
 
@@ -50,7 +50,7 @@ public class TemaRestController {
 		return "redirect:/temashow/".concat(tema.getContenido());
 	}
 
-	@DeleteMapping("/tema/{nombreTema}/borrar/autor")
+	@DeleteMapping("/api/tema/{nombreTema}/borrar/autor")
 	public String deleteTema2(@PathVariable("nombreTema") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
 		temaService.delete(temaService.findOneByContenido(nombreObra).get().getId());

@@ -1,7 +1,10 @@
 package es.daw.bibliografia.book;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,6 +43,32 @@ public class TemaService {
 
 	public Tema findByObra(Obra obra) {
 		return repository.findByObras(obra);
+	}
+	
+	public List <Obra> findObrasByTema(Tema tema){
+		List<Obra> obras = tema.getObras();
+		return obras;	
+		
+	}
+	
+	public List<Cita> findCitasByTema(Tema tema){
+		List<Obra> obras = tema.getObras();
+		List<Cita> citas = new ArrayList<Cita>();
+		for (int i = 0; i < obras.size(); i++) {
+			citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
+		}
+		return citas;
+	}
+	
+	public List<Autor> findAutoresByTema(Tema tema){
+		List<Obra> obras = tema.getObras();
+		List<Autor> autores = new ArrayList<Autor>();
+		for (int i = 0; i < obras.size(); i++) {
+			autores = Stream.concat(autores.stream(), obras.get(i).getAutores().stream())
+					.collect(Collectors.toList());
+
+		}
+		return autores;
 	}
 
 }
