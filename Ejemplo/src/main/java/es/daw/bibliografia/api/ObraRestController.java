@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,14 +27,14 @@ public class ObraRestController {
 	@Autowired
 	private CitaService serviceCita;
 	
-	@RequestMapping("/api/obra/guardada")
+	@RequestMapping(value="/api/obra/guardada" , method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Obra addObra(@RequestBody Obra obra) {
 		serviceObra.save(obra);
 		return obra;
 	}
 	
-	@RequestMapping("/api/obra/edit")
+	@RequestMapping(value="/api/obra/edit", method=RequestMethod.PUT)
 	public ResponseEntity<Obra> editObra(@RequestBody Obra obra) {
 		Optional<Obra> obra2 = serviceObra.findOneByTitle(obra.getTitle());
 		
@@ -53,13 +54,13 @@ public class ObraRestController {
 		}
 	}
 	
-	@RequestMapping("/api/obra/borrar")
+	@RequestMapping(value="/api/obra/borrar", method=RequestMethod.DELETE)
 	public ResponseEntity<Obra> deleteObra(Obra obra) {
 		serviceObra.deleteObra(obra);
 		return new ResponseEntity<>(obra, HttpStatus.OK);
 	}
 	
-	@RequestMapping("/api/obra/{nombreObra}/borrar/autor")
+	@RequestMapping(value="/api/obra/{nombreObra}/borrar/autor", method=RequestMethod.DELETE)
 	public ResponseEntity<Obra> deleteObraInAutor( @PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
 		Obra deletedObra = serviceObra.findOneByTitle(nombreObra).get();
@@ -68,7 +69,7 @@ public class ObraRestController {
 	}
 	
 
-	@RequestMapping("/api/obra/{nombreObra}/borrar/tema")
+	@RequestMapping(value="/api/obra/{nombreObra}/borrar/tema", method=RequestMethod.DELETE)
 	public ResponseEntity<Obra> deleteObraInTema(@PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreTema") String autor) {
 		Obra deletedObra =serviceObra.findOneByTitle(nombreObra).get();
@@ -76,7 +77,7 @@ public class ObraRestController {
 		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
 	}
 	
-	@RequestMapping("/api/obra/{nombreObra}/cita")
+	@RequestMapping(value="/api/obra/{nombreObra}/cita", method=RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cita createCita(@RequestBody Cita cita, @PathVariable("nombreObra") String nombreObra) {
 		
@@ -86,7 +87,7 @@ public class ObraRestController {
 		return cita;
 	}
 	
-	@RequestMapping(value = "/api/obrashow/{nombreObra}") 
+	@RequestMapping(value = "/api/obrashow/{nombreObra}", method=RequestMethod.GET) 
 	public ResponseEntity<Obra> openObra( @PathVariable("nombreObra") String nombreObra) {
 		
 		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
