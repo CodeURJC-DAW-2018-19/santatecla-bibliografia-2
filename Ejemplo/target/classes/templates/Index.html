@@ -324,30 +324,63 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-body">
+						
+						<ul id="savedThemes" style="display: none">
+                		{{#temas}}
+                		<li>{{contenido}}</li>
+                		{{/Temas}}
+           				</ul>
+
+			            <ul id="numObras" style="display: none">
+            			    {{#temas}}
+                			<li>{{numObras}}</li>
+                			{{/temas}}
+            			</ul>
+						
 						<!-- preparing a DOM with width and height for ECharts -->
 						<div id="main" style="width: 500px; height: 400px;"></div>
 						<script type="text/javascript">
                                         // based on prepared DOM, initialize echarts instance
                                         var myChart = echarts.init(document.getElementById('main'));
 
+                                        
+                                        var themes=[];
+                                        var ulThemes = document.getElementById("savedThemes");
+                                        var itemsThemes = ulThemes.getElementsByTagName("li");
+                                        for (var i = 0; i < itemsThemes.length; ++i) {
+                                            themes.push(itemsThemes[i].textContent);
+                                        }
+
+                                        var nums=[];
+                                        var ulNums = document.getElementById("numObras");
+                                        var itemsNums = ulNums.getElementsByTagName("li");
+                                        for (var j = 0; j < itemsNums.length; ++j) {
+                                            nums.push(itemsNums[j].textContent);
+                                        }
+
+                                        
+                                        
                                         // specify chart configuration item and data
                                         var option = {
                                              //title: {
                                              //   text: 'ECharts entry example'
                                             //},
                                             tooltip: {},
+                                            
                                             legend: {
                                                 data: ['NÃºmero de obras por tema']
                                             },
                                             xAxis: {
-                                                data: ["Romance", "Ã‰pica", "FantasÃ­a", "Aventura", "Drama", "Sci-fi"]
+                                            	name: ["Tema"],
+                                                data: themes                                            },
+                                            yAxis: {
+                                            	name: [Nº Obras]
                                             },
-                                            yAxis: {},
                                             series: [{
                                                 
                                                 name: 'NÃºmero de obras por tema',
                                                 type: 'bar',
-                                                data: [5, 20, 36, 10, 10, 20]
+                                                data: nums
                                             }]
                                         };
 
