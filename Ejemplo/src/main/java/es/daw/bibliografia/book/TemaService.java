@@ -75,4 +75,15 @@ public class TemaService {
 		repository.delete(tema);
 	}
 	
+	public List<Tema> findTemasByObras(List<Obra> obras){
+		List<Tema> temas = new ArrayList<>();
+		Tema tema;
+		for (int i = 0; i < obras.size(); i++) {
+			tema = repository.findByObras(obras.get(i));
+			if (tema != null)
+				temas.add(tema);
+		}
+		return temas;
+	}
+	
 }

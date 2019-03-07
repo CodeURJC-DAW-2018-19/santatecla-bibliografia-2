@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
+import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
@@ -38,6 +39,9 @@ public class AutorWebController {
 	@Autowired
 	private UserComponent userComponent;
 
+	@Autowired
+	private CitaService citaService;
+	
 	@Autowired
 	private BookWebController webController;
 
@@ -140,16 +144,9 @@ public class AutorWebController {
 			userTabs(model, "/autorshow/" + nombreAutor, "Autor " + nombreAutor, true);
 
 			List<Obra> obras = obraService.findByAuthor(autor.get());
-			List<Tema> temas = new ArrayList<>();
-			List<Cita> citas = new ArrayList<>();
-			Tema tema;
-			for (int i = 0; i < obras.size(); i++) {
-				tema = temaService.findByObra(obras.get(i));
-				if (tema != null)
-					temas.add(tema);
-				citas = Stream.concat(citas.stream(), obras.get(i).getCitas().stream()).collect(Collectors.toList());
-				
-			}
+			List<Tema> temas = temaService.findTemasByObras(obras);
+			List<Cita> citas = citaService.findCitasByObras(obras);
+			
 			model.addAttribute("obras", obras);
 			model.addAttribute("temas", temas);
 			model.addAttribute("citas", citas);
