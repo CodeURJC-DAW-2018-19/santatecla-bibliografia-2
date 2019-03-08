@@ -55,16 +55,15 @@ public class AutorRestController {
 	
 	
 	@PostMapping("/api/autor")
-	public ResponseEntity<Autor> createAutor(@RequestParam String nombre) {
-		Autor autor = new Autor();
-		autor.setNombre(nombre);
+	public ResponseEntity<Autor> createAutor(@RequestParam String nombre, @RequestParam String url_foto, 
+			@RequestParam String fecha_nac, @RequestParam String fecha_fall, 
+			@RequestParam String url_mapa, @RequestParam String lugar) {
+		Autor autor = new Autor(nombre, url_foto, fecha_nac, fecha_fall, url_mapa, lugar);
 		autorService.save(autor);
 		
 		Optional<Autor> autorOpt = autorService.findOneByNombre(nombre);
 		
 		if (autorOpt.isPresent()) {
-			autorService.deleteByNombre(nombre);
-			
 			return new ResponseEntity<Autor>(autorOpt.get(), HttpStatus.CREATED);
 		} else {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -72,14 +71,6 @@ public class AutorRestController {
 
 	}
 	
-//	@DeleteMapping("/api/autor/borrar")
-//	public Autor deleteTema(@RequestParam String nombre) {
-//		
-//		Autor deletedAutor= autorService.findOneByNombre(nombre).get();
-//		autorService.delete(autorService.findOneByNombre(nombre).get().getId());
-//		
-//		return deletedAutor;
-//	}
 	
 	@DeleteMapping("/api/autor/cita")
 	public ResponseEntity<Cita> deleteAutor(@RequestParam Long id) {

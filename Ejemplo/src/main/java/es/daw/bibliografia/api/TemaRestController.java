@@ -80,19 +80,19 @@ public class TemaRestController {
 	}
 			
 	@GetMapping("/api/tema/cita")
-	public ResponseEntity<Cita> accessCita(@RequestParam Long id) {
-
-		Optional<Cita> cita = citaService.findOne(id);
+	public ResponseEntity<List<Cita>> accessCitas(@RequestParam Long id) {
 		
-		if (cita.isPresent()) {
-			return new ResponseEntity<Cita>(cita.get(), HttpStatus.OK);
+		List<Cita> citas = citaService.findCitasByTema(temaService.findOne(id).get());
+		
+		if (citas !=null) {
+			return new ResponseEntity<List<Cita>>(citas, HttpStatus.OK);
 		}else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	
 	@DeleteMapping("/api/tema/cita")
-	public ResponseEntity<Cita> deleteAutor(@RequestParam Long id) {
+	public ResponseEntity<Cita> deleteCita(@RequestParam Long id) {
 		Optional<Cita> deletedCita = citaService.findOne(id);
 		
 		if (deletedCita.isPresent()) {
