@@ -40,7 +40,7 @@ public class TemaRestController {
 	private ObraService obraService;
 	
 	@GetMapping("/api/tema")
-	public ResponseEntity<Tema> accessTema(Model model, @RequestParam Long id) {
+	public ResponseEntity<Tema> accessTema(@RequestParam Long id) {
 
 		Optional<Tema> temaOpt = temaService.findOne(id);
 		
@@ -80,20 +80,29 @@ public class TemaRestController {
 	}
 			
 	@GetMapping("/api/tema/cita")
-	public Cita deleteCita2(@RequestParam long id) {
+	public ResponseEntity<Cita> accessCita(@RequestParam Long id) {
 
-		Cita cita= citaService.findOne(id).get();
-
-		return cita;
+		Optional<Cita> cita = citaService.findOne(id);
+		
+		if (cita.isPresent()) {
+			return new ResponseEntity<Cita>(cita.get(), HttpStatus.OK);
+		}else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
+	
 	@DeleteMapping("/api/tema/cita")
-	public Cita deleteCita(@RequestParam long id) {
+	public ResponseEntity<Cita> deleteAutor(@RequestParam Long id) {
+		Optional<Cita> deletedCita = citaService.findOne(id);
+		
+		if (deletedCita.isPresent()) {
+			citaService.delete(id);
+			
+			return new ResponseEntity<Cita>(deletedCita.get(), HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
-		Cita deletedCita= citaService.findOne(id).get();
-		citaService.delete(id);
-
-		return deletedCita;
 	}
 	
 	@GetMapping("/api/tema/autor")
