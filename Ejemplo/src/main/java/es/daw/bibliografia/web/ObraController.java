@@ -116,7 +116,7 @@ public class ObraController {
 	public String deleteObraInAutor(Model model, @PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
-		service.delete(service.findOneByTitle(nombreObra).get().getId());
+		service.deleteByTitle(nombreObra);
 
 		webController.addUserToModel(model);
 		webController.deleteTab("Obra  " + nombreObra);
@@ -128,7 +128,7 @@ public class ObraController {
 	public String deleteObraInTema(Model model, @PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreTema") String autor) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
-		service.delete(service.findOneByTitle(nombreObra).get().getId());
+		service.deleteByTitle(nombreObra);
 
 		webController.addUserToModel(model);
 		webController.deleteTab("Obra  " + nombreObra);

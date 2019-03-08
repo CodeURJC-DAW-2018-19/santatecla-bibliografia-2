@@ -45,11 +45,12 @@ public class TemaService {
 		return repository.findByObras(obra);
 	}
 	
-	
 
-	public void deleteByContenido(String contenido) {
-		Tema tema= repository.findOneByContenido(contenido).get();
-		repository.delete(tema);
+	public Optional<Tema> deleteByContenido(String contenido) {
+		Optional<Tema> tema= repository.findOneByContenido(contenido);
+		repository.delete(tema.get());
+		
+		return tema;
 	}
 	
 	public List<Tema> findTemasByObras(List<Obra> obras){

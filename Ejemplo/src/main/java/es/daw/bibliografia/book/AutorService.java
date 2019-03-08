@@ -54,4 +54,11 @@ public class AutorService {
 		}
 		return autores;
 	}
+	
+	public Optional<Autor> deleteByNombre(String nombre) {
+		Optional<Autor> autor = repository.findOneByNombre(nombre);
+		repository.delete(autor.get());
+		
+		return autor;
+	}
 }

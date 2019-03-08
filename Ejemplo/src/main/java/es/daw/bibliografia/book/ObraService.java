@@ -49,9 +49,15 @@ public class ObraService {
 	public void deleteObra(Obra obra) {
 		repository.deleteById(obra.getId());
 	}
+	
+	public void deleteByTitle(String title) {
+		repository.deleteById(repository.findOneByTitle(title).get().getId());
+	}
 
 	public List <Obra> findObrasByTema(Tema tema){
 		List<Obra> obras = tema.getObras();
 		return obras;	
 	}
+	
+	
 }

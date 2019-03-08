@@ -107,7 +107,7 @@ public class AutorWebController {
 
 	@RequestMapping("/autor/borrar")
 	public String deleteObra(Model model, Autor autor) {
-		autorService.delete(autorService.findOneByNombre(autor.getNombre()).get().getId());
+		autorService.deleteByNombre(autor.getNombre());
 
 		webController.addUserToModel(model);
 		webController.deleteTab("Autor " + autor.getNombre());
