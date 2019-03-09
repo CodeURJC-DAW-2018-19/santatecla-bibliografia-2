@@ -1,5 +1,7 @@
 package es.daw.bibliografia.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.CitaService;
+import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
@@ -28,19 +32,19 @@ import es.daw.bibliografia.user.UserService;
 public class BookRestController {
 
 	@Autowired
-	private TemaService serviceTema;
+	private TemaService temaService;
 
 	@Autowired
-	private ObraService serviceObra;
+	private ObraService obraService;
 
 	@Autowired
-	private AutorService serviceAutor;
+	private AutorService autorService;
 
 	@Autowired
-	private CitaService serviceCita;
+	private CitaService citaService;
 
 	@Autowired
-	private UserService serviceUser;
+	private UserService userService;
 
 	@Autowired
 	private UserComponent userComponent;
@@ -49,8 +53,26 @@ public class BookRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public User signup(User user, @RequestParam("pass") String pass) {
 		User aux = new User(user.getName(), user.getEmail(), pass, "ROLE_USER");
-		serviceUser.save(aux);
+		userService.save(aux);
 		return aux;
+	}
+	
+	@GetMapping("/api/temas")
+	public Page<Tema> showTemas(@RequestParam int temaPage){
+		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
+		return temas;
+	}
+	
+	@GetMapping("/api/obras")
+	public Page<Obra> showObras(@RequestParam int obraPage){
+		Page<Obra> obras = obraService.findAll(new PageRequest(obraPage,10));
+		return obras;
+	}
+	
+	@GetMapping("/api/autores")
+	public Page<Autor> showAutores(@RequestParam int autorPage){
+		Page<Autor> autores = autorService.findAll(new PageRequest(autorPage,10));
+		return autores;
 	}
 	
 }
