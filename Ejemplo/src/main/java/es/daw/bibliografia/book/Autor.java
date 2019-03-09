@@ -21,10 +21,6 @@ public class Autor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
-	@JsonView(Obras.class)
-	@OneToMany(mappedBy="autores")
-	private List<Obra> obras;
 	
 	@JsonView(Basic.class)
 	private String nombre, url_foto, fecha_nac, fecha_def, url_mapa, lugar;

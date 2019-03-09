@@ -86,8 +86,8 @@ public class AutorRestController {
 	}
 	
 	@JsonView(TemaDetail.class)
-	@GetMapping("/api/autores/{nombre}/temas/{contenido}")
-	public ResponseEntity<Tema> showTemaInAutor(@PathVariable String nombre, @PathVariable String contenido) {
+	@GetMapping("/api/autores/temas/{contenido}")
+	public ResponseEntity<Tema> showTemaInAutor( @PathVariable String contenido) {
 		Optional<Tema> tema = temaService.findOneByContenido(contenido);
 		
 		if (tema.isPresent()) {
@@ -99,7 +99,7 @@ public class AutorRestController {
 
 	}
 	
-	@DeleteMapping("/api/autores/{nombre}/temas/{contenido}")
+	@DeleteMapping("/api/autores/temas/{contenido}")
 	public ResponseEntity<Tema> deleteTemaInAutor(@PathVariable String nombre, @PathVariable String contenido) {
 		Optional<Tema> deletedTema = temaService.findOneByContenido(contenido);
 		
@@ -114,7 +114,7 @@ public class AutorRestController {
 	}
 
 	@JsonView(ObraDetail.class)
-	@GetMapping("/api/autores/{nombre}/obras/{title}")
+	@GetMapping("/api/autores/obras/{title}")
 	public ResponseEntity<Obra> showObraInAutor(@PathVariable String nombre, @PathVariable String title) {
 		Optional<Obra> obra = obraService.findOneByTitle(title);
 		
@@ -127,7 +127,7 @@ public class AutorRestController {
 
 	}
 	
-	@DeleteMapping("/api/autores/{nombre}/obras/{title}")
+	@DeleteMapping("/api/autores/obras/{title}")
 	public ResponseEntity<Obra> deleteObraInAutor(@PathVariable String nombre, @PathVariable String title) {
 		Optional<Obra> deletedObra = obraService.findOneByTitle(title);
 		if (deletedObra.isPresent()) {
@@ -141,7 +141,7 @@ public class AutorRestController {
 	}
 	
 	@JsonView(Cita.Basic.class)
-	@GetMapping("/api/autores/{nombre}/citas/{id}")
+	@GetMapping("/api/autores/citas/{id}")
 	public ResponseEntity<Cita> showCitaInAutor(@PathVariable String nombre, @PathVariable Long id) {
 		Optional<Cita> cita = citaService.findOne(id);
 		
@@ -154,7 +154,7 @@ public class AutorRestController {
 
 	}
 	
-	@DeleteMapping("/api/autores/{nombre}/citas/{id}")
+	@DeleteMapping("/api/autores/citas/{id}")
 	public ResponseEntity<Cita> deleteCitaInAutor(@PathVariable String nombre, @PathVariable Long id) {
 		Optional<Cita> deletedCita = citaService.findOne(id);
 		

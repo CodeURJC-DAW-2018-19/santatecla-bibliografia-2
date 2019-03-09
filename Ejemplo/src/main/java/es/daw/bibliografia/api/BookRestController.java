@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.daw.bibliografia.api.AutorRestController.AuthorDetail;
+import es.daw.bibliografia.api.TemaRestController.TemaDetail;
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
@@ -77,6 +78,13 @@ public class BookRestController {
 	public Page<Autor> showAutores(@RequestParam int autorPage){
 		Page<Autor> autores = autorService.findAll(new PageRequest(autorPage,10));
 		return autores;
+	}
+	
+	@JsonView(TemaDetail.class)
+	@GetMapping("/api/temas")
+	public Page<Tema> showTemas(@RequestParam int temaPage){
+		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
+		return temas;
 	}
 	
 }
