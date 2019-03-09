@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +41,7 @@ public class AutorRestController {
 	@Autowired
 	private ObraService obraService;
 	
-	interface AuthorDetail extends Autor.Basic, Autor.Obras, Obra.Basic{}
+	interface AuthorDetail extends Autor.Basic, Obra.Basic{}
 	interface TemaDetail extends Tema.Basic, Tema.Obras, Obra.Basic{}
 	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
 
@@ -58,17 +59,35 @@ public class AutorRestController {
 	}
 	
 	@PostMapping("/api/autores")
-	public ResponseEntity<Autor> createAutor(@RequestBody Autor autor){
-		autorService.save(autor);
+	public ResponseEntity<Autor> createAutor(@RequestBody Autor autor, @RequestParam long idObra){
+		Optional<Obra> obra = obraService.findOne(idObra);
 		
-		Optional<Autor> autorOpt = autorService.findOneByNombre(autor.getNombre());
-		
-		if (autorOpt.isPresent()) {
-			return new ResponseEntity<Autor>(autorOpt.get(), HttpStatus.CREATED);
+		if (obra.isPresent()) {
+			obra.get().getAutores().add(autor);
+			autorService.save(autor);
+			return new ResponseEntity<Autor>(autor, HttpStatus.CREATED);
 		} else {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
+	}
+	
+	@PutMapping("/api/autores")
+	public ResponseEntity<Autor> editAutor(@RequestBody Autor autor){
+		Optional<Autor> autor2 = autorService.findOneByNombre(autor.getNombre());
+		
+		if (autor2.isPresent()) {
+			autor2.get().setUrl_foto(autor.getUrl_foto());
+			autor2.get().setFecha_nac(autor.getFecha_nac());
+			autor2.get().setFecha_def(autor.getFecha_def());
+			autor2.get().setUrl_mapa(autor.getUrl_mapa());
+			autor2.get().setLugar(autor.getLugar());
 
+			autorService.save(autor2.get());
+			return new ResponseEntity<>(autor2.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+
+		}
 	}
 	
 	@DeleteMapping("/api/autores/{nombre}")

@@ -23,6 +23,9 @@ public class Obra {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Basic.class)
+	private String title, URL, date, editorial, url_editorial;
+
 	@JsonView(Quotes.class)
 	@OneToMany
 	private List<Cita> citas;
@@ -30,10 +33,7 @@ public class Obra {
 	@JsonView(Authors.class)
 	@ManyToMany
 	private List<Autor> autores;
-
-	@JsonView(Basic.class)
-	private String title, URL, date, editorial, url_editorial;
-
+	
 	public Obra() {
 		super();
 	}

@@ -16,8 +16,8 @@ import es.daw.bibliografia.book.Obra.Basic;
 public class Autor {
 
 	public interface Basic{}
-	public interface Obras{}
 	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;

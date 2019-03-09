@@ -1,5 +1,6 @@
 package es.daw.bibliografia.api;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -20,11 +22,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import es.daw.bibliografia.book.Autor;
+import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
+import es.daw.bibliografia.book.TemaService;
 import es.daw.bibliografia.book.Obra.Basic;
 
 @RestController
@@ -35,6 +39,12 @@ public class ObraRestController {
 	
 	@Autowired
 	private CitaService citaService;
+
+	@Autowired
+	private AutorService autorService;
+
+	@Autowired
+	private TemaService temaService;
 	
 	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
 
@@ -55,42 +65,85 @@ public class ObraRestController {
 	
 	
 	@PostMapping("/api/obras")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Obra addObra(@RequestBody Obra obra) {
-		obraService.save(obra);
-		return obra;
+	public ResponseEntity<Obra> addObra(@RequestBody Obra obra,@RequestParam long idAutor, @RequestParam long idTema) {
+		Optional<Tema> tema = temaService.findOne(idTema);
+		if(tema.isPresent()) {
+			obra.setAutores(new ArrayList<>());
+			obra.setCitas(new ArrayList<>());
+			Optional<Autor> autor = autorService.findOne(idAutor);
+			if(autor.isPresent()) {
+				obra.getAutores().add(autor.get());
+			}
+			tema.get().getObras().add(obra);
+			tema.get().setNumObras(tema.get().getNumObras()+1);
+			obraService.save(obra);
+			return new ResponseEntity<>(obra, HttpStatus.CREATED);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+		
 	}
 	
-	@PutMapping("/api/obras/{title}")
-	public ResponseEntity<Obra> editObra(@RequestBody Obra obra, @PathVariable String title) {
-		Optional<Obra> obra2 = obraService.findOneByTitle(title);
+	@PutMapping("/api/obras")
+	public ResponseEntity<Obra> editObra(@RequestBody Obra obra) {
+		Optional<Obra> obra2 = obraService.findOneByTitle(obra.getTitle());
 		
 		if (obra2.isPresent()) {
-			long id= obra2.get().getId();
 			obra2.get().setDate(obra.getDate());
 			obra2.get().setEditorial(obra.getEditorial());
 			obra2.get().setURL(obra.getURL());
 			obra2.get().setUrl_editorial(obra.getUrl_editorial());
 
 			obraService.save(obra2.get());
-			Obra obraEdit =obraService.findOne(id).get();
-			return new ResponseEntity<>(obraEdit, HttpStatus.OK);
+			return new ResponseEntity<>(obra2.get(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+
+		}
+	}
+	
+	@PutMapping("/api/obras/autor")
+	public ResponseEntity<Obra> editObraLinkAutor(@RequestParam long idObra, @RequestParam long idAutor) {
+		Optional<Obra> obra = obraService.findOne(idObra);
+		
+		if (obra.isPresent()) {
+			Optional<Autor> autor = autorService.findOne(idAutor);
+			if(autor.isPresent()) {
+				obra.get().getAutores().add(autor.get());
+			}
+			obraService.save(obra.get());
+			return new ResponseEntity<>(obra.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
+
+		}
+	}
+	
+	@PutMapping("/api/obras/cita")
+	public ResponseEntity<Obra> addCita(@RequestParam long idObra, @RequestParam String contenido) {
+		Optional<Obra> obra = obraService.findOne(idObra);
+		
+		if (obra.isPresent()) {
+			Cita cita = new Cita(contenido);
+			obra.get().getCitas().add(cita);
+			citaService.save(cita);
+			return new ResponseEntity<>(obra.get(), HttpStatus.CREATED);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 
 		}
 	}
 	
 	@DeleteMapping("/api/obras/{title}")
 	public ResponseEntity<Obra> deleteObra(@PathVariable String title) {
-		Optional<Obra> obraOpt = obraService.findOneByTitle(title);
-		if (obraOpt.isPresent()) {
-			Obra deletedObra = obraOpt.get();
-			obraService.deleteObra(obraOpt.get());
-			
-			return new ResponseEntity<Obra>(deletedObra, HttpStatus.OK);
+		Optional<Obra> obra = obraService.findOneByTitle(title);
+		if (obra.isPresent()) {
+			obraService.deleteObra(obra.get());
+			obra.get().setAutores(new ArrayList<>());
+			obra.get().setCitas(new ArrayList<>());
+			return new ResponseEntity<Obra>(obra.get(), HttpStatus.OK);
 		} else {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
@@ -110,16 +163,6 @@ public class ObraRestController {
 		Obra deletedObra =obraService.findOneByTitle(nombreObra).get();
 		obraService.delete(obraService.findOneByTitle(nombreObra).get().getId());
 		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
-	}
-	
-	@PostMapping("/api/obra/{nombreObra}/cita")
-	@ResponseStatus(HttpStatus.CREATED)
-	public Cita createCita(@RequestBody Cita cita, @PathVariable("nombreObra") String nombreObra) {
-		
-		obraService.findOneByTitle(nombreObra).get().getCitas().add(cita);
-		citaService.save(cita);
-		
-		return cita;
 	}
 	
 	

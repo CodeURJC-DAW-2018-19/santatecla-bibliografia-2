@@ -75,7 +75,7 @@ public class ObraController {
 		return "redirect:/obrashow/".concat(obra.getTitle());
 	}
 
-	@RequestMapping("/obra/edit")
+	@RequestMapping("/obrashow/edit")
 	public String editObra(Model model, Obra obra) {
 
 		Optional<Obra> obra2 = service.findOneByTitle(obra.getTitle());
@@ -90,7 +90,7 @@ public class ObraController {
 			obra2.get().setUrl_editorial(obra.getUrl_editorial());
 
 			service.save(obra2.get());
-			return "redirect:/obra/".concat(obra.getTitle());
+			return "redirect:/obrashow/".concat(obra.getTitle());
 		} else {
 
 		}

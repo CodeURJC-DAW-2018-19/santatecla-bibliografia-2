@@ -55,7 +55,7 @@ public class BookRestController {
 	private UserComponent userComponent;
 	
 	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
-	interface AuthorDetail extends Autor.Basic, Autor.Obras, Obra.Basic{}
+	interface AuthorDetail extends Autor.Basic, Obra.Basic{}
 
 	
 	@RequestMapping(value = "/api/signupOk", method = RequestMethod.POST)
