@@ -30,5 +30,5 @@ ARG JAR_FILE=Ejemplo/target/practica_fase4-0.1.0.jar
 ADD ${JAR_FILE} practica_fase4-0.1.0.jar
 
  # Run the jar file
-ENTRYPOINT["java","-jar","Ejemplo/target/practica_fase4-0.1.0.jar"]
+ENTRYPOINT["java","-jar","/practica_fase4-0.1.0.jar"]
 
