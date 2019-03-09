@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,10 +42,16 @@ public class TemaRestController {
 	@Autowired
 	private ObraService obraService;
 	
-	@GetMapping("/api/tema")
-	public ResponseEntity<Tema> openTema(@RequestParam Long id) {
+	@GetMapping("/api/temas")
+	public Page<Tema> showTemas(@RequestParam int temaPage){
+		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
+		return temas;
+	}
+	
+	@GetMapping("/api/temas/{contenido}")
+	public ResponseEntity<Tema> openTema(@PathVariable String contenido) {
 
-		Optional<Tema> temaOpt = temaService.findOne(id);
+		Optional<Tema> temaOpt = temaService.findOneByContenido(contenido);
 		
 		if (temaOpt.isPresent()) {
 			return new ResponseEntity<Tema>(temaOpt.get(), HttpStatus.OK);
@@ -50,13 +59,11 @@ public class TemaRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@PostMapping("/api/tema")
-	public ResponseEntity<Tema> addTema(@RequestParam String contenido) {
-		Tema tema= new Tema();
-		tema.setContenido(contenido);
+	@PostMapping("/api/temas")
+	public ResponseEntity<Tema> addTema(@RequestBody Tema tema) {
 		temaService.save(tema);
 		
-		Optional<Tema> createdTema = temaService.findOneByContenido(contenido);
+		Optional<Tema> createdTema = temaService.findOneByContenido(tema.getContenido());
 		
 		if (createdTema!=null) {
 			return new ResponseEntity<Tema>(tema,HttpStatus.CREATED);
@@ -66,8 +73,8 @@ public class TemaRestController {
 
 	}
 	
-	@DeleteMapping("/api/tema")
-	public ResponseEntity<Tema> deleteTema(@RequestParam String contenido) {
+	@DeleteMapping("/api/temas/{contenido}")
+	public ResponseEntity<Tema> deleteTema(@PathVariable String contenido) {
 		
 		Optional<Tema> deletedTema = temaService.deleteByContenido(contenido);
 		
@@ -79,8 +86,8 @@ public class TemaRestController {
 		
 	}
 			
-	@GetMapping("/api/tema/cita")
-	public ResponseEntity<List<Cita>> accessCitas(@RequestParam Long id) {
+	@GetMapping("/api/temas/{contenido}/citas/{id}")
+	public ResponseEntity<List<Cita>> accessCitas(@PathVariable String contenido, @PathVariable Long id) {
 		
 		List<Cita> citas = citaService.findCitasByTema(temaService.findOne(id).get());
 		
@@ -91,8 +98,8 @@ public class TemaRestController {
 	}
 
 	
-	@DeleteMapping("/api/tema/cita")
-	public ResponseEntity<Cita> deleteCita(@RequestParam Long id) {
+	@DeleteMapping("/api/temas/{contenido}/citas/{id}")
+	public ResponseEntity<Cita> deleteCita(@PathVariable String contenido, @PathVariable Long id) {
 		Optional<Cita> deletedCita = citaService.findOne(id);
 		
 		if (deletedCita.isPresent()) {
@@ -105,23 +112,26 @@ public class TemaRestController {
 
 	}
 	
-	@GetMapping("/api/tema/autor")
-	public ResponseEntity<Autor> accessAutor(@RequestParam String nombre) {
-		Optional<Autor> autor = autorService.findOneByNombre(nombre);
+	@GetMapping("/api/temas/{contenido}/autores")
+	public ResponseEntity<List<Autor>> showAutoresInTema(@PathVariable String contenido) {
 		
-		if (autor.isPresent())
-			return new ResponseEntity<Autor>(autor.get(), HttpStatus.OK);
+		Tema tema= temaService.findOneByContenido(contenido).get();
+		List<Autor> autores = autorService.findAutoresByTema(tema);
+		
+		if (autores!=null)
+			return new ResponseEntity<List<Autor>>(autores, HttpStatus.OK);
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
 	}
 	
-	@GetMapping("/api/tema/obra")
-	public ResponseEntity<Obra> accessObra(@RequestParam Long id) {
-		Optional<Obra> obra = obraService.findOne(id);
+	@GetMapping("/api/temas/{contenido}/obras")
+	public ResponseEntity<List<Obra>> showObrasInTema(@PathVariable String contenido) {
+		Tema tema = temaService.findOneByContenido(contenido).get();
+		List<Obra> obras = obraService.findObrasByTema(tema);
 		
-		if (obra.isPresent())
-			return new ResponseEntity<Obra>(obra.get(), HttpStatus.OK);
+		if (obras!=null)
+			return new ResponseEntity<List<Obra>>(obras, HttpStatus.OK);
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 

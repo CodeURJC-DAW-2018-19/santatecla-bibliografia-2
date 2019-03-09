@@ -27,15 +27,15 @@ import es.daw.bibliografia.book.Tema;
 public class ObraRestController {
 	
 	@Autowired
-	private ObraService serviceObra;
+	private ObraService obraService;
 	
 	@Autowired
-	private CitaService serviceCita;
+	private CitaService citaService;
 	
-	@GetMapping("/api/obra") 
-	public ResponseEntity<Obra> openObra( @RequestParam("nombreObra") String nombreObra) {
+	@GetMapping("/api/obras/{title}") 
+	public ResponseEntity<Obra> openObra( @PathVariable("title") String title) {
 		
-		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
+		Optional<Obra> obra = obraService.findOneByTitle(title);
 
 		if (obra.isPresent()) {
 			Obra obraShow = obra.get();
@@ -46,16 +46,16 @@ public class ObraRestController {
 	}
 	
 	
-	@PostMapping("/api/obra")
+	@PostMapping("/api/obras")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Obra addObra(@RequestBody Obra obra) {
-		serviceObra.save(obra);
+		obraService.save(obra);
 		return obra;
 	}
 	
-	@PutMapping(value="/api/obra")
-	public ResponseEntity<Obra> editObra(@RequestBody Obra obra) {
-		Optional<Obra> obra2 = serviceObra.findOneByTitle(obra.getTitle());
+	@PutMapping("/api/obras/{title}")
+	public ResponseEntity<Obra> editObra(@RequestBody Obra obra, @PathVariable String title) {
+		Optional<Obra> obra2 = obraService.findOneByTitle(title);
 		
 		if (obra2.isPresent()) {
 			long id= obra2.get().getId();
@@ -64,8 +64,8 @@ public class ObraRestController {
 			obra2.get().setURL(obra.getURL());
 			obra2.get().setUrl_editorial(obra.getUrl_editorial());
 
-			serviceObra.save(obra2.get());
-			Obra obraEdit =serviceObra.findOne(id).get();
+			obraService.save(obra2.get());
+			Obra obraEdit =obraService.findOne(id).get();
 			return new ResponseEntity<>(obraEdit, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -73,18 +73,25 @@ public class ObraRestController {
 		}
 	}
 	
-	@DeleteMapping(value="/api/obra")
-	public ResponseEntity<Obra> deleteObra(Obra obra) {
-		Obra deletedObra = obra;
-		serviceObra.deleteObra(obra);
-		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
+	@DeleteMapping("/api/obras/{title}")
+	public ResponseEntity<Obra> deleteObra(@PathVariable String title) {
+		Optional<Obra> obraOpt = obraService.findOneByTitle(title);
+		if (obraOpt.isPresent()) {
+			Obra deletedObra = obraOpt.get();
+			obraService.deleteObra(obraOpt.get());
+			
+			return new ResponseEntity<Obra>(deletedObra, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
+	
 	
 	@DeleteMapping("/api/obra/{nombreObra}/borrar/autor")
 	public ResponseEntity<Obra> deleteObraInAutor( @PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
-		Obra deletedObra = serviceObra.findOneByTitle(nombreObra).get();
-		serviceObra.delete(serviceObra.findOneByTitle(nombreObra).get().getId());
+		Obra deletedObra = obraService.findOneByTitle(nombreObra).get();
+		obraService.delete(obraService.findOneByTitle(nombreObra).get().getId());
 		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
 	}
 	
@@ -92,8 +99,8 @@ public class ObraRestController {
 	@DeleteMapping("/api/obra/{nombreObra}/borrar/tema")
 	public ResponseEntity<Obra> deleteObraInTema(@PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreTema") String autor) {
-		Obra deletedObra =serviceObra.findOneByTitle(nombreObra).get();
-		serviceObra.delete(serviceObra.findOneByTitle(nombreObra).get().getId());
+		Obra deletedObra =obraService.findOneByTitle(nombreObra).get();
+		obraService.delete(obraService.findOneByTitle(nombreObra).get().getId());
 		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
 	}
 	
@@ -101,8 +108,8 @@ public class ObraRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cita createCita(@RequestBody Cita cita, @PathVariable("nombreObra") String nombreObra) {
 		
-		serviceObra.findOneByTitle(nombreObra).get().getCitas().add(cita);
-		serviceCita.save(cita);
+		obraService.findOneByTitle(nombreObra).get().getCitas().add(cita);
+		citaService.save(cita);
 		
 		return cita;
 	}

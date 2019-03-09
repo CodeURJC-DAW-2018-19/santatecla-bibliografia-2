@@ -57,12 +57,6 @@ public class BookRestController {
 		return aux;
 	}
 	
-	@GetMapping("/api/temas")
-	public Page<Tema> showTemas(@RequestParam int temaPage){
-		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
-		return temas;
-	}
-	
 	@GetMapping("/api/obras")
 	public Page<Obra> showObras(@RequestParam int obraPage){
 		Page<Obra> obras = obraService.findAll(new PageRequest(obraPage,10));
