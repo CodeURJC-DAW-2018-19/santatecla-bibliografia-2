@@ -17,11 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
+import es.daw.bibliografia.book.Obra.Basic;
 
 @RestController
 public class ObraRestController {
@@ -32,6 +35,7 @@ public class ObraRestController {
 	@Autowired
 	private CitaService citaService;
 	
+	@JsonView(Obra.Basic.class)
 	@GetMapping("/api/obras/{title}") 
 	public ResponseEntity<Obra> openObra( @PathVariable("title") String title) {
 		

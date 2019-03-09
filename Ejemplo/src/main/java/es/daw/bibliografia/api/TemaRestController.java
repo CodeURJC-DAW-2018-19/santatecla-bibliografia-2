@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
@@ -25,6 +27,7 @@ import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
+import es.daw.bibliografia.book.Tema.Basic;
 
 
 @RestController
@@ -42,6 +45,7 @@ public class TemaRestController {
 	@Autowired
 	private ObraService obraService;
 	
+	@JsonView(Tema.Basic.class)
 	@GetMapping("/api/temas")
 	public Page<Tema> showTemas(@RequestParam int temaPage){
 		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));

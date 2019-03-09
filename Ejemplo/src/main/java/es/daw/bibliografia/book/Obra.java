@@ -9,19 +9,29 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 @Entity
 public class Obra {
 
+	public interface Basic{}
+	public interface Authors{}
+	public interface Quotes{}
+	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Quotes.class)
 	@OneToMany
 	private List<Cita> citas;
 
+	@JsonView(Authors.class)
 	@ManyToMany
 	private List<Autor> autores;
 
+	@JsonView(Basic.class)
 	private String title, URL, date, editorial, url_editorial;
 
 	public Obra() {

@@ -8,16 +8,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.daw.bibliografia.book.Obra.Basic;
+
 @Entity
 public class Autor {
 
+	public interface Basic{}
+	public interface Obras{}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
+	@JsonView(Obras.class)
 	@OneToMany(mappedBy="autores")
 	private List<Obra> obras;
 	
+	@JsonView(Basic.class)
 	private String nombre, url_foto, fecha_nac, fecha_def, url_mapa, lugar;
 
 	public Autor() {
