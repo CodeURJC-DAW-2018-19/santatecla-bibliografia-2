@@ -5,7 +5,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +21,7 @@ import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
+import es.daw.bibliografia.book.Tema;
 
 @RestController
 public class ObraRestController {
@@ -27,14 +32,28 @@ public class ObraRestController {
 	@Autowired
 	private CitaService serviceCita;
 	
-	@RequestMapping(value="/api/obra/guardada" , method=RequestMethod.POST)
+	@GetMapping("/api/obra") 
+	public ResponseEntity<Obra> openObra( @RequestParam("nombreObra") String nombreObra) {
+		
+		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
+
+		if (obra.isPresent()) {
+			Obra obraShow = obra.get();
+			return new ResponseEntity<Obra>(obraShow, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	
+	@PostMapping("/api/obra")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Obra addObra(@RequestBody Obra obra) {
 		serviceObra.save(obra);
 		return obra;
 	}
 	
-	@RequestMapping(value="/api/obra/edit", method=RequestMethod.PUT)
+	@PutMapping(value="/api/obra")
 	public ResponseEntity<Obra> editObra(@RequestBody Obra obra) {
 		Optional<Obra> obra2 = serviceObra.findOneByTitle(obra.getTitle());
 		
@@ -54,13 +73,14 @@ public class ObraRestController {
 		}
 	}
 	
-	@RequestMapping(value="/api/obra/borrar", method=RequestMethod.DELETE)
+	@DeleteMapping(value="/api/obra")
 	public ResponseEntity<Obra> deleteObra(Obra obra) {
+		Obra deletedObra = obra;
 		serviceObra.deleteObra(obra);
-		return new ResponseEntity<>(obra, HttpStatus.OK);
+		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/api/obra/{nombreObra}/borrar/autor", method=RequestMethod.DELETE)
+	@DeleteMapping("/api/obra/{nombreObra}/borrar/autor")
 	public ResponseEntity<Obra> deleteObraInAutor( @PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreAutor") String autor) {
 		Obra deletedObra = serviceObra.findOneByTitle(nombreObra).get();
@@ -69,7 +89,7 @@ public class ObraRestController {
 	}
 	
 
-	@RequestMapping(value="/api/obra/{nombreObra}/borrar/tema", method=RequestMethod.DELETE)
+	@DeleteMapping("/api/obra/{nombreObra}/borrar/tema")
 	public ResponseEntity<Obra> deleteObraInTema(@PathVariable("nombreObra") String nombreObra,
 			@RequestParam("nombreTema") String autor) {
 		Obra deletedObra =serviceObra.findOneByTitle(nombreObra).get();
@@ -77,7 +97,7 @@ public class ObraRestController {
 		return new ResponseEntity<>(deletedObra, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/api/obra/{nombreObra}/cita", method=RequestMethod.POST)
+	@PostMapping("/api/obra/{nombreObra}/cita")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cita createCita(@RequestBody Cita cita, @PathVariable("nombreObra") String nombreObra) {
 		
@@ -87,19 +107,7 @@ public class ObraRestController {
 		return cita;
 	}
 	
-	@RequestMapping(value = "/api/obrashow/{nombreObra}", method=RequestMethod.GET) 
-	public ResponseEntity<Obra> openObra( @PathVariable("nombreObra") String nombreObra) {
-		
-		Optional<Obra> obra = serviceObra.findOneByTitle(nombreObra);
-
-		if (obra.isPresent()) {
-			long id= obra.get().getId();
-			Obra obraShow =serviceObra.findOne(id).get();
-			return new ResponseEntity<>(obraShow, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
+	
 
 	
 

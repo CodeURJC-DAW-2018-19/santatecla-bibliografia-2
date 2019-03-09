@@ -40,7 +40,7 @@ public class TemaRestController {
 	private ObraService obraService;
 	
 	@GetMapping("/api/tema")
-	public ResponseEntity<Tema> accessTema(@RequestParam Long id) {
+	public ResponseEntity<Tema> openTema(@RequestParam Long id) {
 
 		Optional<Tema> temaOpt = temaService.findOne(id);
 		
