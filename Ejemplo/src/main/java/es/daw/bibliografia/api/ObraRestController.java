@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
@@ -35,7 +36,10 @@ public class ObraRestController {
 	@Autowired
 	private CitaService citaService;
 	
-	@JsonView(Obra.Basic.class)
+	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
+
+	
+	@JsonView(ObraDetail.class)
 	@GetMapping("/api/obras/{title}") 
 	public ResponseEntity<Obra> openObra( @PathVariable("title") String title) {
 		

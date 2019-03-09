@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import es.daw.bibliografia.book.Autor;
+import es.daw.bibliografia.book.AutorRepository;
 import es.daw.bibliografia.book.AutorService;
 import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
@@ -37,7 +40,12 @@ public class AutorRestController {
 	@Autowired
 	private ObraService obraService;
 	
+	interface AuthorDetail extends Autor.Basic, Autor.Obras, Obra.Basic{}
+	interface TemaDetail extends Tema.Basic, Tema.Obras, Obra.Basic{}
+	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
+
 	
+	@JsonView(AuthorDetail.class)
 	@GetMapping("/api/autores/{nombre}")
 	public ResponseEntity<Autor> showAutor(@PathVariable String nombre) {
 		Optional<Autor> autor = autorService.findOneByNombre(nombre);
@@ -77,7 +85,7 @@ public class AutorRestController {
 
 	}
 	
-
+	@JsonView(TemaDetail.class)
 	@GetMapping("/api/autores/{nombre}/temas/{contenido}")
 	public ResponseEntity<Tema> showTemaInAutor(@PathVariable String nombre, @PathVariable String contenido) {
 		Optional<Tema> tema = temaService.findOneByContenido(contenido);
@@ -105,6 +113,7 @@ public class AutorRestController {
 
 	}
 
+	@JsonView(ObraDetail.class)
 	@GetMapping("/api/autores/{nombre}/obras/{title}")
 	public ResponseEntity<Obra> showObraInAutor(@PathVariable String nombre, @PathVariable String title) {
 		Optional<Obra> obra = obraService.findOneByTitle(title);
@@ -131,6 +140,7 @@ public class AutorRestController {
 
 	}
 	
+	@JsonView(Cita.Basic.class)
 	@GetMapping("/api/autores/{nombre}/citas/{id}")
 	public ResponseEntity<Cita> showCitaInAutor(@PathVariable String nombre, @PathVariable Long id) {
 		Optional<Cita> cita = citaService.findOne(id);

@@ -17,8 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
+import es.daw.bibliografia.api.AutorRestController.AuthorDetail;
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
+import es.daw.bibliografia.book.Cita;
 import es.daw.bibliografia.book.CitaService;
 import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
@@ -49,6 +53,10 @@ public class BookRestController {
 	@Autowired
 	private UserComponent userComponent;
 	
+	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
+	interface AuthorDetail extends Autor.Basic, Autor.Obras, Obra.Basic{}
+
+	
 	@RequestMapping(value = "/api/signupOk", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public User signup(User user, @RequestParam("pass") String pass) {
@@ -57,12 +65,14 @@ public class BookRestController {
 		return aux;
 	}
 	
+	@JsonView(ObraDetail.class)
 	@GetMapping("/api/obras")
 	public Page<Obra> showObras(@RequestParam int obraPage){
 		Page<Obra> obras = obraService.findAll(new PageRequest(obraPage,10));
 		return obras;
 	}
 	
+	@JsonView(AuthorDetail.class)
 	@GetMapping("/api/autores")
 	public Page<Autor> showAutores(@RequestParam int autorPage){
 		Page<Autor> autores = autorService.findAll(new PageRequest(autorPage,10));

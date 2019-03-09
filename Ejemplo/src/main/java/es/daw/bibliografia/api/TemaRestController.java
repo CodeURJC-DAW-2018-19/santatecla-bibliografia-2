@@ -45,13 +45,21 @@ public class TemaRestController {
 	@Autowired
 	private ObraService obraService;
 	
-	@JsonView(Tema.Basic.class)
+	interface TemaDetail extends Tema.Basic, Tema.Obras, Obra.Basic{}
+	interface AuthorDetail extends Autor.Basic, Autor.Obras, Obra.Basic{}
+	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
+
+
+	
+	@JsonView(TemaDetail.class)
 	@GetMapping("/api/temas")
 	public Page<Tema> showTemas(@RequestParam int temaPage){
 		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
 		return temas;
 	}
 	
+	
+	@JsonView(TemaDetail.class)
 	@GetMapping("/api/temas/{contenido}")
 	public ResponseEntity<Tema> openTema(@PathVariable String contenido) {
 
@@ -89,7 +97,8 @@ public class TemaRestController {
 		}
 		
 	}
-			
+		
+	@JsonView(Cita.Basic.class)
 	@GetMapping("/api/temas/{contenido}/citas/{id}")
 	public ResponseEntity<List<Cita>> accessCitas(@PathVariable String contenido, @PathVariable Long id) {
 		
@@ -116,6 +125,7 @@ public class TemaRestController {
 
 	}
 	
+	@JsonView(AuthorDetail.class)
 	@GetMapping("/api/temas/{contenido}/autores")
 	public ResponseEntity<List<Autor>> showAutoresInTema(@PathVariable String contenido) {
 		
@@ -129,6 +139,7 @@ public class TemaRestController {
 
 	}
 	
+	@JsonView(ObraDetail.class)
 	@GetMapping("/api/temas/{contenido}/obras")
 	public ResponseEntity<List<Obra>> showObrasInTema(@PathVariable String contenido) {
 		Tema tema = temaService.findOneByContenido(contenido).get();
