@@ -1,6 +1,7 @@
 package es.daw.bibliografia.api;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -68,23 +69,26 @@ public class BookRestController {
 	
 	@JsonView(ObraDetail.class)
 	@GetMapping("/api/obras")
-	public Page<Obra> showObras(@RequestParam int obraPage){
+	@ResponseStatus(HttpStatus.OK)
+	public List<Obra> showObras(@RequestParam int obraPage){
 		Page<Obra> obras = obraService.findAll(new PageRequest(obraPage,10));
-		return obras;
+		return obras.getContent();
 	}
 	
 	@JsonView(AuthorDetail.class)
 	@GetMapping("/api/autores")
-	public Page<Autor> showAutores(@RequestParam int autorPage){
+	@ResponseStatus(HttpStatus.OK)
+	public List<Autor> showAutores(@RequestParam int autorPage){
 		Page<Autor> autores = autorService.findAll(new PageRequest(autorPage,10));
-		return autores;
+		return autores.getContent();
 	}
 	
 	@JsonView(TemaDetail.class)
 	@GetMapping("/api/temas")
-	public Page<Tema> showTemas(@RequestParam int temaPage){
+	@ResponseStatus(HttpStatus.OK)
+	public List<Tema> showTemas(@RequestParam int temaPage){
 		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
-		return temas;
+		return temas.getContent();
 	}
 	
 }
