@@ -3,9 +3,9 @@
  # 
 
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY src Ejemplo/src
-COPY pom.xml Ejemplo
-RUN mvn -f Ejemplo/pom.xml clean package
+COPY Ejemplo/src /user/src/app/src
+COPY Ejemplo/pom.xml /user/src/app
+RUN mvn -f /user/src/app/pom.xml clean package
 
  #
  # Package stage
@@ -30,5 +30,5 @@ ARG JAR_FILE=Ejemplo/target/practica_fase4-0.1.0.jar
 ADD ${JAR_FILE} practica_fase4-0.1.0.jar
 
  # Run the jar file
-ENTRYPOINT["java","-jar","/practica_fase4-0.1.0.jar"]
+ENTRYPOINT ["java","-jar","/practica_fase4-0.1.0.jar"]
 
