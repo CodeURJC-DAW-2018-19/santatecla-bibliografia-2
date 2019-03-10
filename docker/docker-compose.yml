@@ -2,7 +2,7 @@ version: '3'
 
 services: 
   mysql-docker-container:
-    image: mysql:latest
+    image: mysql
     hostname: localhost
     environment: 
       - MYSQL_ROOT_PASSWORD=rootc
