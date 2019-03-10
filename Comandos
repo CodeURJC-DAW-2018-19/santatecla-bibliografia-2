@@ -1,0 +1,13 @@
+sudo docker pull mysql:latest
+
+sudo docker run --name=mysql-server -e MYSQL_ROOT_PASSWORD=rootc -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_DATABASE=mysql-server -d mysql
+
+cd ../
+
+sudo docker build -t api -f docker/Dockerfile . 
+
+cd docker
+
+sudo docker-compose up
+
+
