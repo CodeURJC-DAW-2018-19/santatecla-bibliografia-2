@@ -1,0 +1,26 @@
+version: '1'
+
+services: 
+  mysql-docker-container:
+    image: mysql:latest
+    hostname: localhost
+    enviroment: 
+      - MYSQL_ROOT_PASSWORD=rootc
+      - MYSQL_DATABASE=mysql-server
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+    volumes: 
+      - data/mysql
+  
+  bibliografia: 
+    image: api:latest
+    depends_on: 
+      - mysql-docker-container
+    ports: 
+      - "8080:8443"
+    volumes: 
+      - /data/bibliografia-app
+    enviroment: 
+      - SPRING_DATASOURCE_URL=jdbc:mysql://localhost/bibliografia?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
