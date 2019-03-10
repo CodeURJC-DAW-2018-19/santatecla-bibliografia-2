@@ -3,9 +3,9 @@
  # 
 
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY Ejemplo/src /user/src/app/src
-COPY Ejemplo/pom.xml /user/src/app
-RUN mvn -f /user/src/app/pom.xml clean package
+COPY Ejemplo/src /usr/src/app/src
+COPY Ejemplo/pom.xml /usr/src/app
+RUN mvn -f /usr/src/app/pom.xml clean package
 
  #
  # Package stage
