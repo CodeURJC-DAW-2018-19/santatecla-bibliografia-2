@@ -1,4 +1,4 @@
-sudo docker pull mysql:latest
+sudo docker pull mysql
 
 sudo docker run --name=mysql-server -e MYSQL_ROOT_PASSWORD=rootc -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_DATABASE=mysql-server -d mysql
 
