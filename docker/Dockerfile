@@ -3,8 +3,8 @@
  # 
 
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY Ejemplo/src /usr/src/app/src
-COPY Ejemplo/pom.xml /usr/src/app
+COPY ../Ejemplo/src /usr/src/app/src
+COPY ../Ejemplo/pom.xml /usr/src/app
 RUN mvn -f /usr/src/app/pom.xml clean package
 
  #
@@ -24,7 +24,7 @@ EXPOSE 8443
 
  # The application's jar file. JAR_FILE defines a variable with a
 	#default value
-ARG JAR_FILE=Ejemplo/target/practica_fase4-0.1.0.jar
+ARG JAR_FILE=../Ejemplo/target/practica_fase4-0.1.0.jar
 
  # Add the application's jar to the container
 ADD ${JAR_FILE} practica_fase4-0.1.0.jar
