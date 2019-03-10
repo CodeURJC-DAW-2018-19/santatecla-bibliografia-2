@@ -4,7 +4,7 @@ services:
   mysql-docker-container:
     image: mysql:latest
     hostname: localhost
-    enviroment: 
+    environment: 
       - MYSQL_ROOT_PASSWORD=rootc
       - MYSQL_DATABASE=mysql-server
       - MYSQL_USER=root
@@ -20,7 +20,7 @@ services:
       - "8080:8443"
     volumes: 
       - /data/bibliografia-app
-    enviroment: 
+    environment: 
       - SPRING_DATASOURCE_URL=jdbc:mysql://localhost/bibliografia?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
