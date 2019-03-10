@@ -3,6 +3,7 @@ version: '3'
 services: 
   mysql-docker-container:
     image: mysql:latest
+    hostname: localhost
     environment: 
       - MYSQL_ROOT_PASSWORD=rootc
       - MYSQL_DATABASE=bibliografia
