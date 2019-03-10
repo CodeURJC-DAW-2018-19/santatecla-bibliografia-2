@@ -125,3 +125,5 @@ User account registered:
 
 YOU ARE READY TO USE OUR WEB APPLICATION
 
+## Postman test for API REST ##
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/555325d823f740754022)
