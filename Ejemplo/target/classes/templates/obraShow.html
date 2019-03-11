@@ -30,17 +30,6 @@
 								</div>
 							</div>
 
-							<!--Input URL Cover -->
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label class="bmd-label-floating">{{URL}}</label>
-										<!--<input type="text" class="form-control" disabled>-->
-										<input type='text' class="form-control" name="URL" id="url"
-											disabled />
-									</div>
-								</div>
-							</div>
 
 							<!--Input Calendar-->
 							<div class="row">
@@ -72,18 +61,6 @@
 									</div>
 								</div>
 							</div>
-
-							<!--Input URL  -->
-							<div class="row" style="padding-bottom: 2.5em;">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label class="bmd-label-floating">{{url_editorial}}</label>
-										<!--  <input type="text" class="form-control" disabled>-->
-										<input type='text' class="form-control" name="url_editorial"
-											id="urlEdi" disabled />
-									</div>
-								</div>
-							</div>
 							<!-- <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>-->
 							{{#admin}}
 							<button type="button" class="btn btn-primary"
@@ -99,10 +76,10 @@
 							function editarObra() {
 								//document.getElementById("editar").type = 'submit';
 								//document.getElementById("editar").onclick=function() {};
-								document.getElementById("url").disabled = false;
+								//document.getElementById("url").disabled = false;
 								document.getElementById("date").disabled = false;
 								document.getElementById("editorial").disabled = false;
-								document.getElementById("urlEdi").disabled = false;
+								//document.getElementById("urlEdi").disabled = false;
 								document.getElementById("editar").style.display = 'none';
 								document.getElementById("guardar").style.display = 'inline';
 								//document.getElementById("showActor").method = 'post';
@@ -140,7 +117,7 @@
 
 				<div class="card card-profile">
 					<div class="card-avatar-top">
-						<img class="card-img-top" src="{{URL}}"
+						<img class="card-img-top" src="/imageDownload/portada"
 							style="width: 11.65em; height: 10em;" />
 					</div>
 					<div class="card-body">
@@ -152,7 +129,7 @@
 
 				<div class="card card-profile">
 					<div class="card-avatar-top">
-						<img class="card-img-top" src="{{url_editorial}}"
+						<img class="card-img-top" src="/imageDownload/editorial"
 							style="width: 11.65em; height: 10em;" />
 					</div>
 					<div class="card-body">

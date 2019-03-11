@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import es.daw.bibliografia.book.Autor;
 import es.daw.bibliografia.book.AutorService;
@@ -20,6 +21,7 @@ import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
+import es.daw.bibliografia.imageloader.ImageUploadController;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -37,23 +39,59 @@ public class ObraController {
 
 	@Autowired
 	private CitaService serviceCita;
+	
+	@Autowired
+	private ImageUploadController imageUpload;
 
 	@Autowired
 	private BookWebController webController;
 
 	@Autowired
 	private UserComponent userComponent;
+	
+	@RequestMapping(value = "/obrashow/{nombreObra}") // PUT IN BOOKWEEBCONTROLER
+	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
 
+		Optional<Obra> obra = service.findOneByTitle(nombreObra);
+
+		webController.addUserToModel(model);
+		
+		if (obra.isPresent()) {
+
+			userTabs(model, "/obrashow/" + nombreObra, "Obra  " + nombreObra, true);
+
+			Tema tema = serviceTema.findByObra(obra.get());
+			List<Cita> citas = serviceCita.findCitasByObra(obra.get());
+			List<Autor> autores = serviceAutor.findAutoresByObra(obra.get());
+
+			model.addAttribute("autores", autores);
+			model.addAttribute("temas", tema);
+			model.addAttribute("citas", citas);
+
+			model.addAttribute("title", obra.get().getTitle());
+			model.addAttribute("URL", obra.get().getURL());
+			model.addAttribute("date", obra.get().getDate());
+			model.addAttribute("editorial", obra.get().getEditorial());
+			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
+			return "obraShow";
+		} else {
+			return "obraShowError";
+		}
+	}
+	
 	@RequestMapping("/obra/guardada")
 	public String addObra(Model model, Obra obra, @RequestParam Optional<Long[]> autores,
-			@RequestParam Optional<Long> tema, @RequestParam("URLpor") File portada,
-			@RequestParam("URLed") File editorial) {
+			@RequestParam Optional<Long> tema, @RequestParam("URLpor") MultipartFile portada,
+			@RequestParam("URLed") MultipartFile editorial) {
 		webController.deleteTab("Nueva obra");
-		obra.setURL("../imgs/" + portada.getPath());
-		obra.setUrl_editorial("../imgs/" + editorial.getPath());
+//		obra.setURL("../imgs/" + portada.getPath());
+//		obra.setUrl_editorial("../imgs/" + editorial.getPath());
 
 		ArrayList<Autor> aAutores = new ArrayList<Autor>();
 
+		obra.setURL(imageUpload.handleFileUpload(userComponent.getLoggedUser(), portada, "portada-"+obra.getId()));
+		obra.setUrl_editorial(imageUpload.handleFileUpload(userComponent.getLoggedUser(), editorial, "editorial-"+obra.getId()));
+		
 		if (autores.isPresent()) {
 			for (Long id : autores.get()) {
 				Autor autor = serviceAutor.findOne(id).get();
@@ -186,35 +224,7 @@ public class ObraController {
 		return false;
 	}
 
-	@RequestMapping(value = "/obrashow/{nombreObra}") // PUT IN BOOKWEEBCONTROLER
-	public String openObra(Model model, @PathVariable("nombreObra") String nombreObra) {
-
-		Optional<Obra> obra = service.findOneByTitle(nombreObra);
-
-		webController.addUserToModel(model);
-		//serviceCita.save(cita);
-		if (obra.isPresent()) {
-
-			userTabs(model, "/obrashow/" + nombreObra, "Obra  " + nombreObra, true);
-
-			Tema tema = serviceTema.findByObra(obra.get());
-			List<Cita> citas = serviceCita.findCitasByObra(obra.get());
-			List<Autor> autores = serviceAutor.findAutoresByObra(obra.get());
-
-			model.addAttribute("autores", autores);
-			model.addAttribute("temas", tema);
-			model.addAttribute("citas", citas);
-
-			model.addAttribute("title", obra.get().getTitle());
-			model.addAttribute("URL", obra.get().getURL());
-			model.addAttribute("date", obra.get().getDate());
-			model.addAttribute("editorial", obra.get().getEditorial());
-			model.addAttribute("url_editorial", obra.get().getUrl_editorial());
-			return "obraShow";
-		} else {
-			return "obraShowError";
-		}
-	}
+	
 
 	@RequestMapping(value = "/obra/new")
 	public String goObra(Model model) {
