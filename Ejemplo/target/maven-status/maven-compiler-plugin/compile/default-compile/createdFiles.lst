@@ -38,6 +38,7 @@ es/daw/bibliografia/api/BookRestController.class
 es/daw/bibliografia/SmokeTest.class
 es/daw/bibliografia/web/AutorWebController.class
 es/daw/bibliografia/pdfgenerator/PDFController.class
+es/daw/bibliografia/imageloader/ImageManagerController.class
 es/daw/bibliografia/security/WebSecurityConfig.class
 es/daw/bibliografia/web/BookWebController.class
 es/daw/bibliografia/api/AutorRestController$ObraDetail.class
@@ -45,6 +46,7 @@ es/daw/bibliografia/book/Tema.class
 es/daw/bibliografia/api/ObraRestController$ObraDetail.class
 es/daw/bibliografia/api/PDFRestController.class
 es/daw/bibliografia/book/TemaRepository.class
+es/daw/bibliografia/imageloader/ImageUploadController.class
 es/daw/bibliografia/api/AutorRestController.class
 es/daw/bibliografia/book/TemaService.class
 es/daw/bibliografia/user/Tabs.class

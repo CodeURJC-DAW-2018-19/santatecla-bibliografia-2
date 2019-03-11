@@ -1,3 +1,4 @@
+/home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/imageloader/ImageUploadController.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/web/TemaWebController.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/DatabaseInitializer.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/book/CitaRepository.java
@@ -16,6 +17,7 @@
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/book/CitaService.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/api/PDFRestController.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/book/ObraService.java
+/home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/imageloader/ImageManagerController.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/api/ObraRestController.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/book/AutorService.java
 /home/segismundo/Desktop/santatecla-bibliografia-2/Ejemplo/src/main/java/es/daw/bibliografia/book/Cita.java
