@@ -1,0 +1,12 @@
+El comando sudo dependerá de su configuración de docker.
+Utilizaremos 2 contenedores: mysql y otra que contiene la aplicación web y la API REST.
+Si deseas descargar las imágenes por separado las puedes descargar escribiendo en la shell:  
+	(sudo) docker pull mysql
+        (sudo) docker pull sandruskyi/api
+Para ejecutar la aplicación dockerizada con docker-compose: 
+	Ve a la carpeta santatecla-bibliografia-2/docker 
+	Escribe en la shell: 
+		(sudo) ./create_image.sh 
+	El script ejecutará un build del Dockerfile.txt y además "docker-compose up"
+	Así la aplicación ya estará en ejecución y se podrá acceder a ella a través de: 
+		https://0.0.0.0:8080
