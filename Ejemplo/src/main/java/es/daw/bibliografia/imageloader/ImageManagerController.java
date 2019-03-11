@@ -35,10 +35,10 @@ import es.daw.bibliografia.book.Obra;
 		// NOTE: The url format "/image/{fileName:.+}" avoid Spring MVC remove file
 		// extension.
 
-		@RequestMapping("/imageDownload/portada")
-		public void handlePortadaDownload(HttpServletResponse res, Obra obra)
+		@RequestMapping("/imageDownload/portada/{id}")
+		public void handlePortadaDownload(HttpServletResponse res, @PathVariable("id") long id)
 				throws FileNotFoundException, IOException {
-			String fileName ="portada-"+ obra.getId() + "-img.jpg";
+			String fileName ="img-portada-"+ id + ".jpg";
 			System.out.println("Intentando con:" + Paths.get(System.getProperty("user.dir"), "images"));
 			Path image = FILES_FOLDER.resolve(fileName);
 
@@ -53,11 +53,11 @@ import es.daw.bibliografia.book.Obra;
 			}
 		}
 		
-		@RequestMapping("/imageDownload/editorial")
-		public void handleEditorialDownload(HttpServletResponse res, Obra obra)
+		@RequestMapping("/imageDownload/editorial/{id}")
+		public void handleEditorialDownload(HttpServletResponse res, @PathVariable("id") long id)
 				throws FileNotFoundException, IOException {
-			String fileName ="editorial-"+ obra.getId() + "-img.jpg";
-			System.out.println("Intentando con:" + Paths.get(System.getProperty("user.dir"), "images"));
+			String fileName ="img-editorial-"+ id + ".jpg";
+			System.out.println("Intentando con: " + Paths.get(System.getProperty("user.dir"), "images"));
 			Path image = FILES_FOLDER.resolve(fileName);
 
 			if (Files.exists(image)) {

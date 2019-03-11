@@ -21,7 +21,7 @@ import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.book.Tema;
 import es.daw.bibliografia.book.TemaService;
-import es.daw.bibliografia.imageloader.ImageUploadController;
+import es.daw.bibliografia.imageloader.ImageUploadService;
 import es.daw.bibliografia.user.Tabs;
 import es.daw.bibliografia.user.UserComponent;
 
@@ -41,7 +41,7 @@ public class ObraController {
 	private CitaService serviceCita;
 	
 	@Autowired
-	private ImageUploadController imageUpload;
+	private ImageUploadService imageUpload;
 
 	@Autowired
 	private BookWebController webController;
@@ -67,7 +67,7 @@ public class ObraController {
 			model.addAttribute("autores", autores);
 			model.addAttribute("temas", tema);
 			model.addAttribute("citas", citas);
-
+			model.addAttribute("id", obra.get().getId());
 			model.addAttribute("title", obra.get().getTitle());
 			model.addAttribute("URL", obra.get().getURL());
 			model.addAttribute("date", obra.get().getDate());

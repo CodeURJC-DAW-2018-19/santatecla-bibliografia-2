@@ -168,9 +168,8 @@ public class DatabaseInitializer {
 		Obra o10 = new Obra("Odas", "https://www.alianzaeditorial.es//jpg_g/alianza/LB00127301.jpg", "23 a.C",
 				"Alianza Editorial",
 				"https://www.vectorlogo.es/wp-content/uploads/2016/10/logo-vector-alianza-editorial.jpg");
-		Obra o11 = new Obra("Oda a la vida Retirada", "1574",
-				"https://http2.mlstatic.com/oda-a-la-vida-retirada-y-otros-poemas-fray-luis-de-leon-D_NQ_NP_682178-MLM26410469570_112017-F.jpg,",
-				"Planeta", "https://pbs.twimg.com/profile_images/926033131223871488/7t1-cwuY_400x400.jpg");
+		Obra o11 = new Obra("Oda a la vida Retirada","https://http2.mlstatic.com/oda-a-la-vida-retirada-y-otros-poemas-fray-luis-de-leon-D_NQ_NP_682178-MLM26410469570_112017-F.jpg,",
+				 "1574","Planeta", "https://pbs.twimg.com/profile_images/926033131223871488/7t1-cwuY_400x400.jpg");
 		Obra o12 = new Obra("Fábula de Polifemo y Galatea", "https://www.catedra.com/jpg_g/catedra/CA00220601.jpg",
 				"1612", "Cátedra",
 				"https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg");

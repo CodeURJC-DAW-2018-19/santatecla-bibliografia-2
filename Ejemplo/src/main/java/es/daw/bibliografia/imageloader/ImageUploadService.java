@@ -3,6 +3,7 @@ package es.daw.bibliografia.imageloader;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,16 +13,15 @@ import es.daw.bibliografia.book.Obra;
 import es.daw.bibliografia.user.User;
 
 @Service
-public class ImageUploadController {
+public class ImageUploadService {
 	
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 	
-	public String handleFileUpload(User user, 
-			@RequestParam("file") MultipartFile file, String name) {
+	public String handleFileUpload(User user, MultipartFile file, String name) {
 		
-		String fileName = name + "-img.jpg";
-
-		if (!file.isEmpty()) {
+		String fileName = "img-" + name + ".jpg";
+		System.out.println("Intentando subir: "+ fileName);
+		if (file!=null) {
 			try {
 
 				File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
@@ -32,11 +32,11 @@ public class ImageUploadController {
 				return path;
 
 			} catch (Exception e) {
-
+				System.out.println("Exception occured\n");
 				
 			}
 		} else {
-			return "";
+			return "File provided is null";
 		}
 		return "error";
 	}
