@@ -1,7 +1,7 @@
 #!/bin/bash
 # -*- ENCODING: UTF-8 -*-
 cd ../Ejemplo
-mvn clean install
+mvn clean package
 cd ..
 docker build -t api -f docker/Dockerfile .
 cd docker/
