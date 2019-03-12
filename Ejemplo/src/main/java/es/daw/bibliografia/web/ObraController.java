@@ -84,13 +84,8 @@ public class ObraController {
 			@RequestParam Optional<Long> tema, @RequestParam("URLpor") MultipartFile portada,
 			@RequestParam("URLed") MultipartFile editorial) {
 		webController.deleteTab("Nueva obra");
-//		obra.setURL("../imgs/" + portada.getPath());
-//		obra.setUrl_editorial("../imgs/" + editorial.getPath());
 
 		ArrayList<Autor> aAutores = new ArrayList<Autor>();
-
-		obra.setURL(imageUpload.handleFileUpload(userComponent.getLoggedUser(), portada, "portada-"+obra.getId()));
-		obra.setUrl_editorial(imageUpload.handleFileUpload(userComponent.getLoggedUser(), editorial, "editorial-"+obra.getId()));
 		
 		if (autores.isPresent()) {
 			for (Long id : autores.get()) {
@@ -100,6 +95,10 @@ public class ObraController {
 		}
 
 		obra.setAutores(aAutores);
+		service.save(obra);
+
+		obra.setURL(imageUpload.handleFileUpload(userComponent.getLoggedUser(), portada, "portada-"+obra.getId()));
+		obra.setUrl_editorial(imageUpload.handleFileUpload(userComponent.getLoggedUser(), editorial, "editorial-"+obra.getId()));
 		service.save(obra);
 
 		if (tema.isPresent()) {
