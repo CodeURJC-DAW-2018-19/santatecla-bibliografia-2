@@ -1,3 +1,13 @@
+#Description
+All API queries begin with /api.
+
+## Author
+#### Url
+	< /autores/ >
+	
+* #### Method:
+
+	`GET`
 {
 	"info": {
 		"_postman_id": "4d06952d-3799-4788-ab2b-db20206da27e",
