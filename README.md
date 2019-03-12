@@ -8,6 +8,10 @@
   - [Database Entity Diagram](#Database-Entity-Diagram)
   - [Class UML Diagram](#Class-UML-Diagram)
   - [Development Environment](#Development-Environment)
+  - [API REST](#API-REST)
+  - [ML class with RESTCONTROLLERS](#UML-Class-with-RESTCONTROLLERS)
+  - [Docker](#Docker)
+
 
 
 Development Environment
@@ -125,5 +129,13 @@ User account registered:
 
 YOU ARE READY TO USE OUR WEB APPLICATION
 
-## Postman test for API REST ##
+## API REST ##
+[Documentation](https://github.com/CodeURJC-DAW-2018-19/santatecla-bibliografia-2/blob/master/ApiRestDocumentation.md)
+
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/555325d823f740754022)
+
+## UML class with RESTCONTROLLERS ##
+<img src="./imagenes/UMLREST.png">
+
+
+## Docker ##

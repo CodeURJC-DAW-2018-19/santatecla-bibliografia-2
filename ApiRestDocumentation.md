@@ -1,68 +1,60 @@
+# Description
+All API queries begin with /api.
+Any request that is not authorized to be made returns the error code 405 Method Not Allowed, 403 Forbidden or 401 Not Authorized.
+
+
+
+## Authors
+
+## Show Tema in Autor
+#### Url
+	< /autores/tema/{tema} >
+	
+* #### Method:
+
+	`GET`
+
+* #### Request:
 {
-	"info": {
-		"_postman_id": "4d06952d-3799-4788-ab2b-db20206da27e",
-		"name": "Bibliografia",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Autor",
-			"item": [
-				{
-					"name": "Extras",
-					"item": [
-						{
-							"name": "Show tema in autor",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:8443/api/autores/temas/Tragedia",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "8443",
-									"path": [
-										"api",
-										"autores",
-										"temas",
-										"Tragedia"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete tema in autor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:8443/api/autores/temas/Tragedia",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "8443",
-									"path": [
-										"api",
-										"autores",
-										"temas",
-										"Tragedia"
-									]
-								}
-							},
-							"response": []
-						},
+    "obras": [{
+        "id": 26,
+        "title": "Hamlet",
+        "URL": "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg",
+        "date": "1605",
+        "editorial": "Ed. Oceano",
+        "url_editorial": "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg"
+    }],
+    "contenido": "Tragedia"
+}
+
+### Delete tema in autor (only Administrator)
+#### URL
+
+	< /autores/tema/{tema} >
+
+* #### Method:
+
+	`DELETE`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+### Show obra in autor (only Administrator & User)
+#### URL
+
+	< /autores/obras/{obra} >
+
+* #### Method:
+
+	`GET`
+
+   
+* #### Request:
+
+        {
+            "id": 16,
 						{
 							"name": "Show obra in autor",
 							"request": {
@@ -89,6 +81,24 @@
 							},
 							"response": []
 						},
+
+### Delete obra in autor (only Administrator)
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:
+
 						{
 							"name": "Delete obra in autor",
 							"request": {
@@ -115,6 +125,24 @@
 							},
 							"response": []
 						},
+						
+### Show cita in autor (only Administrator & user)
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:
+
 						{
 							"name": "Show cita in autor",
 							"request": {
@@ -141,6 +169,24 @@
 							},
 							"response": []
 						},
+
+### Delete cita in autor (only Administrator)
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:
+
 						{
 							"name": "Delete cita in autor",
 							"request": {
@@ -170,7 +216,23 @@
 					],
 					"_postman_isSubFolder": true
 				},
-				{
+				
+### Show autor
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:				{
 					"name": "Show Autor",
 					"request": {
 						"method": "GET",
@@ -195,6 +257,23 @@
 					},
 					"response": []
 				},
+				
+### Add new autor (only Administrator)
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:
 				{
 					"name": "Add new autor",
 					"request": {
@@ -232,6 +311,22 @@
 					},
 					"response": []
 				},
+### Delete autor (only Administrator)
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:
 				{
 					"name": "Delete autor",
 					"request": {
@@ -257,6 +352,22 @@
 					},
 					"response": []
 				},
+### Edit autor (only Administrator)
+#### URL
+
+	< /themes/{id} >
+
+* #### Method:
+
+	`GET`
+	
+* #### Parameters:
+
+	* URL
+        - id = [int]
+
+   
+* #### Request:
 				{
 					"name": "Edit autor",
 					"request": {
@@ -290,6 +401,9 @@
 				}
 			]
 		},
+		
+		
+## Themes
 		{
 			"name": "Tema",
 			"item": [
