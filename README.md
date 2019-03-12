@@ -135,5 +135,7 @@ YOU ARE READY TO USE OUR WEB APPLICATION
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/555325d823f740754022)
 
 ## UML class with RESTCONTROLLERS ##
+<img src="./imagenes/UMLREST.png">
+
 
 ## Docker ##
