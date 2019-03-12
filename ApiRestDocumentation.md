@@ -313,15 +313,15 @@ Any request that is not authorized to be made returns the error code 405 Method 
    
 * #### Request:
 
-{
-    "id": 57,
-    "nombre": "Pikachu",
-    "url_foto": "https://as.com/epik/imagenes/2018/11/16/portada/1542384053_864693_1542384302_noticia_normal.jpg",
-    "fecha_nac": "2 de septiembre de 1998",
-    "fecha_def": "",
-    "url_mapa": "https://cdn.wikimg.net/en/strategywiki/images/thumb/b/b1/PRS%26E-SafariZone.png/1200px-PRS%26E-SafariZone.png",
-    "lugar": "Kanto"
-}
+		{
+		    "id": 57,
+		    "nombre": "Pikachu",
+		    "url_foto": "https://as.com/epik/imagenes/2018/11/16/portada/1542384053_864693_1542384302_noticia_normal.jpg",
+		    "fecha_nac": "2 de septiembre de 1998",
+		    "fecha_def": "",
+		    "url_mapa": "https://cdn.wikimg.net/en/strategywiki/images/thumb/b/b1/PRS%26E-SafariZone.png/1200px-PRS%26E-SafariZone.png",
+		    "lugar": "Kanto"
+		}
 
 
 ### Show autor 
