@@ -45,10 +45,10 @@ Any request that is not authorized to be made returns the error code 405 Method 
 
 * #### Request:
 		{
-		    "timestamp": "2019-03-12T00:54:25.554+0000",
-		    "status": 500,
-		    "error": "Internal Server Error",
-		    "message": "Could not write JSON: failed to lazily initialize a collection, could not initialize proxy - no Session; nested exception is com.fasterxml.jackson.databind.JsonMappingException: failed to lazily initialize a collection, could not initialize proxy - no Session (through reference chain: es.daw.bibliografia.book.Tema[\"obras\"])",
+		    "id": 54,
+		    "obras": [],
+		    "contenido": "Videojuegos",
+		    "numObras": 0
 		}
 
 
