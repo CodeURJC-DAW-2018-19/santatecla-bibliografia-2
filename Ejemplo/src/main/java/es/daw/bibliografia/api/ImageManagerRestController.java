@@ -11,19 +11,16 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import es.daw.bibliografia.book.Obra;
+
 import es.daw.bibliografia.imageloader.ImageUploadService;
-import es.daw.bibliografia.user.User;
 import es.daw.bibliografia.user.UserComponent;
 	
 	@RestController
@@ -65,28 +62,11 @@ import es.daw.bibliografia.user.UserComponent;
 				System.out.println("No se ha encontrado "+file);
 			}
 		}
-		
-//		@RequestMapping("/api/obras/{id}/imageDownload/editorial")
-//		public void handleEditorialDownload(HttpServletResponse res, @PathVariable Long id)
-//				throws FileNotFoundException, IOException {
-//			String fileName ="editorial-"+ id + "-img.jpg";
-//			System.out.println("Intentando con:" + Paths.get(System.getProperty("user.dir"), "images"));
-//			Path image = FILES_FOLDER.resolve(fileName);
-//
-//			if (Files.exists(image)) {
-//				res.setContentType("image/jpeg");
-//				res.setContentLength((int) image.toFile().length());
-//				System.out.println("Devolviendo: "+fileName);
-//				FileCopyUtils.copy(Files.newInputStream(image), res.getOutputStream());
-//				
-//			} else {
-//				System.out.println("No se ha encontrado "+fileName);
-//			}
-//		}
+
 		
 		@RequestMapping(value="/api/obras/{id}/imageUpload", method=RequestMethod.POST)
 		public String handleFileUpload(@RequestParam ("file") MultipartFile file, @PathVariable Long id, @RequestParam String fileName) {
-			System.out.println("Invocado");
+			System.out.println("imageUpload invocado");
 			String uploaded = imageUploadService.handleFileUpload(userComponent.getLoggedUser(),file, fileName + "-"+ id);
 			System.out.println("Ya se ha subido :" + uploaded);
 			return "/api/obras/" + id + "/imageDownload?fileName=" + fileName;

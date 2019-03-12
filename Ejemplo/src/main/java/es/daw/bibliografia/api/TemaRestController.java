@@ -77,6 +77,7 @@ public class TemaRestController {
 	public ResponseEntity<Tema> deleteTema(@PathVariable String contenido) {
 		
 		Optional<Tema> deletedTema = temaService.deleteByContenido(contenido);
+		deletedTema.get().setObra(new ArrayList<Obra>());
 		
 		if (deletedTema.isPresent()) {
 			return new ResponseEntity<Tema>(deletedTema.get(),HttpStatus.OK);
