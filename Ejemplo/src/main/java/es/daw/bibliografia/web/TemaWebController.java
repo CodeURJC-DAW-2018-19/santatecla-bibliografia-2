@@ -88,7 +88,7 @@ public class TemaWebController {
 		return false;
 	}
 
-	@RequestMapping("/tema/borrarCita")
+	@RequestMapping("/temashow/borrarCita")
 	public String deleteCita(Model model, @RequestParam long id) {
 
 		citaService.delete(id);

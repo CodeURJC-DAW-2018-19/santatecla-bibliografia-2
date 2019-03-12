@@ -139,7 +139,7 @@ public class ObraController {
 		return "redirect:/obrashow/".concat(obra.getTitle());
 	}
 
-	@RequestMapping("/obra/borrar")
+	@RequestMapping("/obrashow/borrar")
 	public String deleteObra(Model model, Obra obra) {
 		// userTabs(model, "/obra/guardada", "Obra guardada", true);
 		service.deleteObra(obra);

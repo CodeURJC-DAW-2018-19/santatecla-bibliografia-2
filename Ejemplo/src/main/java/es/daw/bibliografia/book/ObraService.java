@@ -47,7 +47,8 @@ public class ObraService {
 	}
 	
 	public void deleteObra(Obra obra) {
-		repository.deleteById(obra.getId());
+		Obra obra2=repository.findOneByTitle(obra.getTitle()).get();
+		repository.deleteById(obra2.getId());
 	}
 	
 	public void deleteByTitle(String title) {
