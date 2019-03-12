@@ -3,55 +3,97 @@ All API queries begin with /api.
 Any request that is not authorized to be made returns the error code 405 Method Not Allowed, 403 Forbidden or 401 Not Authorized.
 
 
-
-## Authors
-
-## Show Tema in Autor
+## Add new tema (only Administrator)
 #### Url
-	< /autores/tema/{tema} >
+	< https://localhost:8443/api/temas>
+	
+* #### Method:
+
+	`POST`
+
+* #### Request:
+		{
+		    "id": 54,
+		    "obras": [],
+		    "contenido": "Videojuegos",
+		    "numObras": 0
+		}
+
+## Show Tema
+#### Url
+	< https://localhost:8443/api/temas/Videojuegos >
 	
 * #### Method:
 
 	`GET`
 
 * #### Request:
-{
-    "id": 54,
-    "obras": [],
-    "contenido": "Videojuegos",
-    "numObras": 0
-}
+		{
+		    "obras": [],
+		    "contenido": "Videojuegos"
+		}
 
-{
-    "obras": [{
-        "id": 26,
-        "title": "Hamlet",
-        "URL": "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg",
-        "date": "1605",
-        "editorial": "Ed. Oceano",
-        "url_editorial": "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg"
-    }],
-    "contenido": "Tragedia"
-}
 
-### Delete tema in autor (only Administrator)
-#### URL
 
-	< /autores/tema/{tema} >
-
+## Delete Tema (only Administrator)
+#### Url
+	< https://localhost:8443/api/temas/Videojuegos >
+	
 * #### Method:
 
 	`DELETE`
+
+* #### Request:
+		{
+		    "timestamp": "2019-03-12T00:54:25.554+0000",
+		    "status": 500,
+		    "error": "Internal Server Error",
+		    "message": "Could not write JSON: failed to lazily initialize a collection, could not initialize proxy - no Session; nested exception is com.fasterxml.jackson.databind.JsonMappingException: failed to lazily initialize a collection, could not initialize proxy - no Session (through reference chain: es.daw.bibliografia.book.Tema[\"obras\"])",
+		}
+
+
+## Add new obra (only Administrator)
+#### URL
+
+	< https://localhost:8443/api/obras >
+
+* #### Method:
+
+	`POST`
 	
 * #### Parameters:
 
 	* URL
         - id = [int]
+	
+* #### Request:
+		{
+		    "id": 55,
+		    "title": "Pokemon esmeralda",
+		    "URL": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg",
+		    "date": "No se sabe",
+		    "editorial": "¿Pokemon?",
+		    "url_editorial": "¿?",
+		    "citas": [],
+		    "autores": [
+			{
+			    "id": 1,
+			    "nombre": "William Shakespeare",
+			    "url_foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg",
+			    "fecha_nac": "26 de abril de 1564",
+			    "fecha_def": "23 de abril 1616",
+			    "url_mapa": "https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg",
+			    "lugar": "Stratford-upon-Avon, Inglaterra"
+			}
+		    ],
+		    "url": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg"
+		}
 
-### Show obra in autor (only Administrator & User)
+
+## Show obra
 #### URL
 
-	< /autores/obras/{obra} >
+	< https://localhost:8443/api/obras/Pokemon esmeralda >
 
 * #### Method:
 
@@ -60,171 +102,202 @@ Any request that is not authorized to be made returns the error code 405 Method 
    
 * #### Request:
 
-        {
-            "id": 16,
-						{
-							"name": "Show obra in autor",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:8443/api/autores/obras/Hamlet",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "8443",
-									"path": [
-										"api",
-										"autores",
-										"obras",
-										"Hamlet"
-									]
-								}
-							},
-							"response": []
-						},
+		{
+		    "id": 55,
+		    "title": "Pokemon esmeralda",
+		    "URL": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg",
+		    "date": "No se sabe",
+		    "editorial": "¿Pokemon?",
+		    "url_editorial": "¿?",
+		    "citas": [],
+		    "autores": [
+			{
+			    "id": 1,
+			    "nombre": "William Shakespeare",
+			    "url_foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg",
+			    "fecha_nac": "26 de abril de 1564",
+			    "fecha_def": "23 de abril 1616",
+			    "url_mapa": "https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg",
+			    "lugar": "Stratford-upon-Avon, Inglaterra"
+			}
+		    ]
+		}
 
-### Delete obra in autor (only Administrator)
+
+## Edit obra (only Administrator)
 #### URL
 
-	< /themes/{id} >
+	< https://localhost:8443/api/obras >
 
 * #### Method:
 
-	`GET`
-	
-* #### Parameters:
-
-	* URL
-        - id = [int]
+	`PUT`
 
    
 * #### Request:
 
-						{
-							"name": "Delete obra in autor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:8443/api/autores/obras/Hamlet",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "8443",
-									"path": [
-										"api",
-										"autores",
-										"obras",
-										"Hamlet"
-									]
-								}
-							},
-							"response": []
-						},
+		{
+		    "id": 55,
+		    "title": "Pokemon esmeralda",
+		    "URL": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg",
+		    "date": "October 21, 2005",
+		    "editorial": "Pokemon company",
+		    "url_editorial": "https://upload.wikimedia.org/wikipedia/commons/5/55/Logo_of_The_Pok%C3%A9mon_Company.jpg",
+		    "citas": [],
+		    "autores": [
+			{
+			    "id": 1,
+			    "nombre": "William Shakespeare",
+			    "url_foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg",
+			    "fecha_nac": "26 de abril de 1564",
+			    "fecha_def": "23 de abril 1616",
+			    "url_mapa": "https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg",
+			    "lugar": "Stratford-upon-Avon, Inglaterra"
+			}
+		    ],
+		    "url": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg"
+		}
 						
-### Show cita in autor (only Administrator & user)
+## Edit obra: add autor (only Administrator)
 #### URL
 
-	< /themes/{id} >
+	< https://localhost:8443/api/obras/autor >
 
 * #### Method:
 
-	`GET`
+	`PUT`
 	
 * #### Parameters:
 
 	* URL
-        - id = [int]
+        - idAutor = [int]
+        - idObra = [int]
+
 
    
 * #### Request:
+		{
+		    "id": 26,
+		    "title": "Hamlet",
+		    "URL": "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg",
+		    "date": "1605",
+		    "editorial": "Ed. Oceano",
+		    "url_editorial": "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg",
+		    "citas": [
+			{
+			    "id": 12,
+			    "contenido": "Ser o no ser, esa es la cuestión. ¿Cuál es más digna acción del ánimo, sufrir los tiros penetrantes de la fortuna injusta, u oponer los brazos a este torrente de calamidades, y darlas fin con atrevida resistencia? Morir es dormir. ¿No más? "
+			}
+		    ],
+		    "autores": [
+			{
+			    "id": 1,
+			    "nombre": "William Shakespeare",
+			    "url_foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg",
+			    "fecha_nac": "26 de abril de 1564",
+			    "fecha_def": "23 de abril 1616",
+			    "url_mapa": "https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg",
+			    "lugar": "Stratford-upon-Avon, Inglaterra"
+			},
+			{
+			    "id": 5,
+			    "nombre": "Pedro Calderón de la Barca",
+			    "url_foto": "https://es.wikipedia.org/wiki/Pedro_Calder%C3%B3n_de_la_Barca#/media/File:Retrato_de_Pedro_Calder%C3%B3n_de_la_Barca.jpg",
+			    "fecha_nac": "​17 enero 1600",
+			    "fecha_def": "25 mayo 1681",
+			    "url_mapa": "https://es.wikipedia.org/wiki/Corona_de_Castilla#/media/File:Corona_de_Castilla_1400_es.svg",
+			    "lugar": "Madrid"
+			}
+		    ],
+		    "url": "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg"
+		}
 
-						{
-							"name": "Show cita in autor",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:8443/api/autores/citas/12",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "8443",
-									"path": [
-										"api",
-										"autores",
-										"citas",
-										"12"
-									]
-								}
-							},
-							"response": []
-						},
 
-### Delete cita in autor (only Administrator)
+## Edit obra: add cita (only Administrator)
 #### URL
 
-	< /themes/{id} >
+	< https://localhost:8443/api/obras/cita >
 
 * #### Method:
 
-	`GET`
+	`PUT`
 	
 * #### Parameters:
 
 	* URL
-        - id = [int]
+        - contenido = [string]
+        - idObra = [int]
+
 
    
 * #### Request:
+		{
+		    "id": 26,
+		    "title": "Hamlet",
+		    "URL": "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg",
+		    "date": "1605",
+		    "editorial": "Ed. Oceano",
+		    "url_editorial": "https://pbs.twimg.com/profile_images/3243051312/6a054036cdb81091d4e57f68fe756462_400x400.jpeg",
+		    "citas": [
+			{
+			    "id": 12,
+			    "contenido": "Ser o no ser, esa es la cuestión. ¿Cuál es más digna acción del ánimo, sufrir los tiros penetrantes de la fortuna injusta, u oponer los brazos a este torrente de calamidades, y darlas fin con atrevida resistencia? Morir es dormir. ¿No más? "
+			},
+			{
+			    "id": 56,
+			    "contenido": "Esta obra no mola, hazme caso"
+			}
+		    ],
+		    "autores": [
+			{
+			    "id": 1,
+			    "nombre": "William Shakespeare",
+			    "url_foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/255px-Shakespeare.jpg",
+			    "fecha_nac": "26 de abril de 1564",
+			    "fecha_def": "23 de abril 1616",
+			    "url_mapa": "https://media-cdn.tripadvisor.com/media/photo-s/0d/f4/e1/3e/england-in-one-day-stonehenge.jpg",
+			    "lugar": "Stratford-upon-Avon, Inglaterra"
+			},
+			{
+			    "id": 5,
+			    "nombre": "Pedro Calderón de la Barca",
+			    "url_foto": "https://es.wikipedia.org/wiki/Pedro_Calder%C3%B3n_de_la_Barca#/media/File:Retrato_de_Pedro_Calder%C3%B3n_de_la_Barca.jpg",
+			    "fecha_nac": "17 enero 1600",
+			    "fecha_def": "25 mayo 1681",
+			    "url_mapa": "https://es.wikipedia.org/wiki/Corona_de_Castilla#/media/File:Corona_de_Castilla_1400_es.svg",
+			    "lugar": "Madrid"
+			}
+		    ],
+		    "url": "https://www.catedra.com/jpg_g/catedra/CA00014412.jpg"
+		}
 
-						{
-							"name": "Delete cita in autor",
-							"request": {
-								"method": "DELETE",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "https://localhost:8443/api/autores/citas/12",
-									"protocol": "https",
-									"host": [
-										"localhost"
-									],
-									"port": "8443",
-									"path": [
-										"api",
-										"autores",
-										"citas",
-										"12"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				
-### Show autor
+
+## Delete OBRA (only Administrator)
+#### URL
+
+	< https://localhost:8443/api/obras/Pokemon esmeralda >
+
+* #### Method:
+
+	`GET`
+ 
+* #### Request:
+
+		{
+		    "id": 55,
+		    "title": "Pokemon esmeralda",
+		    "URL": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg",
+		    "date": "October 21, 2005",
+		    "editorial": "Pokemon company",
+		    "url_editorial": "https://upload.wikimedia.org/wikipedia/commons/5/55/Logo_of_The_Pok%C3%A9mon_Company.jpg",
+		    "citas": [],
+		    "autores": [],
+		    "url": "https://i.pinimg.com/originals/3f/47/b2/3f47b2a3ac5d6f6b4f3790c4a2730a93.jpg"
+		}
+
+
+					
+## Show autor
 #### URL
 
 	< /themes/{id} >
