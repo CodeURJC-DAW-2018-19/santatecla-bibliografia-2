@@ -161,21 +161,21 @@ The script will execute a build of the Dockerfile. txt and also  "Docker-Compose
 	So the application will be running and you can access it through: https://0.0.0.0:8080
 - If you want to see your processes running: 
     
-    <	(sudo) docker ps 	>
+    <  (sudo) docker ps >
 
 -  If you want to stop them: 
 
-  <	(sudo) docker stop (image ID)	> 
+  < (sudo) docker stop (image ID) > 
 
 - If you want to delete them: 
 
-  <	(sudo) docker rm (image ID) 	>
+  < (sudo) docker rm (image ID) >
 
 - To stop or delete all your images: 
 
-  <	(sudo) docker stop $( (sudo) docker ps -a -q)	>
-  <	(sudo) docker rm $( (sudo) docker ps -a -q)	>
-  
+  < (sudo) docker stop $( (sudo) docker ps -a -q)>
+  < sudo) docker rm $( (sudo) docker ps -a -q)>
+ 
   
   YOU ARE READY TO USE OUR WEB APPLICATION USING DOCKER
 
