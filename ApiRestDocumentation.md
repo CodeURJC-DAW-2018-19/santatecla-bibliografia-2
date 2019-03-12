@@ -15,6 +15,12 @@ Any request that is not authorized to be made returns the error code 405 Method 
 	`GET`
 
 * #### Request:
+{
+    "id": 54,
+    "obras": [],
+    "contenido": "Videojuegos",
+    "numObras": 0
+}
 
 {
     "obras": [{
