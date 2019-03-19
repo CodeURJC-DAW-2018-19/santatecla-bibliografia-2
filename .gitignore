@@ -1,3 +1,6 @@
 
 .metadata
 Ejemplo/target/classes/META-INF/MANIFEST.MF
+
+# Ignorar el contenido de las carpetas node modules
+Angular/node_modules
