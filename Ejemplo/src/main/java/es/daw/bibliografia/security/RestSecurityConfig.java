@@ -18,18 +18,26 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		http.antMatcher("/api/**");
 		
-//		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
+		//Public pages 
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/signupOk").authenticated();
 		
 		// URLs that need authentication to access to it
-//		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/tema/").hasRole("USER");
-//		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/tema/**").hasRole("ADMIN");
-//		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/tema/**").hasRole("ADMIN");
-//		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/tema/**").hasRole("ADMIN");		
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/**").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/**").hasRole("ADMIN");
 		
-		// Other URLs can be accessed without authentication
-		http.authorizeRequests().anyRequest().permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/obras").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/autores").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/temas").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/autores/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/obras/*/imageDownload").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/obras/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/crearPDF/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/temas/**").hasRole("USER");
+		
 
 		// Disable CSRF protection (it is difficult to implement in REST APIs)
 		http.csrf().disable();
