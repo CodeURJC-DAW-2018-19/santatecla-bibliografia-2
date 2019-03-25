@@ -58,8 +58,8 @@ public class AutorRestController {
 
 	}
 	
-	@PostMapping("/api/autores")
-	public ResponseEntity<Autor> createAutor(@RequestBody Autor autor, @RequestParam long idObra){
+	@PostMapping("/api/autores/{obra}")
+	public ResponseEntity<Autor> createAutor(@RequestBody Autor autor, @PathVariable("obra") long idObra){
 		Optional<Obra> obra = obraService.findOne(idObra);
 		
 		if (obra.isPresent()) {

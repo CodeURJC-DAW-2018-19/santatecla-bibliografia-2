@@ -64,8 +64,8 @@ public class ObraRestController {
 	}
 	
 	
-	@PostMapping("/api/obras")
-	public ResponseEntity<Obra> addObra(@RequestBody Obra obra,@RequestParam long idAutor, @RequestParam long idTema) {
+	@PostMapping("/api/obras/{autor}/{tema}")
+	public ResponseEntity<Obra> addObra(@RequestBody Obra obra, @PathVariable("autor") long idAutor,  @PathVariable("tema") long idTema) {
 		Optional<Tema> tema = temaService.findOne(idTema);
 		if(tema.isPresent()) {
 			obra.setAutores(new ArrayList<>());
@@ -102,8 +102,8 @@ public class ObraRestController {
 		}
 	}
 	
-	@PutMapping("/api/obras/autor")
-	public ResponseEntity<Obra> editObraLinkAutor(@RequestParam long idObra, @RequestParam long idAutor) {
+	@PutMapping("/api/obras/autor/{obra}/{autor}")
+	public ResponseEntity<Obra> editObraLinkAutor( @PathVariable("obra") long idObra,  @PathVariable("autor") long idAutor) {
 		Optional<Obra> obra = obraService.findOne(idObra);
 		
 		if (obra.isPresent()) {
@@ -119,8 +119,8 @@ public class ObraRestController {
 		}
 	}
 	
-	@PutMapping("/api/obras/cita")
-	public ResponseEntity<Obra> addCita(@RequestParam long idObra, @RequestParam String contenido) {
+	@PutMapping("/api/obras/cita/{obra}")
+	public ResponseEntity<Obra> addCita( @PathVariable("obra") long idObra, @RequestBody String contenido) {
 		Optional<Obra> obra = obraService.findOne(idObra);
 		
 		if (obra.isPresent()) {
