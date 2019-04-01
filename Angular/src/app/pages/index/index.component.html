@@ -1,0 +1,395 @@
+{{>header}}
+<meta charset="utf-8" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<div class="content">
+	<!-- Container parts : Theme, Author, Quote-->
+	<div class="container-fluid">
+
+		<div class="row">
+			<!--Start Theme-->
+			<div class="col-sm-4"
+				style="width: auto; height: 30em; overflow-y: scroll;">
+				<div class="card" style="height: auto">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title text-center">Temas</h4>
+					</div>
+					<div class="card-body">
+						<!-- Search bar-->
+						<form class="navbar-form" id="showTema">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar Tema..." id="nombreTema">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon" onclick="tema()">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<script>
+							        function tema() {
+							        	var nombre = document.getElementById("nombreTema").value.toString();
+							        	document.getElementById("showTema").action = 'temashow/'.concat(nombre);
+							        	document.getElementById("showTema").method = 'post';
+							        }
+							    </script>
+						<script>
+								  $( function() {
+								    var availableTags = [
+								      ""{{#temas}},
+								      "{{contenido}}"{{/temas}}
+								    ];
+								    $( "#nombreTema" ).autocomplete({
+								      source: availableTags
+								    });
+								  } );
+								
+								</script>
+						<!-- End Search bar-->
+						<div class="row" id="moreTheme">
+							{{#temas}}
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-header  card-header-text card-header-primary">
+										{{#logged}}<a href="/temashow/{{contenido}}">{{/logged}}
+											<div class="card-text">
+												<h5 class="card-title ">Tema {{-index}}</h5>
+											</div> {{#logged}}
+										</a>{{/logged}}
+									</div>
+
+									<div class="card-body">
+										{{#logged}} <a href="/temashow/{{contenido}}">{{/logged}}
+											<!-- Theme 2 Content -->
+											<p>{{contenido}}</p> {{#logged}}
+										</a>{{/logged}}
+										<div class="row">
+											<div class="col-sm-12">
+												{{#admin}}
+												<form action="tema/borrar" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="contenido" value="{{contenido}}" />
+													<p class="d-flex">
+														<button type="submit"
+															class="btn btn-info ml-auto btn-round"
+															onclick="return confirm('¿Está seguro de borrar el item?')">
+															<i class="material-icons"> delete </i>
+														</button>
+													</p>
+												</form>
+												{{/admin}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/temas}}
+						</div>
+						<button type="button" class="btn btn-primary"
+							id="buttonMoreThemes" onClick="loadMoreThemes()">Mas</button>
+
+						{{#admin}}
+						<form action="tema/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
+						<!-- Add button -->
+						{{/admin}}
+
+					</div>
+				</div>
+			</div>
+			<!-- End Theme-->
+
+			<!-- Start Obra-->
+			<div class="col-sm-4"
+				style="width: auto; height: 30em; overflow-y: scroll;">
+				<div class="card" style="height: auto">
+					<div class="card-header   card-header-primary">
+
+						<h4 class="card-title text-center">Obras</h4>
+
+					</div>
+					<div class="card-body">
+						<!-- Search bar-->
+						<form class="navbar-form" id="showObra">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar Obra..." id="nombreObra">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon" onclick="obra()">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<script>
+							        function obra() {
+							        	var nombre = document.getElementById("nombreObra").value.toString();
+							        	document.getElementById("showObra").action = 'obrashow/'.concat(nombre);
+							        	document.getElementById("showObra").method = 'post';
+							        }
+							    </script>
+						<script>
+								  $( function() {
+								    var availableTags = [
+								      ""{{#obras}},
+								      "{{title}}"{{/obras}}
+								    ];
+								    $( "#nombreObra" ).autocomplete({
+								      source: availableTags
+								    });
+								  } );
+								
+								</script>
+						<!-- End Search bar-->
+						<div class="row" id="moreWorks">
+							{{#obras}}
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-header  card-header-text card-header-primary">
+										{{#logged}}<a href="/obrashow/{{title}}">{{/logged}}
+											<div class="card-text">
+												<h5 class="card-title ">Obra {{-index}}</h5>
+											</div> {{#logged}}
+										</a>{{/logged}}
+									</div>
+									<div class="card-body">
+										<!-- Quote 1 Content -->
+										<div class="row">
+											{{#logged}}<a href="/obrashow/{{title}}">{{/logged}}
+												<div class="col-sm-12">
+													<p>{{title}}</p>
+												</div> {{#logged}}
+											</a>{{/logged}}
+										</div>
+										<div class="row">
+											<div class="col-sm-12">
+												{{#admin}}
+												<form action="obra/borrar" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="title" value="{{title}}" />
+													<p class="d-flex">
+														<button type="submit"
+															class="btn btn-info ml-auto btn-round"
+															onclick="return confirm('¿Está seguro de borrar el item?')">
+															<i class="material-icons"> delete </i>
+														</button>
+													</p>
+												</form>
+												{{/admin}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/obras}}
+						</div>
+						<button type="button" class="btn btn-primary" id="buttonMoreWorks"
+							onClick="loadMoreWorks()">Mas</button>
+						{{#admin}}
+						<form action="obra/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
+						<!-- Add button -->
+						{{/admin}}
+					</div>
+				</div>
+			</div>
+			<!-- End Quote-->
+			<!-- Start Author-->
+			<div class="col-sm-4"
+				style="width: auto; height: 30em; overflow-y: scroll;">
+				<div class="card" style="height: auto">
+					<div class="card-header   card-header-primary">
+
+						<h4 class="card-title text-center">Autores</h4>
+
+					</div>
+					<div class="card-body">
+						<!-- Search bar -->
+						<form class="navbar-form" id="showActor">
+							<div class="input-group no-border">
+								<input type="text" value="" class="form-control"
+									placeholder="Buscar Autor..." id="nombreAutor">
+								<button type="submit"
+									class="btn btn-white btn-round btn-just-icon" onclick="autor()">
+									<i class="material-icons">search</i>
+									<div class="ripple-container"></div>
+								</button>
+							</div>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<script>
+							        function autor() {
+							        	var nombre = document.getElementById("nombreAutor").value.toString();
+							        	document.getElementById("showActor").action = 'autorshow/'.concat(nombre);
+							        	document.getElementById("showActor").method = 'post';
+							        }
+							    </script>
+						<script>
+								  $( function() {
+								    var availableTags = [
+								      ""{{#autores}},
+								      "{{nombre}}"{{/autores}}
+								    ];
+								    $( "#nombreAutor" ).autocomplete({
+								      source: availableTags
+								    });
+								  } );
+								
+								</script>
+						<!-- End Search bar-->
+						<div class="row" id="moreAuthor">
+							{{#autores}}
+							<div class="col-sm-6">
+								<div class="card">
+									<div class="card-header  card-header-text card-header-primary">
+										{{#logged}} <a href="/autorshow/{{nombre}}">{{/logged}}
+											<div class="card-text">
+												<h5 class="card-title ">Autor {{-index}}</h5>
+											</div> {{#logged}}
+										</a>{{/logged}}
+									</div>
+									<div class="card-body">
+										<!-- Quote 1 Content -->
+										<div class="row">
+											{{#logged}} <a href="/autorshow/{{nombre}}">{{/logged}}
+												<div class="col-sm-12">
+													<p>{{nombre}}</p>
+												</div> {{#logged}}
+											</a>{{/logged}}
+										</div>
+										<div class="row">
+											<div class="col-sm-12">
+												{{#admin}}
+												<form action="autor/borrar" method="post">
+													<input type="hidden" name="_csrf" value="{{token}}" /> <input
+														type="hidden" name="nombre" value="{{nombre}}" />
+													<p class="d-flex">
+														<button type="submit"
+															class="btn btn-info ml-auto btn-round"
+															onclick="return confirm('¿Está seguro de borrar el item?')">
+															<i class="material-icons"> delete </i>
+														</button>
+													</p>
+												</form>
+												{{/admin}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/autores}}
+						</div>
+						<button type="button" class="btn btn-primary"
+							id="buttonMoreAuthor" onClick="loadMoreAuthor()">Mas</button>
+						{{#admin}}
+						<form action="autor/new" method="post">
+							<input type="hidden" name="_csrf" value="{{token}}" />
+							<p class="d-flex">
+								<button type="submit" class="btn btn-info ml-auto btn-round">
+									<i class="material-icons"> add_circle </i>
+								</button>
+							</p>
+						</form>
+						<!-- Add button -->
+						{{/admin}}
+					</div>
+				</div>
+			</div>
+			<!-- End Author-->
+
+		</div>
+	</div>
+	<div align="center">
+		<button class="btn btn-round" data-toggle="modal"
+			data-target="#Histogram" style="align-self: center;">
+			HISTOGRAMA<i class="material-icons">assessment</i>
+		</button>
+
+		<div class="modal" id="Histogram" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-body">
+						
+						<ul id="savedThemes" style="display: none">
+                		{{#temas}}
+                		<li>{{contenido}}</li>
+                		{{/temas}}
+           				</ul>
+
+			            <ul id="numObras" style="display: none">
+            			    {{#temas}}
+                			<li>{{numObras}}</li>
+                			{{/temas}}
+            			</ul>
+						
+						<!-- preparing a DOM with width and height for ECharts -->
+						<div id="main" style="width: 500px; height: 400px;"></div>
+						<script type="text/javascript">
+                                        // based on prepared DOM, initialize echarts instance
+                                        var myChart = echarts.init(document.getElementById('main'));
+
+                                        
+                                        var themes=[];
+                                        var ulThemes = document.getElementById("savedThemes");
+                                        var itemsThemes = ulThemes.getElementsByTagName("li");
+                                        for (var i = 0; i < itemsThemes.length; ++i) {
+                                            themes.push(itemsThemes[i].textContent);
+                                        }
+
+                                        var nums=[];
+                                        var ulNums = document.getElementById("numObras");
+                                        var itemsNums = ulNums.getElementsByTagName("li");
+                                        for (var j = 0; j < itemsNums.length; ++j) {
+                                            nums.push(itemsNums[j].textContent);
+                                        }
+
+                                        
+                                        
+                                        // specify chart configuration item and data
+                                        var option = {
+                                             //title: {
+                                             //   text: 'ECharts entry example'
+                                            //},
+                                            tooltip: {},
+                                            
+                                            legend: {
+                                                data: ['NÃºmero de obras por tema']
+                                            },
+                                            xAxis: {
+                                                data: themes                                           },
+                                            yAxis: {
+                                            	name: ["Nº Obras"]
+                                            },
+                                            series: [{
+                                                
+                                                name: 'NÃºmero de obras por tema',
+                                                type: 'bar',
+                                                data: nums
+                                            }]
+                                        };
+
+                                        // use configuration item and data specified to show chart
+                                        myChart.setOption(option);
+                                    </script>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Container parts-->
+	{{>footer}}
