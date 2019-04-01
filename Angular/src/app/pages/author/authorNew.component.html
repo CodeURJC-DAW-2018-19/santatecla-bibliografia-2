@@ -1,0 +1,135 @@
+{{>header}}
+<meta charset="utf-8" />
+<!--Start Container 1-->
+<div class="content">
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+
+
+			<!--Input Data-->
+			<div class="col-md-10">
+				<div class="card">
+					<div class="card-header card-header-primary">
+						<h4 class="card-title">Autor</h4>
+						<p class="card-category">Datos del Autor</p>
+					</div>
+					<div class="card-body">
+
+						<!--Form-->
+						<form id="editarAutores" action="guardado" method="post">
+
+							<!--Input nombre-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">Nombre</label> <input
+											type="text" class="form-control" name="nombre" id="name">
+									</div>
+								</div>
+							</div>
+
+							<!--Input URL Foto-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">urlFotoAutor</label> <input
+											type="text" class="form-control" name="url_foto" id="foto">
+									</div>
+								</div>
+							</div>
+
+							<!--Input Calendar-->
+							<div class="row">
+								<div class="col-md-12">
+									<label class="bmd-label-floating"> Fechas: </label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="input-daterange input-group" id="datepicker">
+											<input type="text" class="input-sm form-control"
+												name="fecha_nac" id="nac" placeholder="Nacimiento:" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1"></div>
+								<div class="col-md-3">
+									<div class="form-group">
+										<div class="input-daterange input-group" id="datepicker">
+											<input type="text" class="input-sm form-control"
+												name="fecha_def" id="def" placeholder="Fallecimiento:" />
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--Input Lugar Nacimiento-->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">lugarAutor</label> <input
+											type="text" class="form-control" name="url_mapa" id="map">
+									</div>
+								</div>
+							</div>
+
+							<!--Input URL Mapa-->
+							<div class="row" style="padding-bottom: 2.5em;">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="bmd-label-floating">urlMapa</label> <input
+											type="text" class="form-control" name="lugar" id="place">
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Guardar</button>
+							<input type="hidden" name="_csrf" value="{{token}}" />
+						</form>
+						<!--End Form-->
+					</div>
+				</div>
+			</div>
+			<!--End Input Data-->
+
+			<!--Input Images-->
+			<div class="col-md-2">
+
+
+				<div class="card card-profile">
+					<a href="#autor"> <img class="card-img-top"
+						style="width: 11.65em; height: 12em;" />
+					</a>
+					<div class="card-body">
+						<h4 class="card-title"></h4>
+					</div>
+				</div>
+
+				<div class="card card-profile">
+					<div class="card-avatar-top">
+						<a href="#lugarNacimiento"> <img class="card-img-top"
+							style="width: 11.65em; height: 12em;" />
+						</a>
+					</div>
+					<div class="card-body">
+						<h4 class="card-title"></h4>
+					</div>
+				</div>
+
+			</div>
+			<!--End Input Images-->
+
+		</div>
+	</div>
+</div>
+<!--End Container 1-->
+
+<!-- End Container parts-->
+
+
+
+
+{{>footer}}
