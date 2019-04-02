@@ -1,0 +1,22 @@
+<div *ngIf="book">
+    <mat-card>
+        <mat-card-title> Book "{{ book.title }}"</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div>
+                <p>{{ book.description }}</p>
+            </div>
+            <div layout="row" layout-align="end center">
+                <ng-container *ngIf="loginService.isLogged && loginService.isAdmin">
+                    <button mat-raised-button color="accent" (click)="removeBook()"><mat-icon>delete</mat-icon>Remove</button>
+                    <button mat-raised-button color="accent" (click)="editBook()" class="push-left-sm">
+                        <mat-icon>edit</mat-icon>Edit
+                    </button>
+                </ng-container>
+                <button mat-raised-button color="accent" (click)="gotoBooks()" class="push-left-sm">
+                    <mat-icon>list</mat-icon>All Books
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

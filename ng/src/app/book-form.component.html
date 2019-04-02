@@ -1,0 +1,52 @@
+<div *ngIf="book">
+    <mat-card>
+        <mat-card-title> Book "{{ book.title }}"</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <form #bookForm="ngForm">
+                <div *ngIf="book.id"><label>Id: </label>{{ book.id }}</div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="book.title"
+                            placeholder="Title"
+                            #bookFormElement
+                            #bookFormControl="ngModel"
+                            name="title"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div layout="column">
+                    <mat-form-field>
+                        <textarea
+                            matInput
+                            [(ngModel)]="book.description"
+                            placeholder="Description"
+                            #bookFormElement
+                            #bookFormControl="ngModel"
+                            name="description"
+                            required
+                        ></textarea>
+                    </mat-form-field>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <div layout="row" layout-align="end center">
+                <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+                <button
+                    mat-raised-button
+                    color="accent"
+                    (click)="save()"
+                    [disabled]="bookForm === undefined || (bookForm && !bookForm.valid)"
+                    class="push-left-sm"
+                >
+                    Save
+                </button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>
