@@ -1,5 +1,6 @@
 package es.daw.bibliografia.api;
 
+import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,10 @@ public class AutorRestController {
 	interface TemaDetail extends Tema.Basic, Tema.Obras, Obra.Basic{}
 	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
 
+	@GetMapping("/api/autores/")
+	public Collection<Autor> getBooks() {
+		return autorService.findAll();
+	}
 	
 	@JsonView(AuthorDetail.class)
 	@GetMapping("/api/autores/{nombre}")
