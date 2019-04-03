@@ -10,6 +10,10 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+//Our Services 
+import { WorkService } from './pages/literaryWork/work.service';
+import { AuthorService } from './pages/author/author.service';
+//
 import {
     MatButtonModule,
     MatListModule,
@@ -119,7 +123,7 @@ import { IndexComponent } from './pages/index/index.component';
     ],
     declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, IndexComponent],
     bootstrap: [AppComponent],
-    providers: [BookService, LoginService,
+    providers: [WorkService, AuthorService, BookService, LoginService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy }
