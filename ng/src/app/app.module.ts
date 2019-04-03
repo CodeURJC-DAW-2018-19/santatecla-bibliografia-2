@@ -71,6 +71,10 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { IndexComponent } from './pages/index/index.component';
 import { AuthorNewComponent } from './pages/author/author-new.component';
 import { AuthorComponent } from './pages/author/author.component';
+import { ThemeComponent } from './pages/theme/theme.component';
+import { ThemeNewComponent } from './pages/theme/theme-new.component';
+import { WorkComponent } from './pages/literaryWork/work.component';
+import { WorkShowComponent } from './pages/literaryWork/work-show.component';
 
 @NgModule({
     imports: [
@@ -123,7 +127,7 @@ import { AuthorComponent } from './pages/author/author.component';
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, IndexComponent, AuthorNewComponent, AuthorComponent],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent],
     bootstrap: [AppComponent],
     providers: [WorkService, AuthorService, BookService, LoginService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
