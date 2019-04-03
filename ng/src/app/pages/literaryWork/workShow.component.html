@@ -24,7 +24,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<!--<input type="text" class="form-control" disabled> -->
-										<input type='text' class="form-control" name="title"
+										<input type='text' class="form-control" [(ngModel)]="title"
 											id="title" value="{{title}}" disabled>
 									</div>
 								</div>
@@ -35,7 +35,7 @@
 							<div class="row">
 								<div class="col-md-12">
 									<label class="bmd-label-floating"> Fecha de
-										publicaciÃ³n: </label>
+										publicación: </label>
 								</div>
 							</div>
 							<div class="row">
@@ -43,7 +43,7 @@
 								<div class="col-md-11">
 									<div class="form-group">
 										<label class="bmd-label-floating">{{date}}</label> <input
-											type='text' class="form-control" name="date" id="date"
+											type='text' class="form-control" [(ngModel)]="date" id="date"
 											disabled />
 									</div>
 								</div>
@@ -55,7 +55,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label class="bmd-label-floating">{{editorial}}</label> <input
-											type='text' class="form-control" name="editorial"
+											type='text' class="form-control" [(ngModel)]="editorial"
 											id="editorial" disabled />
 										<!--  <input type="text" class="form-control" disabled>-->
 									</div>
@@ -63,48 +63,12 @@
 							</div>
 							<!-- <button type='submit' class="btn btn-primary" onclick="window.location.href='obraShowEdit'">Editar </button>-->
 							{{#admin}}
-							<button type="button" class="btn btn-primary"
-								onclick="editarObra();" id="editar">Editar</button>
-							<button type="submit" class="btn btn-primary"
-								style="display: none;" id="guardar" onclick="update();">Guardar</button>
-							<button type="submit" class="btn btn-primary"
-								onclick="borrarObra(); return confirm('¿Está seguro de borrar el item?')"
-								id="borrar">Borrar</button>
+							<button (click)="updateWork()" >Editar</button>
+							<button (click)="saveWork()">Guardar</button>
+							<button (click)="removeWork()">Borrar</button>
 							{{/admin}} <input type="hidden" name="_csrf" value="{{token}}" />
 						</form>
-						<script>
-							function editarObra() {
-								//document.getElementById("editar").type = 'submit';
-								//document.getElementById("editar").onclick=function() {};
-								//document.getElementById("url").disabled = false;
-								document.getElementById("date").disabled = false;
-								document.getElementById("editorial").disabled = false;
-								//document.getElementById("urlEdi").disabled = false;
-								document.getElementById("editar").style.display = 'none';
-								document.getElementById("guardar").style.display = 'inline';
-								//document.getElementById("showActor").method = 'post';
-							}
-						</script>
-						<script>
-							function update() {
-								//document.getElementById("editar").type = 'submit';
-								//document.getElementById("editar").onclick=function() {};
-								document.getElementById("title").disabled = false;
-								document.getElementById("editarObras").action = 'edit';
-								document.getElementById("editarObras").method = 'post';
-								//document.getElementById("showActor").method = 'post';
-							}
-						</script>
-						<script>
-							function borrarObra() {
-								//document.getElementById("editar").type = 'submit';
-								//document.getElementById("editar").onclick=function() {};
-								document.getElementById("title").disabled = false;
-								document.getElementById("editarObras").action = 'borrar';
-								document.getElementById("editarObras").method = 'post';
-								//document.getElementById("showActor").method = 'post';
-							}
-						</script>
+						
 						<!--End Form-->
 					</div>
 				</div>
