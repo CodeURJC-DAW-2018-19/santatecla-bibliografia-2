@@ -68,6 +68,7 @@ import { routing } from './app.routing';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+//Our Components 
 import { IndexComponent } from './pages/index/index.component';
 import { AuthorNewComponent } from './pages/author/author-new.component';
 import { AuthorComponent } from './pages/author/author.component';
@@ -75,7 +76,7 @@ import { ThemeComponent } from './pages/theme/theme.component';
 import { ThemeNewComponent } from './pages/theme/theme-new.component';
 import { WorkComponent } from './pages/literaryWork/work.component';
 import { WorkShowComponent } from './pages/literaryWork/work-show.component';
-
+//
 @NgModule({
     imports: [
         BrowserModule,
