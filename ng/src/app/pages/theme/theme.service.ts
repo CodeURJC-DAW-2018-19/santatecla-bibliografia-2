@@ -3,6 +3,7 @@ import {LoginService} from "../../auth/login.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {catchError} from "rxjs/operators";
+import {Work} from "../literaryWork/work.service";
 
 export interface Theme {
   id?: number;
