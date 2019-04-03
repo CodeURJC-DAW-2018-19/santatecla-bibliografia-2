@@ -47,7 +47,7 @@ public class AutorRestController {
 	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
 
 	@GetMapping("/api/autores/")
-	public Collection<Autor> getBooks() {
+	public Collection<Autor> getAutores() {
 		return autorService.findAll();
 	}
 	

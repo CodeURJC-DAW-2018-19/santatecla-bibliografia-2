@@ -1,6 +1,7 @@
 package es.daw.bibliografia.api;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,6 +52,11 @@ public class TemaRestController {
 	interface AuthorDetail extends Autor.Basic, Obra.Basic{}
 	interface ObraDetail extends Obra.Basic, Obra.Authors, Autor.Basic, Obra.Quotes, Cita.Basic{}
 	
+	
+	@GetMapping("/api/temas/")
+	public Collection<Tema> getTemas() {
+		return temaService.findAll();
+	}
 	
 	@JsonView(TemaDetail.class)
 	@GetMapping("/api/temas/{contenido}")

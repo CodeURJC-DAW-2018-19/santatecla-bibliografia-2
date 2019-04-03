@@ -43,7 +43,7 @@ export class AuthorService {
           .pipe(catchError((error) => this.handleError(error)));
     } else {
       return this.http
-          .put<Author>(URL + author.id, body, { headers })
+          .put<Author>(URL, body, { headers })
           .pipe(catchError((error) => this.handleError(error)));
     }
   }
