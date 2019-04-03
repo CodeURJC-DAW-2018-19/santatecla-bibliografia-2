@@ -5,6 +5,7 @@ import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
 
 @Component({
+  selector: 'author-component',
   templateUrl: './author.component.html'
 })
 export class AuthorComponent {
