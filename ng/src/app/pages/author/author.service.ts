@@ -50,7 +50,7 @@ export class AuthorService {
 
   removeAuthor(author: Author): Observable<Author> {
     return this.http
-        .delete<Author>(URL + author.id)
+        .delete<Author>(URL + author.nombre)
         .pipe(catchError((error) => this.handleError(error)));
   }
 
