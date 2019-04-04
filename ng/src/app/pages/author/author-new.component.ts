@@ -7,17 +7,17 @@ import { Author, AuthorService } from './author.service';
 })
 export class AuthorNewComponent {
 
-  newBook: boolean;
+  newAuthor: boolean;
   author: Author;
 
   constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: AuthorService) {
     const id = activatedRoute.snapshot.params['id'];
     if (id) {
       service.getAuthor(id).subscribe((author) => (this.author = author), (error) => console.error(error));
-      this.newBook = false;
+      this.newAuthor = false;
     } else {
       this.author = {fecha_def: "", fecha_nac: "", lugar: "", url_mapa: "", nombre: '', url_foto: '' };
-      this.newBook = true;
+      this.newAuthor = true;
     }
   }
 
