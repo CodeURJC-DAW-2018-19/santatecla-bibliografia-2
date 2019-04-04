@@ -4,6 +4,7 @@ import { Work, WorkService } from './work.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
 
+// SHOW AND EDIT WORK
 @Component({
   selector: 'work-show-component',
   templateUrl: './work-show.component.html'
