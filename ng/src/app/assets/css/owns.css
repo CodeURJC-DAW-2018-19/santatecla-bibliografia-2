@@ -1,0 +1,30 @@
+.activeTab {
+    background-color: rgba(255,255,255,.2);
+}
+
+::-webkit-scrollbar {
+    width: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+    background: #D3D3D3; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #909090; 
+}
+
+.center { 
+	display: block;
+  	position: relative;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.text-center{
+	text-align: center ;
+}
