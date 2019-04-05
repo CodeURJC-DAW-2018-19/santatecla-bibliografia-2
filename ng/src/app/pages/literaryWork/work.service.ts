@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; 
 import { catchError } from 'rxjs/operators';
 import { LoginService } from '../../auth/login.service';
-import { Author } from "../author/author.service";
-import { Theme } from "../theme/theme.service"
+
 
 export interface Work {
   id?: number; 
@@ -17,6 +16,22 @@ export interface Work {
 
 export interface Quote {
   contenido : string; 
+}
+
+export interface Author {
+  id?: number;
+  nombre: string;
+  url_foto: string;
+  fecha_nac: string;
+  fecha_def: string;
+  url_mapa: string;
+  lugar: string;
+}
+export interface Theme {
+  id?: number;
+  obras: Array<Work>;
+  contenido: string;
+  numObras: number;
 }
 
 const URL='/api/obras/';
