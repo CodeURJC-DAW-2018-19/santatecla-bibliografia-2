@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Author, AuthorService } from './author.service';
 
 @Component({
-  templateUrl: './authorNew.component.html'
+  templateUrl: './author-new.component.html'
 })
 export class AuthorNewComponent {
 
