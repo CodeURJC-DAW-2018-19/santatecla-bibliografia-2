@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatDialog } from '@angular/material';
 import { TdMediaService, tdRotateAnimation } from '@covalent/core';
+import { environment } from '../environments/environment';
 
 @Component({
     selector: 'my-app',
@@ -10,6 +11,8 @@ import { TdMediaService, tdRotateAnimation } from '@covalent/core';
     animations: [tdRotateAnimation],
 })
 export class AppComponent implements AfterViewInit {
+
+    mode: string;
 
     constructor(
         public media: TdMediaService,
@@ -27,6 +30,11 @@ export class AppComponent implements AfterViewInit {
             ),
         );
 
+        if(environment.production){
+            this.mode = "Production";
+        } else {
+            this.mode = "Development";
+        }
     }
 
     ngAfterViewInit(): void {

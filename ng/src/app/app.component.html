@@ -1,5 +1,5 @@
 <td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
-    [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '240px' : '100%'" [class]="activeTheme">
+    [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '240px' : '100%'">
 
     <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Library' : ''" navigationRoute="/">
 
@@ -21,7 +21,7 @@
         <td-layout-footer>
             <div layout="row" layout-align="start center">
                 <span class="mat-caption">Made with <mat-icon class="text-md">favorite</mat-icon> using
-                    <a href="http://getcovalent.com" class="text-nodecoration tc-teal-600">Covalent</a>. CodeURJC</span>
+                    <a href="http://getcovalent.com" class="text-nodecoration tc-teal-600">Covalent</a>. CodeURJC ({{mode}})</span>
             </div>
         </td-layout-footer>
     </td-layout-nav>

@@ -11,7 +11,7 @@ export class LoginComponent {
     @ViewChild('loginDialog') loginDialog: TemplateRef<any>;
     dialogRef: MatDialogRef<any, any>;
 
-    constructor(public dialog: MatDialog, private router: Router, private loginService: LoginService) {}
+    constructor(public dialog: MatDialog, private router: Router, public loginService: LoginService) {}
 
     logIn(event: any, user: string, pass: string) {
         event.preventDefault();
