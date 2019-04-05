@@ -1,3 +1,4 @@
+import { MaterialModule } from '@angular/material'; 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -90,6 +91,7 @@ import { WorkShowComponent } from './pages/literaryWork/work-show.component';
         MatListModule,
         MatIconModule,
         MatCardModule,
+        MaterialModule.forRoot(), 
         MatMenuModule,
         MatInputModule,
         MatSelectModule,
