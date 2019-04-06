@@ -8,7 +8,7 @@ import { Theme } from '../theme/theme.service';
 // CREATE NEW WORK 
 @Component({
   selector: 'work-component',
-  templateUrl: './work.component.html'
+  templateUrl: './work-show.component.html'
 })
 export class WorkComponent {
   work: Work;
