@@ -20,9 +20,7 @@ export interface Quote {
 }
 
 const URL='/api/obras/';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class WorkService {
 
   constructor(private loginService: LoginService, private http: HttpClient) { }

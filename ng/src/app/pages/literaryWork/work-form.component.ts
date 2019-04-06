@@ -8,8 +8,7 @@ import { Theme } from '../theme/theme.service';
 
 //Create new work
 @Component({
-    selector: 'work-formC',
-    templateUrl: 'work-form.component.html',
+    templateUrl: './work-form.component.html',
 })
 export class WorkFormComponent {
     
@@ -18,7 +17,9 @@ export class WorkFormComponent {
     author: Author;
     theme: Theme;
 
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, public loginService: LoginService, private _dialogService: TdDialogService) {
+    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService
+        //, public loginService: LoginService, private _dialogService: TdDialogService
+        ) {
         /*const title = activatedRoute.snapshot.params['title'];
         if (title) {
             service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
