@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Work, WorkService } from './work.service';
 
+//Create new work
 @Component({
     templateUrl: 'work-form.component.html',
 })

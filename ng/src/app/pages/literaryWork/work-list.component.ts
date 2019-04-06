@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Work, WorkService } from './work.service';
 import { LoginService } from '../../auth/login.service';
 
+//SHOW ALL WORKS 
 @Component({
   selector: 'works',
   templateUrl: 'work-list.component.html'
