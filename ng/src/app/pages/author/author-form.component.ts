@@ -20,12 +20,7 @@ export class AuthorFormComponent {
             this.newAuthor = true;
         }
     }
-    nombre: string;
-    url_foto: string;
-    fecha_nac: string;
-    fecha_def: string;
-    url_mapa: string;
-    lugar: string;
+
     cancel() {
         window.history.back();
     }
