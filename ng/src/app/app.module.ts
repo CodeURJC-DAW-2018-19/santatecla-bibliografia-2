@@ -143,7 +143,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, ThemeListComponent, ThemeDetailComponent, ThemeFormComponent, AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,WorkComponent, WorkShowComponent , /* IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, ThemeListComponent, ThemeDetailComponent, ThemeFormComponent, AuthorDetailComponent, AuthorListComponent, AuthorFormComponent, WorkShowComponent , /* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
     providers: [BookService, LoginService, ThemeService, AuthorService,WorkService,/*  WorkService, AuthorService, ThemeService, */
