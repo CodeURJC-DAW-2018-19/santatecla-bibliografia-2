@@ -1,18 +1,18 @@
-<div *ngIf="book">
+<div *ngIf="theme">
     <mat-card>
-        <mat-card-title> Book "{{ book.title }}"</mat-card-title>
+        <mat-card-title> Theme "{{ theme.title }}"</mat-card-title>
         <mat-divider></mat-divider>
         <mat-card-content>
-            <form #bookForm="ngForm">
-                <div *ngIf="book.id"><label>Id: </label>{{ book.id }}</div>
+            <form #themeForm="ngForm">
+                <div *ngIf="theme.id"><label>Id: </label>{{ theme.id }}</div>
                 <div>
                     <mat-form-field>
                         <input
                             matInput
-                            [(ngModel)]="book.title"
+                            [(ngModel)]="theme.title"
                             placeholder="Title"
-                            #bookFormElement
-                            #bookFormControl="ngModel"
+                            #themeFormElement
+                            #themeFormControl="ngModel"
                             name="title"
                             required
                         />
@@ -22,10 +22,10 @@
                     <mat-form-field>
                         <textarea
                             matInput
-                            [(ngModel)]="book.description"
+                            [(ngModel)]="theme.description"
                             placeholder="Description"
-                            #bookFormElement
-                            #bookFormControl="ngModel"
+                            #themeFormElement
+                            #themeFormControl="ngModel"
                             name="description"
                             required
                         ></textarea>
@@ -41,7 +41,7 @@
                     mat-raised-button
                     color="accent"
                     (click)="save()"
-                    [disabled]="bookForm === undefined || (bookForm && !bookForm.valid)"
+                    [disabled]="themeForm === undefined || (themeForm && !themeForm.valid)"
                     class="push-left-sm"
                 >
                     Save

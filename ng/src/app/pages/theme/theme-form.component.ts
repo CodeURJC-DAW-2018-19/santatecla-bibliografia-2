@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Book, BookService } from './book.service';
+import { Theme, ThemeService } from './theme.service';
 
 @Component({
-    templateUrl: 'book-form.component.html',
+    templateUrl: 'theme-form.component.html',
 })
-export class BookFormComponent {
+export class ThemeFormComponent {
     
-    newBook: boolean;
-    book: Book;
+    newTheme: boolean;
+    theme: Theme;
 
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: BookService) {
+    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: ThemeService) {
         const id = activatedRoute.snapshot.params['id'];
         if (id) {
-            service.getBook(id).subscribe((book) => (this.book = book), (error) => console.error(error));
-            this.newBook = false;
+            service.getTheme(id).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
+            this.newTheme = false;
         } else {
-            this.book = { title: '', description: '' };
-            this.newBook = true;
+            this.theme = { contenido: '', obras: null ,numObras: 0 };
+            this.newTheme = true;
         }
     }
 
@@ -26,9 +26,9 @@ export class BookFormComponent {
     }
 
     save() {
-        this.service.saveBook(this.book).subscribe(
+        this.service.saveTheme(this.theme).subscribe(
             _ => {},
-            (error: Error) => console.error('Error creating new book: ' + error),
+            (error: Error) => console.error('Error creating new theme: ' + error),
         );
         window.history.back();
     }
