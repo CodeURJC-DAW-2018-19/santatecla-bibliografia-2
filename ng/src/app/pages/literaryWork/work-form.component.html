@@ -1,6 +1,6 @@
 <div *ngIf="work">
     <mat-card>
-        <mat-card-title> Work "{{ work.title }}"</mat-card-title>
+        <mat-card-title> Work </mat-card-title>
         <mat-divider></mat-divider>
         <mat-card-content>
             <form #workForm="ngForm">
@@ -18,19 +18,59 @@
                         />
                     </mat-form-field>
                 </div>
-                <div layout="column">
+                <div>
                     <mat-form-field>
-                        <textarea
+                        <input
                             matInput
-                            [(ngModel)]="work.description"
-                            placeholder="Description"
+                            [(ngModel)]="work.URL"
+                            placeholder="URL"
                             #workFormElement
                             #workFormControl="ngModel"
-                            name="description"
+                            name="URL"
                             required
-                        ></textarea>
+                        />
                     </mat-form-field>
                 </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="work.date"
+                            placeholder="date"
+                            #workFormElement
+                            #workFormControl="ngModel"
+                            name="date"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="work.editorial"
+                            placeholder="editorial"
+                            #workFormElement
+                            #workFormControl="ngModel"
+                            name="editorial"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="work.url_editorial"
+                            placeholder="url_editorial"
+                            #workFormElement
+                            #workFormControl="ngModel"
+                            name="url_editorial"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                
             </form>
         </mat-card-content>
         <mat-divider></mat-divider>
@@ -49,4 +89,5 @@
             </div>
         </mat-card-actions>
     </mat-card>
-</div>
+  </div>
+  
