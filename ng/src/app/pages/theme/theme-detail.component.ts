@@ -18,8 +18,8 @@ export class ThemeDetailComponent {
         public loginService: LoginService,
         private _dialogService: TdDialogService,
     ) {
-        const id = activatedRoute.snapshot.params['id'];
-        service.getTheme(id).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
+        const content = activatedRoute.snapshot.params['content'];
+        service.getTheme(content).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
     }
 
     removeTheme() {

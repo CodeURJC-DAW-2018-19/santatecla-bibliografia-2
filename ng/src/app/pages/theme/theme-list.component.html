@@ -9,7 +9,7 @@
         <div>
             <mat-nav-list>
             <!-- <mat-nav-list *ngIf="loginService.isLogged"> -->
-                <a *ngFor="let theme of themes" mat-list-item [routerLink]="['/theme', theme.id]">
+                <a *ngFor="let theme of themes" mat-list-item [routerLink]="['/theme', theme.contenido]">
                     {{ theme.contenido }}
                 </a>
             </mat-nav-list>

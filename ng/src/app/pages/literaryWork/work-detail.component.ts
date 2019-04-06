@@ -19,8 +19,8 @@ export class WorkDetailComponent {
         public loginService: LoginService,
         private _dialogService: TdDialogService,
     ) {
-        const id = activatedRoute.snapshot.params['id'];
-        service.getWork(id).subscribe((work) => (this.work = work), (error) => console.error(error));
+        const title = activatedRoute.snapshot.params['title'];
+        service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
     }
 
     removeWork() {

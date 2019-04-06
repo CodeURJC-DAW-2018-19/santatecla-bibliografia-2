@@ -9,7 +9,7 @@
         <div>
             <mat-nav-list>
             <mat-nav-list *ngIf="loginService.isLogged">
-                <a *ngFor="let author of authors" mat-list-item [routerLink]="['/author', author.id]">
+                <a *ngFor="let author of authors" mat-list-item [routerLink]="['/author', author.nombre]">
                     {{ author.nombre }}
                 </a>
             </mat-nav-list>

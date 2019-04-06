@@ -23,14 +23,14 @@ const appRoutes = [
 
   { path: '', component: IndexComponent, useAsDefault: true },
   { path: 'theme/new', component: ThemeFormComponent },
-  { path: 'theme/:id', component: ThemeDetailComponent },
-  { path: 'theme/edit/:id', component: ThemeFormComponent },
+  { path: 'theme/:content', component: ThemeDetailComponent },
+  { path: 'theme/edit/:content', component: ThemeFormComponent },
   { path: 'work/new', component: WorkFormComponent },
-  { path: 'work/:id', component: WorkDetailComponent },
-  { path: 'work/edit/:id', component: WorkFormComponent },
+  { path: 'work/:title', component: WorkDetailComponent },
+  { path: 'work/edit/:title', component: WorkFormComponent },
   { path: 'author/new', component: AuthorFormComponent },
-  { path: 'author/:id', component: AuthorDetailComponent },
-  { path: 'author/edit/:id', component: AuthorFormComponent },
+  { path: 'author/:name', component: AuthorDetailComponent },
+  { path: 'author/edit/:name', component: AuthorFormComponent },
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 

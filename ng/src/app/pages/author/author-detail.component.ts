@@ -18,8 +18,8 @@ export class AuthorDetailComponent {
         public loginService: LoginService,
         private _dialogService: TdDialogService,
     ) {
-        const id = activatedRoute.snapshot.params['id'];
-        service.getAuthor(id).subscribe((author) => (this.author = author), (error) => console.error(error));
+        const name = activatedRoute.snapshot.params['name'];
+        service.getAuthor(name).subscribe((author) => (this.author = author), (error) => console.error(error));
     }
 
     removeAuthor() {

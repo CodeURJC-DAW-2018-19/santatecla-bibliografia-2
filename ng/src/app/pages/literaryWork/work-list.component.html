@@ -9,7 +9,7 @@
         <div>
             <mat-nav-list>
             <!-- <mat-nav-list *ngIf="loginService.isLogged"> -->
-                <a *ngFor="let work of works" mat-list-item [routerLink]="['/work', work.id]">
+                <a *ngFor="let work of works" mat-list-item [routerLink]="['/work', work.title]">
                     {{ work.title }}
                 </a>
             </mat-nav-list>
