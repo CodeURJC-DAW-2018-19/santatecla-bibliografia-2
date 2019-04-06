@@ -85,8 +85,9 @@ import { AuthorListComponent } from './pages/author/author-list.component';
 import { AuthorFormComponent } from './pages/author/author-form.component';
 
 import { WorkService } from './pages/literaryWork/work.service';
-import { WorkComponent } from './pages/literaryWork/work.component';
-import { WorkShowComponent } from './pages/literaryWork/work-show.component'; 
+import { WorkDetailComponent } from './pages/literaryWork/work-detail.component';
+import { WorkListComponent } from './pages/literaryWork/work-list.component'; 
+import { WorkFormComponent } from './pages/literaryWork/work-form.component';
 //Our Services 
 /*import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -143,18 +144,24 @@ import { ThemeService } from './pages/theme/theme.service'; */
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, ThemeListComponent, ThemeDetailComponent, ThemeFormComponent, AuthorDetailComponent, AuthorListComponent, AuthorFormComponent, WorkShowComponent, WorkComponent , /* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+    declarations: [AppComponent,
+         BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent,
+          ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,
+           AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,
+            WorkDetailComponent , WorkListComponent, WorkFormComponent,/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
-    providers: [BookService, LoginService, ThemeService, AuthorService,WorkService,/*  WorkService, AuthorService, ThemeService, */
-    //providers: [BookService, LoginService, 
+
+
+    providers: [BookService, LoginService, ThemeService, AuthorService, WorkService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy }
     ],
 })
 export class AppModule {
-    constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
-        matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/symbol-defs.svg'));
-    }
+constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/symbol-defs.svg'));
+}
 }
