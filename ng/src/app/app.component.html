@@ -31,25 +31,30 @@
 
 
 
- <td-layout>
-  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+<td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname"
+    email="firstname.lastname@company.com">
     <mat-nav-list>
-      <a *ngFor="let item of routes" mat-list-item><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      <a *ngFor="let item of routes" mat-list-item>
+        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}
+      </a>
     </mat-nav-list>
     <div td-navigation-drawer-menu>
       <mat-nav-list>
-        <a *ngFor="let item of usermenu" mat-list-item><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+        <a *ngFor="let item of usermenu" mat-list-item>
+          <mat-icon>{{item.icon}}</mat-icon>{{item.title}}
+        </a>
       </mat-nav-list>
     </div>
   </td-navigation-drawer>
-  <td-layout-nav color="none" logo="assets:covalent"  navigationRoute="/">
+  <td-layout-nav color="none" logo="assets:covalent" navigationRoute="/">
     <button mat-icon-button td-menu-button tdLayoutToggle>
       <mat-icon>menu</mat-icon>
     </button>
     <div td-toolbar-content layout="row" layout-align="start center" flex>
       <span hide-gt-xs class="tc-blue-500 mat-subhead">Landing</span>
       <span hide-xs class="tc-blue-500 mat-subhead">Landing Page</span>
-      <span flex ></span>
+      <span flex></span>
       <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">
         <td-notification-count color="accent" [notifications]="12">
           <mat-icon>notifications</mat-icon>
@@ -84,65 +89,82 @@
       </mat-menu>
     </div>
     <mat-toolbar class="pad-none">
-      <nav  mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
+      <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
         <a mat-tab-link [active]="true">
           <span hide-xs>Home</span>
-          <span hide-gt-xs><mat-icon>home</mat-icon></span>
+          <span hide-gt-xs>
+            <mat-icon>home</mat-icon>
+          </span>
         </a>
         <a mat-tab-link>
           <span hide-xs>Technology</span>
-          <span hide-gt-xs><mat-icon>laptop_mac</mat-icon></span>
+          <span hide-gt-xs>
+            <mat-icon>laptop_mac</mat-icon>
+          </span>
         </a>
         <a mat-tab-link>
           <span hide-xs>Locations</span>
-          <span hide-gt-xs><mat-icon>language</mat-icon></span>
+          <span hide-gt-xs>
+            <mat-icon>language</mat-icon>
+          </span>
         </a>
         <a mat-tab-link>
           <span hide-xs>Job Openings</span>
-          <span hide-gt-xs><mat-icon>assignment</mat-icon></span>
+          <span hide-gt-xs>
+            <mat-icon>assignment</mat-icon>
+          </span>
         </a>
         <a mat-tab-link>
           <span hide-xs>Leadership</span>
-          <span hide-gt-xs><mat-icon>people</mat-icon></span>
+          <span hide-gt-xs>
+            <mat-icon>people</mat-icon>
+          </span>
         </a>
       </nav>
     </mat-toolbar>
     <!-- router outlet goes here -->
 
     <mat-grid-list cols="3">
-        <mat-grid-tile>
-            <themes></themes>
-        </mat-grid-tile>
-        <mat-grid-tile>
-          <works></works>
-        </mat-grid-tile>
-        <mat-grid-tile>
+      <mat-grid-tile>
+        <div flex-gt-sm="33">
+          <themes></themes>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div flex-gt-sm="33">
+          <!-- <works></works> -->
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div flex-gt-sm="33">
           <authors></authors>
-        </mat-grid-tile>
+        </div>
+      </mat-grid-tile>
     </mat-grid-list>
 
-    <td-layout-footer><div class="container-fluid">
-            <nav class="float-left">
-                <ul>
-                    <li><a
-                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
-                            Israel Peñalver </a></li>
-                    <li><a
-                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=74240&course=128839">
-                            Natalia Madrueño </a></li>
-                    <li><a
-                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
-                            Sandra Gómez </a></li>
-                    <li><a
-                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
-                            Zhihao Du </a></li>
-                    <li><a
-                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
-                            Sergio Casado </a></li>
-                </ul>
-            </nav>
+    <td-layout-footer>
+        <div layout="row">
+          <div flex>
+            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
+              Israel Peñalver </a>
+          </div>
 
+          <div flex>
+            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
+              Sandra Gómez</a>
+          </div>
+
+          <div flex>
+            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
+              Zhihao Du</a>
+          </div>
+
+          <div flex>
+            <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
+              Sergio Casado</a>
+          </div>
         </div>
+
       <div layout="row" layout-align="start center">
         <span class="mat-caption">Made with <mat-icon class="text-md">favorite</mat-icon> by Grupo 13</span>
       </div>
