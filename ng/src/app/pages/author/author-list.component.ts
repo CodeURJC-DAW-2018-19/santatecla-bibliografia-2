@@ -1,0 +1,27 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { Author, AuthorService } from './author.service';
+import { LoginService } from '../../auth/login.service';
+
+@Component({
+  templateUrl: 'author-list.component.html'
+})
+export class AuthorListComponent implements OnInit {
+
+  authors: Author[];
+
+  constructor(private router: Router, private service: AuthorService,
+    public loginService: LoginService) { }
+
+  ngOnInit() {
+    this.service.getAuthors().subscribe(
+      authors => this.authors = authors,
+      error => console.log(error)
+    );
+  }
+
+  newAuhtor() {
+    this.router.navigate(['/author/new']);
+  }
+}

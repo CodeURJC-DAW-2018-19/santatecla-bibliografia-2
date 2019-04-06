@@ -1,0 +1,24 @@
+<div *ngIf="author">
+    <mat-card>
+        <mat-card-title> Author "{{ author.title }}"</mat-card-title>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <div>
+                <p>{{ author.description }}</p>
+                <p>habra que pomer aqi mas</p>
+            </div>
+            <div layout="row" layout-align="end center">
+                <ng-container>
+                <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+                    <button mat-raised-button color="accent" (click)="removeAuthor()"><mat-icon>delete</mat-icon>Remove</button>
+                    <button mat-raised-button color="accent" (click)="editAuthor()" class="push-left-sm">
+                        <mat-icon>edit</mat-icon>Edit
+                    </button>
+                </ng-container>
+                <button mat-raised-button color="accent" (click)="gotoAuthors()" class="push-left-sm">
+                    <mat-icon>list</mat-icon>All Authors
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

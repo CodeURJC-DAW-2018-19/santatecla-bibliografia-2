@@ -79,6 +79,11 @@ import { ThemeDetailComponent } from './pages/theme/theme-detail.component';
 import { ThemeListComponent } from './pages/theme/theme-list.component';
 import { ThemeFormComponent } from './pages/theme/theme-form.component';
 
+import { AuthorService } from './pages/author/author.service';
+import { AuthorDetailComponent } from './pages/author/author-detail.component';
+import { AuthorListComponent } from './pages/author/author-list.component';
+import { AuthorFormComponent } from './pages/author/author-form.component';
+
 //Our Services 
 /* import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -135,10 +140,10 @@ import { ThemeService } from './pages/theme/theme.service'; */
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,/* IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, ThemeListComponent, ThemeDetailComponent, ThemeFormComponent, AuthorDetailComponent, AuthorListComponent, AuthorFormComponent, /* IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
-    providers: [BookService, LoginService, ThemeService,/*  WorkService, AuthorService, ThemeService, */
+    providers: [BookService, LoginService, ThemeService, AuthorService,/*  WorkService, AuthorService, ThemeService, */
     //providers: [BookService, LoginService, 
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
