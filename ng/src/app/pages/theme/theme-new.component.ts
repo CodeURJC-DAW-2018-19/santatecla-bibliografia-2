@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-theme-new',
-  templateUrl: './themeNew.component.html'
+  templateUrl: './theme-new.component.html'
 })
 export class ThemeNewComponent implements OnInit {
 
