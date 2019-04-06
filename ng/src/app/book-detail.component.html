@@ -7,7 +7,7 @@
                 <p>{{ book.description }}</p>
             </div>
             <div layout="row" layout-align="end center">
-                <ng-container *ngIf="loginService.isLogged && loginService.isAdmin">
+                <ng-container >
                     <button mat-raised-button color="accent" (click)="removeBook()"><mat-icon>delete</mat-icon>Remove</button>
                     <button mat-raised-button color="accent" (click)="editBook()" class="push-left-sm">
                         <mat-icon>edit</mat-icon>Edit

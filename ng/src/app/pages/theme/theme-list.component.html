@@ -25,8 +25,8 @@
         <div layout="column" layout-align="center end">
         <!-- <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin"> -->
             <mat-divider inset="true"></mat-divider>
-            <button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newTheme()">
-                <mat-icon>add</mat-icon> New
+            <button mat-raised-button color="accent" class="push-top-sm"  (click)="newTheme()">
+            <!--<button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newTheme()">-->                            <mat-icon>add</mat-icon> New
             </button>
         </div>
     </mat-card-content>

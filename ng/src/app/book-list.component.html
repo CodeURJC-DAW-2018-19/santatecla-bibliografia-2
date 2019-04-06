@@ -7,22 +7,22 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div>
-            <mat-nav-list *ngIf="loginService.isLogged">
+            <mat-nav-list >
                 <a *ngFor="let book of books" mat-list-item [routerLink]="['/book', book.id]">
                     {{ book.title }}
                 </a>
             </mat-nav-list>
 
-            <mat-nav-list *ngIf="!loginService.isLogged">
+            <mat-nav-list >
                 <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let book of books">
                     {{ book.title }}
                 </mat-list-item>
             </mat-nav-list>
         </div>
 
-        <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin">
+        <div layout="column" layout-align="center end" >
             <mat-divider inset="true"></mat-divider>
-            <button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newBook()">
+            <button mat-raised-button color="accent" class="push-top-sm"  (click)="newBook()">
                 <mat-icon>add</mat-icon> New
             </button>
         </div>
