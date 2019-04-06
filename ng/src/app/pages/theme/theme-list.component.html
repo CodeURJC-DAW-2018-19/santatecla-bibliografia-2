@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title>
+        <div layout="row" layout-align="start center">
+            <span flex>Themes</span>
+        </div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div>
+            <mat-nav-list>
+            <!-- <mat-nav-list *ngIf="loginService.isLogged"> -->
+                <a *ngFor="let theme of themes" mat-list-item [routerLink]="['/theme', theme.id]">
+                    {{ theme.title }}
+                </a>
+            </mat-nav-list>
+
+            <mat-nav-list>
+            <!-- <mat-nav-list *ngIf="!loginService.isLogged"> -->
+                <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let theme of themes">
+                    {{ theme.title }}
+                </mat-list-item>
+            </mat-nav-list>
+        </div>
+
+        <div layout="column" layout-align="center end">
+        <!-- <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+            <mat-divider inset="true"></mat-divider>
+            <button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newBook()">
+                <mat-icon>add</mat-icon> New
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>

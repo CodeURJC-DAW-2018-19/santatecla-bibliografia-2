@@ -73,6 +73,12 @@ import { routing } from './app.routing';
 import { ErrorInterceptor } from './auth/error.interceptor';
 import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+import { ThemeService } from './pages/theme/theme.service';
+import { ThemeDetailComponent } from './pages/theme/theme-detail.component';
+import { ThemeListComponent } from './pages/theme/theme-list.component';
+import { ThemeFormComponent } from './pages/theme/theme-form.component';
+
 //Our Services 
 /* import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -129,10 +135,10 @@ import { ThemeService } from './pages/theme/theme.service'; */
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, /* IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,/* IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
-    providers: [BookService, LoginService,/*  WorkService, AuthorService, ThemeService, */
+    providers: [BookService, LoginService, ThemeService,/*  WorkService, AuthorService, ThemeService, */
     //providers: [BookService, LoginService, 
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
