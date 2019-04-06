@@ -88,6 +88,8 @@ import { WorkService } from './pages/literaryWork/work.service';
 import { WorkDetailComponent } from './pages/literaryWork/work-detail.component';
 import { WorkListComponent } from './pages/literaryWork/work-list.component'; 
 import { WorkFormComponent } from './pages/literaryWork/work-form.component';
+
+import { IndexComponent } from './index.component';
 //Our Services 
 /*import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -148,7 +150,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
          BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent,
           ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,
            AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,
-            WorkDetailComponent , WorkListComponent, WorkFormComponent,/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+            WorkDetailComponent , WorkListComponent, WorkFormComponent,IndexComponent,/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
 
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
