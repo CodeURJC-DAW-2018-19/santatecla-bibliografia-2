@@ -10,14 +10,14 @@
             <mat-nav-list>
             <!-- <mat-nav-list *ngIf="loginService.isLogged"> -->
                 <a *ngFor="let theme of themes" mat-list-item [routerLink]="['/theme', theme.id]">
-                    {{ theme.title }}
+                    {{ theme.contenido }}
                 </a>
             </mat-nav-list>
 
             <mat-nav-list>
             <!-- <mat-nav-list *ngIf="!loginService.isLogged"> -->
                 <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let theme of themes">
-                    {{ theme.title }}
+                    {{ theme.contenido }}
                 </mat-list-item>
             </mat-nav-list>
         </div>
