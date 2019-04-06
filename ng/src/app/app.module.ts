@@ -10,13 +10,13 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 //Our Components 
-import { IndexComponent } from './pages/index/index.component';
+/* import { IndexComponent } from './pages/index/index.component';
 import { AuthorNewComponent } from './pages/author/author-new.component';
 import { AuthorComponent } from './pages/author/author.component';
 import { ThemeComponent } from './pages/theme/theme.component';
 import { ThemeNewComponent } from './pages/theme/theme-new.component';
 import { WorkComponent } from './pages/literaryWork/work.component';
-import { WorkShowComponent } from './pages/literaryWork/work-show.component';
+import { WorkShowComponent } from './pages/literaryWork/work-show.component'; */
 //
 
 import {
@@ -74,9 +74,9 @@ import { ErrorInterceptor } from './auth/error.interceptor';
 import { BasicAuthInterceptor } from './auth/auth.interceptor';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 //Our Services 
-import { WorkService } from './pages/literaryWork/work.service';
+/* import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
-import { ThemeService } from './pages/theme/theme.service';
+import { ThemeService } from './pages/theme/theme.service'; */
 //
 @NgModule({
     imports: [
@@ -129,10 +129,10 @@ import { ThemeService } from './pages/theme/theme.service';
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent],
+    declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent, /* IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
-    providers: [BookService, LoginService, WorkService, AuthorService, ThemeService,
+    providers: [BookService, LoginService,/*  WorkService, AuthorService, ThemeService, */
     //providers: [BookService, LoginService, 
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

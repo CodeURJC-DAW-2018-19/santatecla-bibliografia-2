@@ -1,4 +1,4 @@
-<td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
+<!-- <td-layout [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'push'"
     [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '240px' : '100%'">
 
     <td-layout-nav [toolbarTitle]="(media.registerQuery('gt-xs') | async) ? 'Library' : ''" navigationRoute="/">
@@ -27,3 +27,120 @@
     </td-layout-nav>
 </td-layout>
 
+ -->
+
+
+
+
+ <td-layout>
+  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname" email="firstname.lastname@company.com">
+    <mat-nav-list>
+      <a *ngFor="let item of routes" mat-list-item><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+    </mat-nav-list>
+    <div td-navigation-drawer-menu>
+      <mat-nav-list>
+        <a *ngFor="let item of usermenu" mat-list-item><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</a>
+      </mat-nav-list>
+    </div>
+  </td-navigation-drawer>
+  <td-layout-nav color="none" logo="assets:covalent"  navigationRoute="/">
+    <button mat-icon-button td-menu-button tdLayoutToggle>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <span hide-gt-xs class="tc-blue-500 mat-subhead">Landing</span>
+      <span hide-xs class="tc-blue-500 mat-subhead">Landing Page</span>
+      <span flex ></span>
+      <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">
+        <td-notification-count color="accent" [notifications]="12">
+          <mat-icon>notifications</mat-icon>
+        </td-notification-count>
+      </button>
+      <mat-menu #notificationsMenu="matMenu">
+        <td-menu>
+          <div td-menu-header class="mat-subhead">Job Openings</div>
+          <mat-nav-list dense>
+            <a mat-list-item>
+              <mat-icon mat-list-avatar>fiber_new</mat-icon>
+              <h4 matLine><span class="text-wrap">Sr. Frontend Engineer</span></h4>
+              <p matLine>UX team</p>
+            </a>
+            <mat-divider></mat-divider>
+            <a mat-list-item>
+              <mat-icon mat-list-avatar>fiber_new</mat-icon>
+              <h4 matLine><span class="text-wrap">Sr. Data Scientist</span></h4>
+              <p matLine>Data science team</p>
+            </a>
+            <mat-divider></mat-divider>
+            <a mat-list-item>
+              <mat-icon mat-list-avatar>fiber_new</mat-icon>
+              <h4 matLine><span class="text-wrap">Sr. DevOps Engineer</span></h4>
+              <p matLine>DevOps team</p>
+            </a>
+          </mat-nav-list>
+          <a mat-button color="accent" td-menu-footer>
+            View Jobs
+          </a>
+        </td-menu>
+      </mat-menu>
+    </div>
+    <mat-toolbar class="pad-none">
+      <nav  mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
+        <a mat-tab-link [active]="true">
+          <span hide-xs>Home</span>
+          <span hide-gt-xs><mat-icon>home</mat-icon></span>
+        </a>
+        <a mat-tab-link>
+          <span hide-xs>Technology</span>
+          <span hide-gt-xs><mat-icon>laptop_mac</mat-icon></span>
+        </a>
+        <a mat-tab-link>
+          <span hide-xs>Locations</span>
+          <span hide-gt-xs><mat-icon>language</mat-icon></span>
+        </a>
+        <a mat-tab-link>
+          <span hide-xs>Job Openings</span>
+          <span hide-gt-xs><mat-icon>assignment</mat-icon></span>
+        </a>
+        <a mat-tab-link>
+          <span hide-xs>Leadership</span>
+          <span hide-gt-xs><mat-icon>people</mat-icon></span>
+        </a>
+      </nav>
+    </mat-toolbar>
+    <!-- router outlet goes here -->
+
+    <mat-grid-list cols="3">
+        <mat-grid-tile>AQUI VAN TEMAS</mat-grid-tile>
+        <mat-grid-tile>OBRAS</mat-grid-tile>
+        <mat-grid-tile>AUTORESS</mat-grid-tile>
+    </mat-grid-list>
+
+    <td-layout-footer><div class="container-fluid">
+            <nav class="float-left">
+                <ul>
+                    <li><a
+                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">
+                            Israel Peñalver </a></li>
+                    <li><a
+                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=74240&course=128839">
+                            Natalia Madrueño </a></li>
+                    <li><a
+                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=76736&course=128839">
+                            Sandra Gómez </a></li>
+                    <li><a
+                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=73601&course=128839">
+                            Zhihao Du </a></li>
+                    <li><a
+                        href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=60660&course=128839">
+                            Sergio Casado </a></li>
+                </ul>
+            </nav>
+
+        </div>
+      <div layout="row" layout-align="start center">
+        <span class="mat-caption">Made with <mat-icon class="text-md">favorite</mat-icon> by Grupo 13</span>
+      </div>
+    </td-layout-footer>
+  </td-layout-nav>
+</td-layout>
