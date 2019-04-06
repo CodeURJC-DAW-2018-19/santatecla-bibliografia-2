@@ -18,12 +18,13 @@ const appRoutes = [
   { path: 'book/edit/:id', component: BookFormComponent },
   { path: '', redirectTo: 'books', pathMatch: 'full' }, */
 
-  { path: 'themes', component: ThemeListComponent, useAsDefault: true },
+  { path: '', component: ThemeListComponent, useAsDefault: true },
+  { path: 'themes', component: ThemeListComponent},
   { path: 'theme/new', component: ThemeFormComponent },
   { path: 'theme/:id', component: ThemeDetailComponent },
   { path: 'theme/edit/:id', component: ThemeFormComponent },
   { path: 'work/new', component: WorkFormComponent },
-  { path: '', redirectTo: 'themes', pathMatch: 'full' }
+  { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
