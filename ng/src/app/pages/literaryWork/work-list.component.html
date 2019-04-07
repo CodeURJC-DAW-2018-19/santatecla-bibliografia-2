@@ -8,7 +8,7 @@
     <mat-card-content>
         <div>
             <cdk-virtual-scroll-viewport itemSize="50" *ngIf="loginService.isLogged" class="example-viewport">
-                <div *cdkVirtualFor="let work of works" class="example-item">
+                <div *cdkVirtualFor="let work of works" class="example-item" [routerLink]="['/work', work.title]">
                     <a [routerLink]="['/work', work.title]">
                         {{ work.title }}
                     </a>
@@ -17,7 +17,7 @@
 
 
             <cdk-virtual-scroll-viewport itemSize="50" *ngIf="!loginService.isLogged" class="example-viewport">
-                <div *cdkVirtualFor="let work of works" class="example-item">
+                <div *cdkVirtualFor="let work of works" class="example-item" >
                     {{ work.title }}
                 </div>
             </cdk-virtual-scroll-viewport>
