@@ -13,9 +13,12 @@ export interface Work {
   date: string; 
   editorial: string; 
   url_editorial: string;
+  citas: Array<Quote>;
+  autores: Array<Author>;
 }
 
 export interface Quote {
+  id?: number;
   contenido : string; 
 }
 
@@ -51,7 +54,7 @@ export class WorkService {
   saveWork(work: Work, author: Author, theme: Theme): Observable<Work> {
  //AddObra & EditObra
     const body = JSON.stringify(work);
-    
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });

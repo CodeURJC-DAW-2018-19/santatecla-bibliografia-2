@@ -23,7 +23,7 @@ export class WorkComponent {
       //HERE ADD THIS.ATHOR & THIS.THEME BUT IDK
       this.newWork=false;
     }else{
-      this.work={title:"",URL:"",date:"",editorial:"",url_editorial:""};
+      this.work={title:"",URL:"",date:"",editorial:"",url_editorial:"", autores:null, citas:null};
       //HERE ADD THIS.ATHOR & THIS.THEME BUT IDK
       this.newWork=true;
     }

@@ -38,7 +38,7 @@ export class WorkFormComponent {
             service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
             this.newWork = false;
         } else {
-            this.work = {  title: '', URL: '', date: '', editorial: '', url_editorial: ''};
+            this.work = {  title: '', URL: '', date: '', editorial: '', url_editorial: '', autores:null, citas:null};
         
             this.newWork = true;
         }
