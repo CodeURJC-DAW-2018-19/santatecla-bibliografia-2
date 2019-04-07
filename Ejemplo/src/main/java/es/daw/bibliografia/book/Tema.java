@@ -22,7 +22,7 @@ public class Tema {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@JsonView(Obras.class)
+	@JsonView(Basic.class)
 	@OneToMany
 	private List<Obra> obras;
 
