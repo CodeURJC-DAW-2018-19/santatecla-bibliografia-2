@@ -26,11 +26,11 @@ public class Obra {
 	@JsonView(Basic.class)
 	private String title, URL, date, editorial, url_editorial;
 
-	@JsonView(Quotes.class)
+	@JsonView(Basic.class)
 	@OneToMany
 	private List<Cita> citas;
 
-	@JsonView(Authors.class)
+	@JsonView(Basic.class)
 	@ManyToMany
 	private List<Autor> autores;
 	
