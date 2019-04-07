@@ -32,28 +32,12 @@
 
 
 <td-layout>
-  <td-navigation-drawer flex [sidenavTitle]="name" logo="assets:covalent" name="Firstname Lastname"
-    email="firstname.lastname@company.com">
-    <mat-nav-list>
-      <a *ngFor="let item of routes" mat-list-item>
-        <mat-icon>{{item.icon}}</mat-icon>{{item.title}}
-      </a>
-    </mat-nav-list>
-    <div td-navigation-drawer-menu>
-      <mat-nav-list>
-        <a *ngFor="let item of usermenu" mat-list-item>
-          <mat-icon>{{item.icon}}</mat-icon>{{item.title}}
-        </a>
-      </mat-nav-list>
-    </div>
-  </td-navigation-drawer>
-  <td-layout-nav color="none" logo="assets:covalent" navigationRoute="/">
-    <button mat-icon-button td-menu-button tdLayoutToggle>
-      <mat-icon>menu</mat-icon>
-    </button>
+  
+  <td-layout-nav color="none"  navigationRoute="/">
+    
     <div td-toolbar-content layout="row" layout-align="start center" flex>
       <span hide-gt-xs class="tc-blue-500 mat-subhead">Landing</span>
-      <span hide-xs class="tc-blue-500 mat-subhead">Landing Page</span>
+      <span hide-xs class="tc-blue-500 mat-subhead">Santatecla Bibliografía</span>
       <span flex></span>
       <login></login>
       
