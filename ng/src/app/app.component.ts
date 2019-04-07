@@ -1,8 +1,9 @@
-import { Component, ChangeDetectorRef, AfterViewInit } from '@angular/core';
+import { Component, ChangeDetectorRef, AfterViewInit, ViewChild} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry, MatDialog } from '@angular/material';
 import { TdMediaService, tdRotateAnimation } from '@covalent/core';
 import { environment } from '../environments/environment';
+import { TabsComponent } from './pages/tabs/tabs.component';
 
 @Component({
     selector: 'my-app',
@@ -11,7 +12,7 @@ import { environment } from '../environments/environment';
     animations: [tdRotateAnimation],
 })
 export class AppComponent implements AfterViewInit {
-
+    @ViewChild(TabsComponent) tabsComponent;
     mode: string;
 
     constructor(

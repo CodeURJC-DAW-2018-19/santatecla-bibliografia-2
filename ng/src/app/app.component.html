@@ -42,7 +42,7 @@
       <login></login>
       
     </div>
-    <mat-toolbar class="pad-none">
+    <!--<mat-toolbar class="pad-none">
       <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
         <a mat-tab-link [active]="true" [routerLink]="['/']">>
           <span hide-xs>Home</span>
@@ -70,7 +70,13 @@
         </a>
         
       </nav>
-    </mat-toolbar>
+    </mat-toolbar> -->
+    <my-tabs>
+      <!--<a mat-tab-link [active]="true" [routerLink]="['/']">-->
+        <my-tab [tabTitle]="'Home'">
+        </my-tab>
+      
+    </my-tabs>
     <!-- router outlet goes here -->
 
     <router-outlet></router-outlet>

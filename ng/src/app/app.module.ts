@@ -8,6 +8,10 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
+import { DynamicTabsDirective } from './pages/tabs/dynamic-tabs.directive';
+import { TabsComponent } from './pages/tabs/tabs.component';
+import { TabComponent } from './pages/tabs/tab.component';
+
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
@@ -173,7 +177,8 @@ import { ThemeService } from './pages/theme/theme.service'; */
          BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent,
           ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,
            AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,
-            WorkDetailComponent , WorkListComponent, WorkFormComponent,IndexComponent,/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+            WorkDetailComponent , WorkListComponent, WorkFormComponent,IndexComponent,
+            TabsComponent, TabComponent, DynamicTabsDirective/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
 
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
@@ -184,6 +189,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy }
     ],
+    entryComponents: [TabComponent],
 
     exports: [
     A11yModule,
