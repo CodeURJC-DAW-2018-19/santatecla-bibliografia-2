@@ -45,6 +45,6 @@ export class WorkDetailComponent {
     }
 
     gotoWorks() {
-        this.router.navigate(['/works']);
+        this.router.navigate(['']);
     }
 }
