@@ -23,7 +23,7 @@ export class AuthorListComponent implements OnInit {
     );
   }
 
-  newAuhtor() {
+  newAuthor() {
     this.router.navigate(['/author/new']);
   }
 }

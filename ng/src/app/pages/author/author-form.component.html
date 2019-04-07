@@ -1,6 +1,6 @@
 <div *ngIf="author">
     <mat-card>
-        <mat-card-title> Author "{{ author.title }}"</mat-card-title>
+        <mat-card-title> Author </mat-card-title>
         <mat-divider></mat-divider>
         <mat-card-content>
             <form #authorForm="ngForm">
@@ -9,28 +9,81 @@
                     <mat-form-field>
                         <input
                             matInput
-                            [(ngModel)]="author.title"
-                            placeholder="Title"
+                            [(ngModel)]="author.nombre"
+                            placeholder="Name"
                             #authorFormElement
                             #authorFormControl="ngModel"
-                            name="title"
+                            name="nombre"
                             required
                         />
                     </mat-form-field>
                 </div>
-                <div layout="column">
+                <div>
                     <mat-form-field>
-                        <textarea
+                        <input
                             matInput
-                            [(ngModel)]="author.description"
-                            placeholder="Description"
+                            [(ngModel)]="author.url_foto"
+                            placeholder="Author URL"
                             #authorFormElement
                             #authorFormControl="ngModel"
-                            name="description"
+                            name="url_foto"
                             required
-                        ></textarea>
+                        />
                     </mat-form-field>
                 </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="author.fecha_nac"
+                            placeholder="Birth Date"
+                            #authorFormElement
+                            #authorFormControl="ngModel"
+                            name="fecha_nac"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="author.fecha_def"
+                            placeholder="Death Date"
+                            #authorFormElement
+                            #authorFormControl="ngModel"
+                            name="fecha_def"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="author.url_mapa"
+                            placeholder="Country URL "
+                            #authorFormElement
+                            #authorFormControl="ngModel"
+                            name="url_mapa"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="author.lugar"
+                            placeholder="Country "
+                            #authorFormElement
+                            #authorFormControl="ngModel"
+                            name="lugar"
+                            required
+                        />
+                    </mat-form-field>
+                </div>
+                
             </form>
         </mat-card-content>
         <mat-divider></mat-divider>
