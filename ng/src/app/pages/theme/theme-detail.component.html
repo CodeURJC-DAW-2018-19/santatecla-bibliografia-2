@@ -1,10 +1,10 @@
 <div *ngIf="theme">
     <mat-card>
-        <mat-card-title> Theme "{{ theme.title }}"</mat-card-title>
+        <mat-card-title> Theme "{{ theme.contenido }}"</mat-card-title>
         <mat-divider></mat-divider>
         <mat-card-content>
-            <div>
-                <p>{{ theme.description }}</p>
+            <div *ngFor="let work of theme.obras">
+                <p>{{ work.title }}</p>
             </div>
             <div layout="row" layout-align="end center">
                 <ng-container>
