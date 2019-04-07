@@ -29,10 +29,13 @@ export class WorkFormComponent {
             service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
             //HERE ADD THIS.ATHOR & THIS.THEME BUT IDK
             this.newWork = false;*/
-        const id = activatedRoute.snapshot.params['id'];
-        if (id) {
-            service.getWork(id).subscribe((work) => (this.work = work), (error) => console.error(error));
+        //const id = activatedRoute.snapshot.params['id'];
+        //if (id) {
+            //service.getWork(id).subscribe((work) => (this.work = work), (error) => console.error(error));
+        const title = activatedRoute.snapshot.params['title'];
+        if(title){
             
+            service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
             this.newWork = false;
         } else {
             this.work = {  title: '', URL: '', date: '', editorial: '', url_editorial: ''};
