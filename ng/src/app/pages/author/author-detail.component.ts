@@ -33,7 +33,7 @@ export class AuthorDetailComponent {
             if (accept) {
                 this.service
                     .removeAuthor(this.author)
-                    .subscribe((_) => this.router.navigate(['/authors']), (error) => console.error(error));
+                    .subscribe((_) => this.router.navigate(['']), (error) => console.error(error));
             }
         });
     }
@@ -43,6 +43,6 @@ export class AuthorDetailComponent {
     }
 
     gotoAuthors() {
-        this.router.navigate(['/authors']);
+        this.router.navigate(['']);
     }
 }
