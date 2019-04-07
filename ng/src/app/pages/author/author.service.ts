@@ -3,7 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { LoginService } from '../../auth/login.service';
-
+import { Theme } from "../theme/theme.service"
+import { Work } from "../literaryWork/work.service"
+import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
+import { ThemeComponent } from '../theme/theme.component';
 
 export interface Author {
   id?: number;
@@ -33,11 +36,11 @@ export class AuthorService {
     this.page=this.page+1;
   }
 
-  getAuthor(title: string): Observable<Author> {
-    return this.http.get<Author>(URL + title, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+  getAuthor(author: Author): Observable<Author> {
+    return this.http.get<Author>(URL + author.nombre, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
-  saveAuthor(author: Author): Observable<Author> {
+  saveAuthor(author: Author,work: Work): Observable<Author> {
 
     const body = JSON.stringify(author);
 
@@ -47,7 +50,7 @@ export class AuthorService {
 
     if (!author.id) {
       return this.http
-          .post<Author>(URL, body, { headers })
+          .post<Author>(URL+work.id, body, { headers })
           .pipe(catchError((error) => this.handleError(error)));
     } else {
       return this.http
@@ -66,4 +69,27 @@ export class AuthorService {
     console.error(error);
     return Observable.throw('Server error (' + error.status + '): ' + error);
   }
+
+  getShowThemeInAuthor(author: Author, theme: Theme): Observable<Author> {
+    return this.http.get<Author>(URL + 'temas/'+theme.contenido, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+  }
+
+  removeThemeInAuthor(author: Author, theme: Theme): Observable<Author> {
+    return this.http
+        .delete<Author>(URL +'temas/'+ theme.contenido)
+        .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getShowWorkInAuthor(author: Author, work:Work): Observable<Author> {
+    return this.http.get<Author>(URL + 'obras/'+work.title, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+  }
+
+  //getShowQuoteInAuthor(author: Author, quote:Quote ): Observable<Author> {
+  //  return this.http.get<Author>(URL + 'citas/'+quote.id, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+  //}
+  /*removeQuoteInAuthor(author: Author, quote: Quote): Observable<Author> {
+    return this.http
+        .delete<Author>(URL +'citas/'+ quote.id)
+        .pipe(catchError((error) => this.handleError(error)));
+  }*/
 }
