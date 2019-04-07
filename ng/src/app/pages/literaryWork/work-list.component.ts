@@ -17,7 +17,7 @@ export class WorkListComponent implements OnInit {
     public loginService: LoginService) { }
 
   ngOnInit() {
-    this.service.getWorks().subscribe(
+    this.service.getWorksPageable().subscribe(
       works => this.works = works,
       error => console.log(error)
     );

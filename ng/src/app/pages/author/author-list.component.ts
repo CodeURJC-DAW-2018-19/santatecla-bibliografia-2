@@ -16,7 +16,7 @@ export class AuthorListComponent implements OnInit {
     public loginService: LoginService) { }
 
   ngOnInit() {
-    this.service.getAuthors().subscribe(
+    this.service.getAuthorsPageable().subscribe(
       authors => this.authors = authors,
       error => console.log(error)
     );

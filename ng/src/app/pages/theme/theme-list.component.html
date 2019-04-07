@@ -7,15 +7,13 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div>
-            <mat-nav-list>
-            <!-- <mat-nav-list *ngIf="loginService.isLogged"> -->
+            <mat-nav-list *ngIf="loginService.isLogged">
                 <a *ngFor="let theme of themes" mat-list-item [routerLink]="['/theme', theme.contenido]">
                     {{ theme.contenido }}
                 </a>
             </mat-nav-list>
 
-            <mat-nav-list>
-            <!-- <mat-nav-list *ngIf="!loginService.isLogged"> -->
+            <mat-nav-list *ngIf="!loginService.isLogged">
                 <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let theme of themes">
                     {{ theme.contenido }}
                 </mat-list-item>

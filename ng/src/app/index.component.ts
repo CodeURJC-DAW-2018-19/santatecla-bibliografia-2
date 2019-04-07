@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
   constructor(private router: Router, private authorService: AuthorService, private themeService: ThemeService, public loginService: LoginService) { }
 
   ngOnInit() {
-    this.authorService.getAuthors().subscribe(
+    this.authorService.getAuthorsPageable().subscribe(
         author => this.authors = author,
         error => console.log(error)
     );

@@ -7,20 +7,16 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div>
-            <mat-nav-list>
             <mat-nav-list *ngIf="loginService.isLogged">
                 <a *ngFor="let author of authors" mat-list-item [routerLink]="['/author', author.nombre]">
                     {{ author.nombre }}
                 </a>
             </mat-nav-list>
-            </mat-nav-list>
 
-            <mat-nav-list>
             <mat-nav-list *ngIf="!loginService.isLogged"> 
                 <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let author of authors">
                     {{ author.nombre }}
                 </mat-list-item>
-            </mat-nav-list>
             </mat-nav-list>
         </div>
 

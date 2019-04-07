@@ -16,7 +16,7 @@ export class ThemeListComponent implements OnInit {
     public loginService: LoginService) { }
 
   ngOnInit() {
-    this.service.getThemes().subscribe(
+    this.service.getThemesPageable().subscribe(
       themes => this.themes = themes,
       error => console.log(error)
     );

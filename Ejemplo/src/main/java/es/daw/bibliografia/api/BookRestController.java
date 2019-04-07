@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,25 +69,25 @@ public class BookRestController {
 	}
 	
 	@JsonView(ObraDetail.class)
-	@GetMapping("/api/obras")
+	@GetMapping("/api/obras/page/{page}")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Obra> showObras(@RequestParam int obraPage){
+	public List<Obra> showObras(@PathVariable("page") int obraPage){
 		Page<Obra> obras = obraService.findAll(new PageRequest(obraPage,10));
 		return obras.getContent();
 	}
 	
 	@JsonView(AuthorDetail.class)
-	@GetMapping("/api/autores")
+	@GetMapping("/api/autores/page/{page}")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Autor> showAutores(@RequestParam int autorPage){
+	public List<Autor> showAutores(@PathVariable("page") int autorPage){
 		Page<Autor> autores = autorService.findAll(new PageRequest(autorPage,10));
 		return autores.getContent();
 	}
 	
 	@JsonView(TemaDetail.class)
-	@GetMapping("/api/temas")
+	@GetMapping("/api/temas/page/{page}")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Tema> showTemas(@RequestParam int temaPage){
+	public List<Tema> showTemas(@PathVariable("page") int temaPage){
 		Page<Tema> temas = temaService.findAll(new PageRequest(temaPage,10));
 		return temas.getContent();
 	}
