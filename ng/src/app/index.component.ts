@@ -10,23 +10,9 @@ import { Work, WorkService } from './pages/literaryWork/work.service';
   selector: 'app-index',
   templateUrl: './index.html',
 })
-export class IndexComponent implements OnInit {
-  private authors: Author[];
-  private themes: Theme[];
-  private works: Work[];
+export class IndexComponent{
 
-  constructor(private router: Router, private authorService: AuthorService, private themeService: ThemeService, public loginService: LoginService) { }
-
-  ngOnInit() {
-    this.authorService.getAuthorsPageable().subscribe(
-        author => this.authors = author,
-        error => console.log(error)
-    );
-    this.themeService.getThemes().subscribe(
-        theme => this.themes = theme,
-        error => console.log(error)
-    );
-  }
+  constructor(private router: Router, public loginService: LoginService) { }
 
   newAuthor() {
     this.router.navigate(['/author/new']);
