@@ -30,7 +30,7 @@ const appRoutes = [
   { path: 'work/edit/:title', component: WorkFormComponent },
   { path: 'author/new', component: AuthorFormComponent },
   { path: 'author/:name', component: AuthorDetailComponent },
-  { path: 'author/edit/:name', component: AuthorFormComponent },
+  { path: 'author/edit/:nombre', component: AuthorFormComponent },
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
