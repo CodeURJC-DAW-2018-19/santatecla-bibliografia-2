@@ -7,11 +7,13 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div>
-            <mat-nav-list *ngIf="loginService.isLogged">
-                <a *ngFor="let work of works" mat-list-item [routerLink]="['/work', work.title]">
-                    {{ work.title }}
-                </a>
-            </mat-nav-list>
+                <cdk-virtual-scroll-viewport itemSize="50" *ngIf="loginService.isLogged" class="example-viewport">
+                    <div *cdkVirtualFor="let work of works" class="example-item">
+                        <a [routerLink]="['/work', work.title]">
+                            {{ work.title }}
+                        </a>
+                    </div>
+                </cdk-virtual-scroll-viewport>
 
             <mat-nav-list *ngIf="!loginService.isLogged">
                 <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let work of works">

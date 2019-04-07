@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Work, WorkService } from './work.service';
@@ -7,7 +7,8 @@ import { LoginService } from '../../auth/login.service';
 //SHOW ALL WORKS 
 @Component({
   selector: 'works',
-  templateUrl: 'work-list.component.html'
+  templateUrl: 'work-list.component.html',
+  styleUrls: ['./work-list.component.css']
 })
 export class WorkListComponent implements OnInit {
 
