@@ -3,8 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Work, WorkService } from './work.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
-import { Author } from '../author/author.service';
-import { Theme } from '../theme/theme.service';
+import { Author, AuthorService } from '../author/author.service';
+import { Theme, ThemeService } from '../theme/theme.service';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 //Create new work
 @Component({
@@ -14,10 +15,10 @@ export class WorkFormComponent {
     
     newWork: boolean;
     work: Work;
-    author: Author;
-    theme: Theme;
+    authors: Author[];
+    themes: Theme[];
 
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService
+    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, private authorService: AuthorService, private themeService: ThemeService
         //, public loginService: LoginService, private _dialogService: TdDialogService
         ) {
         /*const title = activatedRoute.snapshot.params['title'];
@@ -36,6 +37,17 @@ export class WorkFormComponent {
             this.newWork = true;
         }
     }
+
+    ngOnInit() {
+    this.authorService.getAuthors().subscribe(
+      authors => this.authors = authors,
+      error => console.log(error)
+    );
+    this.themeService.getThemes().subscribe(
+      themes => this.themes = themes,
+      error => console.log(error)
+    );
+  }
 
     cancel() {
         window.history.back();
