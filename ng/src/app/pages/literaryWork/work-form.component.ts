@@ -31,11 +31,11 @@ export class WorkFormComponent {
         const id = activatedRoute.snapshot.params['id'];
         if (id) {
             service.getWork(id).subscribe((work) => (this.work = work), (error) => console.error(error));
-            //HERE ADD THIS.ATHOR & THIS.THEME BUT IDK
+            
             this.newWork = false;
         } else {
             this.work = {  title: '', URL: '', date: '', editorial: '', url_editorial: ''};
-            //HERE ADD THIS.ATHOR & THIS.THEME BUT IDK
+        
             this.newWork = true;
         }
     }

@@ -72,7 +72,7 @@
                 </div>
                 <div>
                     <mat-select placeholder="Autores">
-                        <mat-option *ngFor="let author of authors" value="{{author.nombre}}">
+                        <mat-option *ngFor="let author of authors" value="{{author.nombre}}" [(ngModel)]="author.nombre">
                             {{author.nombre}}
                         </mat-option>
                     </mat-select>
@@ -82,7 +82,7 @@
                 <p></p>
                 <div>
                     <mat-select placeholder="Temas">
-                        <mat-option *ngFor="let theme of themes" value="{{theme.contenido}}">
+                        <mat-option *ngFor="let theme of themes" value="{{theme.contenido}}" [(ngModel)]="theme.contenido">
                             {{theme.contenido}}
                         </mat-option>
                     </mat-select>
@@ -97,7 +97,7 @@
                     mat-raised-button
                     color="accent"
                     (click)="save()"
-                    [disabled]="workForm === undefined || (workrForm && !workForm.valid)"
+                    [disabled]="workForm === undefined || (workForm && !workForm.valid)"
                     class="push-left-sm"
                 >
                     Save
