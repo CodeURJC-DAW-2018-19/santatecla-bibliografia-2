@@ -36,8 +36,8 @@ export class AuthorService {
     this.page=this.page+1;
   }
 
-  getAuthor(author: Author): Observable<Author> {
-    return this.http.get<Author>(URL + author.nombre, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+  getAuthor(nombre: string): Observable<Author> {
+    return this.http.get<Author>(URL + nombre, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
   saveAuthor(author: Author,work: Work): Observable<Author> {
