@@ -9,6 +9,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 
 //Create new work
 @Component({
+    selector: 'work-F-component',
     templateUrl: './work-form.component.html',
 })
 export class WorkFormComponent {

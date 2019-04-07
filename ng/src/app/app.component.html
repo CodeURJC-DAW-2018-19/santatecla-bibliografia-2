@@ -56,38 +56,7 @@
       <span hide-xs class="tc-blue-500 mat-subhead">Landing Page</span>
       <span flex></span>
       <login></login>
-      <button mat-icon-button [matMenuTriggerFor]="notificationsMenu">
-        <td-notification-count color="accent" [notifications]="12">
-          <mat-icon>notifications</mat-icon>
-        </td-notification-count>
-      </button>
-      <mat-menu #notificationsMenu="matMenu">
-        <td-menu>
-          <div td-menu-header class="mat-subhead">Job Openings</div>
-          <mat-nav-list dense>
-            <a mat-list-item>
-              <mat-icon mat-list-avatar>fiber_new</mat-icon>
-              <h4 matLine><span class="text-wrap">Sr. Frontend Engineer</span></h4>
-              <p matLine>UX team</p>
-            </a>
-            <mat-divider></mat-divider>
-            <a mat-list-item>
-              <mat-icon mat-list-avatar>fiber_new</mat-icon>
-              <h4 matLine><span class="text-wrap">Sr. Data Scientist</span></h4>
-              <p matLine>Data science team</p>
-            </a>
-            <mat-divider></mat-divider>
-            <a mat-list-item>
-              <mat-icon mat-list-avatar>fiber_new</mat-icon>
-              <h4 matLine><span class="text-wrap">Sr. DevOps Engineer</span></h4>
-              <p matLine>DevOps team</p>
-            </a>
-          </mat-nav-list>
-          <a mat-button color="accent" td-menu-footer>
-            View Jobs
-          </a>
-        </td-menu>
-      </mat-menu>
+      
     </div>
     <mat-toolbar class="pad-none">
       <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>

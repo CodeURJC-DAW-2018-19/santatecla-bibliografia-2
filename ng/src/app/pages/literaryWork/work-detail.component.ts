@@ -7,6 +7,7 @@ import { TdDialogService } from '@covalent/core';
 
 // SHOW WORK
 @Component({
+    selector: 'work-D-component',
     templateUrl: 'work-detail.component.html',
 })
 export class WorkDetailComponent {
