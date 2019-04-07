@@ -68,7 +68,7 @@ public class TemaRestController {
 			return new ResponseEntity<Tema>(temaOpt.get(), HttpStatus.OK);
 		}else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	}
+	} 
 	
 	@PostMapping("/api/temas")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -94,13 +94,14 @@ public class TemaRestController {
 	}
 		
 	@JsonView(Cita.Basic.class)
-	@GetMapping("/api/temas/{contenido}/citas/{id}")
-	public ResponseEntity<List<Cita>> accessCitas(@PathVariable String contenido, @PathVariable Long id) {
+	@GetMapping("/api/temas/{contenido}/citas")
+	public ResponseEntity<List<Cita>> accessCitas(@PathVariable String contenido) {
 		
-		List<Cita> citas = citaService.findCitasByTema(temaService.findOne(id).get());
+		List<Cita> citas = citaService.findCitasByTema(temaService.findOneByContenido(contenido).get());
 		
 		if (citas !=null) {
 			return new ResponseEntity<List<Cita>>(citas, HttpStatus.OK);
+			
 		}else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}

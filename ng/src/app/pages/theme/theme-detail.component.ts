@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Theme, ThemeService } from './theme.service';
@@ -8,9 +8,9 @@ import { TdDialogService } from '@covalent/core';
 @Component({
     templateUrl: 'theme-detail.component.html',
 })
-export class ThemeDetailComponent {
+export class ThemeDetailComponent{
     theme: Theme;
-
+    quotes: string[];
     constructor(
         private router: Router,
         activatedRoute: ActivatedRoute,
@@ -19,7 +19,9 @@ export class ThemeDetailComponent {
         private _dialogService: TdDialogService,
     ) {
         const content = activatedRoute.snapshot.params['content'];
+        service.getQuotes(content).subscribe(quotes => this.quotes = quotes, error =>console.error(error));
         service.getTheme(content).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
+        
     }
 
     removeTheme() {
@@ -45,4 +47,10 @@ export class ThemeDetailComponent {
     gotoThemes() {
         this.router.navigate(['/themes']);
     }
+
+/*    ngOnInit(){
+        this.service.getQuotes(this.theme.contenido).subscribe(
+        quotes=> this.quotes = quotes,
+        error => console.error(error)
+    )} */
 }

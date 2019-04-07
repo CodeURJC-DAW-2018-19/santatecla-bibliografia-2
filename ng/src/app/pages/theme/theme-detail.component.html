@@ -4,12 +4,23 @@
         <mat-divider></mat-divider>
         <mat-card-content>
             <div *ngFor="let work of theme.obras">
-                <p>{{ work.title }}</p>
+                <mat-card>
+                    <mat-card-title>{{ work.title }} </mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <q *ngFor="let quote of quotes">
+                            {{quote.contenido}}
+                        </q>
+                    </mat-card-content>
+                </mat-card>
             </div>
+
             <div layout="row" layout-align="end center">
                 <ng-container>
-                <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
-                    <button mat-raised-button color="accent" (click)="removeTheme()"><mat-icon>delete</mat-icon>Remove</button>
+                    <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+                    <button mat-raised-button color="accent" (click)="removeTheme()">
+                        <mat-icon>delete</mat-icon>Remove
+                    </button>
                     <button mat-raised-button color="accent" (click)="editTheme()" class="push-left-sm">
                         <mat-icon>edit</mat-icon>Edit
                     </button>

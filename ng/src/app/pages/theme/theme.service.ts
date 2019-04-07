@@ -30,8 +30,8 @@ export class ThemeService {
     this.page=this.page+1;
   }
 
-  getTheme(title: string): Observable<Theme> {
-    return this.http.get<Theme>(URL + title, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
+  getTheme(contenido: string): Observable<Theme> {
+    return this.http.get<Theme>(URL + contenido, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
   saveTheme(theme: Theme): Observable<Theme> {
@@ -57,6 +57,12 @@ export class ThemeService {
     return this.http
         .delete<Theme>(URL + theme.id)
         .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getQuotes(contenido: string): Observable<any[]> {
+    return this.http
+      .get<any[]>(URL + contenido + "/citas")
+      .pipe(catchError((error) => this.handleError(error)));
   }
 
   private handleError(error: any) {
