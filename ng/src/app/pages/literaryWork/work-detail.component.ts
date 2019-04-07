@@ -35,13 +35,13 @@ export class WorkDetailComponent {
             if (accept) {
                 this.service
                     .removeWork(this.work)
-                    .subscribe((_) => this.router.navigate(['/works']), (error) => console.error(error));
+                    .subscribe((_) => this.router.navigate(['']), (error) => console.error(error));
             }
         });
     }
 
     editWork() {
-        this.router.navigate(['/work/edit', this.work.id]);
+        this.router.navigate(['/work/edit', this.work.title]);
     }
 
     gotoWorks() {
