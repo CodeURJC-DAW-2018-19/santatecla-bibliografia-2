@@ -12,6 +12,7 @@
                     <a [routerLink]="['/author', author.nombre]">
                         {{ author.nombre }}
                     </a>
+                    <button mat-icon-button *ngIf="loginService.isAdmin" (click)="deleteAuthor(author)"><mat-icon>delete</mat-icon></button>
                 </div>
             </cdk-virtual-scroll-viewport>
 
@@ -24,11 +25,9 @@
         </div>
         
 
-        <div layout="column" layout-align="center end">
-        <!-- <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+        <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin">
             <mat-divider inset="true"></mat-divider>
-            <button mat-raised-button color="accent" class="push-top-sm" (click)="newAuthor()">
-            <!-- <button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newAuthor()"> -->
+            <button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newAuthor()">
                             <mat-icon>add</mat-icon> New
             </button>
         </div>
