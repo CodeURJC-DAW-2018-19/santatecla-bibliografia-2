@@ -17,6 +17,8 @@ export class WorkFormComponent {
     work: Work;
     authors: Author[];
     themes: Theme[];
+    author: Author;
+    theme: Theme;
 
     constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, private authorService: AuthorService, private themeService: ThemeService
         //, public loginService: LoginService, private _dialogService: TdDialogService
