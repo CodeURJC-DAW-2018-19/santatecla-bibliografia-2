@@ -16,8 +16,7 @@
             </div>
 
             <div layout="row" layout-align="end center">
-                <ng-container>
-                    <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+                <ng-container *ngIf="loginService.isLogged && loginService.isAdmin">
                     <button mat-raised-button color="accent" (click)="removeTheme()">
                         <mat-icon>delete</mat-icon>Remove
                     </button>
