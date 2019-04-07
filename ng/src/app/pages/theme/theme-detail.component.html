@@ -8,9 +8,9 @@
                     <mat-card-title>{{ work.title }} </mat-card-title>
                     <mat-divider></mat-divider>
                     <mat-card-content>
-                        <div *ngFor="let quote of work.citas">
+                        <q *ngFor="let quote of quotes">
                             {{quote.contenido}}
-                        </div>
+                        </q>
                     </mat-card-content>
                 </mat-card>
             </div>
