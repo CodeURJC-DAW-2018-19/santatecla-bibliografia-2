@@ -23,11 +23,10 @@
             </cdk-virtual-scroll-viewport>
         </div>
 
-        <div layout="column" layout-align="center end">
-        <!-- <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+        <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin">
             <mat-divider inset="true"></mat-divider>
-            <button mat-raised-button color="accent" class="push-top-sm"  (click)="newWork()">
-            <!--<button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newWork()">-->                            <mat-icon>add</mat-icon> New
+            <button mat-raised-button color="accent" class="push-top-sm" *ngIf="loginService.isLogged" (click)="newWork()">
+                <mat-icon>add</mat-icon> New
             </button>
         </div>
     </mat-card-content>
