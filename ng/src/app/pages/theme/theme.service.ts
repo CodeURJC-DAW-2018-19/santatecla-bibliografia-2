@@ -55,7 +55,7 @@ export class ThemeService {
 
   removeTheme(theme: Theme): Observable<Theme> {
     return this.http
-        .delete<Theme>(URL + theme.id)
+        .delete<Theme>(URL + theme.contenido)
         .pipe(catchError((error) => this.handleError(error)));
   }
 

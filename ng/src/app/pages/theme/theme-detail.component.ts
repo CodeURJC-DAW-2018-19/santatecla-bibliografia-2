@@ -35,7 +35,7 @@ export class ThemeDetailComponent{
             if (accept) {
                 this.service
                     .removeTheme(this.theme)
-                    .subscribe((_) => this.router.navigate(['/themes']), (error) => console.error(error));
+                    .subscribe((_) => this.router.navigate(['']), (error) => console.error(error));
             }
         });
     }
@@ -45,7 +45,7 @@ export class ThemeDetailComponent{
     }
 
     gotoThemes() {
-        this.router.navigate(['/themes']);
+        this.router.navigate(['']);
     }
 
 /*    ngOnInit(){
