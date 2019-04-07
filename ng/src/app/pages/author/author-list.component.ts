@@ -6,7 +6,8 @@ import { LoginService } from '../../auth/login.service';
 
 @Component({
   selector: 'authors',
-  templateUrl: 'author-list.component.html'
+  templateUrl: 'author-list.component.html',
+  styleUrls: ['./author-list.component.css']
 })
 export class AuthorListComponent implements OnInit {
 

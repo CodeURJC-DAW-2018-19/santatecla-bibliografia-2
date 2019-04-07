@@ -7,18 +7,22 @@
     <mat-divider></mat-divider>
     <mat-card-content>
         <div>
-            <mat-nav-list *ngIf="loginService.isLogged">
-                <a *ngFor="let author of authors" mat-list-item [routerLink]="['/author', author.nombre]">
-                    {{ author.nombre }}
-                </a>
-            </mat-nav-list>
+            <cdk-virtual-scroll-viewport itemSize="50" *ngIf="loginService.isLogged" class="example-viewport">
+                <div *cdkVirtualFor="let author of authors" class="example-item" [routerLink]="['/author', author.nombre]">
+                    <a [routerLink]="['/author', author.nombre]">
+                        {{ author.nombre }}
+                    </a>
+                </div>
+            </cdk-virtual-scroll-viewport>
 
-            <mat-nav-list *ngIf="!loginService.isLogged"> 
-                <mat-list-item [ngStyle]="{ cursor: 'auto' }" *ngFor="let author of authors">
+
+            <cdk-virtual-scroll-viewport itemSize="50" *ngIf="!loginService.isLogged" class="example-viewport">
+                <div *cdkVirtualFor="let author of authors" class="example-item" >
                     {{ author.nombre }}
-                </mat-list-item>
-            </mat-nav-list>
+                </div>
+            </cdk-virtual-scroll-viewport>
         </div>
+        
 
         <div layout="column" layout-align="center end">
         <!-- <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin"> -->

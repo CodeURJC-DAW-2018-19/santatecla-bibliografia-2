@@ -6,7 +6,8 @@ import { LoginService } from '../../auth/login.service';
 
 @Component({
   selector: 'themes',
-  templateUrl: 'theme-list.component.html'
+  templateUrl: 'theme-list.component.html',
+  styleUrls: ['./theme-list.component.css']
 })
 export class ThemeListComponent implements OnInit {
 
