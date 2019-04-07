@@ -39,7 +39,7 @@ export class AuthorDetailComponent {
     }
 
     editAuthor() {
-        this.router.navigate(['/author/edit', this.author.id]);
+        this.router.navigate(['/author/edit', this.author.nombre]);
     }
 
     gotoAuthors() {
