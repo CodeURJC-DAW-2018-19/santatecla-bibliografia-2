@@ -26,4 +26,8 @@ export class ThemeListComponent implements OnInit {
   newTheme() {
     this.router.navigate(['/theme/new']);
   }
+
+  deleteTheme(theme:Theme){
+    this.service.removeTheme(theme)
+  }
 }

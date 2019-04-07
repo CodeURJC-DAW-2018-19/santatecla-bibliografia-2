@@ -24,4 +24,6 @@ export class BookListComponent implements OnInit {
   newBook() {
     this.router.navigate(['/book/new']);
   }
+
+  
 }
