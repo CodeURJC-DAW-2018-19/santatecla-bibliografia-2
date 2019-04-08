@@ -1,35 +1,45 @@
 <div *ngIf="work">
-    <mat-card>
-        <mat-card-title> Work "{{ work.title }}"</mat-card-title>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-            <div>
-                <p>URL : {{ work.URL }}</p>
-            </div>
-                <img [src]="urlCover">
-            <div>
-                <p>Date : {{ work.date }}</p>
-            </div>
-            <div>
-                <p>Editorial : {{ work.editorial }}</p>
-            </div>
-            <div>
-                <p>URL_Editorial : {{ work.url_editorial }}</p>
-            </div>
-            <div layout="row" layout-align="end center">
-                <ng-container>
-                    <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
-                    <button mat-raised-button color="accent" (click)="removeWork()">
-                        <mat-icon>delete</mat-icon>Remove
+    <div *ngIf="loginService.isLogged && (loginService.isAdmin || loginService.isLogged)">
+        <mat-card>
+            <mat-card-title> Work "{{ work.title }}"</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <div>
+                    <p>URL : {{ work.URL }}</p>
+                </div>
+                    <img [src]="urlCover">
+                <div>
+                    <p>Date : {{ work.date }}</p>
+                </div>
+                <div>
+                    <p>Editorial : {{ work.editorial }}</p>
+                </div>
+                <div>
+                    <p>URL_Editorial : {{ work.url_editorial }}</p>
+                </div>
+                <div layout="row" layout-align="end center">
+                    <ng-container>
+                        <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+                        <button mat-raised-button color="accent" (click)="removeWork()">
+                            <mat-icon>delete</mat-icon>Remove
+                        </button>
+                        <button mat-raised-button color="accent" (click)="editWork()" class="push-left-sm">
+                            <mat-icon>edit</mat-icon>Edit
+                        </button>
+                    </ng-container>
+                    <button mat-raised-button color="accent" (click)="gotoWorks()" class="push-left-sm">
+                        <mat-icon>list</mat-icon>All Works
                     </button>
-                    <button mat-raised-button color="accent" (click)="editWork()" class="push-left-sm">
-                        <mat-icon>edit</mat-icon>Edit
-                    </button>
-                </ng-container>
-                <button mat-raised-button color="accent" (click)="gotoWorks()" class="push-left-sm">
-                    <mat-icon>list</mat-icon>All Works
-                </button>
-            </div>
-        </mat-card-content>
-    </mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="! loginService.isLogged && !(loginService.isAdmin || loginService.isLogged)">
+        <mat-card>
+            <mat-card-title>Access Error</mat-card-title>
+                <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="cancel()">Return</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

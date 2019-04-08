@@ -57,6 +57,9 @@ export class WorkDetailComponent {
     parseBlobToUrl(data: Blob) {
         const url= URL.createObjectURL(data);
         return this._domSanitizer.bypassSecurityTrustResourceUrl(url)
-      }
+    }
+    cancel() {
+        window.history.back();
+    }
 
 }
