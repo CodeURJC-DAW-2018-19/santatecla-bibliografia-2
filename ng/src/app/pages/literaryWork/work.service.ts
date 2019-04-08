@@ -116,11 +116,11 @@ export class WorkService {
     } 
   }
 
-
-
-
-
-
+  downloadCoverImg(title:string):Observable<Blob>{
+    return this.http
+	  .get(URL+title+"/image/portada", {responseType: 'blob'})
+	  .pipe(catchError((error) => this.handleError(error)));
+  }
 
 
 }

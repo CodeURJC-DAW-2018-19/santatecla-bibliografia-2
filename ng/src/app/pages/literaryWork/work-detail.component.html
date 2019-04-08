@@ -6,6 +6,7 @@
             <div>
                 <p>URL : {{ work.URL }}</p>
             </div>
+                <img src={{url}}>
             <div>
                 <p>Date : {{ work.date }}</p>
             </div>
@@ -17,8 +18,10 @@
             </div>
             <div layout="row" layout-align="end center">
                 <ng-container>
-                <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
-                    <button mat-raised-button color="accent" (click)="removeWork()"><mat-icon>delete</mat-icon>Remove</button>
+                    <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+                    <button mat-raised-button color="accent" (click)="removeWork()">
+                        <mat-icon>delete</mat-icon>Remove
+                    </button>
                     <button mat-raised-button color="accent" (click)="editWork()" class="push-left-sm">
                         <mat-icon>edit</mat-icon>Edit
                     </button>
