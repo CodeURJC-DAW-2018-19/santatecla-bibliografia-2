@@ -16,18 +16,15 @@ const URL = '/api/temas/';
 @Injectable()
 export class ThemeService {
 
-  private page: number;
   constructor(private loginService: LoginService, private http: HttpClient) { 
-    this.page=0;
   }
 
   getThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(URL, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
-  getThemesPageable(): Observable<Theme[]> {
-    return this.http.get<Theme[]>(URL + 'page/' + this.page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
-    this.page=this.page+1;
+  getThemesPageable(page:number): Observable<Theme[]> {
+    return this.http.get<Theme[]>(URL + 'page/' + page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
   getTheme(contenido: string): Observable<Theme> {

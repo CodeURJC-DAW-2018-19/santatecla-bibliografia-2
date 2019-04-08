@@ -15,7 +15,7 @@
         "@angular/common": "7.2.9",
         "@angular/router": "7.2.9",
         "@angular/compiler": "7.2.9",
-        "@angular/material": "7.3.5",
+        "@angular/material": "7.3.7",
         "@angular/animations": "7.2.9",
         "@swimlane/ngx-charts": "10.0.0",
         "@angular/platform-browser": "7.2.9",

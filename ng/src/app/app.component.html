@@ -42,8 +42,14 @@
       <login></login>
       
     </div>
-    <mat-toolbar class="pad-none">
-      <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
+    <mat-toolbar class="pad-none" style="width: 100%">
+      <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex style="width: 100%"> 
+        <mat-expansion-panel style="width: 100%">
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+        Pestañas
+      </mat-panel-title>
+    </mat-expansion-panel-header>
         <a mat-tab-link [active]="true" [routerLink]="['/']"> 
           <span hide-xs>Home</span>
           <span hide-gt-xs>
@@ -69,6 +75,7 @@
           </span>
           
         </a>
+  </mat-expansion-panel>
         
       </nav>
     </mat-toolbar>
@@ -83,7 +90,7 @@
 
     <router-outlet></router-outlet>
 
-    <td-layout-footer>
+    <td-layout-footer >
         <div layout="row">
           <div flex>
             <a href="https://www.aulavirtual.urjc.es/moodle/user/view.php?id=88500&course=128839">

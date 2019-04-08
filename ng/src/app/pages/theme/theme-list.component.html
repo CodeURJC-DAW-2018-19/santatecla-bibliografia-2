@@ -22,6 +22,10 @@
                     {{ theme.contenido }}
                 </div>
             </cdk-virtual-scroll-viewport>
+            <mat-paginator [length]="100"
+              [pageSize]="10"
+              (page)="pageEvent = getPage($event)">
+            </mat-paginator>
         </div>
          
 

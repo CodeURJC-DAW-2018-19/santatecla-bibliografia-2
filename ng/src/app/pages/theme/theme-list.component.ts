@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Theme, ThemeService } from './theme.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
-
+import { PageEvent, MatPaginatorModule} from '@angular/material';
 
 @Component({
   selector: 'themes',
@@ -15,14 +15,22 @@ import { TdDialogService } from '@covalent/core';
 export class ThemeListComponent implements OnInit {
 
   themes: Theme[];
+  pageEvent: PageEvent;
 
 
   constructor(private router: Router, private service: ThemeService, 
         private _dialogService: TdDialogService,
-    public loginService: LoginService) { }
+    public loginService: LoginService) {}
 
   ngOnInit() {
-    this.service.getThemesPageable().subscribe(
+    this.service.getThemesPageable(0).subscribe(
+      themes => this.themes = themes,
+      error => console.log(error)
+    );
+  }
+
+  getPage(event?:PageEvent){
+    this.service.getThemesPageable(event.pageIndex).subscribe(
       themes => this.themes = themes,
       error => console.log(error)
     );
