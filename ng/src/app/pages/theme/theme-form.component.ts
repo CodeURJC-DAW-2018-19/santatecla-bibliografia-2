@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Theme, ThemeService } from './theme.service';
+import { LoginService } from '../../auth/login.service';
 
 @Component({
     templateUrl: 'theme-form.component.html',
@@ -10,7 +11,8 @@ export class ThemeFormComponent {
     newTheme: boolean;
     theme: Theme;
 
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: ThemeService) {
+    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: ThemeService, public loginService: LoginService,) {
+        
         const id = activatedRoute.snapshot.params['id'];
         if (id) {
             service.getTheme(id).subscribe((theme) => (this.theme = theme), (error) => console.error(error));

@@ -1,39 +1,57 @@
-<div *ngIf="theme">
-    <mat-card>
-        <mat-card-title> Theme "{{ theme.contenido }}"</mat-card-title>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-            <form #themeForm="ngForm">
-                <div *ngIf="theme.id"><label>Id: </label>{{ theme.id }}</div>
-                <div>
-                    <mat-form-field>
-                        <input
-                            matInput
-                            [(ngModel)]="theme.contenido"
-                            placeholder="Title"
-                            #themeFormElement
-                            #themeFormControl="ngModel"
-                            name="contenido"
-                            required
-                        />
-                    </mat-form-field>
+<div *ngIf="theme" >
+    <div *ngIf="loginService.isLogged && loginService.isAdmin">
+        <mat-card>
+            <mat-card-title> Theme "{{ theme.contenido }}"</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <form #themeForm="ngForm">
+                    <div *ngIf="theme.id"><label>Id: </label>{{ theme.id }}</div>
+                    <div>
+                        <mat-form-field>
+                            <input
+                                matInput
+                                [(ngModel)]="theme.contenido"
+                                placeholder="Title"
+                                #themeFormElement
+                                #themeFormControl="ngModel"
+                                name="contenido"
+                                required
+                            />
+                        </mat-form-field>
+                    </div>
+                </form>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <div layout="row" layout-align="end center">
+                    <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+                    <button
+                        mat-raised-button
+                        color="accent"
+                        (click)="save()"
+                        [disabled]="themeForm === undefined || (themeForm && !themeForm.valid)"
+                        class="push-left-sm"
+                    >
+                        Save
+                    </button>
                 </div>
-            </form>
-        </mat-card-content>
-        <mat-divider></mat-divider>
-        <mat-card-actions>
-            <div layout="row" layout-align="end center">
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div *ngIf="loginService.isLogged && !loginService.isAdmin">
+        <mat-card>
+            <mat-card-title>Access Error</mat-card-title>
+             <mat-card-actions>
                 <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
-                <button
-                    mat-raised-button
-                    color="accent"
-                    (click)="save()"
-                    [disabled]="themeForm === undefined || (themeForm && !themeForm.valid)"
-                    class="push-left-sm"
-                >
-                    Save
-                </button>
-            </div>
-        </mat-card-actions>
-    </mat-card>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div *ngIf="!loginService.isLogged && !loginService.isAdmin">
+        <mat-card>
+            <mat-card-title>Access Error</mat-card-title>
+                <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>
