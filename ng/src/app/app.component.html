@@ -42,41 +42,43 @@
       <login></login>
       
     </div>
-    <!--<mat-toolbar class="pad-none">
+    <mat-toolbar class="pad-none">
       <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex>
-        <a mat-tab-link [active]="true" [routerLink]="['/']">>
+        <a mat-tab-link [active]="true" [routerLink]="['/']"> 
           <span hide-xs>Home</span>
           <span hide-gt-xs>
             <mat-icon>home</mat-icon>
           </span>
         </a>
-        <a mat-tab-link>
-          <span hide-xs>Temas</span>
+        <a mat-tab-link [active]="true" [routerLink]="['themes']">
+          <span hide-xs>Themes</span>
           <span hide-gt-xs>
             <mat-icon>laptop_mac</mat-icon>
           </span>
         </a>
-        <a mat-tab-link>
-          <span hide-xs>Obras</span>
+        <a mat-tab-link [active]="true" [routerLink]="['works']">
+          <span hide-xs>Works</span>
           <span hide-gt-xs>
             <mat-icon>language</mat-icon>
           </span>
         </a>
-        <a mat-tab-link>
-          <span hide-xs>Autores</span>
+        <a mat-tab-link [active]="true"  [routerLink]="['authors']">
+          <span hide-xs>Authors</span>
           <span hide-gt-xs>
             <mat-icon>assignment</mat-icon>
           </span>
+          
         </a>
         
       </nav>
-    </mat-toolbar> -->
-    <my-tabs>
-      <!--<a mat-tab-link [active]="true" [routerLink]="['/']">-->
+    </mat-toolbar>
+    <!--<my-tabs>
+      //<a mat-tab-link [active]="true" [routerLink]="['/']">
         <my-tab [tabTitle]="'Home'">
         </my-tab>
       
-    </my-tabs>
+    </my-tabs>-->
+    
     <!-- router outlet goes here -->
 
     <router-outlet></router-outlet>
