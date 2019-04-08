@@ -15,10 +15,10 @@ import { TdDialogService } from '@covalent/core';
 export class ThemeListComponent implements OnInit {
 
   themes: Theme[];
-  private _dialogService: TdDialogService;
 
 
-  constructor(private router: Router, private service: ThemeService,
+  constructor(private router: Router, private service: ThemeService, 
+        private _dialogService: TdDialogService,
     public loginService: LoginService) { }
 
   ngOnInit() {
@@ -33,18 +33,16 @@ export class ThemeListComponent implements OnInit {
   }
 
   deleteTheme(theme:Theme){
-
     this._dialogService.openConfirm({
-        message: 'Do you want to remove this theme?',
-        title: 'Confirm', 
-        width: '500px', 
-        height: '175px'
-    }).afterClosed().subscribe((accept: boolean) => {
-        if (accept) {
-            this.service
-                .removeTheme(theme)
-                .subscribe((_) => this.router.navigate(['']), (error) => console.error(error));
-        }
-    });
-}
+            message: 'Do you want to remove this book?',
+            title: 'Confirm', 
+            width: '500px', 
+            height: '175px'
+        }).afterClosed().subscribe((accept: boolean) => {
+            if (accept) {
+              this.router.navigate(['/theme/'+theme.contenido]);
+    this.service.removeTheme(theme).subscribe(() => this.router.navigate(['/']), (error) => console.error(error));
+    }
+        });
+  }
 }
