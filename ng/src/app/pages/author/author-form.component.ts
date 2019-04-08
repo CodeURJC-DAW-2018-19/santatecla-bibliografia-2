@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Author, AuthorService } from './author.service';
 import { Work, WorkService} from '../literaryWork/work.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
     templateUrl: 'author-form.component.html',
@@ -28,12 +29,17 @@ export class AuthorFormComponent {
         error => console.log(error)
     );
     }
+
     cancel() {
         window.history.back();
     }
 
     save() {
-        this.service.saveAuthor(this.author, this.work).subscribe(
+        //this.service.saveAuthor(this.author, this.work).subscribe(
+        //    _ => {},
+        //    (error: Error) => console.error('Error creating new author: ' + error),
+        //);
+        this.service.saveAuthorOnly(this.author).subscribe(
             _ => {},
             (error: Error) => console.error('Error creating new author: ' + error),
         );

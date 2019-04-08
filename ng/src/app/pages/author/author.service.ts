@@ -49,7 +49,26 @@ export class AuthorService {
 
     if (!author.id) {
       return this.http
-          .post<Author>(URL+work.id, body, { headers })
+          .post<Author>(URL, body, { headers })
+          .pipe(catchError((error) => this.handleError(error)));
+    } else {
+      return this.http
+          .put<Author>(URL, body, { headers })
+          .pipe(catchError((error) => this.handleError(error)));
+    }
+  }
+
+  saveAuthorOnly(author: Author): Observable<Author> {
+
+    const body = JSON.stringify(author);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    if (!author.id) {
+      return this.http
+          .post<Author>(URL, body, { headers })
           .pipe(catchError((error) => this.handleError(error)));
     } else {
       return this.http
