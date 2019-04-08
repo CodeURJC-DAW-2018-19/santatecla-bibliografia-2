@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Author, AuthorService } from './author.service';
 import { Work, WorkService} from '../literaryWork/work.service';
 import {FormControl} from '@angular/forms';
+import { LoginService } from '../../auth/login.service';
 
 @Component({
     templateUrl: 'author-form.component.html',
@@ -13,7 +14,7 @@ export class AuthorFormComponent {
     author: Author;
     work: Work;
     works: Work [];
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: AuthorService, private workService: WorkService) {
+    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: AuthorService,public loginService: LoginService, private workService: WorkService) {
         const nombre = activatedRoute.snapshot.params['nombre'];
         if (nombre) {
             service.getAuthor(nombre).subscribe((author) => (this.author = author), (error) => console.error(error));
