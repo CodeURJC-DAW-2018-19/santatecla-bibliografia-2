@@ -4,6 +4,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {Work} from "../literaryWork/work.service";
+import { Quote } from '../literaryWork/work.service';
+import { Author } from '../author/author.service';
 
 export interface Theme {
   id?: number;
@@ -61,9 +63,15 @@ export class ThemeService {
         .pipe(catchError((error) => this.handleError(error)));
   }
 
-  getQuotes(contenido: string): Observable<any[]> {
+  getQuotes(contenido: string): Observable<Quote[]> {
     return this.http
-      .get<any[]>(URL + contenido + "/citas")
+      .get<Quote[]>(URL + contenido + "/citas")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getAuthors(contenido: string): Observable<Author[]> {
+    return this.http
+      .get<Author[]>(URL + contenido + "/autores")
       .pipe(catchError((error) => this.handleError(error)));
   }
 

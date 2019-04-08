@@ -4,13 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Theme, ThemeService } from './theme.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
+import { Quote } from '../literaryWork/work.service';
+import { Author } from '../author/author.service';
 
 @Component({
     templateUrl: 'theme-detail.component.html',
+    styleUrls: ['./theme-detail.component.css']
 })
 export class ThemeDetailComponent{
     theme: Theme;
-    quotes: string[];
+    quotes: Quote[];
+    authors: Author[];
     constructor(
         private router: Router,
         activatedRoute: ActivatedRoute,
@@ -21,6 +25,7 @@ export class ThemeDetailComponent{
         const content = activatedRoute.snapshot.params['content'];
         service.getQuotes(content).subscribe(quotes => this.quotes = quotes, error =>console.error(error));
         service.getTheme(content).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
+        service.getAuthors(content).subscribe((authors) => (this.authors = authors), (error) => console.error(error));
         
     }
 
