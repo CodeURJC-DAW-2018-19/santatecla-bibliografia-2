@@ -11,11 +11,11 @@ export class ThemeFormComponent {
     newTheme: boolean;
     theme: Theme;
 
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: ThemeService, public loginService: LoginService,) {
+    constructor(private router: Router, activatedRoute: ActivatedRoute, private service: ThemeService, public loginService: LoginService,) {
         
-        const id = activatedRoute.snapshot.params['id'];
-        if (id) {
-            service.getTheme(id).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
+        const content = activatedRoute.snapshot.params['content'];
+        if (content) {
+            service.getTheme(content).subscribe((theme) => (this.theme = theme), (error) => console.error(error));
             this.newTheme = false;
         } else {
             this.theme = { contenido: '', obras: null ,numObras: 0 };
@@ -28,10 +28,17 @@ export class ThemeFormComponent {
     }
 
     save() {
-        this.service.saveTheme(this.theme).subscribe(
-            _ => {},
-            (error: Error) => console.error('Error creating new theme: ' + error),
-        );
-        window.history.back();
+        if(this.newTheme){
+            this.service.saveTheme(this.theme).subscribe(
+                _ => {},
+                (error: Error) => console.error('Error creating new theme: ' + error),
+            );
+        }else{
+            this.service.editTheme(this.theme).subscribe(
+                _ => {},
+                (error: Error) => console.error('Error creating new theme: ' + error),
+            );
+        }
+        this.router.navigate(['/theme',this.theme.contenido]);
     }
 }
