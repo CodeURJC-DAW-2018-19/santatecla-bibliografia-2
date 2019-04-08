@@ -1,33 +1,43 @@
 <div *ngIf="theme">
-    <mat-card>
-        <mat-card-title> Theme "{{ theme.contenido }}"</mat-card-title>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-            <div *ngFor="let work of theme.obras">
-                <mat-card>
-                    <mat-card-title>{{ work.title }} </mat-card-title>
-                    <mat-divider></mat-divider>
-                    <mat-card-content>
-                        <q *ngFor="let quote of quotes">
-                            {{quote.contenido}}
-                        </q>
-                    </mat-card-content>
-                </mat-card>
-            </div>
+    <div *ngIf="loginService.isLogged && (loginService.isAdmin || loginService.isLogged)">
+        <mat-card>
+            <mat-card-title> Theme "{{ theme.contenido }}"</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <div *ngFor="let work of theme.obras">
+                    <mat-card>
+                        <mat-card-title>{{ work.title }} </mat-card-title>
+                        <mat-divider></mat-divider>
+                        <mat-card-content>
+                            <q *ngFor="let quote of quotes">
+                                {{quote.contenido}}
+                            </q>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
 
-            <div layout="row" layout-align="end center">
-                <ng-container *ngIf="loginService.isLogged && loginService.isAdmin">
-                    <button mat-raised-button color="accent" (click)="removeTheme()">
-                        <mat-icon>delete</mat-icon>Remove
+                <div layout="row" layout-align="end center">
+                    <ng-container *ngIf="loginService.isLogged && loginService.isAdmin">
+                        <button mat-raised-button color="accent" (click)="removeTheme()">
+                            <mat-icon>delete</mat-icon>Remove
+                        </button>
+                        <button mat-raised-button color="accent" (click)="editTheme()" class="push-left-sm">
+                            <mat-icon>edit</mat-icon>Edit
+                        </button>
+                    </ng-container>
+                    <button mat-raised-button color="accent" (click)="gotoThemes()" class="push-left-sm">
+                        <mat-icon>list</mat-icon>All Themes
                     </button>
-                    <button mat-raised-button color="accent" (click)="editTheme()" class="push-left-sm">
-                        <mat-icon>edit</mat-icon>Edit
-                    </button>
-                </ng-container>
-                <button mat-raised-button color="accent" (click)="gotoThemes()" class="push-left-sm">
-                    <mat-icon>list</mat-icon>All Themes
-                </button>
-            </div>
-        </mat-card-content>
-    </mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="! loginService.isLogged && !(loginService.isAdmin || loginService.isLogged)">
+        <mat-card>
+            <mat-card-title>Access Error</mat-card-title>
+                <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="cancel()">Return</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>
