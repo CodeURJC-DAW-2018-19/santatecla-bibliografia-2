@@ -6,13 +6,12 @@ import { Work, WorkService} from '../literaryWork/work.service';
 import {FormControl} from '@angular/forms';
 
 @Component({
-
     templateUrl: 'chart.component.html',
 })
 export class ChartComponent {
-   dataWorks=0; 
+/*    dataWorks=0; 
 
     updateDataWorks(){
         this.dataWorks= this.dataWorks+1;
-    }
+    } */
 }

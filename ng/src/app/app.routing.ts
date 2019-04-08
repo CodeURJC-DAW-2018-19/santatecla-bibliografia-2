@@ -15,7 +15,7 @@ import { WorkListComponent } from './pages/literaryWork/work-list.component';
 import { AuthorFormComponent } from './pages/author/author-form.component';
 import { AuthorDetailComponent } from './pages/author/author-detail.component';
 import { AuthorListComponent } from './pages/author/author-list.component';
-//import { ChartComponent } from './pages/chart/chart.component';
+import { ChartComponent } from './pages/chart/chart.component';
 
 
 const appRoutes = [
@@ -38,7 +38,7 @@ const appRoutes = [
   { path: 'author/:name', component: AuthorDetailComponent },
   { path: 'author/edit/:nombre', component: AuthorFormComponent },
   { path: 'authors', component: AuthorListComponent },
- // { path: 'chart', component: ChartComponent},
+  { path: 'chart', component: ChartComponent},
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 

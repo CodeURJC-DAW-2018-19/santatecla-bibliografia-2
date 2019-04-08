@@ -115,6 +115,14 @@ import { WorkListComponent } from './pages/literaryWork/work-list.component';
 import { WorkFormComponent } from './pages/literaryWork/work-form.component';
 
 import { IndexComponent } from './index.component';
+
+
+import { ChartComponent} from './pages/chart/chart.component';
+
+import { CovalentBaseEchartsModule } from '@covalent/echarts/base';
+import { CovalentBarEchartsModule } from '@covalent/echarts/bar';
+import { CovalentTooltipEchartsModule } from '@covalent/echarts/tooltip';
+
 //Our Services 
 /*import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -122,6 +130,9 @@ import { ThemeService } from './pages/theme/theme.service'; */
 //
 @NgModule({
     imports: [
+        CovalentBaseEchartsModule,
+        CovalentBarEchartsModule,
+        CovalentTooltipEchartsModule,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
@@ -179,7 +190,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
           ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,
            AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,
             WorkDetailComponent , WorkListComponent, WorkFormComponent,IndexComponent,
-            TabsComponent, TabComponent, DynamicTabsDirective/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
+            TabsComponent, TabComponent, DynamicTabsDirective, ChartComponent/* WorkComponent,IndexComponent, AuthorNewComponent, AuthorComponent, ThemeComponent, ThemeNewComponent, WorkComponent, WorkShowComponent */],
 
     //declarations: [AppComponent, BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent],
     bootstrap: [AppComponent],
