@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Work, WorkService } from './work.service';
+import { Work, WorkService, Quote } from './work.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
 import { Author, AuthorService } from '../author/author.service';
@@ -12,6 +12,7 @@ import {FormControl} from '@angular/forms';
 @Component({
     selector: 'work-F-component',
     templateUrl: './work-form.component.html',
+    styleUrls: ['./work-list.component.css']
 })
 export class WorkFormComponent {
     
@@ -21,6 +22,7 @@ export class WorkFormComponent {
     themes: Theme[];
     author: Author;
     theme: Theme;
+    quotes: Quote[];
     myControl = new FormControl();
 
     constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, private authorService: AuthorService,public loginService: LoginService, private themeService: ThemeService
@@ -38,6 +40,9 @@ export class WorkFormComponent {
         if(title){
             
             service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
+            service.getThemes(title).subscribe((theme) => (this.themes = theme), (error) => console.error(error));
+            service.getQuotes(title).subscribe((quotes) => (this.quotes = quotes), (error) => console.error(error));
+            service.getAuthors(title).subscribe((authors) => (this.authors = authors), (error) => console.error(error));
             this.newWork = false;
         } else {
             this.work = {  title: '', URL: '', date: '', editorial: '', url_editorial: '', autores:null, citas:null};
@@ -46,17 +51,6 @@ export class WorkFormComponent {
             this.newWork = true;
         }
     }
-
-    ngOnInit() {
-    this.authorService.getAuthors().subscribe(
-      authors => this.authors = authors,
-      error => console.log(error)
-    );
-    this.themeService.getThemes().subscribe(
-      themes => this.themes = themes,
-      error => console.log(error)
-    );
-  }
 
     cancel() {
         window.history.back();

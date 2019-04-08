@@ -2,6 +2,7 @@ package es.daw.bibliografia.api;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,40 @@ public class ObraRestController {
 		if (obra.isPresent()) {
 			Obra obraShow = obra.get();
 			return new ResponseEntity<Obra>(obraShow, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/api/obras/{title}/temas") 
+	public ResponseEntity<List<Tema>> showTemaInObra( @PathVariable("title") String title) {
+		
+		Optional<Obra> obra = obraService.findOneByTitle(title);
+		List<Tema> temas = temaService.findByObra(obra.get());
+		if (temas!=null) {
+			return new ResponseEntity<List<Tema>>(temas, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/api/obras/{title}/autores") 
+	public ResponseEntity<List<Autor>> showAutorInObra( @PathVariable("title") String title) {
+		
+		List<Autor> autores = autorService.findAutoresByObra(obraService.findOneByTitle(title).get());
+		if (autores!=null) {
+			return new ResponseEntity<List<Autor>>(autores, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/api/obras/{title}/citas") 
+	public ResponseEntity<List<Cita>> showCitaInObra( @PathVariable("title") String title) {
+		
+		List<Cita> citas = citaService.findCitasByObra(obraService.findOneByTitle(title).get());
+		if (citas!=null) {
+			return new ResponseEntity<List<Cita>>(citas, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

@@ -115,6 +115,7 @@ export class AuthorService {
       .get<Theme[]>(URL + name + "/temas")
       .pipe(catchError((error) => this.handleError(error)));
   }
+  
   //getShowQuoteInAuthor(author: Author, quote:Quote ): Observable<Author> {
   //  return this.http.get<Author>(URL + 'citas/'+quote.id, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   //}

@@ -1,21 +1,27 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Work, WorkService } from './work.service';
+import { Work, WorkService , Quote} from './work.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Theme } from '../theme/theme.service';
+import { Author } from '../author/author.service';
 
 // SHOW WORK
 @Component({
     selector: 'work-D-component',
     templateUrl: 'work-detail.component.html',
+    styleUrls: ['./work-list.component.css']
 })
 export class WorkDetailComponent {
     work: Work;
     editorial: File;
     //url: SafeResourceUrl;
     urlCover: SafeResourceUrl;
+    themes: Theme[];
+    quotes: Quote[];
+    authors: Author[];
 
     constructor(
         private router: Router,
@@ -28,6 +34,9 @@ export class WorkDetailComponent {
         const title = activatedRoute.snapshot.params['title'];
         service.downloadCoverImg(title).subscribe(blobImg => this.urlCover = this.parseBlobToUrl(blobImg), error => console.error(error));
         service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
+        service.getThemes(title).subscribe((theme) => (this.themes = theme), (error) => console.error(error));
+        service.getQuotes(title).subscribe((quotes) => (this.quotes = quotes), (error) => console.error(error));
+        service.getAuthors(title).subscribe((authors) => (this.authors = authors), (error) => console.error(error));
     }
 
     removeWork() {

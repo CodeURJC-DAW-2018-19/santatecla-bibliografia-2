@@ -31,12 +31,6 @@ export class AuthorFormComponent {
             this.newAuthor = true;
         }
     }
-    ngOnInit(){
-    this.workService.getWorks().subscribe(
-        works => this.works = works,
-        error => console.log(error)
-    );
-    }
 
     cancel() {
         window.history.back();

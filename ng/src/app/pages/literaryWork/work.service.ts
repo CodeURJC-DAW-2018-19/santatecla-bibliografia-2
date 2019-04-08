@@ -136,5 +136,22 @@ export class WorkService {
 	  .pipe(catchError((error) => this.handleError(error)));
   }
 
+  getThemes(title: string): Observable<Theme[]> {
+    return this.http
+      .get<Theme[]>(URL + title + "/temas")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getAuthors(title: string): Observable<Author[]> {
+    return this.http
+      .get<Author[]>(URL + title + "/autores")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getQuotes(title: string): Observable<Quote[]> {
+    return this.http
+      .get<Quote[]>(URL + title + "/citas")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
 
 }

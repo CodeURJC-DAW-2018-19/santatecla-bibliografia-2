@@ -60,7 +60,7 @@ public class ObraController {
 
 			userTabs(model, "/obrashow/" + nombreObra, "Obra  " + nombreObra, true);
 
-			Tema tema = serviceTema.findByObra(obra.get());
+			Tema tema = serviceTema.findByObra(obra.get()).get(0);
 			List<Cita> citas = serviceCita.findCitasByObra(obra.get());
 			List<Autor> autores = serviceAutor.findAutoresByObra(obra.get());
 
