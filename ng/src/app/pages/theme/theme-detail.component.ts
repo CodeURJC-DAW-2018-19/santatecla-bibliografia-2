@@ -53,4 +53,8 @@ export class ThemeDetailComponent{
         quotes=> this.quotes = quotes,
         error => console.error(error)
     )} */
+    
+    cancel() {
+        window.history.back();
+    }
 }
