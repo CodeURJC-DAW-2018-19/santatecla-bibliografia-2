@@ -15,7 +15,7 @@ export class WorkDetailComponent {
     work: Work;
     editorial: File;
     //url: SafeResourceUrl;
-    urlCover: string;
+    urlCover: SafeResourceUrl;
 
     constructor(
         private router: Router,
@@ -56,9 +56,7 @@ export class WorkDetailComponent {
 
     parseBlobToUrl(data: Blob) {
         const url= URL.createObjectURL(data);
-        //window.open(url);
-        //return this._domSanitizer.bypassSecurityTrustResourceUrl(url)
-        return url;
+        return this._domSanitizer.bypassSecurityTrustResourceUrl(url)
       }
 
 }
