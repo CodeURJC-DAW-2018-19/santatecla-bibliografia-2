@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TdDialogService } from '@covalent/core';
 import { Author, AuthorService } from './author.service';
 import { LoginService } from '../../auth/login.service';
+import { PageEvent, MatPaginatorModule} from '@angular/material';
 
 @Component({
   selector: 'authors',
@@ -12,12 +13,20 @@ import { LoginService } from '../../auth/login.service';
 export class AuthorListComponent implements OnInit {
 
   authors: Author[];
+  pageEvent: PageEvent;
 
   constructor(private router: Router, private service: AuthorService,private _dialogService: TdDialogService,
     public loginService: LoginService) { }
 
   ngOnInit() {
-    this.service.getAuthorsPageable().subscribe(
+    this.service.getAuthorsPageable(0).subscribe(
+      authors => this.authors = authors,
+      error => console.log(error)
+    );
+  }
+
+  getPage(event?:PageEvent){
+    this.service.getAuthorsPageable(event.pageIndex).subscribe(
       authors => this.authors = authors,
       error => console.log(error)
     );

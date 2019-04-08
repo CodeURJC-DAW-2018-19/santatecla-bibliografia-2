@@ -1,6 +1,6 @@
 .example-viewport {
   height: 300px;
-  width: 300px;
+  width: 100%;
 }
 
 .example-item {
