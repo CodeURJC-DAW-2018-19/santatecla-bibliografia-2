@@ -23,7 +23,7 @@ export class WorkFormComponent {
     theme: Theme;
     myControl = new FormControl();
 
-    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, private authorService: AuthorService, private themeService: ThemeService
+    constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, private authorService: AuthorService,public loginService: LoginService, private themeService: ThemeService
         //, public loginService: LoginService, private _dialogService: TdDialogService
         ) {
         /*const title = activatedRoute.snapshot.params['title'];
