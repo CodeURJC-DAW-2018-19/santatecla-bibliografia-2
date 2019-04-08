@@ -41,11 +41,11 @@ export class ThemeDetailComponent{
     }
 
     editTheme() {
-        this.router.navigate(['/theme/edit', this.theme.id]);
+        this.router.navigate(['/theme/edit', this.theme.contenido]);
     }
 
     gotoThemes() {
-        this.router.navigate(['']);
+        this.router.navigate(['/themes']);
     }
 
 /*    ngOnInit(){

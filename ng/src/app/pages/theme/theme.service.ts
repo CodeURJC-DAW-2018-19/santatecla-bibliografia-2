@@ -38,16 +38,21 @@ export class ThemeService {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
+    return this.http
+      .post<Theme>(URL, body, { headers })
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+  editTheme(theme: Theme): Observable<Theme> {
 
-    if (!theme.id) {
-      return this.http
-          .post<Theme>(URL, body, { headers })
-          .pipe(catchError((error) => this.handleError(error)));
-    } else {
-      return this.http
-          .put<Theme>(URL + theme.id, body, { headers })
-          .pipe(catchError((error) => this.handleError(error)));
-    }
+    const body = JSON.stringify(theme);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    return this.http
+      .put<Theme>(URL + theme.id, body, { headers })
+      .pipe(catchError((error) => this.handleError(error)));
   }
 
   removeTheme(theme: Theme): Observable<Theme> {

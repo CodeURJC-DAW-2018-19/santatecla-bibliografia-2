@@ -18,6 +18,7 @@ public class Tema {
 	public interface Basic{}
 	public interface Obras{}
 	
+	@JsonView(Basic.class)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
