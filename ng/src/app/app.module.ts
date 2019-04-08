@@ -70,7 +70,6 @@ import {
     MatSliderModule,
     MatAutocompleteModule,
 } from '@angular/material';
-
 import {
     CovalentCommonModule,
     CovalentLayoutModule,
@@ -145,6 +144,8 @@ import { ThemeService } from './pages/theme/theme.service'; */
         MatSnackBarModule,
         MatToolbarModule,
         MatTabsModule,
+        MatPaginatorModule,
+        MatExpansionModule,
         MatSidenavModule,
         MatTooltipModule,
         MatRippleModule,
