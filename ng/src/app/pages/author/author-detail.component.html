@@ -1,35 +1,45 @@
 <div *ngIf="author">
-    <mat-card>
-        <mat-card-title> Author "{{ author.nombre }}"</mat-card-title>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-            <div>
-                <p>Author URL: {{ author.url_foto }}</p>
-            </div>
-            <div>
-                <p>Birth Date : {{ author.fecha_nac }}</p>
-            </div>
-            <div>
-                <p>Death Date : {{ author.fecha_def }}</p>
-            </div>
-            <div>
-                <p>Country URL :  {{ author.url_mapa }}</p>
-            </div>
-            <div>
-                <p>Country : {{ author.lugar }}</p>
-            </div>
-            <div layout="row" layout-align="end center">
-                <ng-container>
-                <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
-                    <button mat-raised-button color="accent" (click)="removeAuthor()"><mat-icon>delete</mat-icon>Remove</button>
-                    <button mat-raised-button color="accent" (click)="editAuthor()" class="push-left-sm">
-                        <mat-icon>edit</mat-icon>Edit
+    <div *ngIf="loginService.isLogged && (loginService.isAdmin || loginService.isLogged)">
+        <mat-card>
+            <mat-card-title> Author "{{ author.nombre }}"</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <div>
+                    <p>Author URL: {{ author.url_foto }}</p>
+                </div>
+                <div>
+                    <p>Birth Date : {{ author.fecha_nac }}</p>
+                </div>
+                <div>
+                    <p>Death Date : {{ author.fecha_def }}</p>
+                </div>
+                <div>
+                    <p>Country URL :  {{ author.url_mapa }}</p>
+                </div>
+                <div>
+                    <p>Country : {{ author.lugar }}</p>
+                </div>
+                <div layout="row" layout-align="end center">
+                    <ng-container>
+                    <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
+                        <button mat-raised-button color="accent" (click)="removeAuthor()"><mat-icon>delete</mat-icon>Remove</button>
+                        <button mat-raised-button color="accent" (click)="editAuthor()" class="push-left-sm">
+                            <mat-icon>edit</mat-icon>Edit
+                        </button>
+                    </ng-container>
+                    <button mat-raised-button color="accent" (click)="gotoAuthors()" class="push-left-sm">
+                        <mat-icon>list</mat-icon>All Authors
                     </button>
-                </ng-container>
-                <button mat-raised-button color="accent" (click)="gotoAuthors()" class="push-left-sm">
-                    <mat-icon>list</mat-icon>All Authors
-                </button>
-            </div>
-        </mat-card-content>
-    </mat-card>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="! loginService.isLogged && !(loginService.isAdmin || loginService.isLogged)">
+        <mat-card>
+            <mat-card-title>Access Error</mat-card-title>
+                <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="cancel()">Return</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

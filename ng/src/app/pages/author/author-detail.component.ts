@@ -45,4 +45,7 @@ export class AuthorDetailComponent {
     gotoAuthors() {
         this.router.navigate(['']);
     }
+    cancel() {
+        window.history.back();
+    }
 }
