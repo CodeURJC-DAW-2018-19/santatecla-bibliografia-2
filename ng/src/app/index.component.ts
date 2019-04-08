@@ -29,6 +29,8 @@ export class IndexComponent{
   newTheme() {
     this.router.navigate(['/theme/new']);
   }
-
+  /*openChart(){
+    this.router.navigate(['/chart']);
+  }*/
 
 }

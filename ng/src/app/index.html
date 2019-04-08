@@ -15,5 +15,14 @@
           <authors></authors>
         </div>
       </mat-grid-tile>
+     
     </mat-grid-list>
+    
+    <div flex>
+          <button  class= md-primary *ngIf="loginService.isAdmin" (click)="openChart()" >Chart</button>
+      </div>
+    
+    
+    
+    
     
