@@ -88,9 +88,11 @@ import {
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { BookService } from './book.service';
 import { LoginService } from './auth/login.service';
-
+import { BookDetailComponent } from './book-detail.component';
+import { BookListComponent } from './book-list.component';
+import { BookFormComponent } from './book-form.component';
 import { LoginComponent } from './login.component';
 import { routing } from './app.routing';
 import { ErrorInterceptor } from './auth/error.interceptor';
@@ -184,7 +186,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
         routing,
     ],
     declarations: [AppComponent,
-          LoginComponent,
+         BookDetailComponent, BookListComponent, BookFormComponent, LoginComponent,
           ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,
            AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,
             WorkDetailComponent , WorkListComponent, WorkFormComponent,IndexComponent,
@@ -194,7 +196,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
     bootstrap: [AppComponent],
 
 
-    providers: [ LoginService, ThemeService, AuthorService, WorkService,
+    providers: [BookService, LoginService, ThemeService, AuthorService, WorkService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy }
@@ -250,4 +252,4 @@ export class AppModule {
 constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('/assets/symbol-defs.svg'));
 }
-} 
+}
