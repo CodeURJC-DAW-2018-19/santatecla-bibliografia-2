@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TdDialogService } from '@covalent/core';
 import { Work, WorkService } from './work.service';
 import { LoginService } from '../../auth/login.service';
+import { PageEvent, MatPaginatorModule} from '@angular/material';
 
 //SHOW ALL WORKS 
 @Component({
@@ -13,12 +14,20 @@ import { LoginService } from '../../auth/login.service';
 export class WorkListComponent implements OnInit {
 
   works: Work[];
+  pageEvent: PageEvent;
 
   constructor(private router: Router, private service: WorkService,private _dialogService: TdDialogService,
     public loginService: LoginService) { }
 
   ngOnInit() {
-    this.service.getWorksPageable().subscribe(
+    this.service.getWorksPageable(0).subscribe(
+      works => this.works = works,
+      error => console.log(error)
+    );
+  }
+
+  getPage(event?:PageEvent){
+    this.service.getWorksPageable(event.pageIndex).subscribe(
       works => this.works = works,
       error => console.log(error)
     );

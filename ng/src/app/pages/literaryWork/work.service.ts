@@ -26,10 +26,7 @@ const URL='/api/obras/';
 @Injectable()
 export class WorkService {
 
-  private page: number;
-  constructor(private loginService: LoginService, private http: HttpClient) { 
-    this.page=0;
-  }
+  constructor(private loginService: LoginService, private http: HttpClient) { }
   
   private handleError(error: any) {
     console.error(error);
@@ -41,9 +38,8 @@ export class WorkService {
   }
   
 
-  getWorksPageable(): Observable<Work[]> {
-    return this.http.get<Work[]>(URL + 'page/' + this.page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
-    this.page=this.page+1;
+  getWorksPageable(page:number): Observable<Work[]> {
+    return this.http.get<Work[]>(URL + 'page/' + page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
   getWork(title: string): Observable<Work> {

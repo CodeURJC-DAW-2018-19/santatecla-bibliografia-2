@@ -21,18 +21,14 @@ const URL = '/api/autores/';
 @Injectable()
 export class AuthorService {
 
-  private page: number;
-  constructor(private loginService: LoginService, private http: HttpClient) {
-    this.page=0;
-  }
+  constructor(private loginService: LoginService, private http: HttpClient) {}
 
   getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>(URL, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
-  getAuthorsPageable(): Observable<Author[]> {
-    return this.http.get<Author[]>(URL + 'page/' + this.page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
-    this.page=this.page+1;
+  getAuthorsPageable(page:number): Observable<Author[]> {
+    return this.http.get<Author[]>(URL + 'page/' + page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
   getAuthor(nombre: string): Observable<Author> {

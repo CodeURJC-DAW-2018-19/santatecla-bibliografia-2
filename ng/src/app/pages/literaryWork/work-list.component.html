@@ -22,6 +22,10 @@
                     {{ work.title }}
                 </div>
             </cdk-virtual-scroll-viewport>
+            <mat-paginator [length]="100"
+              [pageSize]="10"
+              (page)="pageEvent = getPage($event)">
+            </mat-paginator>
         </div>
 
         <div layout="column" layout-align="center end" *ngIf="loginService.isLogged && loginService.isAdmin">
