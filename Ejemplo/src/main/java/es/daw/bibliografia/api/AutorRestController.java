@@ -1,6 +1,7 @@
 package es.daw.bibliografia.api;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -118,13 +119,46 @@ public class AutorRestController {
 	}
 	
 	@JsonView(TemaDetail.class)
-	@GetMapping("/api/autores/temas/{contenido}")
-	public ResponseEntity<Tema> showTemaInAutor( @PathVariable String contenido) {
-		Optional<Tema> tema = temaService.findOneByContenido(contenido);
+	@GetMapping("/api/autores/{nombre}/temas")
+	public ResponseEntity<List<Tema>> showTemaInAutor( @PathVariable String nombre) {
 		
-		if (tema.isPresent()) {
+		List<Obra> obras = obraService.findByAuthor(autorService.findOneByNombre(nombre).get());
+		List<Tema> temas = temaService.findTemasByObras(obras);
+		
+		if (temas!=null) {
 			
-			return new ResponseEntity<Tema>(tema.get(), HttpStatus.OK);
+			return new ResponseEntity<List<Tema>>(temas, HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+	}
+	
+	@JsonView(ObraDetail.class)
+	@GetMapping("/api/autores/{nombre}/obras")
+	public ResponseEntity<List<Obra>> showObraInAutor( @PathVariable String nombre) {
+		
+		List<Obra> obras = obraService.findByAuthor(autorService.findOneByNombre(nombre).get());
+		
+		if (obras!=null) {
+			
+			return new ResponseEntity<List<Obra>>(obras, HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
+	}
+	
+	@JsonView(ObraDetail.class)
+	@GetMapping("/api/autores/{nombre}/citas")
+	public ResponseEntity<List<Cita>> showCitaInAutor( @PathVariable String nombre) {
+		
+		List<Obra> obras = obraService.findByAuthor(autorService.findOneByNombre(nombre).get());
+		List<Cita> citas = citaService.findCitasByObras(obras);
+		
+		if (citas!=null) {
+			
+			return new ResponseEntity<List<Cita>>(citas, HttpStatus.OK);
 		}
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

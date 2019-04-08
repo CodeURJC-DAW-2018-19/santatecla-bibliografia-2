@@ -9,7 +9,7 @@ import { Author } from '../author/author.service';
 
 @Component({
     templateUrl: 'theme-detail.component.html',
-    styleUrls: ['./theme-detail.component.css']
+    styleUrls: ['./theme-list.component.css']
 })
 export class ThemeDetailComponent{
     theme: Theme;

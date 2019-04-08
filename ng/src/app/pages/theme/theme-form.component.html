@@ -59,17 +59,83 @@
 <mat-grid-list cols="3">
   <mat-grid-tile>
     <div flex-gt-sm="33">
-      <themes></themes>
+      <mat-card>
+    <mat-card-title>
+        <div layout="row" layout-align="start center">
+            <span flex>Quotes</span>
+        </div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div>
+            <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+                <div *cdkVirtualFor="let quote of quotes" class="example-item" >
+                    {{ quote.contenido }}
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+    </mat-card-content>
+</mat-card>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
     <div flex-gt-sm="33">
-      <works></works>
+      <mat-card>
+    <mat-card-title>
+        <div layout="row" layout-align="start center">
+            <span flex>Works</span>
+        </div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div>
+            <cdk-virtual-scroll-viewport itemSize="50" *ngIf="loginService.isLogged" class="example-viewport">
+                <div *cdkVirtualFor="let work of theme.obras" class="example-item" [routerLink]="['/work', work.title]">
+                    <a [routerLink]="['/work', work.title]">
+                        {{ work.title }}
+                    </a>
+                </div>
+            </cdk-virtual-scroll-viewport>
+
+
+            <cdk-virtual-scroll-viewport itemSize="50" *ngIf="!loginService.isLogged" class="example-viewport">
+                <div *cdkVirtualFor="let work of theme.obras" class="example-item" >
+                    {{ work.title }}
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+    </mat-card-content>
+</mat-card>
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
     <div flex-gt-sm="33">
-      <authors></authors>
+      <mat-card>
+    <mat-card-title>
+        <div layout="row" layout-align="start center">
+            <span flex>Authors</span>
+        </div>
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div>
+            <cdk-virtual-scroll-viewport itemSize="50" *ngIf="loginService.isLogged" class="example-viewport">
+                <div *cdkVirtualFor="let author of authors" class="example-item" [routerLink]="['/author', author.nombre]">
+                    <a [routerLink]="['/author', author.nombre]">
+                        {{ author.nombre }}
+                    </a>
+                </div>
+            </cdk-virtual-scroll-viewport>
+
+
+            <cdk-virtual-scroll-viewport itemSize="50" *ngIf="!loginService.isLogged" class="example-viewport">
+                <div *cdkVirtualFor="let author of authors" class="example-item" >
+                    {{ author.nombre }}
+                </div>
+            </cdk-virtual-scroll-viewport>
+        </div>
+    </mat-card-content>
+</mat-card>
     </div>
   </mat-grid-tile>
  

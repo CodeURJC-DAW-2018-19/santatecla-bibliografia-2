@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { LoginService } from '../../auth/login.service';
 import { Theme } from "../theme/theme.service"
-import { Work } from "../literaryWork/work.service"
+import { Work, Quote } from "../literaryWork/work.service"
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
 
 export interface Author {
@@ -98,6 +98,23 @@ export class AuthorService {
     return this.http.get<Author>(URL + 'obras/'+work.title, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
+  getQuotes(name: string): Observable<Quote[]> {
+    return this.http
+      .get<Quote[]>(URL + name + "/citas")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getWorks(name: string): Observable<Work[]> {
+    return this.http
+      .get<Work[]>(URL + name + "/obras")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  getThemes(name: string): Observable<Theme[]> {
+    return this.http
+      .get<Theme[]>(URL + name + "/temas")
+      .pipe(catchError((error) => this.handleError(error)));
+  }
   //getShowQuoteInAuthor(author: Author, quote:Quote ): Observable<Author> {
   //  return this.http.get<Author>(URL + 'citas/'+quote.id, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   //}
