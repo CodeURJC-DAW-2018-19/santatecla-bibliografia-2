@@ -70,12 +70,12 @@ public class ObraRestController {
 	
 	
 	@PostMapping("/api/obras/{autor}/{tema}")
-	public ResponseEntity<Obra> addObra(@RequestBody Obra obra, @PathVariable("autor") long idAutor,  @PathVariable("tema") long idTema) {
-		Optional<Tema> tema = temaService.findOne(idTema);
+	public ResponseEntity<Obra> addObra(@RequestBody Obra obra, @PathVariable("autor") String nombreAutor,  @PathVariable("tema") String contenidoTema) {
+		Optional<Tema> tema = temaService.findOneByContenido(contenidoTema);
 		if(tema.isPresent()) {
 			obra.setAutores(new ArrayList<>());
 			obra.setCitas(new ArrayList<>());
-			Optional<Autor> autor = autorService.findOne(idAutor);
+			Optional<Autor> autor = autorService.findOneByNombre(nombreAutor);
 			if(autor.isPresent()) {
 				obra.getAutores().add(autor.get());
 			}
@@ -87,6 +87,15 @@ public class ObraRestController {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
+	}
+	
+	@PostMapping("/api/obras")
+	@ResponseStatus(HttpStatus.CREATED)
+	public Obra addObra(@RequestBody Obra obra) {
+		obra.setAutores(new ArrayList<>());
+		obra.setCitas(new ArrayList<>());
+		obraService.save(obra);
+		return obra;
 	}
 	
 	@PutMapping("/api/obras")

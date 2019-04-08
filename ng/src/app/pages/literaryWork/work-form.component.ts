@@ -6,6 +6,7 @@ import { TdDialogService } from '@covalent/core';
 import { Author, AuthorService } from '../author/author.service';
 import { Theme, ThemeService } from '../theme/theme.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {FormControl} from '@angular/forms';
 
 //Create new work
 @Component({
@@ -20,6 +21,7 @@ export class WorkFormComponent {
     themes: Theme[];
     author: Author;
     theme: Theme;
+    myControl = new FormControl();
 
     constructor(private _router: Router, activatedRoute: ActivatedRoute, private service: WorkService, private authorService: AuthorService, private themeService: ThemeService
         //, public loginService: LoginService, private _dialogService: TdDialogService
@@ -39,7 +41,8 @@ export class WorkFormComponent {
             this.newWork = false;
         } else {
             this.work = {  title: '', URL: '', date: '', editorial: '', url_editorial: '', autores:null, citas:null};
-        
+            this.author = { nombre: '', url_foto: '', fecha_nac: '', fecha_def: '', url_mapa: '', lugar: '' };
+            this.theme = { contenido: '', obras: null ,numObras: 0 };
             this.newWork = true;
         }
     }
@@ -61,7 +64,11 @@ export class WorkFormComponent {
 
 
     save() {
-        this.service.saveWork(this.work,this.author,this.theme).subscribe(
+        //this.service.saveWork(this.work,this.author,this.theme).subscribe(
+        //    _ => {},
+        //    (error: Error) => console.error('Error creating new work: ' + error),
+        //);
+        this.service.saveWorkOnly(this.work).subscribe(
             _ => {},
             (error: Error) => console.error('Error creating new work: ' + error),
         );

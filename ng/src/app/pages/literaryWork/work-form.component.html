@@ -70,9 +70,49 @@
                         />
                     </mat-form-field>
                 </div>
+                <!--<div>
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="theme.contenido"
+                            placeholder="url_editorial"
+                            #workFormElement
+                            #workFormControl="ngModel"
+                            name="contenido"
+                            required
+                            [formControl]="myControl"
+                            [matAutocomplete]="auto"
+                        />
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let theme of themes" [value]="theme.contenido">
+                            {{theme.contenido}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
                 <div>
-                    <mat-select placeholder="Autores">
-                        <mat-option *ngFor="let author of authors" value="{{author.nombre}}" [(ngModel)]="author.nombre">
+                    <mat-form-field>
+                        <input
+                            matInput
+                            [(ngModel)]="author.nombre"
+                            placeholder="nombre autor"
+                            #workFormElement
+                            #workFormControl="ngModel"
+                            name="nombre"
+                            required
+                            [formControl]="myControl"
+                            [matAutocomplete]="auto"
+                        />
+                        <mat-autocomplete #auto="matAutocomplete">
+                          <mat-option *ngFor="let author of authors" [value]="author.nombre">
+                            {{author.nombre}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-select placeholder="Autores" [(ngModel)]="author.nombre">
+                        <mat-option *ngFor="let author of authors" value="{{author.nombre}}">
                             {{author.nombre}}
                         </mat-option>
                     </mat-select>
@@ -81,12 +121,12 @@
                 <p></p>
                 <p></p>
                 <div>
-                    <mat-select placeholder="Temas">
-                        <mat-option *ngFor="let theme of themes" value="{{theme.contenido}}" [(ngModel)]="theme.contenido">
+                    <mat-select placeholder="Temas" [(ngModel)]="theme.contenido">
+                        <mat-option *ngFor="let theme of themes" value="{{theme.contenido}}">
                             {{theme.contenido}}
                         </mat-option>
                     </mat-select>
-                </div>
+                </div>-->
             </form>
         </mat-card-content>
         <mat-divider></mat-divider>

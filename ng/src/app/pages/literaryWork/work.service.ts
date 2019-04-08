@@ -61,7 +61,7 @@ export class WorkService {
 
     if (!work.id) {
       return this.http
-          .post<Work>(URL + author.id + theme.id, body, { headers })
+          .post<Work>(URL +'/'+ author.nombre +'/'+ theme.contenido, body, { headers })
           .pipe(catchError((error) => this.handleError(error)));
     } else {
       return this.http
@@ -70,7 +70,25 @@ export class WorkService {
     }
   }
  
-  
+   saveWorkOnly(work: Work): Observable<Work> {
+ //AddObra & EditObra
+    const body = JSON.stringify(work);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    if (!work.id) {
+      return this.http
+          .post<Work>(URL  , body, { headers })
+          .pipe(catchError((error) => this.handleError(error)));
+    } else {
+      return this.http
+          .put<Work>(URL, body, { headers })
+          .pipe(catchError((error) => this.handleError(error)));
+    }
+  }
+
   editWorkLinkAuthor(work: Work, author: Author): Observable<Work> {
     const body = JSON.stringify(work);
 
