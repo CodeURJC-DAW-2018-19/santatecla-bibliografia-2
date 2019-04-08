@@ -51,7 +51,7 @@ export class WorkDetailComponent {
     }
 
     gotoWorks() {
-        this.router.navigate(['']);
+        this.router.navigate(['/works']);
     }
 
     parseBlobToUrl(data: Blob) {
