@@ -42,7 +42,7 @@ export class ThemeListComponent implements OnInit {
 
   deleteTheme(theme:Theme){
     this._dialogService.openConfirm({
-            message: 'Do you want to remove this book?',
+            message: 'Do you want to remove this theme?',
             title: 'Confirm', 
             width: '500px', 
             height: '175px'

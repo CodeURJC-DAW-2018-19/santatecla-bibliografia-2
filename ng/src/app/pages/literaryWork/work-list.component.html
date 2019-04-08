@@ -12,7 +12,7 @@
                     <a [routerLink]="['/work', work.title]">
                         {{ work.title }}
                     </a>
-                    <button mat-icon-button *ngIf="loginService.isAdmin"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button *ngIf="loginService.isAdmin" (click)="deleteWork(work)"><mat-icon>delete</mat-icon></button>
                 </div>
             </cdk-virtual-scroll-viewport>
 
