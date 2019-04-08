@@ -6,7 +6,6 @@ import { LoginService } from '../../auth/login.service';
 import { Theme } from "../theme/theme.service"
 import { Work } from "../literaryWork/work.service"
 import { temporaryAllocator } from '@angular/compiler/src/render3/view/util';
-import { ThemeComponent } from '../theme/theme.component';
 
 export interface Author {
   id?: number;
