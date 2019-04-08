@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Work, WorkService } from './work.service';
 import { LoginService } from '../../auth/login.service';
 import { TdDialogService } from '@covalent/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 // SHOW WORK
 @Component({
@@ -12,6 +13,9 @@ import { TdDialogService } from '@covalent/core';
 })
 export class WorkDetailComponent {
     work: Work;
+    editorial: File;
+    //url: SafeResourceUrl;
+    urlCover: string;
 
     constructor(
         private router: Router,
@@ -19,8 +23,10 @@ export class WorkDetailComponent {
         public service: WorkService,
         public loginService: LoginService,
         private _dialogService: TdDialogService,
+        private _domSanitizer: DomSanitizer,
     ) {
         const title = activatedRoute.snapshot.params['title'];
+        service.downloadCoverImg(title).subscribe(blobImg => this.urlCover = this.parseBlobToUrl(blobImg), error => console.error(error));
         service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
     }
 
@@ -47,4 +53,12 @@ export class WorkDetailComponent {
     gotoWorks() {
         this.router.navigate(['']);
     }
+
+    parseBlobToUrl(data: Blob) {
+        const url= URL.createObjectURL(data);
+        //window.open(url);
+        //return this._domSanitizer.bypassSecurityTrustResourceUrl(url)
+        return url;
+      }
+
 }

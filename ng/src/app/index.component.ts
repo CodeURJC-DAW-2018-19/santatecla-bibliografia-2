@@ -18,8 +18,7 @@ export class IndexComponent{
 
   newAuthor() {
     this.tabsComponent.openTab('New Author',  {}, true);
-    this.router.navigate(['/author/new']);
-    
+    this.router.navigate(['/author/new']); 
     
   }
 

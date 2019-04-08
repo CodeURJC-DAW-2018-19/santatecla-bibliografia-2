@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import es.daw.bibliografia.book.ObraService;
 import es.daw.bibliografia.imageloader.ImageDownloadService;
 import es.daw.bibliografia.imageloader.ImageUploadService;
 import es.daw.bibliografia.user.UserComponent;
@@ -35,6 +36,9 @@ import es.daw.bibliografia.user.UserComponent;
 		
 		@Autowired
 		private ImageDownloadService imageDownloadService;
+		
+		@Autowired
+		private ObraService obraService;
 
 		private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 				
@@ -48,14 +52,16 @@ import es.daw.bibliografia.user.UserComponent;
 
 		// NOTE: The url format "/image/{fileName:.+}" avoid Spring MVC remove file
 		// extension.
-		@RequestMapping(value = "/api/obras/{id}/image/portada", method= RequestMethod.GET)
-		public void handlePortadaDownload(HttpServletResponse res, @PathVariable Long id) throws FileNotFoundException, IOException {
+		@RequestMapping(value = "/api/obras/{title}/image/portada", method= RequestMethod.GET)
+		public void handlePortadaDownload(HttpServletResponse res, @PathVariable String title) throws FileNotFoundException, IOException {
+			Long id = obraService.findOneByTitle(title).get().getId();
 			imageDownloadService.handleImageDownload(res, id, "portada");
 		}
 		
 		
-		@RequestMapping(value = "api/obras/{id}/image/editorial" , method=RequestMethod.GET)
-		public void handleEditorialDownload(HttpServletResponse res, @PathVariable Long id) throws FileNotFoundException, IOException{
+		@RequestMapping(value = "api/obras/{title}/image/editorial" , method=RequestMethod.GET)
+		public void handleEditorialDownload(HttpServletResponse res, @PathVariable String title) throws FileNotFoundException, IOException{
+			Long id = obraService.findOneByTitle(title).get().getId();
 			imageDownloadService.handleImageDownload(res, id, "editorial");
 		}
 		
@@ -78,20 +84,22 @@ import es.daw.bibliografia.user.UserComponent;
 //		}
 
 		
-		@RequestMapping(value="/api/obras/{id}/image/portada", method=RequestMethod.POST)
-		public String handlePortadaUpload(@RequestParam ("file") MultipartFile file, @PathVariable Long id) {
+		@RequestMapping(value="/api/obras/{title}/image/portada", method=RequestMethod.POST)
+		public String handlePortadaUpload(@RequestParam ("file") MultipartFile file, @PathVariable String title) {
+			Long id = obraService.findOneByTitle(title).get().getId();
 			System.out.println("PortadaUpload invocado");
 			String uploaded = imageUploadService.handleFileUpload(userComponent.getLoggedUser(),file, "portada-"+ id);
 			System.out.println("Ya se ha subido: "  + uploaded);
-			return "/api/obras/" + id + "/image/portada";
+			return "/api/obras/" + title + "/image/portada";
 		}
 		
-		@RequestMapping(value="/api/obras/{id}/image/editorial", method=RequestMethod.POST)
-		public String handleEditorialUpload(@RequestParam ("file") MultipartFile file, @PathVariable Long id) {
+		@RequestMapping(value="/api/obras/{title}/image/editorial", method=RequestMethod.POST)
+		public String handleEditorialUpload(@RequestParam ("file") MultipartFile file, @PathVariable String title) {
+			Long id = obraService.findOneByTitle(title).get().getId();
 			System.out.println("EditorialUpload invocado");
 			String uploaded = imageUploadService.handleFileUpload(userComponent.getLoggedUser(),file, "editorial-"+ id);
 			System.out.println("Ya se ha subido: " + uploaded);
-			return "/api/obras/" + id + "/image/editorial";
+			return "/api/obras/" + title + "/image/editorial";
 		}
 }
 
