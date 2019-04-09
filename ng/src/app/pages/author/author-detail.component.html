@@ -1,4 +1,4 @@
-<div *ngIf="author">
+<div *ngIf="author" style="margin-top:50px">
     <div *ngIf="loginService.isLogged && (loginService.isAdmin || loginService.isLogged)">
         <mat-card>
             <mat-card-title> Author "{{ author.nombre }}"</mat-card-title>
