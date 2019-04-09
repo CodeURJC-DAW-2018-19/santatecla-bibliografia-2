@@ -221,4 +221,4 @@ Now, you are ready to develop this app web, main files are on ng/app
 
 We have recorded a small video, in order to show, as a demo, the final appearance of the application and its functionalities using Angular.
 
-[Bibliografias](aquielenlaceayoutube) ▶
+[Bibliografias](https://youtu.be/8czzXxQt1So) ▶
