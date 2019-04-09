@@ -60,6 +60,10 @@ export class WorkDetailComponent {
         this.router.navigate(['/work/edit', this.work.title]);
     }
 
+    addQuote() {
+        this.router.navigate(['/work/cita', this.work.title]);
+    }
+
     gotoWorks() {
         this.router.navigate(['/works']);
     }

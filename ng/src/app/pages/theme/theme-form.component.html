@@ -46,14 +46,6 @@
             </mat-card-actions>
         </mat-card>
     </div>
-    <div *ngIf="!loginService.isLogged && !loginService.isAdmin">
-        <mat-card>
-            <mat-card-title>Access Error</mat-card-title>
-                <mat-card-actions>
-                <button mat-raised-button color="accent" (click)="cancel()">Return</button>
-            </mat-card-actions>
-        </mat-card>
-    </div>
 </div>
 
 <mat-grid-list cols="3">

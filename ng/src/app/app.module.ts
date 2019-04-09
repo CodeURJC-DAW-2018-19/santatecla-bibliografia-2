@@ -109,6 +109,7 @@ import { WorkService } from './pages/literaryWork/work.service';
 import { WorkDetailComponent } from './pages/literaryWork/work-detail.component';
 import { WorkListComponent } from './pages/literaryWork/work-list.component'; 
 import { WorkFormComponent } from './pages/literaryWork/work-form.component';
+import { QuoteComponent } from './pages//literaryWork/quote.component';
 
 import { IndexComponent } from './index.component';
 
@@ -184,7 +185,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
         NgxChartsModule,
         routing,
     ],
-    declarations: [AppComponent, LoginComponent,
+    declarations: [AppComponent, LoginComponent, QuoteComponent,
           ThemeListComponent, ThemeDetailComponent, ThemeFormComponent,
            AuthorDetailComponent, AuthorListComponent, AuthorFormComponent,
             WorkDetailComponent , WorkListComponent, WorkFormComponent,IndexComponent,

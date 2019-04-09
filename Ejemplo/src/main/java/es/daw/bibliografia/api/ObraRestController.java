@@ -169,8 +169,8 @@ public class ObraRestController {
 	}
 	
 	@PutMapping("/api/obras/cita/{obra}")
-	public ResponseEntity<Obra> addCita( @PathVariable("obra") long idObra, @RequestBody String contenido) {
-		Optional<Obra> obra = obraService.findOne(idObra);
+	public ResponseEntity<Obra> addCita( @PathVariable("obra") String title, @RequestBody String contenido) {
+		Optional<Obra> obra = obraService.findOneByTitle(title);
 		
 		if (obra.isPresent()) {
 			Cita cita = new Cita(contenido);

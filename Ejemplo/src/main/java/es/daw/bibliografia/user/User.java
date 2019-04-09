@@ -124,5 +124,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+    public String toString() {
+        return "User [id=" + id + ", name=" + name + ", passwordHash="
+                + passwordHash + ", roles=" + roles + "]";
+    }
 
 }

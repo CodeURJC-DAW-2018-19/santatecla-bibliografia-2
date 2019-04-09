@@ -117,17 +117,14 @@ export class WorkService {
 
   // addQuote in Literary Work 
   addQuote(quote: Quote, work: Work): Observable<Quote> {
-    const body = JSON.stringify(work);
+    const body = JSON.stringify(quote.contenido);
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     });
-
-    if (!work.id) {
-      return this.http
-          .post<Quote>('/api/obras/cita/'+work.id, body, { headers })
-          .pipe(catchError((error) => this.handleError(error)));
-    } 
+    return this.http
+        .put<Quote>('/api/obras/cita/'+work.title, body, { headers })
+        .pipe(catchError((error) => this.handleError(error)));
   }
 
   downloadCoverImg(title:string):Observable<Blob>{

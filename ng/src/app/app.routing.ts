@@ -13,6 +13,8 @@ import { AuthorFormComponent } from './pages/author/author-form.component';
 import { AuthorDetailComponent } from './pages/author/author-detail.component';
 import { AuthorListComponent } from './pages/author/author-list.component';
 import { ChartComponent } from './pages/chart/chart.component';
+import { QuoteComponent } from './pages//literaryWork/quote.component';
+
 
 
 const appRoutes = [
@@ -30,6 +32,7 @@ const appRoutes = [
   { path: 'work/new', component: WorkFormComponent },
   { path: 'work/:title', component: WorkDetailComponent },
   { path: 'work/edit/:title', component: WorkFormComponent },
+  { path: 'work/cita/:title', component: QuoteComponent },
   { path: 'works', component: WorkListComponent },
   { path: 'author/new', component: AuthorFormComponent },
   { path: 'author/:name', component: AuthorDetailComponent },

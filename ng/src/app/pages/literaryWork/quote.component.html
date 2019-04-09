@@ -1,0 +1,46 @@
+<div *ngIf="loginService.isLogged && loginService.isAdmin">
+        <mat-card>
+            <mat-card-title> Work "{{ work.title }}"</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <form #quoteForm="ngForm">
+                    <div>
+                        <mat-form-field>
+                            <input
+                                matInput
+                                [(ngModel)]="quote.contenido"
+                                placeholder="Title"
+                                #quoteFormElement
+                                #quoteFormControl="ngModel"
+                                name="contenido"
+                                required
+                            />
+                        </mat-form-field>
+                    </div>
+                </form>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <div layout="row" layout-align="end center">
+                    <button mat-raised-button color="accent" (click)="cancel()">Cancel</button>
+                    <button
+                        mat-raised-button
+                        color="accent"
+                        (click)="save()"
+                        [disabled]="quoteForm === undefined || (quoteForm && !quoteForm.valid)"
+                        class="push-left-sm"
+                    >
+                        Save
+                    </button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div *ngIf="loginService.isLogged && !loginService.isAdmin">
+        <mat-card>
+            <mat-card-title>Access Error</mat-card-title>
+             <mat-card-actions>
+                <button mat-raised-button color="accent" (click)="cancel()">Return</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>

@@ -34,4 +34,9 @@ public class UserComponent {
 		return this.user != null;
 	}
 
+	@Override
+    public String toString() {
+        return "UserComponent [user="
+                + (user != null ? user.toString() : "null") + "]";
+    }
 }
