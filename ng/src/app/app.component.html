@@ -42,11 +42,36 @@
       <login></login>
       
     </div>
-<!--     <td-tab-select [(value)]="myValue">
-      <td-tab-option [value]="1">Label 1</td-tab-option>
-      <td-tab-option [value]="2">Label 2</td-tab-option>
-      <td-tab-option [value]="3">Label 3</td-tab-option>
-    </td-tab-select> -->
+    <mat-toolbar class="pad-none" style="width: 100%">
+      <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex style="width: 100%"> 
+        <a mat-tab-link [active]="true" [routerLink]="['/']"> 
+          <span hide-xs>Home</span>
+          <span hide-gt-xs>
+            <mat-icon>home</mat-icon>
+          </span>
+        </a>
+        <a mat-tab-link [active]="true" [routerLink]="['themes']">
+          <span hide-xs>Themes</span>
+          <span hide-gt-xs>
+            <mat-icon>laptop_mac</mat-icon>
+          </span>
+        </a>
+        <a mat-tab-link [active]="true" [routerLink]="['works']">
+          <span hide-xs>Works</span>
+          <span hide-gt-xs>
+            <mat-icon>language</mat-icon>
+          </span>
+        </a>
+        <a mat-tab-link [active]="true"  [routerLink]="['authors']">
+          <span hide-xs>Authors</span>
+          <span hide-gt-xs>
+            <mat-icon>assignment</mat-icon>
+          </span>
+          
+        </a>
+        
+      </nav>
+    </mat-toolbar>
     <!--<my-tabs>
       //<a mat-tab-link [active]="true" [routerLink]="['/']">
         <my-tab [tabTitle]="'Home'">
