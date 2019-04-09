@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PDFRestController {
 	
 	
-	@RequestMapping("/api/crearPDF/{contenido}")
+	@RequestMapping("/api/temas/{contenido}/PDF")
 	public void handleFileDownloadPDF(HttpServletResponse res, @PathVariable String contenido)
 			throws FileNotFoundException, IOException {
 
