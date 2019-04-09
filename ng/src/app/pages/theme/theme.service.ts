@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {LoginService} from "../../auth/login.service";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {catchError} from "rxjs/operators";
-import {Work} from "../literaryWork/work.service";
+import { LoginService } from "../../auth/login.service";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { catchError } from "rxjs/operators";
+import { Work } from "../literaryWork/work.service";
 import { Quote } from '../literaryWork/work.service';
 import { Author } from '../author/author.service';
 
@@ -18,14 +18,14 @@ const URL = '/api/temas/';
 @Injectable()
 export class ThemeService {
 
-  constructor(private loginService: LoginService, private http: HttpClient) { 
+  constructor(private loginService: LoginService, private http: HttpClient) {
   }
 
   getThemes(): Observable<Theme[]> {
     return this.http.get<Theme[]>(URL, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
-  getThemesPageable(page:number): Observable<Theme[]> {
+  getThemesPageable(page: number): Observable<Theme[]> {
     return this.http.get<Theme[]>(URL + 'page/' + page, { withCredentials: true }).pipe(catchError((error) => this.handleError(error)));
   }
 
@@ -59,8 +59,13 @@ export class ThemeService {
 
   removeTheme(theme: Theme): Observable<Theme> {
     return this.http
-        .delete<Theme>(URL + theme.contenido)
-        .pipe(catchError((error) => this.handleError(error)));
+      .delete<Theme>(URL + theme.contenido)
+      .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  downloadPDF(content: string): Observable<Blob> {
+    return this.http
+      .get(URL + content + "/PDF", { responseType: 'blob' })
   }
 
   getQuotes(contenido: string): Observable<Quote[]> {
