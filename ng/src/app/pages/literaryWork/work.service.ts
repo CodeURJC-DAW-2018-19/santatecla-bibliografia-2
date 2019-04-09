@@ -136,6 +136,36 @@ export class WorkService {
 	  .pipe(catchError((error) => this.handleError(error)));
   }
 
+  downloadEditorialImg(title:string):Observable<Blob>{
+    return this.http
+	  .get(URL+title+"/image/editorial", {responseType: 'blob'})
+	  .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  uploadCoverImg(title:string, image: File): Observable<Object> {
+    const HttpUploadOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
+    }
+    const formData = new FormData();
+    formData.append("file", image);
+
+    return this.http
+    .post(URL+title+"/image/portada", formData)
+    .pipe(catchError((error) => this.handleError(error)));
+  }
+
+  uploadEditorialImg(title:string, image: File): Observable<Object> {
+    const HttpUploadOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' })
+    }
+    const formData = new FormData();
+    formData.append("file", image);
+
+    return this.http
+    .post(URL+title+"/image/editorial", formData)
+    .pipe(catchError((error) => this.handleError(error)));
+  }
+
   getThemes(title: string): Observable<Theme[]> {
     return this.http
       .get<Theme[]>(URL + title + "/temas")

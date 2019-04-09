@@ -17,8 +17,8 @@ import { Author } from '../author/author.service';
 export class WorkDetailComponent {
     work: Work;
     editorial: File;
-    //url: SafeResourceUrl;
     urlCover: SafeResourceUrl;
+    urlEditorial: SafeResourceUrl;
     themes: Theme[];
     quotes: Quote[];
     authors: Author[];
@@ -33,6 +33,7 @@ export class WorkDetailComponent {
     ) {
         const title = activatedRoute.snapshot.params['title'];
         service.downloadCoverImg(title).subscribe(blobImg => this.urlCover = this.parseBlobToUrl(blobImg), error => console.error(error));
+        service.downloadEditorialImg(title).subscribe(blobImg => this.urlEditorial = this.parseBlobToUrl(blobImg), error => console.error(error));
         service.getWork(title).subscribe((work) => (this.work = work), (error) => console.error(error));
         service.getThemes(title).subscribe((theme) => (this.themes = theme), (error) => console.error(error));
         service.getQuotes(title).subscribe((quotes) => (this.quotes = quotes), (error) => console.error(error));
@@ -67,6 +68,24 @@ export class WorkDetailComponent {
         const url= URL.createObjectURL(data);
         return this._domSanitizer.bypassSecurityTrustResourceUrl(url)
     }
+
+    processCoverFile(imageInput: any) {
+        const file: File = imageInput.files[0];
+        const reader = new FileReader();
+        reader.addEventListener('load', (event: any) => {
+            
+            this.service.uploadCoverImg(this.work.title, file).subscribe(
+                (res) => {
+
+                },
+                (err) => {
+
+                })
+        });
+
+        reader.readAsDataURL(file);
+    }
+
     cancel() {
         window.history.back();
     }

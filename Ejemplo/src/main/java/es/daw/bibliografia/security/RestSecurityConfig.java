@@ -39,7 +39,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 
 		// Disable CSRF protection (it is difficult to implement in REST APIs)
-		http.csrf().disable();
+		//http.csrf().disable();
 
 		// Use Http Basic Authentication
 		http.httpBasic();
