@@ -1,17 +1,19 @@
 # santatecla-bibliografia-2
-  - [Name of the web application](#Name-of-the-web-application)
-  - [Members of the development team](#Members-of-the-development-team)
-  - [Team coordination](#Team-coordination)
-  - [Requirements](#Requirements)
-  - [Screenshots](#Screenshots)
-  - [Navigation Diagram](#Navigation-Diagram)
-  - [Database Entity Diagram](#Database-Entity-Diagram)
-  - [Class UML Diagram](#Class-UML-Diagram)
-  - [Development Environment](#Development-Environment)
-  - [API REST](#API-REST)
-  - [ML class with RESTCONTROLLERS](#UML-Class-with-RESTCONTROLLERS)
-  - [Docker](#Docker)
-  - [Development Environment of SPA with ANGULAR](#Development-Environment-angular)
+ - [Name of the web application](#Name-of-the-web-application)
+ - [Members of the development team](#Members-of-the-development-team)
+ - [Team coordination](#Team-coordination)
+ - [Requirements](#Requirements)
+ - [Screenshots](#Screenshots)
+ - [Navigation Diagram](#Navigation-Diagram)
+ - [Database Entity Diagram](#Database-Entity-Diagram)
+ - [Class UML Diagram](#Class-UML-Diagram)
+ - [Development Environment](#Development-Environment)
+ - [API REST](#API-REST)
+ - [ML class with RESTCONTROLLERS](#UML-Class-with-RESTCONTROLLERS)
+ - [Docker](#Docker)
+ - [Development Environment of SPA with ANGULAR](#Development-Environment-angular)
+ - [Angular Diagrams](#Angular-Diagrams)
+ - [Demo Video](#Demo-Video)
 
 
 
@@ -189,17 +191,34 @@ At the first moment, we need install Node.js in our local machine
 We are working with Visual Studio Code.
 Once yo have installed and open VSCode, you have to open the terminal and enter the following commands:
 
-   *cd ng* 
+   	< cd ng* >
    
-   *npm install -g @angular/cli*
+   	< npm install -g @angular/cli* >
    
-   *npm save echarts*
+   	< npm save echarts >
    
-   *npm install -save @covalent/echarts*
+   	< npm install -save @covalent/echarts >
    
-   *npm install --save https://github.com/Teradata/covalent-echarts-nightly.git*
+   	< npm install --save https://github.com/Teradata/covalent-echarts-nightly.git >
    
-   *npm start*
+   	< npm start >
    
 Now, you are ready to develop this app web, main files are on ng/app
 
+
+
+## Angular Diagrams ##
+
+<img src="./imagenes/Angular Diagram.png">
+
+---------------------
+
+<img src="./imagenes/diagrama-angular-ampliado.jpeg">
+
+
+
+## Demo Video ##
+
+We have recorded a small video, in order to show, as a demo, the final appearance of the application and its functionalities using Angular.
+
+[Bibliografias](aquielenlaceayoutube) ▶
