@@ -15,6 +15,8 @@ import { TabComponent } from './pages/tabs/tab.component';
 import {ScrollDispatchModule} from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
+
+import{TabService}from './tabs/tab.service';
 //Our Components 
 /* import { IndexComponent } from './pages/index/index.component';
 import { AuthorNewComponent } from './pages/author/author-new.component';
@@ -122,7 +124,7 @@ import { ChartComponent} from './pages/chart/chart.component';
 import { CovalentBaseEchartsModule } from '@covalent/echarts/base';
 import { CovalentBarEchartsModule } from '@covalent/echarts/bar';
 import { CovalentTooltipEchartsModule } from '@covalent/echarts/tooltip';
-
+import { CovalentTabSelectModule } from '@covalent/core/tab-select';
 //Our Services 
 /*import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -130,6 +132,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
 //
 @NgModule({
     imports: [
+        CovalentTabSelectModule,
         CovalentBaseEchartsModule,
         CovalentBarEchartsModule,
         CovalentTooltipEchartsModule,
@@ -196,7 +199,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
     bootstrap: [AppComponent],
 
 
-    providers: [BookService, LoginService, ThemeService, AuthorService, WorkService,
+    providers: [BookService, LoginService, ThemeService, AuthorService, WorkService, TabService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy }
