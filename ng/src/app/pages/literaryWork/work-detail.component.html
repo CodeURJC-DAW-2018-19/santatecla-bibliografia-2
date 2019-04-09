@@ -4,31 +4,35 @@
             <mat-card-title> Work "{{ work.title }}"</mat-card-title>
             <mat-divider></mat-divider>
             <mat-card-content>
+                <img *ngIf = "urlCover" [src]="urlCover">
+                <br>
+                <img *ngIf = "urlEditorial" [src]="urlEditorial">
                 <div>
-                    <p>URL : {{ work.URL }}</p>
-                </div>
-                    <img [src]="urlCover">
-                <div>
-                    <p>Date : {{ work.date }}</p>
-                </div>
-                <div>
-                    <p>Editorial : {{ work.editorial }}</p>
+                    <p>Fecha de publicación: {{ work.date }}</p>
                 </div>
                 <div>
-                    <p>URL_Editorial : {{ work.url_editorial }}</p>
+                    <p>Editorial: {{ work.editorial }}</p>
                 </div>
+                <div>
+                        <small>Fuente portada: {{work.URL}}</small>
+                        <small>Fuente Editorial: {{work.url_editorial}}</small>
+                </div>
+                
                 <div layout="row" layout-align="end center">
                     <ng-container>
                         <!-- <ng-container *ngIf="loginService.isLogged && loginService.isAdmin"> -->
-                        <button mat-raised-button color="accent" (click)="removeWork()">
-                            <mat-icon>delete</mat-icon>Remove
+                        <button mat-raised-button color="accent" (click)="editWorkCover()" class="push-left-sm">
+                            <mat-icon>edit</mat-icon>Cambiar portada:
+                            <input #imageInput type="file" accept="image/*" (change)="processCoverFile(imageInput)">
                         </button>
-                        <button mat-raised-button color="accent" (click)="editWork()" class="push-left-sm">
-                            <mat-icon>edit</mat-icon>Edit
+    
+                        <button mat-raised-button color="accent" (click)="removeWork()" class="push-left-sm">
+                            <mat-icon>delete</mat-icon>Borrar
                         </button>
+    
                     </ng-container>
                     <button mat-raised-button color="accent" (click)="gotoWorks()" class="push-left-sm">
-                        <mat-icon>list</mat-icon>All Works
+                        <mat-icon>list</mat-icon>Volver
                     </button>
                 </div>
             </mat-card-content>
