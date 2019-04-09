@@ -4,6 +4,8 @@ import { MatIconRegistry, MatDialog } from '@angular/material';
 import { TdMediaService, tdRotateAnimation } from '@covalent/core';
 import { environment } from '../environments/environment';
 import { TabsComponent } from './pages/tabs/tabs.component';
+import { TabService } from './tabs/tab.service';
+
 
 @Component({
     selector: 'my-app',
@@ -20,7 +22,8 @@ export class AppComponent implements AfterViewInit {
         public dialog: MatDialog,
         private _changeDetectorRef: ChangeDetectorRef,
         private _iconRegistry: MatIconRegistry,
-        private _domSanitizer: DomSanitizer
+        private _domSanitizer: DomSanitizer,
+        public tabService: TabService
     ) 
     {
         this._iconRegistry.addSvgIconInNamespace(

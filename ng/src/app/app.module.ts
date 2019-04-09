@@ -123,6 +123,9 @@ import { CovalentBaseEchartsModule } from '@covalent/echarts/base';
 import { CovalentBarEchartsModule } from '@covalent/echarts/bar';
 import { CovalentTooltipEchartsModule } from '@covalent/echarts/tooltip';
 
+
+import { TabService } from './tabs/tab.service';
+
 //Our Services 
 /*import { WorkService } from './pages/literaryWork/work.service';
 import { AuthorService } from './pages/author/author.service';
@@ -196,7 +199,7 @@ import { ThemeService } from './pages/theme/theme.service'; */
     bootstrap: [AppComponent],
 
 
-    providers: [BookService, LoginService, ThemeService, AuthorService, WorkService,
+    providers: [BookService, LoginService, ThemeService, AuthorService, WorkService, TabService,
         { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy }

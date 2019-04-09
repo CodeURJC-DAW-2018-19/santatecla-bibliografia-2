@@ -53,14 +53,19 @@
         <a mat-tab-link [active]="true" [routerLink]="['/']"> 
           <span hide-xs>Home</span>
           <span hide-gt-xs>
-            <mat-icon>home</mat-icon>
+            <mat-icon *ngFor="">home</mat-icon>
           </span>
         </a>
-        <a mat-tab-link [active]="true" [routerLink]="['themes']">
-          <span hide-xs>Themes</span>
-          <span hide-gt-xs>
-            <mat-icon>laptop_mac</mat-icon>
-          </span>
+        <a mat-tab-link *ngFor="let tab of tabService.getTabs" [active]="true" [routerLink]="[tab.type, tab.id]">
+          <span hide-xs *ngIf="(tab.type==='theme')">Tema {{tab.id}}<button  [routerLink]="['/']" mat-icon-button (click)="tabService.removeTab(tab.type, tab.id)">
+            <mat-icon>close</mat-icon>
+          </button></span>
+          <span hide-xs *ngIf="(tab.type==='work')">Obra {{tab.id}}<button  [routerLink]="['/']" mat-icon-button (click)="tabService.removeTab(tab.type, tab.id)">
+            <mat-icon>close</mat-icon>
+          </button></span>
+          <span hide-xs *ngIf="(tab.type==='author')">Autor {{tab.id}}<button  [routerLink]="['/']" mat-icon-button (click)="tabService.removeTab(tab.type, tab.id)">
+            <mat-icon>close</mat-icon>
+          </button></span>          
         </a>
         <a mat-tab-link [active]="true" [routerLink]="['works']">
           <span hide-xs>Works</span>
