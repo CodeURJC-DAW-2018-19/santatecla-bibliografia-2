@@ -50,7 +50,7 @@ RUN npm install --save https://github.com/Teradata/covalent-echarts-nightly.git
 RUN npm rebuild node-sass
 RUN $(npm bin)/ng build --base-href /new/ --prod
  # Make port available to the world outside this container:
-EXPOSE 8443
+EXPOSE 4200
  # Punto de entrada de nuestro contenedor y el que hace correr nuestra aplicación una vez ejecutado el contenedor: 
 ENTRYPOINT npm start
 
