@@ -44,6 +44,12 @@
     </div>
     <mat-toolbar class="pad-none" style="width: 100%">
       <nav mat-stretch-tabs mat-tab-nav-bar class="pull-bottom-xl pull-top-md text-upper" flex style="width: 100%"> 
+        <mat-expansion-panel style="width: 100%">
+          <mat-expansion-panel-header>
+          <mat-panel-title>
+            Tabs
+          </mat-panel-title>
+        </mat-expansion-panel-header>
         <a mat-tab-link [active]="true" [routerLink]="['/']"> 
           <span hide-xs>Home</span>
           <span hide-gt-xs>
@@ -69,7 +75,7 @@
           </span>
           
         </a>
-        
+        </mat-expansion-panel>
       </nav>
     </mat-toolbar>
     <!--<my-tabs>
