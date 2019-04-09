@@ -11,6 +11,8 @@
   - [API REST](#API-REST)
   - [ML class with RESTCONTROLLERS](#UML-Class-with-RESTCONTROLLERS)
   - [Docker](#Docker)
+  - [Development Environment of SPA with ANGULAR](#Development-Environment-angular)
+
 
 
 
@@ -178,4 +180,26 @@ The script will execute a build of the Dockerfile. txt and also  "Docker-Compose
  
   
   YOU ARE READY TO USE OUR WEB APPLICATION USING DOCKER
+  
+## Development-Environment-angular ##
+At the first moment, we need install Node.js in our local machine
+
+* [![Node.js](https://img.shields.io/badge/Install-Node%20js-green.svg)](https://nodejs.org/es/)
+
+We are working with Visual Studio Code.
+Once yo have installed and open VSCode, you have to open the terminal and enter the following commands:
+
+   *cd ng* 
+   
+   *npm install -g @angular/cli*
+   
+   *npm save echarts*
+   
+   *npm install -save @covalent/echarts*
+   
+   *npm install --save https://github.com/Teradata/covalent-echarts-nightly.git*
+   
+   *npm start*
+   
+Now, you are ready to develop this app web, main files are on ng/app
 
