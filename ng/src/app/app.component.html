@@ -56,7 +56,7 @@
             <mat-icon *ngFor="">home</mat-icon>
           </span>
         </a>
-        <a mat-tab-link *ngFor="let tab of tabService.getTabs" [active]="true" [routerLink]="[tab.type, tab.id]">
+        <a mat-tab-link *ngFor="let tab of tabService" [active]="true" [routerLink]="[tab.type, tab.id]">
           <span hide-xs *ngIf="(tab.type==='theme')">Tema {{tab.id}}<button  [routerLink]="['/']" mat-icon-button (click)="tabService.removeTab(tab.type, tab.id)">
             <mat-icon>close</mat-icon>
           </button></span>
@@ -70,7 +70,7 @@
         <a mat-tab-link [active]="true" [routerLink]="['themes']">
           <span hide-xs>Themes</span>
           <span hide-gt-xs>
-            <mat-icon>language</mat-icon>
+            <mat-icon>language</mat-icon> 
           </span>
         </a>
         <a mat-tab-link [active]="true" [routerLink]="['works']">
