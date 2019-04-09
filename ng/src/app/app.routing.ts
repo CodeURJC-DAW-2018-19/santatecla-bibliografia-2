@@ -1,5 +1,8 @@
 import { RouterModule } from '@angular/router';
 
+import { BookListComponent } from './book-list.component';
+import { BookDetailComponent } from './book-detail.component';
+import { BookFormComponent } from './book-form.component';
 
 //ours
 import { IndexComponent } from './index.component';
