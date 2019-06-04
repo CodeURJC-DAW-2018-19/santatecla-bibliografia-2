@@ -94,4 +94,7 @@ export class WorkDetailComponent {
         window.history.back();
     }
 
+    editWorkCover() {
+
+    }
 }

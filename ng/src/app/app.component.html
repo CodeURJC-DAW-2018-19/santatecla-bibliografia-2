@@ -53,7 +53,7 @@
         <a mat-tab-link [active]="true" [routerLink]="['/']"> 
           <span hide-xs>Home</span>
           <span hide-gt-xs>
-            <mat-icon *ngFor="">home</mat-icon>
+            <mat-icon>home</mat-icon>
           </span>
         </a>
         <a mat-tab-link *ngFor="let tab of tabService" [active]="true" [routerLink]="[tab.type, tab.id]">
